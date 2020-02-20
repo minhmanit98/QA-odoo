@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="utc2_menu"
+              name="QA" />
+
+    <act_window id="action_utc2_qa"
+      name="QA"
+      res_model="utc2.qa"
+      view_mode="tree,form"
+	/>
+    <menuitem id="menu_utc2_qa"
+              name="QA"
+	      action="action_utc2_qa"
+              parent="utc2_menu" />
+
+    <act_window id="action_utc2_qa_category"
+      name="QA Categories"
+      res_model="utc2.qa.category"
+      view_mode="tree,form"
+    />
+
+    <menuitem id="menu_utc2_qa_category"
+              name="QA Categories"
+              action="action_utc2_qa_category"
+              parent="utc2_menu" />
+    />
+
+</odoo>

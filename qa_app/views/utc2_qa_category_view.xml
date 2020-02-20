@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="qa_category_tree_view" model="ir.ui.view">
+            <field name="name">QA List Category</field>
+            <field name="model">utc2.qa.category</field>
+            <field name="arch" type="xml">
+                <tree string="QA Category">
+                    <field name="name" />
+                    <field name="username"/>
+                    <field name="online" />
+                </tree>
+            </field>
+    </record>
+
+    <record id="qa_category_view_form" model="ir.ui.view">
+        <field name="name">QA Category Form</field>
+        <field name="model">utc2.qa.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                    <field name="username"/>
+                    <field name="online" />
+                    <field name="parent_id" />
+                    <field name="child_ids" widget="many2many_tags" />
+                    <field name="highlighted_id" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>
