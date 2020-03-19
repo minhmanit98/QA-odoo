@@ -14,13 +14,11 @@
               parent="utc2_menu"
 			  sequence="1"/>
 
-
     <act_window id="action_utc2_qa_category"
               name="QA Categories"
               res_model="utc2.qa.category"
               view_mode="tree,form"
     />
-
 	 <menuitem name="Forum"
 			   id="utc2_menu_forum"
 			   parent="utc2_menu"
@@ -40,17 +38,19 @@
 			  parent="utc2_menu_config"
 			  name="Forums"/>
 
-	<menuitem id="utc2_menu_forum"
+	<menuitem id="utc2_forum_forums"
 			  parent="utc2_forum_config"
 			  name="Forums"
 			  sequence="10"
 			  action="website_forum.action_forum_forum"/>
-	<menuitem id="utc2_menu_forum"
+
+	<menuitem id="utc2_forum_tags"
 			  parent="utc2_forum_config"
 			  name="Tags"
 			  sequence="30"
 			  action="website_forum.forum_tag_action"/>
-	<menuitem id="utc2_menu_forum"
+
+	<menuitem id="utc2_forum_ranks"
 			  parent="utc2_forum_config"
 			  name="Ranks"
 			  sequence="5"
