@@ -1,24 +1,20 @@
 <?xml version="1.0"?>
 <odoo>
     <menuitem id="utc2_menu"
-              name="QA" />
+              name="QA"
+			  action="website_forum.action_forum_post"/>
 
     <act_window id="action_utc2_qa"
-      name="QA"
-      res_model="utc2.qa"
-      view_mode="tree,form"
+				name="QA"
+				res_model="utc2.qa"
+				view_mode="tree,form"
 	/>
-    <menuitem id="menu_utc2_qa"
-              name="QA"
-			  action="action_utc2_qa"
-              parent="utc2_menu"
-			  sequence="1"/>
-
     <act_window id="action_utc2_qa_category"
               name="QA Categories"
               res_model="utc2.qa.category"
               view_mode="tree,form"
     />
+<!--	MENU FORUM-->
 	 <menuitem name="Forum"
 			   id="utc2_menu_forum"
 			   parent="utc2_menu"
@@ -30,13 +26,16 @@
 			  action="website_forum.action_forum_post"/>
 
 	<menuitem id="utc2_menu_config"
-              name="Configuration"
+              name=""
               parent="utc2_menu"
-			  sequence="100"/>
+			  sequence="100"
+			  groups="base.group_system"
+	/>
 
 	<menuitem id="utc2_forum_config"
 			  parent="utc2_menu_config"
-			  name="Forums"/>
+			  name="Forums"
+			  groups="website.group_website_designer"/>
 
 	<menuitem id="utc2_forum_forums"
 			  parent="utc2_forum_config"
@@ -56,4 +55,30 @@
 			  sequence="5"
 			  action="gamification.gamification_karma_ranks_action"/>
 
+<!--	END MENU FORUM-->
+
+<!--	MENU GAMIFICATION-->
+	<menuitem id="utc2_gamification_menu"
+			   name="Gamification Tools"
+			   parent="utc2_menu"
+			   sequence="3"
+			   groups="base.group_no_one" />
+	<menuitem id="utc2_challenge_menu"
+			  parent="utc2_gamification_menu"
+			  action="gamification.challenge_list_action"
+			  sequence="0"/>
+	<menuitem id="utc2_goal_menu"
+			  parent="utc2_gamification_menu"
+			  action="gamification.goal_list_action"
+			  sequence="10"/>
+	<menuitem id="utc2_definition_menu"
+			  parent="utc2_gamification_menu"
+			  action="gamification.goal_definition_list_action"
+			  sequence="20"/>
+	<menuitem id="utc2_badge_menu"
+			  parent="utc2_gamification_menu"
+			  action="gamification.badge_list_action"
+			  sequence="30"/>
+
+<!--	END MENU GAMIFICATION-->
 </odoo>
