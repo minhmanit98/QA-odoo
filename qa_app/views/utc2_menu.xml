@@ -10,19 +10,50 @@
 	/>
     <menuitem id="menu_utc2_qa"
               name="QA"
-	      action="action_utc2_qa"
-              parent="utc2_menu" />
+			  action="action_utc2_qa"
+              parent="utc2_menu"
+			  sequence="1"/>
+
 
     <act_window id="action_utc2_qa_category"
-      name="QA Categories"
-      res_model="utc2.qa.category"
-      view_mode="tree,form"
+              name="QA Categories"
+              res_model="utc2.qa.category"
+              view_mode="tree,form"
     />
 
-    <menuitem id="menu_utc2_qa_category"
-              name="QA Categories"
-              action="action_utc2_qa_category"
-              parent="utc2_menu" />
-    />
+	 <menuitem name="Forum"
+			   id="utc2_menu_forum"
+			   parent="utc2_menu"
+			   sequence="2"/>
+
+    <menuitem id="utc2_forum_post"
+			  parent="utc2_menu_forum"
+			  name="Posts"
+			  action="website_forum.action_forum_post"/>
+
+	<menuitem id="utc2_menu_config"
+              name="Configuration"
+              parent="utc2_menu"
+			  sequence="100"/>
+
+	<menuitem id="utc2_forum_config"
+			  parent="utc2_menu_config"
+			  name="Forums"/>
+
+	<menuitem id="utc2_menu_forum"
+			  parent="utc2_forum_config"
+			  name="Forums"
+			  sequence="10"
+			  action="website_forum.action_forum_forum"/>
+	<menuitem id="utc2_menu_forum"
+			  parent="utc2_forum_config"
+			  name="Tags"
+			  sequence="30"
+			  action="website_forum.forum_tag_action"/>
+	<menuitem id="utc2_menu_forum"
+			  parent="utc2_forum_config"
+			  name="Ranks"
+			  sequence="5"
+			  action="gamification.gamification_karma_ranks_action"/>
 
 </odoo>

@@ -1,2 +1,2 @@
-from . import utc2_qa
-from . import utc2_qa_category
+from . import qa
+from . import im_livechat
