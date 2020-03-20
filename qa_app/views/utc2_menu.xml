@@ -26,7 +26,7 @@
 			  action="website_forum.action_forum_post"/>
 
 	<menuitem id="utc2_menu_config"
-              name=""
+              name="Configuration"
               parent="utc2_menu"
 			  sequence="100"
 			  groups="base.group_system"

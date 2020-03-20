@@ -2,9 +2,20 @@
 <odoo>
     <data noupdate="1">
         <record id="ir_default_1" model="ir.default">
-<!--            <field name="field_id">1159</field>-->
             <field name="field_id" search="[('name','=','tz'),('model','=','res.users')]" model="ir.model.fields"/>
             <field name="json_value">"Asia/Ho_Chi_Minh"</field>
+        </record>
+         <record id="ir_default_2" model="ir.default">
+            <field name="field_id" search="[('name','=','tz'),('model','=','res.partner')]" model="ir.model.fields"/>
+            <field name="json_value">"Asia/Ho_Chi_Minh"</field>
+        </record>
+        <record id="ir_default_3" model="ir.default">
+            <field name="field_id" search="[('name','=','lang'),('model','=','res.users')]" model="ir.model.fields"/>
+            <field name="json_value">"vi_VN"</field>
+        </record>
+        <record id="ir_default_4" model="ir.default">
+            <field name="field_id" search="[('name','=','lang'),('model','=','res.partner')]" model="ir.model.fields"/>
+            <field name="json_value">"vi_VN"</field>
         </record>
     </data>
 </odoo>
