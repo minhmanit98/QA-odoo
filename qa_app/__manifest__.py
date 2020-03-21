@@ -18,6 +18,7 @@
      'security/ir.model.access.csv',
      'data/im_livechat_data.xml',
      'data/ir_default_data.xml',
+     'data/install_vn_data.xml',
  ],
 
  'application': True,

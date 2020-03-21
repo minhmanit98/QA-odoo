@@ -1,12 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
         <record id="ir_default_1" model="ir.default">
             <field name="field_id" search="[('name','=','tz'),('model','=','res.users')]" model="ir.model.fields"/>
-            <field name="json_value">"Asia/Ho_Chi_Minh"</field>
-        </record>
-         <record id="ir_default_2" model="ir.default">
-            <field name="field_id" search="[('name','=','tz'),('model','=','res.partner')]" model="ir.model.fields"/>
             <field name="json_value">"Asia/Ho_Chi_Minh"</field>
         </record>
         <record id="ir_default_3" model="ir.default">
