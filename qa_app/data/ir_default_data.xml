@@ -13,5 +13,18 @@
             <field name="field_id" search="[('name','=','lang'),('model','=','res.partner')]" model="ir.model.fields"/>
             <field name="json_value">"vi_VN"</field>
         </record>
+<!--        <record id="ir_default_5" model="ir.default">-->
+<!--            <field name="field_id" search="[('name','=','default_lang_id'),('model','=','website')]" model="ir.model.fields"/>-->
+<!--            <field name="json_value">-->
+<!--                {-->
+<!--                    model_name: 'res.lang',-->
+<!--                    field_name: 'code',-->
+<!--                    value: 'vi_VN'-->
+<!--                }</field>-->
+<!--        </record>-->
+<!--        <record id="ir_default_6" model="ir.default">-->
+<!--            <field name="field_id" search="[('name','=','website_default_lang_code'),('model','=','res.config.settings')]" model="ir.model.fields"/>-->
+<!--            <field name="json_value">vi_VN</field>-->
+<!--        </record>-->
     </data>
 </odoo>

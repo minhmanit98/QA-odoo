@@ -8,12 +8,16 @@
      'website_forum',
      'backend_theme_v13',
      'theme_nice_bootstrap',
+     'auth_oauth',
+     'google_calendar',
+     'google_drive',
 
  ],
  'data': [
      'views/utc2_menu.xml',
      'views/qa_view.xml',
      'views/utc2_qa_category_view.xml',
+     'views/res_config_settings_views.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
      'data/im_livechat_data.xml',

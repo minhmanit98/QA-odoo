@@ -9,9 +9,6 @@ class CategoryQA (models.Model):
     name = fields.Char(translate=True, required=True)
     # Hierarchy fields
     username = fields.Many2many('res.partner', string='Username')
-
-    online = fields.Many2one('res.partner.',)
-
     parent_id = fields.Many2one(
         'utc2.qa.category',
         string='Parent Category',

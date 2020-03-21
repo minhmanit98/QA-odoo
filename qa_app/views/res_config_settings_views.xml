@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.qa_app</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="20"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="UTC2 Forum" string="UTC2 Forum" data-key="qa_app" groups="base.group_system">
+                        <h2 groups="base.group_system">UTC2 Forum</h2>
+                        <div>
+                            <field name="utc2_default_lang"/>
+                            <field name="utc2_default_tz"/>
+                             <button name="action_utc2_default" type="object" string="Set Language all User" class="btn btn-primary" icon="fa-arrow-right"/>
+                        </div>
+
+                    </div>
+                </xpath>
+            </field>
+        </record>
+</odoo>
