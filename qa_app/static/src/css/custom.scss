@@ -1,0 +1,43 @@
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle {
+  color: #FFFFFF;
+  background-color: #28175f;
+  border-color: #281756;
+}
+
+#oe_main_menu_navbar .o_menu_systray > li > a[data-action="edit"],
+ #oe_main_menu_navbar .o_menu_systray > li > a[data-action="translate"],
+ #oe_main_menu_navbar .o_menu_systray > li > a.css_edit_dynamic {
+    color: #281756;
+    background-color: #ffcc41;
+    border-color: #ffd653;
+ }
+
+#top_menu li {
+    padding-left: 2px;
+    padding-right: 2px;
+    background: url(/qa_app/static/src/img/chanmenutren.png)no-repeat left center;
+
+    &[class="nav-item dropdown"] {
+        background: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    &[class="nav-item divider"] {
+        background: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    & a[href="/web/login"]{
+        background: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.o_forum_nav_header_container div div ul li{
+    background: url(/qa_app/static/src/img/chanmenutren.png)no-repeat right center;
+    padding-left: 8px;
+    padding-right: 9px;
+}

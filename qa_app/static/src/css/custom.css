@@ -1,0 +1,135 @@
+.navbar-default {
+  background: #212529 !important;
+  border: none !important;
+}
+
+.navbar-default .navbar-nav>li>a {
+  text-transform: uppercase;
+  color: #fff !important;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #fed136 !important;
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: #fed136 !important;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    /*color: #281756 !important;*/
+    color: #281756 !important;
+    /*border-right: 1px solid #ced4da;
+    line-height: 1px;*/
+}
+
+/* #f1d810 */
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #ffd653 !important;
+}
+
+.navbar-light {
+    background-color: #FFFFFF !important;
+    border-top: 1px solid #e8e8e8 ;
+    box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;
+}
+
+.dropdown-item:active {
+   background-color: #281756;
+}
+
+#oe_main_menu_navbar{
+    background-image: linear-gradient(99deg, #42258f 10%, #28175f 90%);
+}
+
+#oe_main_menu_navbar ul li a:hover{
+    color: #281756;
+    background-color: #ffcc41;
+    border-color: #ffd653;
+}
+.o_wforum_nav a:hover{
+    color: #ffd653 !important;
+}
+section {
+    padding: 0px 0;
+}
+.o_wforum_forum_card_bg{
+    background-image: linear-gradient(99deg, #42258f 10%, #28175f 90%);
+}
+
+.o_wprofile_gradient{
+    /* Vang */
+    /* background-image: linear-gradient(120deg, #fffba3, #f9cb00); */
+    /* Tim */
+    /* background-image: linear-gradient(120deg, #42258f, #28175f); */
+}
+
+.s_parallax_bg {
+     background-color: #614158;
+}
+
+header .navbar-brand.logo img {
+    padding-top: 20px;
+}
+
+#top nav div .navbar-brand.logo span img {
+    height: 110px !important;
+    padding-right: 50px;
+}
+
+.o_header_affix.affix nav div .navbar-brand.logo span img{
+    height: 110px !important;
+    padding-right: 50px;
+}
+
+.btn-secondary {
+    color: #ffffff;
+    background-color: #281756;
+    border-color: #281756;
+}
+
+.btn-secondary:hover {
+    color: #281756;
+    background-color: #ffcc41;
+    border-color: #ffd653;
+}
+
+#wrapwrap>header>.navbar>div.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.bg-light {
+  background-color: #ffffff !important;
+
+}
+/*header {
+    box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;
+}*/
+.btn-link{
+    color: #fed136 !important;
+}
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.ml-auto,
+.mx-auto {
+  margin-left: auto !important;
+}
+
+.mr-auto,
+.mx-auto {
+  margin-right: auto !important;
+}
+header a.navbar-brand.logo img
+{
+  height: 100px;
+  margin-top:-27px;
+}

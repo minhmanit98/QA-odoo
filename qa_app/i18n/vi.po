@@ -43,7 +43,15 @@ msgstr "Bài viết"
 msgid "<p>Select the action to do on each mail and correct the email address if needed. The modified address will be saved on the corresponding contact.</p>"
 msgstr "<p>Chọn hành động cần thực hiện trên mỗi thư và sửa địa chỉ email nếu cần. Địa chỉ đã sửa đổi sẽ được lưu trên liên hệ tương ứng. </p>"
 
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.forum_index
+msgid "Unsolved"
+msgstr "Chưa giải quyết"
 
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.header
+msgid "People"
+msgstr "Thành viên"
 
 
 

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data noupdate="1">
+<!--        <record id="website.default_website" model="website" >-->
+<!--              <field name="theme_id" search="[('name','=','theme_nice_bootstrap')]" model="ir.module.module"/>-->
+<!--		</record>-->
+<!--		<function-->
+<!--			model="ir.module.module"-->
+<!--			name="button_refresh_theme"-->
+<!--            eval="[ref('website.default_website')]"/>-->
+<!--        <function-->
+<!--			model="ir.module.module"-->
+<!--			name="button_refresh_theme"-->
+<!--            eval="[[ref('website_theme_install.theme_view_kanban')]]"/>-->
+
+         <record id="base.main_partner" model="res.partner">
+            <field name="name">UTC2 Forum</field>
+            <field name="company_name">NMM</field>
+            <field name="street">450-451 Lê Văn Việt, Phường Tăng Nhơn Phú A, Quận 9, TP. Hồ Chí Minh</field>
+            <field name="city">TP. Hồ Chí Minh</field>
+            <field name="zip">70000</field>
+            <field name='country_id' ref='base.vn'/>
+            <field name='state_id' ref='base.state_vn_VN-SG'/>
+            <field name="phone">(028)73001155</field>
+            <field name="email">haribot2020@gmail.com</field>
+            <field name="website">http://utc2.edu.vn</field>
+
+        </record>
+
+        <record id="base.main_company" model="res.company">
+            <field name="social_twitter">https://twitter.com/utc2forum</field>
+            <field name="social_facebook">https://www.facebook.com/utc2forum</field>
+            <field name="social_linkedin">https://www.linkedin.com/company/utc2forum</field>
+            <field name="social_youtube">https://www.youtube.com/user/utc2forum</field>
+            <field name="social_github">https://github.com/utc2forum</field>
+            <field name="social_instagram">https://www.instagram.com/explore/tags/utc2forum/</field>
+        </record>
+
+         <record id="website.default_website" model="website">
+            <field name="name">UTC2 Forum</field>
+            <field name="domain"></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="user_id" ref="base.public_user"/>
+            <!-- Correct homepage will be set during bootstraping -->
+             <field name="favicon" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
+             <field name="logo" model="res.company" eval="obj()._get_default_logo(original=True)"/>
+
+        </record>
+
+        <record id="base.main_company" model="res.company">
+            <field name="name">UTC2 Forum</field>
+            <field name="partner_id" ref="base.main_partner"/>
+            <field name="currency_id" ref="base.VND"/>
+            <field name="favicon" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
+            <field name="logo_web" model="res.company" eval="obj()._get_default_logo(original=True)"/>
+            <field name="logo" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
+        </record>
+
+    </data>
+</odoo>

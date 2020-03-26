@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from odoo import fields, models, api
 from odoo.addons.base.models.res_partner import _tz_get
 from odoo.addons.base.models.res_partner import _lang_get
@@ -24,6 +25,3 @@ class ResConfigSettings(models.TransientModel):
         partners2 = self.env['res.partner'].search([('tz', '!=', res.utc2_default_tz)])
         for partner in partners2:
             partner.tz = res.utc2_default_tz
-
-
-

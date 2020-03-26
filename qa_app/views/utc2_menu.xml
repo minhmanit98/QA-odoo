@@ -2,6 +2,7 @@
 <odoo>
     <menuitem id="utc2_menu"
               name="QA"
+			  web_icon="qa_app,static/description/icon.png"
 			  action="website_forum.action_forum_post"/>
 
     <act_window id="action_utc2_qa"
