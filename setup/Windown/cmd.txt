@@ -1,0 +1,1 @@
+cd C:\Program Files (x86)\Odoo 13.0\python
