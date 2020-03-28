@@ -66,8 +66,8 @@ section {
 .o_wprofile_gradient{
     /* Vang */
     /* background-image: linear-gradient(120deg, #fffba3, #f9cb00); */
-    /* Tim */
-    /* background-image: linear-gradient(120deg, #42258f, #28175f); */
+    /* Xanh */
+    background-image: linear-gradient(120deg, #42258f, #28175f);
 }
 
 .s_parallax_bg {

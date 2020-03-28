@@ -6,7 +6,20 @@
         <link href="/qa_app/static/src/css/agency.min.css" rel="stylesheet" />
         <link href="/qa_app/static/src/css/custom.css" rel="stylesheet" />
         <link href="/qa_app/static/src/css/custom.scss" rel="stylesheet" />
-        <script src="/qa_app/static/src/js/agency.min.js"/>
+        <script type="text/javascript" src="/qa_app/static/src/js/agency.min.js"/>
+
+      </xpath>
+    </template>
+
+     <template id="assets_backend" name="utc2_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+
+        </xpath>
+    </template>
+
+    <template id="assets_frontend" inherit_id="portal.assets_frontend" name="Website Assets">
+      <xpath expr="." position="inside">
+         <script type="text/javascript" src="/qa_app/static/src/js/menu.js"/>
       </xpath>
     </template>
   </data>
