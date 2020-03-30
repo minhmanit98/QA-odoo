@@ -10,6 +10,7 @@
      'auth_oauth',
      'google_calendar',
      'google_drive',
+     'auth_signup',
 
  ],
  'data': [
@@ -18,6 +19,7 @@
      'views/utc2_qa_category_view.xml',
      'views/res_config_settings_views.xml',
      'views/website_templates.xml',
+     'views/portal_templates.xml',
      'views/assets.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
@@ -25,6 +27,7 @@
      'data/ir_default_data.xml',
      'data/install_vn_data.xml',
      'data/website_data.xml',
+     'data/gamification_karma_rank_data.xml',
  ],
 
  'application': True,

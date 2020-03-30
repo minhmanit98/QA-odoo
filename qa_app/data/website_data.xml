@@ -44,6 +44,7 @@
             <!-- Correct homepage will be set during bootstraping -->
              <field name="favicon" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
              <field name="logo" model="res.company" eval="obj()._get_default_logo(original=True)"/>
+             <field name="default_lang_id" search="[('code','=','vi_VN')]" model="res.lang"/>
 
         </record>
 

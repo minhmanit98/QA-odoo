@@ -59,7 +59,7 @@
 section {
     padding: 0px 0;
 }
-.o_wforum_forum_card_bg{
+.o_wforum_forum_card_bg {
     background-image: linear-gradient(99deg, #42258f 10%, #28175f 90%);
 }
 
@@ -110,7 +110,7 @@ header .navbar-brand.logo img {
 
 }
 /*header {
-    box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;
+ * box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;
 }*/
 .btn-link{
     color: #fed136 !important;
@@ -132,4 +132,45 @@ header a.navbar-brand.logo img
 {
   height: 100px;
   margin-top:-27px;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #281756;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #FFFFFF;
+    background-image: linear-gradient(120deg, #42258f, #28175f);
+    border-color: #42258f;
+}
+
+.page-link {
+    color: #281756;
+    background-color: #FFFFFF;
+}
+
+.page-link:hover {
+    color: #281756;
+    background-color: #fec503;
+    border-color: #fec503;
+}
+
+.website_forum .o_wforum_nav .nav-link.active {
+    background-color: rgb(254, 209, 54);
+    color: #281756 !important;
+}
+
+.o_wforum_nav a:selection {
+    color: #281756;
+}
+
+a[data-oe-field="create_uid"] {
+     color: #281756;
+}
+
+a[data-oe-field="create_uid"]:hover {
+     color: #281756;
 }

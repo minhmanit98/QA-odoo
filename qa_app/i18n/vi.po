@@ -49,9 +49,199 @@ msgid "Unsolved"
 msgstr "Chưa giải quyết"
 
 #. module: website_forum
-#: model_terms:ir.ui.view,arch_db:website_forum.header
+#: model_terms:ir.ui.view,arch_db:website_forum.forum_nav_header
 msgid "People"
 msgstr "Thành viên"
+
+#. module: website_forum
+#: model:ir.actions.act_url,name:website_forum.action_open_forum
+#: model:ir.model,name:website_forum.model_forum_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_post__forum_id
+#: model:ir.model.fields,field_description:website_forum.field_forum_post_vote__forum_id
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__forum_id
+#: model:ir.ui.menu,name:website_forum.menu_website_forum
+#: model:ir.ui.menu,name:website_forum.menu_website_forum_global
+#: model_terms:ir.ui.view,arch_db:website_forum.forum_view_search
+#: model_terms:ir.ui.view,arch_db:website_forum.view_forum_forum_form
+#: model_terms:ir.ui.view,arch_db:website_forum.view_forum_post_search
+#: model:website.menu,name:website_forum.menu_website_forums
+msgid "Forum"
+msgstr "Diễn đàn"
+
+#. module: website_livechat
+#: model:website.menu,name:website_livechat.menu_livechat
+msgid "Live Support"
+msgstr "Hỗ trợ trực tuyến"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-question-circle-o fa-fw\"/> My Questions"
+msgstr "<i class=\"fa fa-question-circle-o fa-fw\"/> Câu hỏi của tôi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-star fa-fw\"/> Favourites"
+msgstr "<i class=\"fa fa-star fa-fw\"/> Yêu thích"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.forum_nav_header
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "My profile"
+msgstr "Thông tin của tôi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-bell fa-fw\"/> Followed Posts"
+msgstr "<i class=\"fa fa-bell fa-fw\"/> Bài viết đã theo dõi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-tags fa-fw\"/> Followed Tags"
+msgstr "<i class=\"fa fa-tags fa-fw\"/> Tags đã theo dõi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-check-square-o fa-fw\"/> To Validate"
+msgstr "<i class=\"fa fa-check-square-o fa-fw\"/> Cần xác thực"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-flag fa-fw\"/> Flagged"
+msgstr "<i class=\"fa fa-flag fa-fw\"/> Đã gắn cờ"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.moderation_queue
+msgid ""
+"<i class=\"fa fa-check text-success d-block display-2\"/>\n"
+"            <b>You've Completely Caught Up!</b><br/>"
+msgstr ""
+"<i class=\"fa fa-check text-success d-block display-2\"/>\n"
+"            <b>Bạn đã hoàn thành duyệt!</b><br/>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.moderation_queue
+msgid "No flagged posts"
+msgstr "Không có bài viết được gắn cờ"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "Moderation tools"
+msgstr "Công cụ kiểm duyệt"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.header
+msgid "Moderation"
+msgstr "Kiểm duyệt"
+
+#. module: website_forum
+#: model:website.menu,name:website_forum.moderation_queue
+msgid "Forum Moderation Queue"
+msgstr "Hàng đợi kiểm duyệt diễn đàn"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_badges
+msgid "<i class=\"fa fa-arrow-right mr-1\"/>Check all available badges"
+msgstr "<i class=\"fa fa-arrow-right mr-1\"/>Kiểm tra tất cả các huy hiệu có sẵn"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "<small class=\"font-weight-bold mr-2\">Current rank:</small>"
+msgstr "<small class=\"font-weight-bold mr-2\">Rank hiện tại:</small>"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "Next rank:"
+msgstr "Rank kế tiếp:"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_header
+msgid "(not verified)"
+msgstr "(Chưa xác minh)"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_header
+msgid "<i class=\"fa fa-pencil mr-2\"/>EDIT PROFILE"
+msgstr "<i class=\"fa fa-pencil mr-2\"/>CHỈNH SỬA HỒ SƠ"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "<small class=\"font-weight-bold\">Badges</small>"
+msgstr "<small class=\"font-weight-bold\">Danh hiệu</small>"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "<small class=\"font-weight-bold\">Joined</small>"
+msgstr "<small class=\"font-weight-bold\">Ngày tham gia</small>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_profile_content
+msgid "<small class=\"font-weight-bold\">Votes</small>"
+msgstr "<small class=\"font-weight-bold\">Bình chọn</small>"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_sub_nav
+msgid "Search users"
+msgstr "Tìm kiếm người dùng"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_profile_content
+msgid "<span class=\"font-weight-bold\">No answer posted yet.</span>"
+msgstr "<span class=\"font-weight-bold\">Chưa có câu trả lời nào được đăng.</span>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_votes
+msgid "No vote given by you yet!"
+msgstr "Không có bình chọn nào của bạn!"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_answer
+msgid ""
+"<b>Please try to give a substantial answer.</b> If you wanted to comment on the question or answer, just\n"
+"            <b>use the commenting tool.</b> Please remember that you can always <b>revise your answers</b>\n"
+"            - no need to answer the same question twice. Also, please <b>don't forget to vote</b>\n"
+"            - it really helps to select the best questions and answers!"
+msgstr ""
+"<b>Hãy đưa ra câu trả lời phù hợp với câu hỏi.</b> Nếu muốn bình luận về câu hỏi hoặc câu trả lời, hãy\n"
+"            <b>sử dụng công cụ bình luận.</b> Bạn có thể <b>chỉnh sửa lại câu trả lời</b>\n"
+"            - không cần trả lời cùng một câu hỏi hai lần. Ngoài, <b>đừng quyên bình chọn câu trả lời hay nhất - đúng nhất!</b>\n"
+"            - giúp chọn các câu hỏi và câu trả lời tốt nhất!"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
+msgid "<i class=\" fa fa-comment text-muted mr-1\"/>Comment"
+msgstr "<i class=\" fa fa-comment text-muted mr-1\"/>Bình luận"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
+msgid "<i class=\"fa fa-reply mr-1\"/>Answer"
+msgstr "<i class=\"fa fa-reply mr-1\"/>Trả lời"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
+msgid "<i class=\"fa fa-share-alt text-muted mr-1\"/>Share"
+msgstr "<i class=\"fa fa-share-alt text-muted mr-1\"/>Chia sẻ"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.users_page_header
+msgid "All Users"
+msgstr "Tất cả thành viên"
+
+#. module: website_livechat
+#: model_terms:ir.ui.view,arch_db:website_livechat.channel_list_page
+msgid "Livechat Support Channels"
+msgstr "Kênh chat hỗ trợ trực tuyến"
+
+#. module: website_livechat
+#: model_terms:ir.ui.view,arch_db:website_livechat.channel_list_page
+msgid "There are no public livechat channels to show."
+msgstr "Không có kênh chat để hiển thị."
+
+
+
+
+
+
+
 
 
 
