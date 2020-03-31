@@ -1,31 +1,82 @@
+# -*- coding: utf-8 -*-
 import json
 
-from odoo import http
-from odoo.http import request
+import base64
+import json
+import math
+import re
+
+from werkzeug import urls
+
+from odoo import fields as odoo_fields, http, tools, _, SUPERUSER_ID
+from odoo.exceptions import ValidationError, AccessError, MissingError, UserError, AccessDenied
+from odoo.http import content_disposition, Controller, request, route
+from odoo.tools import consteq
 
 
-class QA (http.Controller):
+class UTC2Forum(Controller):
 
-    @http.route('/library/books', auth='user')
-    def list(self, **kwargs):
-        QA = http.request.env['library.book']
-        qas = QA.search([])
-        return http.request.render(
-            'library_app.book_list_template',
-            {'qa': QA})
+    def _prepare_portal_layout_values(self):
+        # get customer sales rep
+        sales_user = False
+        partner = request.env.user.partner_id
+        if partner.user_id and not partner.user_id._is_public():
+            sales_user = partner.user_id
+
+        return {
+            'sales_user': sales_user,
+            'page_name': 'home',
+            'archive_groups': [],
+        }
+
+    @route(['/my/account/password'], type='http', auth='user', website=True)
+    def password(self, redirect=None, **post):
+        values = self._prepare_portal_layout_values()
+        partner = request.env.user.partner_id
+        values.update({
+            'error': {},
+            'error_message': [],
+        })
+
+        if post and request.httprequest.method == 'POST':
+            error, error_message = self.check_change_password(post)
+            try:
+                request.env['res.users'].change_password(post['old_pwd'], post['new_password'])
+            except UserError as e:
+                msg = e.name
+                error["old_pwd"] = 'error'
+                error_message.append(msg)
+            except AccessDenied as e:
+                msg = e.args[0]
+                if msg == AccessDenied().args[0]:
+                    msg = _('The old password you provided is incorrect, your password was not changed.')
+                error["old_pwd"] = 'error'
+                error_message.append(msg)
+            values.update({'error': error, 'error_message': error_message})
+            values.update(post)
+            if redirect:
+                return request.redirect(redirect)
+            return request.redirect('/web/session/logout?redirect=/')
+        #     Thêm dialog thông bảo đổi mật khẩu thành công
+        response = request.render("qa_app.utc2_password", values)
+        response.headers['X-Frame-Options'] = 'DENY'
+        return response
+
+    def check_change_password(self, data):
+        error = dict()
+        error_message = []
+        CHANGE_PASSSWORD_FIELDS = ["old_pwd", "new_password", "confirm_pwd"]
+        # Validation
+        for field_name in CHANGE_PASSSWORD_FIELDS:
+            if not data.get(field_name):
+                error[field_name] = 'missing'
+
+        # email validation
+        if data.get('confirm_pwd') != data.get('new_password'):
+            error["confirm_pwd"] = 'error'
+            error_message.append(_('The confirmation password is incorrect ! Please enter a confirm password.'))
+
+        return error, error_message
 
 
-    # def example(self, Var):
-    #     values = {}
-    #
-    #     data = request.env['ProjectName.TableName'].sudo().search([("id", "=", int(Var))])
-    #
-    #     if data:
-    #         values['success'] = True
-    #         values['return'] = "Something"
-    #     else:
-    #         values['success'] = False
-    #         values['error_code'] = 1
-    #         values['error_data'] = 'No data found!'
-    #
-    #     return json.dumps(values)
+

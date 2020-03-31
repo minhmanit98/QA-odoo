@@ -236,6 +236,42 @@ msgstr "Kênh chat hỗ trợ trực tuyến"
 msgid "There are no public livechat channels to show."
 msgstr "Không có kênh chat để hiển thị."
 
+#. module: qa_app
+#: code:qa_app/controllers/main.py:0
+#, python-format
+msgid ""
+"The confirmation password is incorrect ! Please enter a confirm password."
+msgstr "Mật khẩu xác nhận không chính xác! Vui lòng nhập mật khẩu xác nhận."
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "Old Password"
+msgstr "Mật khẩu cũ"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "Old Password"
+msgstr "Mật khẩu cũ"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "Confirm New Password"
+msgstr "Xác nhận mật khẩu"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "Change Password"
+msgstr "Thay đổi mật khẩu"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_pass_link
+msgid "Change Password"
+msgstr "Thay đổi mật khẩu"
 
 
 
