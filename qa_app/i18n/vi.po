@@ -273,6 +273,46 @@ msgstr "Thay đổi mật khẩu"
 msgid "Change Password"
 msgstr "Thay đổi mật khẩu"
 
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.new_question
+msgid "A clear, explicit and concise question title"
+msgstr "Tiêu đề câu hỏi rõ ràng, súc tích"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.edit_post
+#: model_terms:ir.ui.view,arch_db:website_forum.new_question
+msgid ""
+"Example\n"
+"                        <i class=\"fa fa-question-circle\"/>"
+msgstr ""
+"Ví dụ\n"
+"
+"                        <i class=\"fa fa-question-circle\"/>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.edit_post
+#: model_terms:ir.ui.view,arch_db:website_forum.new_question
+msgid ", consider <b>adding an example</b>."
+msgstr ", xem xét <b>thêm một ví dụ</b>."
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.email_validation_banner
+msgid "It appears your email has not been verified.<br/>"
+msgstr "Có vẻ như email của bạn chưa được xác minh.<br/>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.header
+msgid "Click here to send a verification email allowing you to participate to the forum."
+msgstr "Nhấn vào đây để gửi email xác minh cho phép bạn tham gia vào diễn đàn."
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.email_validation_banner
+msgid ""
+"<span id=\"email_validated_message\">Congratulations! Your email has just "
+"been validated.</span>"
+msgstr ""
+"<span id=\"email_validated_message\">Xin chúc mừng! Email của bạn "
+"đã được xác thực.</span>"
 
 
 

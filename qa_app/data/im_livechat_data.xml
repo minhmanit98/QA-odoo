@@ -4,38 +4,47 @@
         <record id="im_livechat_channel_data1" model="im_livechat.channel">
             <field name="name">BQL KTX</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ? </field>
+            <field name="is_published">true</field>
         </record>
         <record id="im_livechat_channel_data2" model="im_livechat.channel">
             <field name="name">Ban thanh tra đào tạo</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+            <field name="is_published">true</field>
         </record>
         <record id="im_livechat_channel_data3" model="im_livechat.channel">
             <field name="name">Ban thông tin thư viện</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+            <field name="is_published">true</field>
         </record>
         <record id="im_livechat_channel_data4" model="im_livechat.channel">
             <field name="name">Phòng CTCT Sinh viên</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+            <field name="can_publish">true</field>
         </record>
          <record id="im_livechat_channel_data5" model="im_livechat.channel">
             <field name="name">Ban khảo thí &amp; đảm bảo chất lượng</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+             <field name="is_published">true</field>
         </record>
          <record id="im_livechat_channel_data6" model="im_livechat.channel">
             <field name="name">Ban đào tạo</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+             <field name="is_published">true</field>
         </record>
          <record id="im_livechat_channel_data7" model="im_livechat.channel">
             <field name="name">Ban thiết bị quản trị</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+             <field name="is_published">true</field>
         </record>
          <record id="im_livechat_channel_data8" model="im_livechat.channel">
             <field name="name">Ban tổ chức hành chính</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+             <field name="is_published">true</field>
         </record>
          <record id="im_livechat_channel_data9" model="im_livechat.channel">
             <field name="name">Trung tâm đào tạo thực hành</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
+             <field name="is_published">true</field>
         </record>
     </data>
 </odoo>

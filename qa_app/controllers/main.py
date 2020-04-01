@@ -5,14 +5,17 @@ import base64
 import json
 import math
 import re
-
+import requests
+from addons.portal.controllers import web
 from werkzeug import urls
 
 from odoo import fields as odoo_fields, http, tools, _, SUPERUSER_ID
 from odoo.exceptions import ValidationError, AccessError, MissingError, UserError, AccessDenied
 from odoo.http import content_disposition, Controller, request, route
 from odoo.tools import consteq
-
+from odoo.addons.auth_signup.controllers.main import AuthSignupHome
+from odoo.addons.web.controllers.main import ensure_db, Home
+from odoo.addons.website.controllers.main import Website
 
 class UTC2Forum(Controller):
 
@@ -79,4 +82,38 @@ class UTC2Forum(Controller):
         return error, error_message
 
 
+class Website(Home):
+
+    @http.route(website=True, auth="public", sitemap=False)
+    def web_login(self, redirect=None, *args, **kw):
+        response = super(Website, self).web_login(redirect=redirect, *args, **kw)
+        if not redirect and request.params['login_success']:
+            if request.env['res.users'].browse(request.uid).has_group('base.group_user'):
+                redirect = b'/web?' + request.httprequest.query_string
+            else:
+                redirect = '/forum'
+            return http.redirect_with_hash(redirect)
+        return response
+
+
+class AuthSignupHome(Home):
+
+    def get_avatar_default(self, email):
+        response = requests.get('https://api.adorable.io/avatars/' + email).content
+        return base64.b64encode(response)
+
+    def do_signup(self, qcontext):
+        """ Shared helper that creates a res.partner out of a token """
+        values = { key: qcontext.get(key) for key in ('login', 'name', 'password') }
+        values['image_1920'] = self.get_avatar_default(qcontext.get('login'))
+        if not values:
+            raise UserError(_("The form was not properly filled in."))
+        if values.get('password') != qcontext.get('confirm_password'):
+            raise UserError(_("Passwords do not match; please retype them."))
+        supported_lang_codes = [code for code, _ in request.env['res.lang'].get_installed()]
+        lang = request.context.get('lang', '').split('_')[0]
+        if lang in supported_lang_codes:
+            values['lang'] = lang
+        self._signup_with_values(qcontext.get('token'), values)
+        request.env.cr.commit()
 

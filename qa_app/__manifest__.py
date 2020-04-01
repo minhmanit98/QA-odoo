@@ -28,6 +28,8 @@
      'data/install_vn_data.xml',
      'data/website_data.xml',
      'data/gamification_karma_rank_data.xml',
+     'data/auth_signup_data.xml',
+     'data/auth_oauth_data.xml',
  ],
 
  'application': True,
