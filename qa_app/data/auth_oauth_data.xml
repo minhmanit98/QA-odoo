@@ -29,6 +29,8 @@
             <field name="css_class">fa fa-fw fa-google-plus-square</field>
             <field name="body">Log in with Google</field>
             <field name="enabled" eval="True"/>
+             <field name="client_id">112710195791-8skohicsf0fmnie0ialj1qp2nvqglip9.apps.googleusercontent.com</field>
+
         </record>
 
         <!-- Use database uuid as client_id for OpenERP oauth provider -->

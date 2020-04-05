@@ -7,11 +7,6 @@ from odoo.addons.base.models.res_partner import _lang_get
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
-    auth_signup_uninvited = fields.Selection([
-        ('b2b', 'On invitation'),
-        ('b2c', 'Free sign up'),
-    ], string='Customer Account', default='b2c', config_parameter='auth_signup.invitation_scope')
-
     def _default_lang(self):
         return self.utc2_default_lang
 

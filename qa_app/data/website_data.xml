@@ -12,6 +12,20 @@
 <!--			model="ir.module.module"-->
 <!--			name="button_refresh_theme"-->
 <!--            eval="[[ref('website_theme_install.theme_view_kanban')]]"/>-->
+         <record id="base.main_company" model="res.company">
+            <field name="name">UTC2 Forum</field>
+            <field name="partner_id" ref="base.main_partner"/>
+            <field name="currency_id" ref="base.VND"/>
+            <field name="favicon" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
+            <field name="logo_web" model="res.company" eval="obj()._get_default_logo(original=True)"/>
+            <field name="logo" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
+            <field name="social_twitter">https://twitter.com/utc2forum</field>
+            <field name="social_facebook">https://www.facebook.com/utc2forum</field>
+            <field name="social_linkedin">https://www.linkedin.com/company/utc2forum</field>
+            <field name="social_youtube">https://www.youtube.com/user/utc2forum</field>
+            <field name="social_github">https://github.com/utc2forum</field>
+            <field name="social_instagram">https://www.instagram.com/explore/tags/utc2forum/</field>
+        </record>
 
          <record id="base.main_partner" model="res.partner">
             <field name="name">UTC2 Forum</field>
@@ -24,16 +38,6 @@
             <field name="phone">(028)73001155</field>
             <field name="email">haribot2020@gmail.com</field>
             <field name="website">http://utc2.edu.vn</field>
-
-        </record>
-
-        <record id="base.main_company" model="res.company">
-            <field name="social_twitter">https://twitter.com/utc2forum</field>
-            <field name="social_facebook">https://www.facebook.com/utc2forum</field>
-            <field name="social_linkedin">https://www.linkedin.com/company/utc2forum</field>
-            <field name="social_youtube">https://www.youtube.com/user/utc2forum</field>
-            <field name="social_github">https://github.com/utc2forum</field>
-            <field name="social_instagram">https://www.instagram.com/explore/tags/utc2forum/</field>
         </record>
 
          <record id="website.default_website" model="website">
@@ -45,16 +49,13 @@
              <field name="favicon" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
              <field name="logo" model="res.company" eval="obj()._get_default_logo(original=True)"/>
              <field name="default_lang_id" search="[('code','=','vi_VN')]" model="res.lang"/>
-
-        </record>
-
-        <record id="base.main_company" model="res.company">
-            <field name="name">UTC2 Forum</field>
-            <field name="partner_id" ref="base.main_partner"/>
-            <field name="currency_id" ref="base.VND"/>
-            <field name="favicon" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
-            <field name="logo_web" model="res.company" eval="obj()._get_default_logo(original=True)"/>
-            <field name="logo" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
+             <field name="social_twitter">https://twitter.com/utc2forum</field>
+            <field name="social_facebook">https://www.facebook.com/utc2forum</field>
+            <field name="social_linkedin">https://www.linkedin.com/company/utc2forum</field>
+            <field name="social_youtube">https://www.youtube.com/user/utc2forum</field>
+            <field name="social_github">https://github.com/utc2forum</field>
+            <field name="social_instagram">https://www.instagram.com/explore/tags/utc2forum/</field>
+             <field name="auth_signup_uninvited">b2c</field>
         </record>
 
     </data>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+<!-- TAG VIEWS -->
+        <record id="utc2_forum_tag_view_list" model="ir.ui.view">
+            <field name="name">utc2.forum.tag.list</field>
+            <field name="model">forum.tag</field>
+            <field name="inherit_id" ref="website_forum.forum_tag_view_list"/>
+            <field name="arch" type="xml">
+                <field name="forum_id" position="after">
+                    <field name="parent_id"/>
+                    <field name="child_ids"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="utc2_forum_tag_view_form" model="ir.ui.view">
+            <field name="name">utc2.forum.tag.form</field>
+            <field name="model">forum.tag</field>
+            <field name="inherit_id" ref="website_forum.forum_tag_view_form"/>
+            <field name="arch" type="xml">
+                 <field name="forum_id" position="after">
+                    <field name="parent_id"/>
+                     <field name="parent_path"/>
+                     <field name="child_ids"/>
+                     <field name="highlighted_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

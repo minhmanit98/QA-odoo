@@ -4,3 +4,4 @@ from . import im_livechat
 from . import res
 from . import ir
 from . import website
+from . import forum

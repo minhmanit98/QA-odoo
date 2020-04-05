@@ -286,9 +286,7 @@ msgid ""
 "                        <i class=\"fa fa-question-circle\"/>"
 msgstr ""
 "Ví dụ\n"
-"
 "                        <i class=\"fa fa-question-circle\"/>"
-
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.edit_post
 #: model_terms:ir.ui.view,arch_db:website_forum.new_question
@@ -313,6 +311,58 @@ msgid ""
 msgstr ""
 "<span id=\"email_validated_message\">Xin chúc mừng! Email của bạn "
 "đã được xác thực.</span>"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__parent_id
+msgid "Parent Tag"
+msgstr "Tag cha"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__parent_path
+msgid "Parent Path"
+msgstr "Đường dẫn"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__child_ids
+msgid "Subtag"
+msgstr "Tag con"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__highlighted_id
+msgid "Tags Highlight"
+msgstr "Nổi bật"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_newbie
+msgid "Bronze"
+msgstr "Đồng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_newbie
+msgid "Bronze"
+msgstr "Đồng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_student
+msgid "Silver"
+msgstr "Bạc"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_bachelor
+msgid "Gold"
+msgstr "Vàng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_master
+msgid "Platinum"
+msgstr "Bạch kim"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_doctor
+msgid "Diamond"
+msgstr "Kim cương"
+
+
 
 
 
