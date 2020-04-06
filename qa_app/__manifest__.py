@@ -11,6 +11,9 @@
      'google_calendar',
      'google_drive',
      'auth_signup',
+     'document_page_procedure',
+     'document_page_work_instruction',
+     'document_page_quality_manual',
 
  ],
  'data': [
@@ -29,6 +32,9 @@
      'data/website_data.xml',
      'data/gamification_karma_rank_data.xml',
      'data/auth_oauth_data.xml',
+     'data/res_config_settings.xml',
+     'data/mail.xml',
+     'data/profile_data.xml',
  ],
 
  'application': True,
