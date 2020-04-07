@@ -25,6 +25,7 @@
      'views/portal_templates.xml',
      'views/assets.xml',
      'views/forum.xml',
+     'views/website_profile.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
      'data/im_livechat_data.xml',

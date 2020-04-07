@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+    <template id="utc2_user_profile_header" inherit_id="website_profile.user_profile_header">
+          <xpath expr="//div[hasclass('o_wprofile_header')]//div[hasclass('row')]/div[1]/div[1]" position="replace">
+              <div t-attf-class="d-flex align-items-start h-100 #{'justify-content-between' if (request.env.user == user) else 'justify-content-around' }" t-attf-style="position: relative; left: 0; top: 0;">
+                  <div class="o_wprofile_pict o_wprofile_pict_bg d-inline-block mb-3 mb-md-0" t-attf-style="background-image: url(#{website.image_url(user, 'image_1024')}); position: relative;"/>
+                   <div class="o_wprofile_pict d-inline-block mb-3 mb-md-0" t-attf-style="background-image: url(#{website.image_url(user, 'image_1024')}); position: absolute;"/>
+                   <a class="btn btn-primary d-inline-block d-md-none" t-if="request.env.user == user and user.karma != 0" t-attf-href="/profile/edit?url_param=#{edit_button_url_param}">
+                       <i class="fa fa-pencil mr-1"/>EDIT
+                   </a>
+              </div>
+          </xpath>
+    </template>
+
+</data></odoo>

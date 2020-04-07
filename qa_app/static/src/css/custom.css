@@ -210,3 +210,14 @@ a:hover {
     background-color: #fec503;
     color: #281750;
 }
+
+.o_wprofile_pict_bg{
+    filter: blur(80px);
+  -webkit-filter: blur(80px);
+
+}
+
+.o_wprofile_pict{
+    box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;
+    border: none;
+}
