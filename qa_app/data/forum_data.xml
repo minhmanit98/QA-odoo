@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="website_forum.forum_help" model="forum.forum">
+            <field name="name">Forum Listen to students talk</field>
+            <field name="description">Slogan: UTC2 Nghe SV nói - Nói SV nghe</field>
+            <field name="image_1920" type="base64" file="qa_app/static/src/img/LOGO.jpg"/>
+<!--            karma generation-->
+            <field name="karma_gen_question_new">2</field>
+            <field name="karma_gen_question_upvote">1</field>
+            <field name="karma_gen_question_downvote">-2</field>
+            <field name="karma_gen_answer_upvote">1</field>
+            <field name="karma_gen_answer_downvote">-2</field>
+            <field name="karma_gen_answer_accept">2</field>
+            <field name="karma_gen_answer_accepted">8</field>
+            <field name="karma_gen_answer_flagged">-100</field>
+<!--            karma-based actions-->
+            <field name="karma_ask">1</field>
+            <field name="karma_answer">500</field>
+            <field name="karma_edit_own">1</field>
+            <field name="karma_edit_all">1000</field>
+            <field name="karma_edit_retag">2</field>
+            <field name="karma_close_own">10</field>
+            <field name="karma_close_all">1000</field>
+            <field name="karma_unlink_own">100</field>
+            <field name="karma_unlink_all">1000</field>
+            <field name="karma_tag_create">10</field>
+            <field name="karma_upvote">1</field>
+            <field name="karma_downvote">50</field>
+            <field name="karma_answer_accept_own">100</field>
+            <field name="karma_answer_accept_all">1000</field>
+            <field name="karma_comment_own">100</field>
+            <field name="karma_comment_all">1000</field>
+            <field name="karma_comment_convert_own">100</field>
+            <field name="karma_comment_convert_all">1000</field>
+            <field name="karma_comment_unlink_own">100</field>
+            <field name="karma_comment_unlink_all">1000</field>
+            <field name="karma_flag">500</field>
+            <field name="karma_dofollow">1000</field>
+            <!--mod-->
+            <field name="karma_editor">50</field>
+            <field name="karma_user_bio">1000</field>
+            <field name="karma_post">100</field>
+            <field name="karma_moderate">1000</field>
+
+        </record>
+        <record id="utc2_forum_student" model="forum.forum">
+            <field name="name">Student forum</field>
+            <field name="description">Sinh viên tra đổi</field>
+        </record>
+    </data>
+</odoo>

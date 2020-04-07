@@ -74,6 +74,7 @@ class ResUsers(models.Model):
             'login': email,
             'email': email,
             'image_1920': self.get_avatar_default(email),
+            'karma': 1,
             'oauth_provider_id': provider,
             'oauth_uid': oauth_uid,
             'oauth_access_token': params['access_token'],
