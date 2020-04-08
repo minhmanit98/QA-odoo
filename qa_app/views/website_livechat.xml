@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="utc2_channel_page" inherit_id="website_livechat.channel_page">
+            <xpath expr="." position="inside">
+<!--                <link rel="stylesheet" href="/im_livechat/external_lib.css"/>-->
+<!--                <script type="text/javascript" src="/im_livechat/external_lib.js"></script>-->
+                <script type="text/javascript" t-attf-src="/im_livechat/loader/#{channel.id}"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>
