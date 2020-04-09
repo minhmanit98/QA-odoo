@@ -20,5 +20,11 @@
             <field name="smtp_user">haribot2020@gmail.com</field>
             <field name="smtp_pass">fvjzvasrliztmcpu</field>
         </record>
+
+<!--         <record id="utc2_mail_bot" model="mail.bot">-->
+<!--            <field name="server_bot">http://chatbotrouter.herokuapp.com/send_chat.php?id=odoo&amp;npnoidung=</field>-->
+<!--            <field name="is_server_bot" eval="True"/>-->
+<!--        </record>-->
+
     </data>
 </odoo>

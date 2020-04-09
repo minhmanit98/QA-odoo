@@ -39,6 +39,7 @@
      'data/mail.xml',
      'data/profile_data.xml',
      'data/forum_data.xml',
+     'data/res_users_data.xml',
  ],
 
  'application': True,

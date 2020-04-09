@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+    <data noupdate="1">
+        <record id="im_livechat.im_livechat_channel_data" model="im_livechat.channel">
+            <field name="name">HariBot - UTC2 Forum</field>
+            <field name="default_message">Hello, how may I help you?</field>
+            <field name="user_ids" eval="[(4, ref('base.user_admin')),(4, ref('base.user_root'))]"/>
+        </record>
+
+         <record id="im_livechat.im_livechat_channel_rule_demo" model="im_livechat.channel.rule">
+            <field name="regex_url">/im_livechat/</field>
+            <field name="action">auto_popup</field>
+            <field name="auto_popup_timer">3</field>
+            <field name="channel_id" ref="im_livechat.im_livechat_channel_data" />
+        </record>
+
+        <record id="im_livechat_channel_rule_2" model="im_livechat.channel.rule">
+            <field name="regex_url">/livechat/channel/</field>
+            <field name="action">hide_button</field>
+            <field name="channel_id" ref="im_livechat.im_livechat_channel_data" />
+        </record>
+
+        <record id="im_livechat.im_livechat_group_user" model="res.groups">
+            <field name="users" eval="[(4, ref('base.user_demo'))]"/>
+        </record>
+
         <record id="im_livechat_channel_data1" model="im_livechat.channel">
             <field name="name">BQL KTX</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ? </field>
             <field name="button_text">Chat with BQL KTX</field>
             <field name="is_published">true</field>
+            <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
         </record>
         <record id="im_livechat_channel_data2" model="im_livechat.channel">
             <field name="name">Ban thanh tra đào tạo</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
             <field name="button_text">Chat with Ban thanh tra đào tạo</field>
             <field name="is_published">true</field>
+            <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
         </record>
         <record id="im_livechat_channel_data3" model="im_livechat.channel">
             <field name="name">Ban thông tin thư viện</field>
@@ -24,24 +49,28 @@
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
             <field name="button_text">Chat with Phòng CTCT Sinh viên</field>
             <field name="can_publish">true</field>
+            <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
         </record>
          <record id="im_livechat_channel_data5" model="im_livechat.channel">
             <field name="name">Ban khảo thí &amp; đảm bảo chất lượng</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
               <field name="button_text">Chat with Ban khảo thí &amp; đảm bảo chất lượng</field>
              <field name="is_published">true</field>
+             <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
         </record>
          <record id="im_livechat_channel_data6" model="im_livechat.channel">
             <field name="name">Ban đào tạo</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
               <field name="button_text">Chat with Ban đào tạo</field>
              <field name="is_published">true</field>
+             <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
         </record>
          <record id="im_livechat_channel_data7" model="im_livechat.channel">
             <field name="name">Ban thiết bị quản trị</field>
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
               <field name="button_text">Chat with Ban thiết bị quản trị</field>
              <field name="is_published">true</field>
+             <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
         </record>
          <record id="im_livechat_channel_data8" model="im_livechat.channel">
             <field name="name">Ban tổ chức hành chính</field>
@@ -54,6 +83,7 @@
             <field name="default_message">Chào bạn! Bạn có cần chúng tôi giúp gì không ?</field>
              <field name="button_text">Chat with Trung tâm đào tạo thực hành</field>
              <field name="is_published">true</field>
+             <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
         </record>
     </data>
 </odoo>

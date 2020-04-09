@@ -7,6 +7,8 @@ import requests
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
+    odoobot_state = fields.Selection(selection_add=[('haribot', 'Chat with HariBot')])
+
     def get_avatar_default(self, email):
         response = requests.get('https://api.adorable.io/avatars/'+email).content
         return base64.b64encode(response)

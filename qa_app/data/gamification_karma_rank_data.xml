@@ -5,7 +5,7 @@
         <field name="karma">2500</field>
     </record>
     <record id="base.user_admin" model="res.users">
-        <field name="karma">2500</field>
+        <field name="karma">1000000000</field>
     </record>
 
     <!--Ranks-->
@@ -71,6 +71,19 @@
             </div>
         </field>
         <field name="karma_min">10000</field>
+        <field name="image_1920" type="base64" file="gamification/static/img/rank_doctor_badge.svg"/>
+    </record>
+
+    <record id="rank_admin" model="gamification.karma.rank">
+        <field name="name">Administrator</field>
+        <field name="description" type="html"><p>You have reached the last rank. Congratulations!</p></field>
+        <field name="description_motivational" type="html">
+            <div class="media align-items-center">
+                <div class="media-body">Reach the next rank and become a powerful user!</div>
+                <img class="ml-3 img img-fluid" style="max-height: 72px;" src="/gamification/static/img/rank_doctor_badge.svg"/>
+            </div>
+        </field>
+        <field name="karma_min">1000000000</field>
         <field name="image_1920" type="base64" file="gamification/static/img/rank_doctor_badge.svg"/>
     </record>
 </data></odoo>

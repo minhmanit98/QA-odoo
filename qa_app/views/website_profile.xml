@@ -11,5 +11,32 @@
               </div>
           </xpath>
     </template>
-
+    <template id="utc2_profile_next_rank_card" inherit_id="website_profile.profile_next_rank_card">
+         <xpath expr="//div[hasclass('o_pc_overlay')]" position="replace">
+            <div class="o_pc_overlay d-flex flex-column align-items-center justify-content-center">
+                <img class="img-fluid"
+                    t-att-src="website.image_url(next_rank_id if next_rank_id else user.rank_id, 'image_128')"
+                    t-att-alt="(next_rank_id.name if next_rank_id else user.rank_id.name) + ' badge'"
+                    t-att-style="'max-width: ' + (img_max_width if img_max_width else '50%;')"/>
+                <h4 class=" mb-0">
+                    "
+                    <span t-if="next_rank_id" t-field="next_rank_id.name"/>
+                    <span t-else="" t-field="user.rank_id.name"/>
+                    "
+                </h4>
+                <small t-if="user.karma > 999999999">
+                    <span class="font-weight-bold text-primary"/>MAX/
+                    <span t-if="next_rank_id" class="font-weight-bold" t-field="next_rank_id.karma_min"/>
+                    <span t-else="" class="font-weight-bold" t-value="MAX"/>MAX
+                     xp
+                </small>
+                 <small t-else="">
+                    <span class="font-weight-bold text-primary" t-field="user.karma"/>/
+                    <span t-if="next_rank_id" class="font-weight-bold" t-field="next_rank_id.karma_min"/>
+                    <span t-else="" class="font-weight-bold" t-field="user.rank_id.karma_min"/>
+                     xp
+                </small>
+            </div>
+          </xpath>
+    </template>
 </data></odoo>
