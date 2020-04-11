@@ -14,8 +14,6 @@
      'document_page_procedure',
      'document_page_work_instruction',
      'document_page_quality_manual',
-     'im_support',
-     'auth_password_policy',
 
  ],
  'data': [
