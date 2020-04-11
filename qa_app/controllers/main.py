@@ -2,18 +2,11 @@
 import json
 
 import base64
-import json
-import math
-import re
 import requests
-from addons.portal.controllers import web
-from werkzeug import urls
 
 from odoo import fields as odoo_fields, http, tools, _, SUPERUSER_ID
 from odoo.exceptions import ValidationError, AccessError, MissingError, UserError, AccessDenied
 from odoo.http import content_disposition, Controller, request, route
-from odoo.tools import consteq
-from odoo.addons.auth_signup.controllers.main import AuthSignupHome
 from odoo.addons.web.controllers.main import ensure_db, Home
 from odoo.addons.website.controllers.main import Website
 
