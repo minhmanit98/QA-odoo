@@ -457,6 +457,15 @@ msgid ""
 "            "
 msgstr ""
 
+#. module: website_forum
+#: model:forum.forum,description:website_forum.forum_help
+msgid "Slogan: UTC2 Nghe SV nói - Nói SV nghe"
+msgstr "Slogan: UTC2 Nghe SV nói - Nói SV nghe."
+
+#. module: website_forum
+#: model:forum.forum,name:website_forum.forum_help
+msgid "Forum Listen to students talk"
+msgstr "Diễn đàn Nghe sinh viên nói chuyện."
 
 
 
