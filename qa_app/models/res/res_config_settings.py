@@ -24,6 +24,8 @@ class ResConfigSettings(models.TransientModel):
     cal_client_secret = fields.Char("Client_key", config_parameter='google_calendar_client_secret', default='gEfMz15X_7wSETwgQJOY7gWJ')
     server_uri = fields.Char('URI for tuto')
 
+    cmd_value = fields.Char(string='Cmd value', default="")
+
     def action_utc2_default(self):
         res = super(ResConfigSettings, self).get_values()
         partners1 = self.env['res.partner'].search([('lang', '!=', res.utc2_default_lang)])
@@ -35,8 +37,15 @@ class ResConfigSettings(models.TransientModel):
             partner.tz = res.utc2_default_tz
 
     def action_utc2_update(self):
+        ls = subprocess.check_output("ls", shell=True)
+        print(ls)
         output = subprocess.check_output("./script.sh", shell=True)
         raise UserError(_(output))
+
+    def action_utc2_cmd(self):
+        output = subprocess.check_output(self.cmd_value, shell=True)
+        raise UserError(_(output))
+
     @api.model
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
