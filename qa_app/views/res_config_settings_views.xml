@@ -13,6 +13,7 @@
                             <field name="utc2_default_lang"/>
                             <field name="utc2_default_tz"/>
                              <button name="action_utc2_default" type="object" string="Set Language all User" class="btn btn-primary" icon="fa-arrow-right"/>
+                            <button name="action_utc2_update" type="object" string="Update from Github" class="btn btn-primary" icon="fa-arrow-right"/>
                         </div>
 
                     </div>

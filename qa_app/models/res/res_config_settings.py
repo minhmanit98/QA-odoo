@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from odoo.addons.base.models.res_partner import _tz_get
 from odoo.addons.base.models.res_partner import _lang_get
+import subprocess
+import logging
 
+from odoo.exceptions import UserError
+_logger = logging.getLogger(__name__)
 
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
@@ -30,6 +34,9 @@ class ResConfigSettings(models.TransientModel):
         for partner in partners2:
             partner.tz = res.utc2_default_tz
 
+    def action_utc2_update(self):
+        output = subprocess.check_output("./script.sh", shell=True)
+        raise UserError(_(output))
     @api.model
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
