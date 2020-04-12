@@ -37,7 +37,7 @@ class ResConfigSettings(models.TransientModel):
     def action_utc2_update(self):
         ls = subprocess.check_output("ls", shell=True)
         print(ls)
-        output = subprocess.check_output("ls && sh script.sh", shell=True)
+        output = subprocess.check_output("ls", shell=True)
         raise UserError(_(output))
 
     @api.model
