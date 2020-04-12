@@ -31,6 +31,7 @@
      'views/website_profile.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
+     'data/res_users_data.xml',
      'data/im_livechat_data.xml',
      'data/ir_default_data.xml',
      'data/website_data.xml',
@@ -41,7 +42,7 @@
      'data/mail.xml',
      'data/profile_data.xml',
      'data/forum_data.xml',
-     'data/res_users_data.xml',
+
  ],
 
  'application': True,
