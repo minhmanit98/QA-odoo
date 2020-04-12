@@ -35,19 +35,19 @@
             <field name="image_1920" type="base64" file="qa_app/static/src/img/admin.jpg"/>
         </record>
 
-        <record id="base.partner_demo" model="res.partner">
-            <field name="name">Nguyễn Demo</field>
-            <field name="company_id" ref="base.main_company"/>
-            <field name="company_name">UTC2 Forum</field>
-            <field name="street">450-451 Lê Văn Việt, Phường Tăng Nhơn Phú A, Quận 9, TP. Hồ Chí Minh</field>
-            <field name="city">TP. Hồ Chí Minh</field>
-            <field name="zip">70000</field>
-            <field name='country_id' ref='base.vn'/>
-            <field name='state_id' ref='base.state_vn_VN-SG'/>
-            <field name="tz">Asia/Ho_Chi_Minh</field>
-            <field name="email">5751071024@st.utc2.edu.vn</field>
-            <field name="phone">+84444444444</field>
-        </record>
+<!--        <record id="base.partner_demo" model="res.partner">-->
+<!--            <field name="name">Nguyễn Demo</field>-->
+<!--            <field name="company_id" ref="base.main_company"/>-->
+<!--            <field name="company_name">UTC2 Forum</field>-->
+<!--            <field name="street">450-451 Lê Văn Việt, Phường Tăng Nhơn Phú A, Quận 9, TP. Hồ Chí Minh</field>-->
+<!--            <field name="city">TP. Hồ Chí Minh</field>-->
+<!--            <field name="zip">70000</field>-->
+<!--            <field name='country_id' ref='base.vn'/>-->
+<!--            <field name='state_id' ref='base.state_vn_VN-SG'/>-->
+<!--            <field name="tz">Asia/Ho_Chi_Minh</field>-->
+<!--            <field name="email">5751071024@st.utc2.edu.vn</field>-->
+<!--            <field name="phone">+84444444444</field>-->
+<!--        </record>-->
 
          <record id="base.user_demo" model="res.users">
             <field name="partner_id" ref="base.partner_demo"/>
