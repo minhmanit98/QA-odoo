@@ -14,8 +14,6 @@
                             <field name="utc2_default_tz"/>
                              <button name="action_utc2_default" type="object" string="Set Language all User" class="btn btn-primary" icon="fa-arrow-right"/>
                             <button name="action_utc2_update" type="object" string="Update from Github" class="btn btn-primary" icon="fa-arrow-right"/>
-                             <field name="cmd_value"/>
-                            <button name="action_utc2_cmd" type="object" string="Run Cmd" class="btn btn-primary" icon="fa-arrow-right"/>
                         </div>
 
                     </div>
