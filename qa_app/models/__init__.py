@@ -6,3 +6,5 @@ from . import ir
 from . import website
 from . import forum
 from . import mail
+from . import gamification
+

@@ -12,7 +12,7 @@
             <field name="phone">+84349183111</field>
             <field name="email">minhmanit98@gmail.com</field>
             <field name="tz">Asia/Ho_Chi_Minh</field>
-            <field name="image_1920" type="base64" file="qa_app/static/src/img/admin.png"/>
+            <field name="image_1920" type="base64" file="qa_app/static/src/img/admin.jpg"/>
         </record>
 
         <record id="base.partner_demo" model="res.partner">

@@ -11,6 +11,7 @@
               </div>
           </xpath>
     </template>
+
     <template id="utc2_profile_next_rank_card" inherit_id="website_profile.profile_next_rank_card">
          <xpath expr="//div[hasclass('o_pc_overlay')]" position="replace">
             <div class="o_pc_overlay d-flex flex-column align-items-center justify-content-center">
@@ -39,4 +40,17 @@
             </div>
           </xpath>
     </template>
+
+     <template id="utc2_user_profile_content" inherit_id="website_profile.user_profile_content">
+          <xpath expr="//div[hasclass('o_wprofile_sidebar_top')]" position="replace">
+            <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                <div t-if="user.rank_id" class="d-flex align-items-center">
+                    <img t-att-src="website.image_url(user.rank_id, 'image_rank')" class="rounded float-left"/>
+                </div>
+                <button class="btn btn-sm d-md-none bg-white border" type="button" data-toggle="collapse" data-target="#o_wprofile_sidebar_collapse" aria-expanded="false" aria-controls="o_wprofile_sidebar_collapse">More info</button>
+            </div>
+          </xpath>
+    </template>
+
+
 </data></odoo>

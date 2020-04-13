@@ -338,11 +338,6 @@ msgid "Bronze"
 msgstr "Đồng"
 
 #. module: gamification
-#: model:gamification.karma.rank,name:gamification.rank_newbie
-msgid "Bronze"
-msgstr "Đồng"
-
-#. module: gamification
 #: model:gamification.karma.rank,name:gamification.rank_student
 msgid "Silver"
 msgstr "Bạc"

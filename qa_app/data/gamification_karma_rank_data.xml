@@ -20,6 +20,7 @@
         </field>
         <field name="karma_min">1</field>
         <field name="image_1920" type="base64" file="gamification/static/img/rank_newbie_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/new_member_rank.png"/>
     </record>
 
     <record id="gamification.rank_student" model="gamification.karma.rank">
@@ -33,6 +34,7 @@
         </field>
         <field name="karma_min">100</field>
         <field name="image_1920" type="base64" file="gamification/static/img/rank_student_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/bronze_rank.png"/>
     </record>
 
     <record id="gamification.rank_bachelor" model="gamification.karma.rank">
@@ -46,6 +48,7 @@
         </field>
         <field name="karma_min">500</field>
         <field name="image_1920" type="base64" file="gamification/static/img/rank_bachelor_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/silver_rank.png"/>
     </record>
 
     <record id="gamification.rank_master" model="gamification.karma.rank">
@@ -59,10 +62,11 @@
         </field>
         <field name="karma_min">2000</field>
         <field name="image_1920" type="base64" file="gamification/static/img/rank_master_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/gold_rank.png"/>
     </record>
 
     <record id="gamification.rank_doctor" model="gamification.karma.rank">
-        <field name="name">Diamond</field>
+        <field name="name">Editors</field>
         <field name="description" type="html"><p>You have reached the last rank. Congratulations!</p></field>
         <field name="description_motivational" type="html">
             <div class="media align-items-center">
@@ -72,6 +76,7 @@
         </field>
         <field name="karma_min">10000</field>
         <field name="image_1920" type="base64" file="gamification/static/img/rank_doctor_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/editors_rank.png"/>
     </record>
 
     <record id="rank_admin" model="gamification.karma.rank">
@@ -85,5 +90,35 @@
         </field>
         <field name="karma_min">1000000000</field>
         <field name="image_1920" type="base64" file="gamification/static/img/rank_doctor_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/admin_rank.png"/>
     </record>
+
+    <record id="rank_moderators" model="gamification.karma.rank">
+        <field name="name">Moderators</field>
+        <field name="description" type="html"><p>You have reached the last rank. Congratulations!</p></field>
+        <field name="description_motivational" type="html">
+            <div class="media align-items-center">
+                <div class="media-body">Reach the next rank and become a powerful user!</div>
+                <img class="ml-3 img img-fluid" style="max-height: 72px;" src="/gamification/static/img/rank_doctor_badge.svg"/>
+            </div>
+        </field>
+        <field name="karma_min">500000000</field>
+        <field name="image_1920" type="base64" file="gamification/static/img/rank_doctor_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/moderators_rank.png"/>
+    </record>
+
+    <record id="rank_gamers" model="gamification.karma.rank">
+        <field name="name">Gamers</field>
+        <field name="description" type="html"><p>You have reached the last rank. Congratulations!</p></field>
+        <field name="description_motivational" type="html">
+            <div class="media align-items-center">
+                <div class="media-body">Reach the next rank and become a powerful user!</div>
+                <img class="ml-3 img img-fluid" style="max-height: 72px;" src="/gamification/static/img/rank_doctor_badge.svg"/>
+            </div>
+        </field>
+        <field name="karma_min">100000000</field>
+        <field name="image_1920" type="base64" file="gamification/static/img/rank_doctor_badge.svg"/>
+        <field name="image_rank" type="base64" file="qa_app/static/src/img/gamers_rank.png"/>
+    </record>
+
 </data></odoo>
