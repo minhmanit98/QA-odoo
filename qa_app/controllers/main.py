@@ -9,8 +9,26 @@ from odoo.exceptions import ValidationError, AccessError, MissingError, UserErro
 from odoo.http import content_disposition, Controller, request, route
 from odoo.addons.web.controllers.main import ensure_db, Home
 from odoo.addons.website.controllers.main import Website
+import subprocess
+import logging
+
 
 class UTC2Forum(Controller):
+
+    @route("/pull/linux", method="POST")
+    def process(self):
+        cd = subprocess.check_output("cd /home/minhmanit98", shell=True)
+        logging.info(cd)
+        process = subprocess.check_output("./script.sh", shell=True)
+        logging.info(process)
+        process.wait()
+
+
+    @route("/pull/win", method="POST")
+    def process(self):
+        process = subprocess.Popen(["git", "pull"], cwd="/var/www/html")
+        process.wait()
+        logging.info(process)
 
     def _prepare_portal_layout_values(self):
         # get customer sales rep
