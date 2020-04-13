@@ -10,9 +10,9 @@
                     <div class="app_settings_block" data-string="UTC2 Forum" string="UTC2 Forum" data-key="qa_app" groups="base.group_system">
                         <h2 groups="base.group_system">UTC2 Forum</h2>
                         <div>
-                            <field name="utc2_default_lang"/>
-                            <field name="utc2_default_tz"/>
-                             <button name="action_utc2_default" type="object" string="Set Language all User" class="btn btn-primary" icon="fa-arrow-right"/>
+<!--                            <field name="utc2_default_lang"/>-->
+<!--                            <field name="utc2_default_tz"/>-->
+<!--                             <button name="action_utc2_default" type="object" string="Set Language all User" class="btn btn-primary" icon="fa-arrow-right"/>-->
                             <button name="action_utc2_update" type="object" string="Update from Github" class="btn btn-primary" icon="fa-arrow-right"/>
                         </div>
 
