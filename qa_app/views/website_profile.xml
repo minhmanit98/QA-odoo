@@ -42,13 +42,36 @@
     </template>
 
      <template id="utc2_user_profile_content" inherit_id="website_profile.user_profile_content">
-          <xpath expr="//div[hasclass('o_wprofile_sidebar_top')]" position="replace">
-            <div class="o_wprofile_sidebar_top d-flex justify-content-between">
-                <div t-if="user.rank_id" class="d-flex align-items-center">
-                    <img t-att-src="website.image_url(user.rank_id, 'image_rank')" class="rounded float-left"/>
-                </div>
-                <button class="btn btn-sm d-md-none bg-white border" type="button" data-toggle="collapse" data-target="#o_wprofile_sidebar_collapse" aria-expanded="false" aria-controls="o_wprofile_sidebar_collapse">More info</button>
-            </div>
+          <xpath expr="//div[hasclass('o_wprofile_sidebar')]" position="replace">
+               <div class="o_wprofile_sidebar bg-white mb-3 mb-md-5">
+                   <div class="o_wprofile_sidebar_top d-flex justify-content-between">
+                       <div t-if="user.rank_id" class="d-flex align-items-center">
+                           <img t-att-src="website.image_url(user.rank_id, 'image_rank')"  t-attf-style="padding-left: 0px !important "/>
+                       </div>
+                            <button class="btn btn-sm d-md-none bg-white border" type="button" data-toggle="collapse" data-target="#o_wprofile_sidebar_collapse" aria-expanded="false" aria-controls="o_wprofile_sidebar_collapse">More info</button>
+                   </div>
+                   <div class="collapse d-md-block px-3 py-2 py-md-3" id="o_wprofile_sidebar_collapse">
+                       <t t-set="next_rank_id" t-value="user._get_next_rank()"/>
+                       <small t-if="next_rank_id" class="font-weight-bold mt-1">Next rank:</small>
+                       <t t-if="next_rank_id or user.rank_id" t-call="website_profile.profile_next_rank_card">
+                           <t t-set="img_max_width">40%</t>
+                       </t>
+
+                       <table class="table table-sm w-100" id="o_wprofile_sidebar_table">
+                           <tbody>
+                               <tr>
+                                   <th><small class="font-weight-bold">Joined</small></th>
+                                   <td><span t-field="user.create_date" t-options='{"format": "d MMM Y"}'/></td>
+                               </tr>
+                               <tr>
+                                   <th><small class="font-weight-bold">Badges</small></th>
+                                   <td t-if="user.badge_ids" t-esc="len(user.badge_ids.filtered(lambda b: b.badge_id.website_published))"/>
+                                   <td t-else="">0</td>
+                               </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
           </xpath>
     </template>
 

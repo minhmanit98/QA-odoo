@@ -223,6 +223,32 @@ msgstr "Kênh chat hỗ trợ trực tuyến"
 msgid "There are no public livechat channels to show."
 msgstr "Không có kênh chat để hiển thị."
 
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_newbie
+msgid "Bronze"
+msgstr "Đồng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_student
+msgid "Silver"
+msgstr "Bạc"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_bachelor
+#: model:ir.model.fields.selection,name:gamification.selection__gamification_badge__level__gold
+msgid "Gold"
+msgstr "Vàng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_master
+msgid "Platinum"
+msgstr "Bạch kim"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_doctor
+msgid "Diamond"
+msgstr "Kim cương"
+
 #. module: qa_app
 #: code:qa_app/controllers/main.py:0
 #, python-format

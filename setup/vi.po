@@ -1,10 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* qa_app
-# 	* website_forum
-# 	* website_livechat
-# 	* website_profile
-# 	* gamification
+# 	* utc2_qa
 # 
 # Translators:
 # Nguyen Minh Man <minhmanit98@gmail.com>, 2020
@@ -13,14 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-14 04:09+0000\n"
-"PO-Revision-Date: 2020-04-14 04:09+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-12-05 12:34+0000\n"
+"PO-Revision-Date: 2019-08-26 09:15+0000\n"
+"Last-Translator: Duy BQ <duybq86@gmail.com>, 2020\n"
+"Language-Team: Vietnamese (https://www.transifex.com/odoo/teams/41243/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
 
 #. module: qa_app
 #: model:ir.ui.menu,name:qa_app.utc2_menu_config
@@ -223,6 +221,32 @@ msgstr "Kênh chat hỗ trợ trực tuyến"
 msgid "There are no public livechat channels to show."
 msgstr "Không có kênh chat để hiển thị."
 
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_newbie
+msgid "Bronze"
+msgstr "Đồng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_student
+msgid "Silver"
+msgstr "Bạc"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_bachelor
+#: model:ir.model.fields.selection,name:gamification.selection__gamification_badge__level__gold
+msgid "Gold"
+msgstr "Vàng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_master
+msgid "Platinum"
+msgstr "Bạch kim"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_doctor
+msgid "Diamond"
+msgstr "Kim cương"
+
 #. module: qa_app
 #: code:qa_app/controllers/main.py:0
 #, python-format
@@ -408,6 +432,12 @@ msgstr ""
 #: model:forum.forum,name:website_forum.forum_help
 msgid "Forum Listen to students talk"
 msgstr "Diễn đàn Nghe sinh viên nói chuyện."
+
+#. module: website_forum
+#: model:forum.forum,name:website_forum.forum_help
+msgid "Help"
+msgstr "Diễn đàn Nghe sinh viên nói chuyện."
+
 
 #. module: website_forum
 #: model:forum.forum,description:website_forum.forum_help

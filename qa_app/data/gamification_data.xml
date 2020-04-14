@@ -10,7 +10,7 @@
 
     <!--Ranks-->
     <record id="gamification.rank_newbie" model="gamification.karma.rank">
-        <field name="name">Bronze</field>
+        <field name="name">New Member</field>
         <field name="description" type="html"><p>You just began the adventure! Welcome!</p></field>
         <field name="description_motivational" type="html">
             <div class="media align-items-center">
@@ -24,7 +24,7 @@
     </record>
 
     <record id="gamification.rank_student" model="gamification.karma.rank">
-        <field name="name">Silver</field>
+        <field name="name">Bronze Member</field>
         <field name="description" type="html"><p>You're a young padawan now. May the force be with you!</p></field>
         <field name="description_motivational" type="html">
             <div class="media align-items-center">
@@ -38,7 +38,7 @@
     </record>
 
     <record id="gamification.rank_bachelor" model="gamification.karma.rank">
-        <field name="name">Gold</field>
+        <field name="name">Silver Member</field>
         <field name="description" type="html"><p>You love learning things. Curiosity is a good way to progress.</p></field>
         <field name="description_motivational" type="html">
             <div class="media align-items-center">
@@ -52,7 +52,7 @@
     </record>
 
     <record id="gamification.rank_master" model="gamification.karma.rank">
-        <field name="name">Platinum</field>
+        <field name="name">Gold Member</field>
         <field name="description" type="html"><p>You know what you are talking about. People learn from you.</p></field>
         <field name="description_motivational" type="html">
             <div class="media align-items-center">
