@@ -56,7 +56,6 @@
                        <t t-if="next_rank_id or user.rank_id" t-call="website_profile.profile_next_rank_card">
                            <t t-set="img_max_width">40%</t>
                        </t>
-
                        <table class="table table-sm w-100" id="o_wprofile_sidebar_table">
                            <tbody>
                                <tr>
@@ -68,12 +67,42 @@
                                    <td t-if="user.badge_ids" t-esc="len(user.badge_ids.filtered(lambda b: b.badge_id.website_published))"/>
                                    <td t-else="">0</td>
                                </tr>
+                               <t t-if="forum and (up_votes or down_votes)">
+                                    <tr id="profile_abstract_info_company">
+                                        <th><small class="font-weight-bold">Votes</small></th>
+                                        <td>
+                                            <span>
+                                                <i class="fa fa-thumbs-up text-success" role="img" aria-label="Positive votes" title="Positive votes"/>
+                                                <span class="font-weight-bold" t-esc="up_votes"/>
+                                                <i class="fa fa-thumbs-down text-danger ml-3" role="img" aria-label="Negative votes" title="Negative votes"/>
+                                            <span class="font-weight-bold" t-esc="down_votes"/>
+                                            </span>
+                                        </td>
+                                     </tr>
+                                </t>
                            </tbody>
                        </table>
                    </div>
                </div>
           </xpath>
     </template>
+
+    <template id="utc2_user_profile_header" inherit_id="website_profile.user_profile_sub_nav">
+          <xpath expr="//div[hasclass('o_wprofile_all_users_nav')]//div[hasclass('container')]/div[hasclass('row')]" position="inside">
+              <ul class="o_menu_systray d-none d-md-block" >
+                    <li t-if="'website_published' in main_object.fields_get() and ('can_publish' not in main_object.fields_get() or main_object.can_publish)" t-attf-class="js_publish_management #{main_object.website_published and 'css_published' or 'css_unpublished'}" t-att-data-id="main_object.id" t-att-data-object="main_object._name" t-att-data-controller="publish_controller">
+                        <label class="o_switch o_switch_danger js_publish_btn" for="id">
+                            <input type="checkbox" t-att-checked="main_object.website_published" id="id"/>
+                            <span/>
+                            <span class="css_publish">Unpublished</span>
+                            <span class="css_unpublish">Published</span>
+                        </label>
+                    </li>
+              </ul>
+          </xpath>
+    </template>
+
+
 
 
 </data></odoo>

@@ -56,6 +56,7 @@
             <field name="social_github">https://github.com/utc2forum</field>
             <field name="social_instagram">https://www.instagram.com/explore/tags/utc2forum/</field>
              <field name="auth_signup_uninvited">b2c</field>
+             <field name="karma_profile_min">1</field>
         </record>
 
     </data>
