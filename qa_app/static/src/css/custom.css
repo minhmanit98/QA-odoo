@@ -185,7 +185,7 @@ header a.navbar-brand.logo img
 }*/
 
 a {
-  color: #281756;
+  color: #281756 !important;
 }
 
 a:hover {

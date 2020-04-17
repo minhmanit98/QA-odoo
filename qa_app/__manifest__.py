@@ -29,6 +29,7 @@
      'views/website_profile.xml',
      'views/gamification_karma_rank_views.xml',
      'views/website_homepage.xml',
+     'views/website_forum.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
      'data/res_users_data.xml',
