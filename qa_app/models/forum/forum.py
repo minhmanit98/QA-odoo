@@ -17,5 +17,5 @@ class Post(models.Model):
     def _default_user_incognito(self):
         return self.env.ref('qa_app.user_private')
 
-    is_incognito = fields.Boolean('Incognito Post', default=False)
-    user_incognito = fields.Many2one('res.users', string='User Incognito', default=_default_user_incognito)
+    is_incognito = fields.Boolean('Private post', default=False, readonly=True)
+    user_incognito = fields.Many2one('res.users', string='User Incognito', default=_default_user_incognito, readonly=True)

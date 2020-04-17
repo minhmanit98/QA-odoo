@@ -27,6 +27,7 @@
                 </field>
             </field>
         </record>
+
          <record id="utc2_view_forum_post_form" model="ir.ui.view">
              <field name="name">utc2.forum.post.form</field>
             <field name="model">forum.post</field>
@@ -34,9 +35,20 @@
             <field name="arch" type="xml">
                  <field name="create_uid" position="after">
                      <field name="is_incognito"/>
-                    <field name="user_incognito"/>
                 </field>
             </field>
          </record>
+
+        <record id="utc2_view_forum_post_list" model="ir.ui.view">
+             <field name="name">utc2.forum.post.list</field>
+            <field name="model">forum.post</field>
+            <field name="inherit_id" ref="website_forum.view_forum_post_list"/>
+            <field name="arch" type="xml">
+                 <field name="website_id" position="replace">
+                     <field name="is_incognito"/>
+                </field>
+            </field>
+         </record>
+
     </data>
 </odoo>
