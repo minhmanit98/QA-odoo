@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, api
-
+from odoo import fields, models, api, _
+from odoo.exceptions import UserError, ValidationError, AccessError
 
 class Tags(models.Model):
     _inherit = "forum.tag"
@@ -19,3 +19,33 @@ class Post(models.Model):
 
     is_incognito = fields.Boolean('Private post', default=False, readonly=True)
     user_incognito = fields.Many2one('res.users', string='User Incognito', default=_default_user_incognito, readonly=True)
+
+    def post_notification(self):
+        for post in self:
+            tag_partners = post.tag_ids.sudo().mapped('message_partner_ids')
+
+            if post.state == 'active' and post.parent_id:
+                post.parent_id.message_post_with_view(
+                    'website_forum.forum_post_template_new_answer',
+                    subject=_('Re: %s') % post.parent_id.name,
+                    partner_ids=[(4, p.id) for p in tag_partners],
+                    subtype_id=self.env['ir.model.data'].xmlid_to_res_id('website_forum.mt_answer_new'))
+            elif post.state == 'active' and not post.parent_id and post.is_incognito:
+                post.message_post_with_view(
+                    'website_forum.forum_post_template_new_question',
+                    subject=post.name,
+                    partner_ids=[(4, p.id) for p in tag_partners],
+                    subtype_id=self.env['ir.model.data'].xmlid_to_res_id('website_forum.mt_question_new'))
+            elif post.state == 'pending' and not post.parent_id and post.is_incognito:
+                # TDE FIXME: in master, you should probably use a subtype;
+                # however here we remove subtype but set partner_ids
+                partners = post.sudo().message_partner_ids | tag_partners
+                partners = partners.filtered(lambda partner: partner.user_ids and any(user.karma >= post.forum_id.karma_moderate for user in partner.user_ids))
+
+                post.message_post_with_view(
+                    'website_forum.forum_post_template_validation',
+                    subject=post.name,
+                    partner_ids=partners.ids,
+                    subtype_id=self.env['ir.model.data'].xmlid_to_res_id('mail.mt_note'))
+        return True
+

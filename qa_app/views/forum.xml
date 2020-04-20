@@ -33,9 +33,16 @@
             <field name="model">forum.post</field>
             <field name="inherit_id" ref="website_forum.view_forum_post_form"/>
             <field name="arch" type="xml">
-                 <field name="create_uid" position="after">
+                 <field name="create_uid" position="before">
                      <field name="is_incognito"/>
                 </field>
+                 <field name="create_uid" position="replace">
+                    <field name="create_uid" attrs="{'invisible':[('is_incognito','=',True)]}"/>
+                 </field>
+                <field name="write_uid" position="replace">
+                    <field name="write_uid" attrs="{'invisible':[('is_incognito','=',True)]}"/>
+                 </field>
+
             </field>
          </record>
 
