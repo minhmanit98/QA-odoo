@@ -17,8 +17,13 @@ class Post(models.Model):
     def _default_user_incognito(self):
         return self.env.ref('qa_app.user_private')
 
+    def _compute_tag_main(self):
+        for record in self:
+            record.tag_main = record.tag_ids and record.tag_ids[0] or False
+
     is_incognito = fields.Boolean('Private post', default=False, readonly=True)
     user_incognito = fields.Many2one('res.users', string='User Incognito', default=_default_user_incognito, readonly=True)
+    tag_main = fields.Many2one('forum.tag', string='Tag main', compute=_compute_tag_main, store=True)
 
     def post_notification(self):
         for post in self:
@@ -48,4 +53,16 @@ class Post(models.Model):
                     partner_ids=partners.ids,
                     subtype_id=self.env['ir.model.data'].xmlid_to_res_id('mail.mt_note'))
         return True
+
+
+class Forum(models.Model):
+    _inherit = 'forum.forum'
+
+    def _get_tag_id_tag_name(self, tag_name):
+        Tag = self.env['forum.tag']
+        tag_id = Tag.search([('name', '=', tag_name)], limit=1).id
+        return tag_id
+
+
+
 

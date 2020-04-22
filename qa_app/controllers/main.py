@@ -15,6 +15,10 @@ import werkzeug.urls
 import werkzeug.wrappers
 from odoo.addons.http_routing.models.ir_http import slug
 
+from .text_classification_utc2 import settings
+import pickle as pickle
+from .text_classification_utc2.preProcessData import FeatureExtraction, NLP
+
 
 class UTC2Forum(Controller):
 
@@ -138,7 +142,19 @@ class WebsiteForum(WebsiteProfile):
                 'status_message': post_parent and _('Reply should not be empty.') or _('Question should not be empty.')
             })
 
+        content = post.get('content', False).lower()
+        classifier = pickle.load(open(settings.LINEARSVC_TFIDF_MODEL, 'rb'))
+
+        # tf-idf
+        vectorizer = pickle.load(open(settings.VECTOR_EMBEDDING, 'rb'))
+        data_features = []
+        data_features.append(' '.join(NLP(text=content).get_words_feature()))
+        features = vectorizer.transform(data_features)
+
         post_tag_ids = forum._tag_to_write_vals(post.get('post_tags', ''))
+        tag_classifier_id = forum._get_tag_id_tag_name(classifier.predict(features)[0])
+        if tag_classifier_id:
+            post_tag_ids[0][2].append(tag_classifier_id)
 
         if request.env.user.forum_waiting_posts_count:
             return werkzeug.utils.redirect("/forum/%s/ask" % slug(forum))

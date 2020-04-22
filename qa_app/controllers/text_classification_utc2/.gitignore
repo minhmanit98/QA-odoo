@@ -1,0 +1,7 @@
+data
+processed_data
+trained_model
+feature_extraction
+vector_embedding
+__pycache__
+*.npy

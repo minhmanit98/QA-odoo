@@ -56,6 +56,20 @@
                 </field>
             </field>
          </record>
+        <record id="utc2_view_forum_post_search" model="ir.ui.view">
+             <field name="name">utc2.forum.post.search</field>
+            <field name="model">forum.post</field>
+            <field name="inherit_id" ref="website_forum.view_forum_post_search"/>
+            <field name="arch" type="xml">
+                 <filter name="answered_questions" position="after">
+                     <filter string="Tag" name="tag" domain="[('parent_id', '=', False)]" />
+                </filter>
+                 <filter name="post" position="after">
+                     <filter string="Tag" name="tag_main" domain="[]" context="{'group_by': 'tag_main'}"/>
+                </filter>
+            </field>
+
+        </record>
 
     </data>
 </odoo>
