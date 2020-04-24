@@ -31,6 +31,7 @@ class ResUsers(models.Model):
 
             partner_user = partner.user_ids and partner.user_ids[0] or False
             partner_user.image_1920 = self.get_avatar_default(values.get('email'))
+            partner_user.karma = 1
 
             # avoid overwriting existing (presumably correct) values with geolocation data
             if partner.country_id or partner.zip or partner.city:

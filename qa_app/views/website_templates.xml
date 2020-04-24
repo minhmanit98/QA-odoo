@@ -1,6 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="utc2_brand_promotion" inherit_id="web.brand_promotion" name="Brand Promotion">
         <xpath expr="//t[@t-call='web.brand_promotion_message']" position="replace">
+        </xpath>
+    </template>
+
+    <template id="utc2_layout" inherit_id="web.layout">
+        <xpath expr="//title" positin="replace">
+              <title t-esc="title or 'UTC2'"/>
         </xpath>
     </template>
 </odoo>

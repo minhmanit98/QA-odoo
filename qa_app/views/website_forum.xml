@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="utc2_new_question" inherit_id="website_forum.new_question" name="New Question">
+             <xpath expr="//form/div[1]" position="after">
+                <div class="form-group">
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#post_incognito").change(function(){
+                                 var input = document.getElementById("post_incognito").checked;
+                                 if (input){
+                                     $("#label_incognito").removeClass("css_published");
+                                     $("#label_incognito").addClass("css_unpublished");
+                                 }else{
+                                     $("#label_incognito").removeClass("css_unpublished");
+                                     $("#label_incognito").addClass("css_published");
+                                  }
+                             });
+                        });
+                    </script>
+                    <label for="content">Trạng thái:</label>
+                    <ul class="o_menu_systray d-none d-md-block mb-0 pl-0 py-0"  t-attf-style="list-style-type: none;">
+                        <li>
+                            <label t-attf-class="o_switch o_switch_danger js_publish_btn css_published" for="post_incognito" id="label_incognito" t-attf-style="margin-bottom: 0px;">
+                                <input type="checkbox" name="post_incognito" id="post_incognito"/>
+                                <span/>
+                                <span class="css_publish text-danger">Ẩn danh: <i>Mọi người sẽ không thấy tên của bạn.</i></span>
+                                <span class="css_unpublish text-success">Công khai: <i>Mọi người sẽ thấy tên bạn.</i></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+             </xpath>
+        </template>
+
+        <template id="utc2_author_box">
+            <t t-set="display_info" t-value="show_name or show_date or show_karma"/>
+            <t t-if="allow_biography and object.can_display_biography" t-set="bio_popover_data">
+                <div t-if="object.is_incognito" class="d-flex o_wforum_bio_popover_wrap">
+                    <img class="o_forum_avatar_big flex-shrink-0 mr-3" t-att-src="website.image_url(object.user_incognito, 'image_128', '75x75')" alt="Avatar"/>
+                    <div>
+                        <h5 class="o_wforum_bio_popover_name mb-0" t-field="object.user_incognito" t-options='{"widget": "contact", "country_image": True, "fields": ["name", "country_id"]}'/>
+
+                        <span class="o_wforum_bio_popover_info" t-field="object.user_incognito" t-options='{"widget": "contact", "UserBio": True, "badges": True, "fields": ["karma"]}'/>
+                        <div class="o_wforum_bio_popover_bio" t-field="object.user_incognito" t-options='{"widget": "contact", "website_description": True, "fields": ["partner_id"]}'/>
+                    </div>
+                </div>
+                <div t-else="" class="d-flex o_wforum_bio_popover_wrap">
+                    <img class="o_forum_avatar_big flex-shrink-0 mr-3" t-att-src="website.image_url(object.create_uid, 'image_128', '75x75')" alt="Avatar"/>
+                    <div>
+                        <h5 class="o_wforum_bio_popover_name mb-0" t-field="object.create_uid" t-options='{"widget": "contact", "country_image": True, "fields": ["name", "country_id"]}'/>
+
+                        <span class="o_wforum_bio_popover_info" t-field="object.create_uid" t-options='{"widget": "contact", "UserBio": True, "badges": True, "fields": ["karma"]}'/>
+                        <div class="o_wforum_bio_popover_bio" t-field="object.create_uid" t-options='{"widget": "contact", "website_description": True, "fields": ["partner_id"]}'/>
+                    </div>
+                </div>
+            </t>
+
+            <div t-attf-class="o_wforum_author_box d-inline-flex #{display_info and 'o_show_info'} #{compact and 'o_compact align-items-center'} #{bio_popover_data and 'o_wforum_bio_popover'}"
+                 t-att-data-content="bio_popover_data">
+                <t t-set="user_profile_url" value="#"/>
+                <t t-if="object.create_uid.id == request.session.uid or object.create_uid.sudo().website_published">
+                    <t t-set="user_profile_url" t-value="'/forum/%s/user/%s' % (slug(forum), object.create_uid.id) + '?forum_origin=' + request.httprequest.path"/>
+                </t>
+
+                <a t-if="object.is_incognito" class="o_wforum_author_pic position-relative rounded-circle">
+                    <span t-if="object_validable" class="o_wforum_author_box_check rounded-circle bg-success position-absolute">
+                        <i class="fa fa-check fa-fw small text-white"/>
+                    </span>
+                    <img t-attf-class="rounded-circle o_forum_avatar #{not display_info and 'shadow'}" t-att-src="website.image_url(object.user_incognito, 'image_128', '40x40')" alt="Avatar"/>
+                </a>
+                 <a t-else=""  t-att-href="user_profile_url" class="o_wforum_author_pic position-relative rounded-circle">
+                    <span t-if="object_validable" class="o_wforum_author_box_check rounded-circle bg-success position-absolute">
+                        <i class="fa fa-check fa-fw small text-white"/>
+                    </span>
+                    <img t-attf-class="rounded-circle o_forum_avatar #{not display_info and 'shadow'}" t-att-src="website.image_url(object.create_uid, 'image_128', '40x40')" alt="Avatar"/>
+                </a>
+
+                <div t-if="show_name or show_date or show_karma" t-attf-class="d-flex #{compact and 'align-items-baseline ml-1' or 'flex-column justify-content-around ml-2'}">
+                    <a t-if="object.is_incognito" class="h6 my-0 text-reset" t-field="object.user_incognito" t-options='{"widget": "contact", "fields": ["name"]}'/>
+                    <a t-else="" t-att-href="user_profile_url" class="h6 my-0 text-reset" t-field="object.create_uid" t-options='{"widget": "contact", "fields": ["name"]}'/>
+                    <small t-if="show_karma and show_date" class="text-muted font-weight-bold"> - <t t-esc="object.create_uid.karma"/>xp</small>
+
+                    <div t-attf-class="text-muted small font-weight-bold #{compact and 'd-flex align-items-baseline'}">
+                        <span t-if="compact" class="mx-1"> - </span>
+                        <time t-if="show_date" class="d-block text-muted font-weight-bold" t-field="object.create_date" t-options='{"format": "d MMMM y"}'/>
+                        <span t-if="show_karma and not show_date" class="text-muted font-weight-bold"><t t-esc="object.create_uid.karma"/>xp</span>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="utc2_display_post" inherit_id="website_forum.display_post">
+             <xpath expr="//t[@t-call='website_forum.author_box']" position="replace">
+                 <t t-call="qa_app.utc2_author_box">
+                    <t t-set="object" t-value="question"/>
+                    <t t-set="allow_biography" t-value="True"/>
+                </t>
+             </xpath>
+        </template>
+
+         <template id="utc2_post_description_full" inherit_id="website_forum.post_description_full">
+             <xpath expr="//div[@t-call='website_forum.author_box']" position="replace">
+                 <div t-call="qa_app.utc2_author_box" t-attf-class="col mb-2 #{question.tag_ids and 'col-sm-auto'}">
+                        <t t-set="object" t-value="question"/>
+                        <t t-set="allow_biography" t-value="True"/>
+                        <t t-set="show_name" t-value="True"/>
+                        <t t-set="show_date" t-value="True"/>
+                    </div>
+             </xpath>
+        </template>
+
+        <template id="utc2_display_post_question_block" inherit_id="website_forum.display_post_question_block">
+            <xpath expr="//a[@class='d-inline-block font-weight-bold']" position="replace">
+                <a t-if="question.is_incognito" t-field="question.user_incognito" class="d-inline-block font-weight-bold" t-options='{"widget": "contact", "fields": ["name"]}'/>
+                <a t-else="" t-attf-href="/forum/#{slug(question.forum_id)}/user/#{question.create_uid.id}?forum_origin=#{request.httprequest.path}" t-field="question.create_uid" class="d-inline-block font-weight-bold" t-options='{"widget": "contact", "fields": ["name"]}'/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

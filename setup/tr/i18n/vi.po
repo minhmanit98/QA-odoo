@@ -1,0 +1,457 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qa_app
+# 	* website_forum
+# 	* website_livechat
+# 	* website_profile
+# 	* gamification
+# 
+# Translators:
+# Nguyen Minh Man <minhmanit98@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-14 04:09+0000\n"
+"PO-Revision-Date: 2020-04-14 04:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qa_app
+#: model:ir.ui.menu,name:qa_app.utc2_menu_config
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: qa_app
+#: model:ir.ui.menu,name:qa_app.utc2_menu_forum
+#: model:ir.ui.menu,name:qa_app.utc2_forum_config
+#: model:ir.ui.menu,name:qa_app.utc2_forum_forums
+msgid "Forums"
+msgstr "Diễn đàn"
+
+#. module: qa_app
+#: model:ir.ui.menu,name:qa_app.utc2_forum_post
+msgid "Posts"
+msgstr "Bài viết"
+
+#. module: mail
+#: code:addons/mail/wizard/mail_resend_message_views.xml:0
+#, python-format
+msgid "<p>Select the action to do on each mail and correct the email address if needed. The modified address will be saved on the corresponding contact.</p>"
+msgstr "<p>Chọn hành động cần thực hiện trên mỗi thư và sửa địa chỉ email nếu cần. Địa chỉ đã sửa đổi sẽ được lưu trên liên hệ tương ứng. </p>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.forum_index
+msgid "Unsolved"
+msgstr "Chưa giải quyết"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.forum_nav_header
+msgid "People"
+msgstr "Thành viên"
+
+#. module: website_livechat
+#: model:website.menu,name:website_livechat.menu_livechat
+msgid "Live Support"
+msgstr "Hỗ trợ trực tuyến"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-question-circle-o fa-fw\"/> My Questions"
+msgstr "<i class=\"fa fa-question-circle-o fa-fw\"/> Câu hỏi của tôi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-star fa-fw\"/> Favourites"
+msgstr "<i class=\"fa fa-star fa-fw\"/> Yêu thích"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.forum_nav_header
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "My profile"
+msgstr "Thông tin của tôi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-bell fa-fw\"/> Followed Posts"
+msgstr "<i class=\"fa fa-bell fa-fw\"/> Bài viết đã theo dõi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-tags fa-fw\"/> Followed Tags"
+msgstr "<i class=\"fa fa-tags fa-fw\"/> Tags đã theo dõi"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-check-square-o fa-fw\"/> To Validate"
+msgstr "<i class=\"fa fa-check-square-o fa-fw\"/> Cần xác thực"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "<i class=\"fa fa-flag fa-fw\"/> Flagged"
+msgstr "<i class=\"fa fa-flag fa-fw\"/> Đã gắn cờ"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.moderation_queue
+msgid ""
+"<i class=\"fa fa-check text-success d-block display-2\"/>\n"
+"            <b>You've Completely Caught Up!</b><br/>"
+msgstr ""
+"<i class=\"fa fa-check text-success d-block display-2\"/>\n"
+"            <b>Bạn đã hoàn thành duyệt!</b><br/>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.moderation_queue
+msgid "No flagged posts"
+msgstr "Không có bài viết được gắn cờ"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_sidebar
+msgid "Moderation tools"
+msgstr "Công cụ kiểm duyệt"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.header
+msgid "Moderation"
+msgstr "Kiểm duyệt"
+
+#. module: website_forum
+#: model:website.menu,name:website_forum.moderation_queue
+msgid "Forum Moderation Queue"
+msgstr "Hàng đợi kiểm duyệt diễn đàn"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_badges
+msgid "<i class=\"fa fa-arrow-right mr-1\"/>Check all available badges"
+msgstr "<i class=\"fa fa-arrow-right mr-1\"/>Kiểm tra tất cả các huy hiệu có sẵn"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "<small class=\"font-weight-bold mr-2\">Current rank:</small>"
+msgstr "<small class=\"font-weight-bold mr-2\">Rank hiện tại:</small>"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "Next rank:"
+msgstr "Rank kế tiếp:"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_header
+msgid "(not verified)"
+msgstr "(Chưa xác minh)"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_header
+msgid "<i class=\"fa fa-pencil mr-2\"/>EDIT PROFILE"
+msgstr "<i class=\"fa fa-pencil mr-2\"/>CHỈNH SỬA HỒ SƠ"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "<small class=\"font-weight-bold\">Badges</small>"
+msgstr "<small class=\"font-weight-bold\">Danh hiệu</small>"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_content
+msgid "<small class=\"font-weight-bold\">Joined</small>"
+msgstr "<small class=\"font-weight-bold\">Ngày tham gia</small>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_profile_content
+msgid "<small class=\"font-weight-bold\">Votes</small>"
+msgstr "<small class=\"font-weight-bold\">Bình chọn</small>"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.user_profile_sub_nav
+msgid "Search users"
+msgstr "Tìm kiếm người dùng"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_profile_content
+msgid "<span class=\"font-weight-bold\">No answer posted yet.</span>"
+msgstr "<span class=\"font-weight-bold\">Chưa có câu trả lời nào được đăng.</span>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.user_votes
+msgid "No vote given by you yet!"
+msgstr "Không có bình chọn nào của bạn!"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_answer
+msgid ""
+"<b>Please try to give a substantial answer.</b> If you wanted to comment on the question or answer, just\n"
+"            <b>use the commenting tool.</b> Please remember that you can always <b>revise your answers</b>\n"
+"            - no need to answer the same question twice. Also, please <b>don't forget to vote</b>\n"
+"            - it really helps to select the best questions and answers!"
+msgstr ""
+"<b>Hãy đưa ra câu trả lời phù hợp với câu hỏi.</b> Nếu muốn bình luận về câu hỏi hoặc câu trả lời, hãy\n"
+"            <b>sử dụng công cụ bình luận.</b> Bạn có thể <b>chỉnh sửa lại câu trả lời</b>\n"
+"            - không cần trả lời cùng một câu hỏi hai lần. Ngoài, <b>đừng quyên bình chọn câu trả lời hay nhất - đúng nhất!</b>\n"
+"            - giúp chọn các câu hỏi và câu trả lời tốt nhất!"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
+msgid "<i class=\" fa fa-comment text-muted mr-1\"/>Comment"
+msgstr "<i class=\" fa fa-comment text-muted mr-1\"/>Bình luận"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
+msgid "<i class=\"fa fa-reply mr-1\"/>Answer"
+msgstr "<i class=\"fa fa-reply mr-1\"/>Trả lời"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
+msgid "<i class=\"fa fa-share-alt text-muted mr-1\"/>Share"
+msgstr "<i class=\"fa fa-share-alt text-muted mr-1\"/>Chia sẻ"
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.users_page_header
+msgid "All Users"
+msgstr "Tất cả thành viên"
+
+#. module: website_livechat
+#: model_terms:ir.ui.view,arch_db:website_livechat.channel_list_page
+msgid "Livechat Support Channels"
+msgstr "Kênh chat hỗ trợ trực tuyến"
+
+#. module: website_livechat
+#: model_terms:ir.ui.view,arch_db:website_livechat.channel_list_page
+msgid "There are no public livechat channels to show."
+msgstr "Không có kênh chat để hiển thị."
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_newbie
+msgid "Bronze"
+msgstr "Đồng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_student
+msgid "Silver"
+msgstr "Bạc"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_bachelor
+#: model:ir.model.fields.selection,name:gamification.selection__gamification_badge__level__gold
+msgid "Gold"
+msgstr "Vàng"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_master
+msgid "Platinum"
+msgstr "Bạch kim"
+
+#. module: gamification
+#: model:gamification.karma.rank,name:gamification.rank_doctor
+msgid "Diamond"
+msgstr "Kim cương"
+
+#. module: qa_app
+#: code:qa_app/controllers/main.py:0
+#, python-format
+msgid "The confirmation password is incorrect ! Please enter a confirm password."
+msgstr "Mật khẩu xác nhận không chính xác! Vui lòng nhập mật khẩu xác nhận."
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "Old Password"
+msgstr "Mật khẩu cũ"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+msgid "Confirm New Password"
+msgstr "Xác nhận mật khẩu"
+
+#. module: qa_app
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_password
+#: model_terms:ir.ui.view,arch_db:qa_app.utc2_pass_link
+msgid "Change Password"
+msgstr "Thay đổi mật khẩu"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.new_question
+msgid "A clear, explicit and concise question title"
+msgstr "Tiêu đề câu hỏi rõ ràng, súc tích"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.edit_post
+#: model_terms:ir.ui.view,arch_db:website_forum.new_question
+msgid ""
+"Example\n"
+"                        <i class=\"fa fa-question-circle\"/>"
+msgstr ""
+"Ví dụ\n"
+"                        <i class=\"fa fa-question-circle\"/>"
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.edit_post
+#: model_terms:ir.ui.view,arch_db:website_forum.new_question
+msgid ", consider <b>adding an example</b>."
+msgstr ", xem xét <b>thêm một ví dụ</b>."
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.email_validation_banner
+msgid "It appears your email has not been verified.<br/>"
+msgstr "Có vẻ như email của bạn chưa được xác minh.<br/>"
+
+#. module: website_forum
+#: model_terms:ir.ui.view,arch_db:website_forum.header
+msgid "Click here to send a verification email allowing you to participate to the forum."
+msgstr "Nhấn vào đây để gửi email xác minh cho phép bạn tham gia vào diễn đàn."
+
+#. module: website_profile
+#: model_terms:ir.ui.view,arch_db:website_profile.email_validation_banner
+msgid ""
+"<span id=\"email_validated_message\">Congratulations! Your email has just "
+"been validated.</span>"
+msgstr ""
+"<span id=\"email_validated_message\">Xin chúc mừng! Email của bạn "
+"đã được xác thực.</span>"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__parent_id
+msgid "Parent Tag"
+msgstr "Tag cha"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__parent_path
+msgid "Parent Path"
+msgstr "Đường dẫn"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__child_ids
+msgid "Subtag"
+msgstr "Tag con"
+
+#. module: website_forum
+#: model:ir.model.fields,field_description:website_forum.field_forum_tag__highlighted_id
+msgid "Tags Highlight"
+msgstr "Nổi bật"
+
+#. module: website_profile
+#: model:mail.template,body_html:website_profile.validation_email
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; color: #454748; width: 100%; border-collapse:separate;\"><tr><td align=\"center\">\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"<tbody>\n"
+"    <!-- HEADER -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td valign=\"middle\">\n"
+"                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                            ${object.company_id.name} Profile validation\n"
+"                        </span>\n"
+"                    </td>\n"
+"                    <td valign=\"middle\" align=\"right\">\n"
+"                        <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\"/>\n"
+"                    </td>\n"
+"                </tr>\n"
+"                <tr>\n"
+"                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <!-- CONTENT -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                        <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                            Xin chào ${object.name},<br/><br/>\n"
+"                            Bạn đã được mời để xác nhận email của bạn để có được quyền truy cập vào trang web \"${object.company_id.name}\" website.\n"
+"                            Để xác nhận email của bạn, hãy nhấp vào liên kết sau:\n"
+"                            <div style=\"margin: 16px 0px 16px 0px;\">\n"
+"                                <a href=\"${ctx.get('token_url')}\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
+"                                    Xác nhận tài khoản của tôi\n"
+"                                </a>\n"
+"                            </div>\n"
+"                            Cám ơn đã đến với diễn đàn chúng tôi!\n"
+"                        </p>\n"
+"                    </td>\n"
+"                </tr>\n"
+"                <tr>\n"
+"                    <td style=\"text-align:center;\">\n"
+"                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <!-- FOOTER -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\" font-family: 'Verdana Regular'; color: #454748; min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td valign=\"middle\" align=\"left\">\n"
+"                         ${user.company_id.name}\n"
+"                    </td>\n"
+"                    <td valign=\"middle\" align=\"right\" style=\"opacity: 0.7;\">\n"
+"                        ${user.company_id.phone}\n"
+"                        % if user.company_id.email:\n"
+"                            | <a href=\"'mailto:%s' % ${user.company_id.email}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                ${user.company_id.email}\n"
+"                            </a>\n"
+"                        % endif\n"
+"                        % if user.company_id.website:\n"
+"                            | <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                ${user.company_id.website}\n"
+"                            </a>\n"
+"                        % endif\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        </td>\n"
+"    </tr>\n"
+"</tbody>\n"
+"</table>\n"
+"</td></tr>\n"
+"<!-- POWERED BY -->\n"
+"<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"        <tr><td style=\"text-align: center; font-size: 13px;\">\n"
+"            Powered by <a target=\"_blank\" href=\"\" style=\"color: #875A7B;\">UTC2 Forum</a>\n"
+"        </td></tr>\n"
+"    </table>\n"
+"</td></tr>\n"
+"</table>\n"
+"            "
+msgstr ""
+
+#. module: website_forum
+#: model:forum.forum,name:website_forum.forum_help
+msgid "Forum Listen to students talk"
+msgstr "Diễn đàn Nghe sinh viên nói chuyện."
+
+#. module: website_forum
+#: model:forum.forum,description:website_forum.forum_help
+msgid ""
+"Slogan: UTC2 Nghe SV nói - Nói SV nghe"
+msgstr ""
+"Slogan: UTC2 Nghe SV nói - Nói SV nghe."
+
+
+
+
+
+
+
+
+
+
+
+
+
+

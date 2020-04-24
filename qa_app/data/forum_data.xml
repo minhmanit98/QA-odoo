@@ -48,5 +48,62 @@
             <field name="name">Student forum</field>
             <field name="description">Sinh viên tra đổi</field>
         </record>
+        <!-- Tag -->
+        <record id="utc2_tags_0" model="forum.tag">
+            <field name="name">admin</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_1" model="forum.tag">
+            <field name="name">ban quản lý ktx</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_2" model="forum.tag">
+            <field name="name">ban thanh tra đào tạo</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_3" model="forum.tag">
+            <field name="name">ban thông tin thư viện</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_4" model="forum.tag">
+            <field name="name">ban công tác chính trị và sinh viên</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_5" model="forum.tag">
+            <field name="name">ban khảo thí và đảm bảo chất lượng</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_6" model="forum.tag">
+            <field name="name">ban đào tạo</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_7" model="forum.tag">
+            <field name="name">ban thiết bị quản trị</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_8" model="forum.tag">
+            <field name="name">ban tổ chức hành chính</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_9" model="forum.tag">
+            <field name="name">trung tâm đào tạo thực hành</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_10" model="forum.tag">
+            <field name="name">giảng viên</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_11" model="forum.tag">
+            <field name="name">cố vấn</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+        <record id="utc2_tags_12" model="forum.tag">
+            <field name="name">khác</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
+         <record id="utc2_tags_13" model="forum.tag">
+            <field name="name">đoàn và hội</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
     </data>
 </odoo>
