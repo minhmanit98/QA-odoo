@@ -14,15 +14,23 @@ class Tags(models.Model):
 class Post(models.Model):
     _inherit = "forum.post"
 
-    def _default_user_incognito(self):
-        return self.env.ref('qa_app.user_private')
+    @api.model
+    @api.depends('is_incognito')
+    def _compute_user_incognito(self):
+        for record in self:
+            if record.is_incognito:
+                record.user_incognito = self.env.ref('qa_app.user_private')
+            else:
+                record.user_incognito = False
 
+    @api.model
+    @api.depends('tag_ids')
     def _compute_tag_main(self):
         for record in self:
             record.tag_main = record.tag_ids and record.tag_ids[0] or False
 
     is_incognito = fields.Boolean('Private post', default=False, readonly=True)
-    user_incognito = fields.Many2one('res.users', string='User Incognito', default=_default_user_incognito, readonly=True)
+    user_incognito = fields.Many2one('res.users', string='User Incognito', compute=_compute_user_incognito)
     tag_main = fields.Many2one('forum.tag', string='Tag main', compute=_compute_tag_main, store=True)
 
     def post_notification(self):

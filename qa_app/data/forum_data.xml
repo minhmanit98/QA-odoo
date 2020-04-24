@@ -101,5 +101,9 @@
             <field name="name">khác</field>
             <field name="forum_id" ref="website_forum.forum_help"/>
         </record>
+         <record id="utc2_tags_13" model="forum.tag">
+            <field name="name">đoàn và hội</field>
+            <field name="forum_id" ref="website_forum.forum_help"/>
+        </record>
     </data>
 </odoo>

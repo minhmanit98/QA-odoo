@@ -31,6 +31,8 @@ with open('import_data_q.csv', encoding='utf8') as csv_file:
             row[3]= 'qa_app.utc2_tags_11'
         elif row[3] == 'khác':
             row[3]= 'qa_app.utc2_tags_12'
+        elif row[3] == 'đoàn và hội':
+            row[3]= 'qa_app.utc2_tags_13'
         elif row[3] == 'null' or row[3] == 'null2':
             row[3]= ''
         data.append(row)
