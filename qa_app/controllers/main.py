@@ -19,6 +19,8 @@ from .text_classification_utc2 import settings
 import pickle as pickle
 from .text_classification_utc2.preProcessData import FeatureExtraction, NLP
 
+from .qa_ml.qa_ml import QA_ML
+
 
 class UTC2Forum(Controller):
 
@@ -156,6 +158,12 @@ class WebsiteForum(WebsiteProfile):
         if tag_classifier_id:
             post_tag_ids[0][2].append(tag_classifier_id)
 
+        response_primary, response_message, line_id_primary = QA_ML(content)
+
+        content = content + "---- /n" + response_primary
+
+        
+
         if request.env.user.forum_waiting_posts_count:
             return werkzeug.utils.redirect("/forum/%s/ask" % slug(forum))
 
@@ -163,7 +171,7 @@ class WebsiteForum(WebsiteProfile):
             'forum_id': forum.id,
             'name': post.get('post_name') or (post_parent and 'Re: %s' % (post_parent.name or '')) or '',
             'is_incognito': post.get('post_incognito') or False,
-            'content': post.get('content', False),
+            'content': content,
             'parent_id': post_parent and post_parent.id or False,
             'tag_ids': post_tag_ids
         })

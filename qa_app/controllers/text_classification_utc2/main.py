@@ -4,7 +4,7 @@ import json
 import settings
 from datetime import datetime
 from fileProcess import FileReader, FileStore 
-from preProcessData import FeatureExtraction
+from preProcessData2 import FeatureExtraction
 import numpy as np
 import itertools
 

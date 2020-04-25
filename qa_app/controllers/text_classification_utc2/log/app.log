@@ -103,3 +103,61 @@ ban công tác chính trị và sinh viên       1.00      1.00      1.00       
                        weighted avg       1.00      1.00      1.00      1715
 
 INFO:root:('Training by SVM Done! ', '2020-04-21 01:28:16.076141')
+INFO:root:('Training by SVM classification ... ', '2020-04-26 00:12:46.128280')
+INFO:root:
+Model: LinearSVC
+C = 10
+Penalty='l2'
+Max_iter = 10
+INFO:root:('Accurancy: ', 1.0)
+INFO:root:                                     precision    recall  f1-score   support
+
+                              admin       1.00      1.00      1.00       137
+ban công tác chính trị và sinh viên       1.00      1.00      1.00       220
+  ban khảo thí & đảm bảo chất lượng       1.00      1.00      1.00        44
+              ban quản lý ký túc xá       1.00      1.00      1.00        97
+              ban thiết bị quản trị       1.00      1.00      1.00        15
+             ban thông tin thư viện       1.00      1.00      1.00        10
+             ban tổ chức hành chính       1.00      1.00      1.00        41
+                        ban đào tạo       1.00      1.00      1.00      1040
+                             cố vấn       1.00      1.00      1.00        22
+                         giảng viên       1.00      1.00      1.00        15
+                               khác       1.00      1.00      1.00        20
+                              null2       1.00      1.00      1.00        23
+        trung tâm đào tạo thực hành       1.00      1.00      1.00        16
+                        đoàn và hội       1.00      1.00      1.00        15
+
+                          micro avg       1.00      1.00      1.00      1715
+                          macro avg       1.00      1.00      1.00      1715
+                       weighted avg       1.00      1.00      1.00      1715
+
+INFO:root:('Training by SVM Done! ', '2020-04-26 00:12:47.184800')
+INFO:root:('Training by SVM classification ... ', '2020-04-26 00:56:42.957380')
+INFO:root:
+Model: LinearSVC
+C = 10
+Penalty='l2'
+Max_iter = 10
+INFO:root:('Accurancy: ', 1.0)
+INFO:root:                                     precision    recall  f1-score   support
+
+                              admin       1.00      1.00      1.00       137
+ban công tác chính trị và sinh viên       1.00      1.00      1.00       220
+  ban khảo thí & đảm bảo chất lượng       1.00      1.00      1.00        44
+              ban quản lý ký túc xá       1.00      1.00      1.00        97
+              ban thiết bị quản trị       1.00      1.00      1.00        15
+             ban thông tin thư viện       1.00      1.00      1.00        10
+             ban tổ chức hành chính       1.00      1.00      1.00        41
+                        ban đào tạo       1.00      1.00      1.00      1040
+                             cố vấn       1.00      1.00      1.00        22
+                         giảng viên       1.00      1.00      1.00        15
+                               khác       1.00      1.00      1.00        20
+                              null2       1.00      1.00      1.00        23
+        trung tâm đào tạo thực hành       1.00      1.00      1.00        16
+                        đoàn và hội       1.00      1.00      1.00        15
+
+                          micro avg       1.00      1.00      1.00      1715
+                          macro avg       1.00      1.00      1.00      1715
+                       weighted avg       1.00      1.00      1.00      1715
+
+INFO:root:('Training by SVM Done! ', '2020-04-26 00:56:43.978133')
