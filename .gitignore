@@ -22,3 +22,23 @@ qa_app/models/qa/__pycache__/
 qa_app/models/res/__pycache__/
 
 qa_app/models/website/__pycache__/
+
+management-system/document_page/__pycache__/
+
+management-system/document_page/models/__pycache__/
+
+management-system/document_page/wizard/__pycache__/
+
+management-system/document_page_procedure/__pycache__/
+
+management-system/document_page_quality_manual/__pycache__/
+
+management-system/document_page_work_instruction/__pycache__/
+
+management-system/knowledge/__pycache__/
+
+management-system/knowledge/models/__pycache__/
+
+management-system/mgmtsystem/__pycache__/
+
+management-system/mgmtsystem/models/__pycache__/
