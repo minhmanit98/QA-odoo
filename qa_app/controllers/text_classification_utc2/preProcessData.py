@@ -1,8 +1,10 @@
 from . import settings
+# import settings
 import os 
 from random import randint
 from datetime import datetime
 from .fileProcess import FileStore,FileReader,DataLoader
+# from fileProcess import FileStore,FileReader,DataLoader
 from pyvi import ViTokenizer
 from gensim import corpora, matutils
 from sklearn.feature_extraction.text import TfidfVectorizer
