@@ -5,7 +5,7 @@ import json
 import settings
 import pickle as pickle
 from fileProcess import FileReader, FileStore 
-from preProcessData import FeatureExtraction ,NLP
+from preProcessData2 import FeatureExtraction ,NLP
 from pyvi import ViTokenizer
 from sklearn.svm import LinearSVC
 from gensim import corpora, matutils
