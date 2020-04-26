@@ -32,6 +32,9 @@ class Post(models.Model):
     is_incognito = fields.Boolean('Private post', default=False, readonly=True)
     user_incognito = fields.Many2one('res.users', string='User Incognito', compute=_compute_user_incognito)
     tag_main = fields.Many2one('forum.tag', string='Tag main', compute=_compute_tag_main, store=True)
+    qa_ml_answer = fields.Char('QA ML Answer', default=False, readonly=True)
+    qa_ml_score = fields.Char('QA Score', default=False, readonly=True)
+    qa_ml_id = fields.Many2one('forum.post', string='QA ML id', default=False)
 
     def post_notification(self):
         for post in self:
