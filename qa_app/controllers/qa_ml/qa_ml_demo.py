@@ -214,3 +214,31 @@ def QA_ML(test_set_sentence):
                             return row["RESPONSE"], row["MESSAGE"], max
                             break
 
+flag=True
+print("......................................................................................")
+print('\x1b[1;37;40m' + 'Jarvis'+'\x1b[0m'+': '+ 'My name is Jarvis, a Lawyer Apprentice Bot.')
+print('\x1b[1;37;40m' + 'Jarvis'+'\x1b[0m'+': '+ 'I will try my best to answer your query.')
+print('\x1b[1;37;40m' + 'Jarvis'+'\x1b[0m'+': '+ 'If you want to exit, you can type < bye >.')
+while(flag==True):
+    print("......................................................................................")
+    sentence = input('\x1b[0;30;47m' +"USER  "+'\x1b[0m'+":")
+    print("......................................................................................")
+    text_tokens = word_tokenize(sentence)
+    tokens_without_sw = [word for word in text_tokens if not word in stop_words]
+    sentence = (" ").join(tokens_without_sw)
+    print("Rút gọn :" + sentence)
+    if(sentence.lower()!='bye'):
+        if(greeting(sentence.lower())!=None):
+            print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+ greeting(sentence.lower()))
+        else:
+            response_primary, response_message, line_id_primary = QA_ML(sentence)
+            print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+response_primary)
+
+            #For Tracing, comment to remove from print
+            print("")
+            print("SCORE: "+str(line_id_primary))
+            print("COR_QUES:"+response_message)
+            print("")
+    else:
+        flag=False
+print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+"Bye! Hope that i am of help.")
