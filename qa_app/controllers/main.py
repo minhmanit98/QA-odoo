@@ -159,10 +159,8 @@ class WebsiteForum(WebsiteProfile):
             post_tag_ids[0][2].append(tag_classifier_id)
 
         response_primary, response_message, line_id_primary = QA_ML(content)
-
-        content = content + "---- /n" + response_primary
-
-        
+        qa_ml_id = request.env['forum.post'].search([('content', '=', response_message)]).id
+        print(qa_ml_id)
 
         if request.env.user.forum_waiting_posts_count:
             return werkzeug.utils.redirect("/forum/%s/ask" % slug(forum))
@@ -172,8 +170,18 @@ class WebsiteForum(WebsiteProfile):
             'name': post.get('post_name') or (post_parent and 'Re: %s' % (post_parent.name or '')) or '',
             'is_incognito': post.get('post_incognito') or False,
             'content': content,
+            'qa_ml_answer': response_primary,
+            'qa_ml_score': str(round(line_id_primary * 100, 2)),
+            'qa_ml_id': qa_ml_id,
             'parent_id': post_parent and post_parent.id or False,
             'tag_ids': post_tag_ids
         })
+
+        new_question.message_post_with_view(
+            'qa_app.utc2_comment_qa_ml',
+            message_type='comment',
+            subtype_id=request.env['ir.model.data'].xmlid_to_res_id('mail.mt_comment'),
+            subject=new_question.name)
+
         return werkzeug.utils.redirect(
             "/forum/%s/question/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))
