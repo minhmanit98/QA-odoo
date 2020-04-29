@@ -160,7 +160,6 @@ class WebsiteForum(WebsiteProfile):
 
         response_primary, response_message, line_id_primary = QA_ML(content)
         qa_ml_id = request.env['forum.post'].search([('content', '=', response_message)]).id
-        print(qa_ml_id)
 
         if request.env.user.forum_waiting_posts_count:
             return werkzeug.utils.redirect("/forum/%s/ask" % slug(forum))
@@ -177,11 +176,18 @@ class WebsiteForum(WebsiteProfile):
             'tag_ids': post_tag_ids
         })
 
-        new_question.message_post_with_view(
+        new_question.with_env(request.env(user=request.env.ref('base.user_root').id)).message_post_with_view(
             'qa_app.utc2_comment_qa_ml',
             message_type='comment',
+            partner_ids=[(6, 0, [3])],
             subtype_id=request.env['ir.model.data'].xmlid_to_res_id('mail.mt_comment'),
             subject=new_question.name)
+
+        # qa_ml_answer = request.env['forum.post'].with_env(request.env(user=request.env.ref('base.user_root').id)).create({
+        #     'forum_id': forum.id,
+        #     'content': response_primary,
+        #     'parent_id': new_question.id
+        # })
 
         return werkzeug.utils.redirect(
             "/forum/%s/question/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))
