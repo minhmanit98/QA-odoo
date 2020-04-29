@@ -7,7 +7,37 @@ import requests
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
+
+    @api.model
+    @api.depends('karma')
+    def _compute_karma_min(self):
+        ranks = self.env['gamification.karma.rank'].search([('karma_min', '!=', 0)])
+        for record in self:
+            for rank in ranks:
+                if record.karma >= rank.karma_min:
+                    record.karma_rank_id = rank
+                    record.karma_min = rank.karma_min
+
+    def _default_karma_rank_id(self):
+        ranks = self.env['gamification.karma.rank'].search([('karma_min', '!=', 0)])
+        for rank in ranks:
+            if self.karma >= rank.karma_min:
+                self.karma_rank_id = rank
+
     odoobot_state = fields.Selection(selection_add=[('haribot', 'Chat with HariBot')])
+    karma_rank_id = fields.Many2one('gamification.karma.rank', string='Rank', default=_default_karma_rank_id)
+    karma_min = fields.Integer('Check karma', readonly=True, compute=_compute_karma_min )
+
+    @api.onchange('karma_rank_id')
+    def onchange_karma_rank_id(self):
+        if self.karma_rank_id:
+            self.karma = self.karma - self.karma_min
+            self.karma_min = self.karma_rank_id.karma_min
+            self.karma = self.karma + self.karma_min
+        else:
+            self.karma = self.karma - self.karma_min
+            self.karma_min = 0
+
 
     def get_avatar_default(self, email):
         response = requests.get('https://api.adorable.io/avatars/'+email).content
