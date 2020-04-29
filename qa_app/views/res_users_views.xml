@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="utc2_view_users_form" model="ir.ui.view">
+            <field name="name">utc2.res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <notebook colspan="4" position="inside">
+                    <page string="UTC2Forum">
+                        <group>
+                            <field string="Karma" name="karma"/>
+                            <field string="Rank" name="karma_rank_id"/>
+                            <field name="karma_min"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>
+

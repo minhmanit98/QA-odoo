@@ -73,7 +73,3 @@ class Forum(models.Model):
         Tag = self.env['forum.tag']
         tag_id = Tag.search([('name', '=', tag_name)], limit=1).id
         return tag_id
-
-
-
-
