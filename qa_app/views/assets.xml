@@ -7,6 +7,8 @@
         <link href="/qa_app/static/src/css/custom.css" rel="stylesheet" />
         <link href="/qa_app/static/src/css/custom.scss" rel="stylesheet" />
         <script type="text/javascript" src="/qa_app/static/src/js/agency.min.js"/>
+         <script type="text/javascript" src="/qa_app/static/src/js/navbar.js"/>
+        <link href="/qa_app/static/src/css/navbar.scss" rel="stylesheet" />
 
       </xpath>
     </template>
@@ -25,7 +27,7 @@
 
       <template id="assets_frontend_inherit" inherit_id="web.assets_frontend" name="Scroll Button" >
         <xpath expr="." position="inside">
-			<script type="text/javascript" src="/qa_app/static/src/js/scroll_totop.js"></script>
+			<script type="text/javascript" src="/qa_app/static/src/js/scroll_totop.js"/>
         <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
         </xpath>
     </template>

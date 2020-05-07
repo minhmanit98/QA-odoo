@@ -10,17 +10,15 @@ odoo.define('qa_app.scroll_totop', function (require) {
 	function scrollFunction() {
 	    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 	    	$('#back-to-top').fadeIn();
-	        // document.getElementById("back-to-top").style.display = "block";
+	    	$('#top').addClass('o_header_affix affix affixed');
+	    	$('#top').removeClass('o_affix_enabled');
+
+
 	    } else {
 	    	$('#back-to-top').fadeOut();
-	        // document.getElementById("back-to-top").style.display = "none";
+	    	$('#top').removeClass('o_header_affix affix affixed');
+	    	$('#top').addClass('o_affix_enabled');
 	    }
-	}
-	function topFunction() {
-	    $('body,html').animate({
-				scrollTop: 0
-			}, 400);
-			return false;
 	}
 	$('#back-to-top').click(function () {
 			$('body,html').animate({

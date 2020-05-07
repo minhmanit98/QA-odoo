@@ -290,3 +290,11 @@ a:hover {
     right: 25px;
     display: none;
 }
+
+ .fixed-top {
+    position: fixed;
+    top: auto;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
