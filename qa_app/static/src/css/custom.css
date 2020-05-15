@@ -298,3 +298,18 @@ a:hover {
     left: 0;
     z-index: 1030;
 }
+ .logo-min{
+     display: none;
+ }
+
+/* nav.affix a.logo{*/
+/*     display: none;*/
+/* }*/
+
+/*nav.affix a.logo-min{*/
+/*     display: block;*/
+/* }*/
+
+ #nav.affix{
+     display: none;
+ }

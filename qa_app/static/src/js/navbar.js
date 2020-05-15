@@ -6,26 +6,16 @@ odoo.define('qa_app.navbar', function (require) {
 	var QWeb = core.qweb;
 
 	$(window).scroll(function() {
-		if ($(document).scrollTop() > 50) {
+		if ($(document).scrollTop() > 100) {
 			$('#nav').addClass('affix');
-			console.log("OK");
+			$('#top').addClass('o_header_affix affix affixed');
+	    	$('#top').removeClass('o_affix_enabled');
 		} else {
 			$('#nav').removeClass('affix');
+			$('#top').removeClass('o_header_affix affix affixed');
+			$('#top').addClass('o_affix_enabled');
 		}
 	});
-
-	window.onscroll = function() {scrollFunction()};
-
-	function scrollFunction() {
-	    if ($(document).scrollTop() > 50) {
-               	$('#top').addClass('o_header_affix affix affixed');
-	    		$('#top').removeClass('o_affix_enabled');
-
-            } else {
-	    		$('#top').removeClass('o_header_affix affix affixed');
-	    		$('#top').addClass('o_affix_enabled');
-            }
-	}
 
 	$('.navTrigger').click(function () {
     $(this).toggleClass('active');

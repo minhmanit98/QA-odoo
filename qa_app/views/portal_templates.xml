@@ -11,6 +11,9 @@
                     <a href="/" class="navbar-brand logo">
                         <img t-att-src="'/logo.png?company=%s' % res_company.id" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
                     </a>
+                    <a href="/" class="navbar-brand logo logo-min">
+                        <img t-att-src="'/logo.png'" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                    </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#top_menu_collapse">
                         <span class="navbar-toggler-icon"/>
                     </button>
@@ -29,6 +32,56 @@
                                 </div>
                             </li>
                         </ul>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-md navbar-fixed" id="nav-min">
+                <div class="container-fluid">
+                    <!-- Nav Header -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#"><span class="fa fa-home"></span><span class="link"> Home</span></a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapse-1">
+                            <span class="navbar-toggler-icon"/>
+                        </button>
+                    </div>
+                    <!-- Nav Collapse -->
+                    <div class="navbar-collapse collapse" id="collapse-1">
+                        <!-- Nav Left -->
+                        <ul class="nav navbar-nav">
+                            <!-- Products -->
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fa fa-foursquare"></span><span class="link"> Forum</span> <span class="fa fa-caret-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><span class="fa fa-foursquare"></span> Forum 1</a></li>
+                                    <li><a href="#"><span class="fa fa-foursquare"></span> Forum 2</a></li>
+                                </ul>
+				            </li>
+                            <!-- Services -->
+                            <li class="dropdown">
+					            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fa fa-comments"></span>
+                                    <span class="link"> Live Support</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><span class="fa fa-comments"></span> Live Support 1</a></li>
+                                    <li><a href="#"><span class="fa fa-comments"></span> Live Support 2</a></li>
+                                    <li><a href="#"><span class="fa fa-comments"></span> Live Support 3</a></li>
+                                </ul>
+                            </li>
+                            <!-- About -->
+                            <li><a class="nav-link" href="#"><span class="fa fa-info-circle"></span><span class="link"> Contact us</span></a></li>
+                            <!-- Contact -->
+<!--                            <li><a href="#"><span class="fa fa-phone"></span><span class="link"> Contact us</span></a></li>-->
+                        </ul>
+                        <!-- Nav Right -->
+                        <form class="navbar-form navbar-right ml-auto text-right">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search"/>
+                            </div>
+                            <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+                        </form>
                     </div>
                 </div>
             </nav>
