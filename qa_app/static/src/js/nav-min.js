@@ -1,6 +1,9 @@
 odoo.define('qa_app.nav-min', function (require) {
 'use strict';
 
+    var rpc = require('web.rpc');
+
+
     $(window).scroll(function() {
 		if ($(document).scrollTop() > 100) {
 			$('#nav-min').addClass('affix');
@@ -10,21 +13,21 @@ odoo.define('qa_app.nav-min', function (require) {
 	});
 
     // Open close dropdown on click
-    $("li.dropdown").click(function(){
-        if($(this).hasClass("open")) {
+    $("li.dropdown-new").click(function(){
+        if($(this).hasClass("show")) {
             $(this).find(".dropdown-menu").slideUp("fast");
-            $(this).removeClass("open");
+            $(this).removeClass("show");
         }
         else {
             $(this).find(".dropdown-menu").slideDown("fast");
-            $(this).toggleClass("open");
+            $(this).toggleClass("show");
         }
     });
 
     // Close dropdown on mouseleave
-    $("li.dropdown").mouseleave(function(){
+    $("li.dropdown-new").mouseleave(function(){
         $(this).find(".dropdown-menu").slideUp("fast");
-        $(this).removeClass("open");
+        $(this).removeClass("show");
     });
 
     // Navbar toggle
@@ -95,4 +98,25 @@ odoo.define('qa_app.nav-min', function (require) {
             });
         }
     })
+
+    rpc.query({
+                model: 'forum.forum',
+                method: 'search_read',
+                args: [[],['id','name']],
+            }).then(function(res) {
+                for(var i=0;i<res.length;i++) {
+                    $("#li-forum ul").append(" <li><a href=\"/forum/"+res[i].id+"\"  class=\"link\"><span class=\"fa fa-foursquare\"></span>"+res[i].name+"</a></li>");
+                }
+    });
+
+    rpc.query({
+                model: 'im_livechat.channel',
+                method: 'search_read',
+                args: [[],['id','name']],
+            }).then(function(res) {
+                for(var i=0;i<res.length;i++) {
+                    $("#li-livechat ul").append(" <li><a href=\"/livechat/channel/"+res[i].id+"\"  class=\"link\"><span class=\"fa fa-comments\"></span>"+res[i].name+"</a></li>");
+                }
+    });
+
 });

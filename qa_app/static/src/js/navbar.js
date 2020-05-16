@@ -1,10 +1,5 @@
 odoo.define('qa_app.navbar', function (require) {
 'use strict';
-
-	var core = require('web.core');
-	var _t = core._t;
-	var QWeb = core.qweb;
-
 	$(window).scroll(function() {
 		if ($(document).scrollTop() > 100) {
 			$('#nav').addClass('affix');
@@ -16,7 +11,6 @@ odoo.define('qa_app.navbar', function (require) {
 			$('#top').addClass('o_affix_enabled');
 		}
 	});
-
 	$('.navTrigger').click(function () {
     $(this).toggleClass('active');
     console.log("Clicked menu");

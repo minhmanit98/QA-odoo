@@ -8,6 +8,9 @@
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/custom.scss"  />
         <script type="text/javascript" src="/qa_app/static/src/js/agency.min.js"/>
          <script type="text/javascript" src="/qa_app/static/src/js/navbar.js"/>
+        <script type="text/javascript" src="/qa_app/static/src/js/nav-min.js"/>
+        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/nav-min.scss" />
+<!--        <script src="https://kit.fontawesome.com/081ec28180.js" crossorigin="anonymous"></script>-->
 <!--        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/navbar.scss" rel="stylesheet" /> -->
       </xpath>
     </template>
@@ -15,9 +18,6 @@
     <template id="assets_frontend" inherit_id="web.assets_frontend" name="Website Assets">
       <xpath expr="." position="inside">
          <script type="text/javascript" src="/qa_app/static/src/js/menu.js"/>
-           <script type="text/javascript" src="/qa_app/static/src/js/nav-min.js"/>
-        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/nav-min.scss" />
-<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />-->
       </xpath>
     </template>
 

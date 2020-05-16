@@ -10,6 +10,21 @@
 
 // Options
 
+.dropdown-new ul li a span.fa{
+	padding: 0 5px 0 5px;
+}
+
+.dropdown-new ul{
+	overflow: auto;
+}
+
+.dropdown-new ul li{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+	width: 100%;
+}
 
 #nav-min{
 	display: none;
@@ -200,7 +215,7 @@
 				transition: 0.4s ease;
 			}
 
-			&.open {
+			&.show {
 				background-color: rgba(255, 255, 255, 0.2);
 				font-size: 14px;
 
@@ -222,10 +237,13 @@
 
 			.dropdown-menu {
 				min-width: 0px !important;
-				width: 100%;
+				//width: 100%;
 				//background: #ff5858;
-				text-align: center;
+				//text-align: center;
 				border-radius: 0;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
 
 				li, a {
 					//color: white;
