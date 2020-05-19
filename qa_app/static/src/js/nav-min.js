@@ -12,6 +12,23 @@ odoo.define('qa_app.nav-min', function (require) {
 		}
 	});
 
+
+
+    $("#btn-search").click(function(){
+        var search = $("#nav-search").val();
+        window.location = "http://localhost:8070/forum/1?search="+search+"&filters=all&sorting=create_date+desc";
+    });
+
+    $('#nav-search').hide();
+    $('#btn-search, #nav-search').hover(function() {
+      $('#nav-search').show();
+    }, function() {
+        var checkSearch = $('#nav-search').val()
+        if (!checkSearch){
+            $('#nav-search').hide();
+        }
+    });
+
     // Open close dropdown on click
     $("li.dropdown-new").click(function(){
         if($(this).hasClass("show")) {
@@ -105,7 +122,7 @@ odoo.define('qa_app.nav-min', function (require) {
                 args: [[],['id','name']],
             }).then(function(res) {
                 for(var i=0;i<res.length;i++) {
-                    $("#li-forum ul").append(" <li><a href=\"/forum/"+res[i].id+"\"  class=\"link\"><span class=\"fa fa-foursquare\"></span>"+res[i].name+"</a></li>");
+                    $("#li-forum ul").append(" <li><a href=\"/forum/"+res[i].id+"\"  class=\"link dropdown-item\"><span class=\"fa fa-foursquare\"></span>"+res[i].name+"</a></li>");
                 }
     });
 
@@ -115,8 +132,11 @@ odoo.define('qa_app.nav-min', function (require) {
                 args: [[],['id','name']],
             }).then(function(res) {
                 for(var i=0;i<res.length;i++) {
-                    $("#li-livechat ul").append(" <li><a href=\"/livechat/channel/"+res[i].id+"\"  class=\"link\"><span class=\"fa fa-comments\"></span>"+res[i].name+"</a></li>");
+                    $("#li-livechat ul").append(" <li><a href=\"/livechat/channel/"+res[i].id+"\"  class=\"link dropdown-item\"><span class=\"fa fa-comments\"></span>"+res[i].name+"</a></li>");
                 }
     });
+
+
+
 
 });

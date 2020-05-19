@@ -9,7 +9,6 @@
 //}
 
 // Options
-
 .dropdown-new ul li a span.fa{
 	padding: 0 5px 0 5px;
 }
@@ -18,12 +17,20 @@
 	overflow: auto;
 }
 
+.dropdown-new ul li a{
+    padding: 0 10px 0 10px !important;
+}
+
 .dropdown-new ul li{
 	list-style-type: none;
     margin: 0;
     padding: 0;
     float: left;
 	width: 100%;
+}
+
+#li-livechat ul li{
+	width: 317px !important;
 }
 
 #nav-min{
@@ -150,7 +157,7 @@
 
 		.link {
 			width: 0;
-			font-family: 'Roboto', sans-serif;
+			//font-family: 'Roboto', sans-serif;
 			transition: 0.2s ease-in-out;
 			visibility: hidden;
 			font-size: 0px;
@@ -239,7 +246,7 @@
 				min-width: 0px !important;
 				//width: 100%;
 				//background: #ff5858;
-				//text-align: center;
+				text-align: center;
 				border-radius: 0;
 				text-overflow: ellipsis;
 				overflow: hidden;
@@ -253,7 +260,9 @@
 					&:hover {
 						//color: white;
 						letter-spacing: 1px;
-						background: transparent;
+						//background: transparent;
+						color: #281750 !important;
+    					background-color: #fec503;
 					}
 				}
 

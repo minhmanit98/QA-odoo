@@ -75,20 +75,21 @@
                         <!-- Nav Right -->
                         <form class="navbar-form" style="padding: 0 10px 0 10px;">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search"/>
-                            </div>
-                            <button type="submit" class="btn"><span class="fa fa-search"></span></button>
-                        </form>
+                                <input type="text" class="form-control" placeholder="Search" id="nav-search"/>
+                            </div></form>
+                            <button type="submit" class="btn" id="btn-search"><span class="fa fa-search"></span></button>
                         <form class="navbar-form navbar-right ml-auto text-right">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown dropdown-new" id="li-user">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <span class="link" t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
                                         <span class="fa fa-caret-down"></span>
+                                        <span class="link" t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
                                         <img t-if="user_id.id" class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user_id, 'image_128', '40x40')" alt="Avatar"/>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
+                                        <a href="/my/account/password" role="menuitem" class="dropdown-item">Change Password</a>
+                                        <a t-attf-href="/profile/user/#{uid}" role="menuitem" class="dropdown-item">My Account</a>
                                     </ul>
                                 </li>
                             </ul>
