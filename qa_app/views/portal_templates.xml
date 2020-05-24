@@ -6,7 +6,7 @@
             <attribute name="t-attf-class" add="#{'o_portal' if is_portal else ''}" separator=" "/>
         </xpath>
         <xpath expr="//div[@id='wrapwrap']/header/img" position="replace">
-            <nav class="nav navbar navbar-expand-md" id="nav">
+            <nav class="nav navbar navbar-expand-md navbar-light bg-light" id="nav">
                 <div class="container">
                     <a href="/" class="navbar-brand logo">
                         <img t-att-src="'/logo.png?company=%s' % res_company.id" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>

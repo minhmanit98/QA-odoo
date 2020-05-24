@@ -9,6 +9,7 @@
 //}
 
 // Options
+
 .dropdown-new ul li a span.fa{
 	padding: 0 5px 0 5px;
 }
@@ -53,9 +54,9 @@
 	display: inline-block;
 }
 
-.navbar-nav{
-	flex-direction: row;
-}
+//.navbar-nav{
+//	flex-direction: row;
+//}
 	#nav-colors, #font-colors, #edges {
 		margin-top: 10px;
 
@@ -133,6 +134,7 @@
 	#nav-min.navbar {
 		border: 0;
 		border-radius: 0;
+		padding: 0 0.5rem;
 		//background: linear-gradient(to right, #ff5858, #f857a6);
 
 		.nav li > a, .navbar-brand {
