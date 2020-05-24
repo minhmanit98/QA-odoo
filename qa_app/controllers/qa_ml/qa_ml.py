@@ -34,7 +34,7 @@ path = os.path.dirname(os.path.realpath(__file__))
 #export as data as JSON
 # with open(path+'/conversation_json.json', 'w', encoding="utf8") as outfile:
 #     json.dump(convdata_json, outfile, ensure_ascii=False)
-
+#ss
 #greeting function
 GREETING_INPUTS = ("hello", "hi", "greetings", "hello i need help", "good day","hey","i need help", "greetings")
 GREETING_RESPONSES = ["Good day, How may i of help?", "Hello, How can i help?", "hello", "I am glad! You are talking to me."]
