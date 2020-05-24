@@ -22,18 +22,18 @@ nltk.download('wordnet')
 nltk.download('punkt')
 
 path = os.path.dirname(os.path.realpath(__file__))
-convdata = pd.read_csv(path+'/legal_help_clean.csv')
-
-#show header of the dataset
-convdata.head()
-
-#covert dataframes to json
-convdata_json = json.loads(convdata.to_json(orient='records'))
-convdata_json[0:2]
+# convdata = pd.read_csv(path+'/legal_help_clean.csv')
+#
+# #show header of the dataset
+# convdata.head()
+#
+# #covert dataframes to json
+# convdata_json = json.loads(convdata.to_json(orient='records'))
+# convdata_json[0:2]
 
 #export as data as JSON
-with open(path+'/conversation_json.json', 'w', encoding="utf8") as outfile:
-    json.dump(convdata_json, outfile, ensure_ascii=False)
+# with open(path+'/conversation_json.json', 'w', encoding="utf8") as outfile:
+#     json.dump(convdata_json, outfile, ensure_ascii=False)
 
 #greeting function
 GREETING_INPUTS = ("hello", "hi", "greetings", "hello i need help", "good day","hey","i need help", "greetings")
