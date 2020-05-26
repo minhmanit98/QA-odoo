@@ -407,7 +407,7 @@ msgstr ""
 #. module: website_forum
 #: model:forum.forum,name:website_forum.forum_help
 msgid "Forum Listen to students talk"
-msgstr "Diễn đàn Nghe sinh viên nói chuyện."
+msgstr "Diễn đàn Nghe sinh viên nói"
 
 #. module: website_forum
 #: model:forum.forum,description:website_forum.forum_help

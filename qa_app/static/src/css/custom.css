@@ -36,8 +36,11 @@
 
 .navbar-light {
     background-color: #FFFFFF !important;
-    border-top: 1px solid #e8e8e8 ;
-    box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;
+    /*border-top: 1px solid #e8e8e8 ;*/
+    /*box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;*/
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
 }
 
 .dropdown-item:active {
@@ -102,8 +105,8 @@ header .navbar-brand.logo img {
 }
 
 #wrapwrap>header>.navbar>div.container {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  /*padding-top: 20px;*/
+  /*padding-bottom: 20px;*/
 }
 
 .bg-light {
@@ -242,3 +245,254 @@ a:hover {
   border-color: #fec810 !important;
   color: #281750;
 }
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    background-color: #281750;
+    color: #fed136;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 6px;
+  }
+
+#back-to-top:hover {
+    background-color: #555;
+  }
+
+#toTop:active,.wp-theme-1 #toTop:focus {
+    outline: none;
+  }
+
+#back-to-top:before {
+  font-family: 'FontAwesome';
+  content: "\f106";
+  color: #fed136;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  text-indent: 0;
+ }
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+
+ .fixed-top {
+    position: fixed;
+    top: auto;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+ .logo-min{
+     display: none;
+ }
+
+/* nav.affix a.logo{*/
+/*     display: none;*/
+/* }*/
+
+/*nav.affix a.logo-min{*/
+/*     display: block;*/
+/* }*/
+
+ #nav.affix{
+     display: none;
+ }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+/* main styles */
+.switch {
+  position: relative;
+}
+.switch input {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+.switch input:checked {
+  z-index: 1;
+}
+.switch input:checked + label {
+  opacity: 1;
+  cursor: default;
+}
+.switch input:not(:checked) + label:hover {
+  opacity: 0.5;
+}
+.switch label {
+  color: black;
+  opacity: 0.33;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
+}
+.switch .toggle-outside {
+  height: 100%;
+  border-radius: 2rem;
+  padding: 0.25rem;
+  overflow: hidden;
+  transition: 0.25s ease all;
+}
+.switch .toggle-inside {
+  border-radius: 5rem;
+  background: #4a4a4a;
+  position: absolute;
+  transition: 0.25s ease all;
+}
+.switch--horizontal {
+  width: 18rem;
+  height: 3rem;
+  margin: 0 auto;
+  font-size: 0;
+  margin-bottom: 1rem;
+}
+.switch--horizontal input {
+  height: 3rem;
+  width: 6rem;
+  left: 6rem;
+  margin: 0;
+}
+.switch--horizontal label {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  display: inline-block;
+  width: 6rem;
+  height: 100%;
+  margin: 0;
+  text-align: left;
+}
+.switch--horizontal label:last-of-type {
+  margin-left: 6rem;
+}
+.switch--horizontal .toggle-outside {
+  background: black;
+  position: absolute;
+  width: 6rem;
+  left: 6rem;
+}
+.switch--horizontal .toggle-inside {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.switch--horizontal input:checked ~ .toggle-outside .toggle-inside {
+  left: 0.25rem;
+}
+.switch--horizontal input ~ input:checked ~ .toggle-outside .toggle-inside {
+  left: 3.25rem;
+}
+.switch--vertical {
+  height: 6rem;
+}
+.switch--vertical input {
+  height: 100%;
+  width: 3rem;
+  right: 0;
+  margin: 0;
+}
+.switch--vertical label {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  display: block;
+  width: 100%;
+  height: 50%;
+  margin: 0;
+  padding-left: 5rem;
+  text-align: left;
+}
+.switch--vertical .toggle-outside {
+  background: black;
+  position: absolute;
+  width: 3rem;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+.switch--vertical .toggle-inside {
+  height: 2.5rem;
+  left: 0.25rem;
+  top: 0.25rem;
+  width: 2.5rem;
+}
+.switch--vertical input:checked ~ .toggle-outside .toggle-inside {
+  top: 0.25rem;
+}
+.switch--vertical input ~ input:checked ~ .toggle-outside .toggle-inside {
+  top: 3.25rem;
+}
+.switch--no-label label {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+.switch--no-label input:checked ~ .toggle-outside .toggle-inside {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.switch--no-label input ~ input:checked ~ .toggle-outside {
+  background: black;
+}
+.switch--no-label input ~ input:checked ~ .toggle-outside .toggle-inside {
+  background: #2ecc71;
+}
+.switch--no-label.switch--vertical {
+  width: 3rem;
+}
+.switch--no-label.switch--horizontal {
+  width: 6rem;
+}
+.switch--no-label.switch--horizontal input,
+.switch--no-label.switch--horizontal .toggle-outside {
+  left: 0;
+}
+.switch--expanding-inner input:checked + label:hover ~ .toggle-outside .toggle-inside {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.switch--expanding-inner.switch--horizontal input:hover ~ .toggle-outside .toggle-inside {
+  width: 3.5rem;
+}
+.switch--expanding-inner.switch--horizontal input:hover ~ input:checked ~ .toggle-outside .toggle-inside {
+  left: 2.25rem;
+}
+.switch--expanding-inner.switch--vertical input:hover ~ .toggle-outside .toggle-inside {
+  height: 3.5rem;
+}
+.switch--expanding-inner.switch--vertical input:hover ~ input:checked ~ .toggle-outside .toggle-inside {
+  top: 2.25rem;
+}
+/* mixin */

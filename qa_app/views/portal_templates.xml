@@ -1,13 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="utc2_pass_link" name="Change Password" inherit_id="portal.frontend_layout">
-            <xpath expr="//a[@id='o_logout']" position="before">
-                <a href="/my/account/password" role="menuitem" class="dropdown-item">Change Password</a>
-            </xpath>
+    <template id="portal.frontend_layout" name="Main Frontend Layout" inherit_id="web.frontend_layout">
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="t-attf-class" add="#{request.env['res.lang']._lang_get(request.env.lang).direction == 'rtl' and 'o_rtl' or ''}" separator=" "/>
+            <attribute name="t-attf-class" add="#{'o_portal' if is_portal else ''}" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/header/img" position="replace">
+            <nav class="nav navbar navbar-expand-md navbar-light bg-light" id="nav">
+                <div class="container">
+                    <a href="/" class="navbar-brand logo">
+                        <img t-att-src="'/logo.png?company=%s' % res_company.id" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                    </a>
+                    <a href="/" class="navbar-brand logo logo-min">
+                        <img t-att-src="'/logo.png'" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#top_menu_collapse">
+                        <span class="navbar-toggler-icon"/>
+                    </button>
+                    <div class="collapse navbar-collapse main_list" id="top_menu_collapse">
+                        <!-- FIXME We want menu to open to the right by default (except cases handled in JS) -->
+                        <ul class="nav navbar-nav ml-auto text-right" id="top_menu">
+                            <li class="nav-item divider" t-ignore="true" t-if="not user_id._is_public()"/>
+                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <b>
+                                        <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                    </b>
+                                </a>
+                                <div class="dropdown-menu js_usermenu" role="menu">
+                                    <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-md navbar-fixed" id="nav-min">
+                <div class="container-fluid">
+                    <!-- Nav Header -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#"><span class="fa fa-home"></span><span class="link"> Home</span></a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapse-1">
+                            <span class="navbar-toggler-icon"/>
+                        </button>
+                    </div>
+                    <!-- Nav Collapse -->
+                    <div class="navbar-collapse collapse" id="collapse-1">
+                        <!-- Nav Left -->
+                        <ul class="nav navbar-nav">
+                            <!-- Products -->
+                            <li class="dropdown dropdown-new" id="li-forum">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fa fa-foursquare"></span><span class="link"> Forum</span> <span class="fa fa-caret-down"></span></a>
+                                <ul class="dropdown-menu">
+<!--                                    <li><a class="link"><span class="fa fa-foursquare"></span> Forum 1</a></li>-->
+<!--                                    <li><a class="link"><span class="fa fa-foursquare"></span> Forum 2</a></li>-->
+                                </ul>
+				            </li>
+                            <!-- Services -->
+                            <li class="dropdown dropdown-new" id="li-livechat">
+					            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fa fa-comments"></span>
+                                    <span class="link"> Live Support</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                </ul>
+                            </li>
+                            <!-- About -->
+                            <li><a class="nav-link" href="/contactus"><span class="fa fa-info-circle"></span><span class="link"> Contact us</span></a></li>
+                            <!-- Contact -->
+                            <li class="dropdown dropdown-new" id="li-setting">
+					            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fa fa-cog"></span>
+                                    <span class="link">Setting</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </a>
+                                <div class="dropdown-menu" style="padding: 10px;">
+                                    <div id="nav-colors" >
+                                        <span>Color</span>
+                                        <button id="pink" class="btn"></button>
+                                        <button id="red" class="btn"></button>
+                                        <button id="purple" class="btn"></button>
+                                        <button id="blue" class="btn"></button>
+                                        <button id="green" class="btn"></button>
+                                        <button id="yellow" class="btn"></button>
+                                        <button id="orange" class="btn"></button>
+                                    </div>
+                                    <div id="font-colors">
+                                        Font
+                                        <button id="white" class="btn"></button>
+                                        <button id="black" class="btn"></button>
+                                    </div>
+                                    <div id="edges">
+                                        Edges
+                                        <button id="rounded" class="btn">Rounded</button>
+                                        <button id="square" class="btn">Square</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- Nav Right -->
+                        <form class="navbar-form" style="padding: 0 10px 0 10px;">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search" id="nav-search"/>
+                            </div></form>
+                            <button type="submit" class="btn" id="btn-search"><span class="fa fa-search"></span></button>
+                        <form class="navbar-form navbar-right ml-auto text-right">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown dropdown-new" id="li-user">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <span class="fa fa-caret-down"></span>
+                                        <span class="link" t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                        <img t-if="user_id.id" class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user_id, 'image_128', '40x40')" alt="Avatar"/>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
+                                        <a href="/my/account/password" role="menuitem" class="dropdown-item">Change Password</a>
+                                        <a t-attf-href="/profile/user/#{uid}" role="menuitem" class="dropdown-item">My Account</a>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </form>
+
+                    </div>
+                </div>
+            </nav>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main/t[@t-raw='0']" position="before">
+            <div t-if="o_portal_fullwidth_alert" class="alert alert-info alert-dismissible rounded-0 fade show d-print-none css_editable_mode_hidden">
+                <div class="container">
+                    <t t-raw="o_portal_fullwidth_alert"/>
+                </div>
+            </div>
+        </xpath>
     </template>
 
      <template id="portal.my_account_link" name="Link to frontend portal" inherit_id="portal.frontend_layout">
         <xpath expr="//a[@id='o_logout']" position="before">
+            <a href="/my/account/password" role="menuitem" class="dropdown-item">Change Password</a>
             <a t-attf-href="/profile/user/#{uid}" role="menuitem" class="dropdown-item">My Account</a>
         </xpath>
     </template>
@@ -50,4 +181,5 @@
             </form>
         </t>
     </template>
+
 </odoo>

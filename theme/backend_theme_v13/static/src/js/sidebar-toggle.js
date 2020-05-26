@@ -5,9 +5,9 @@ odoo.define('backend_theme_v13.sidebar-toggle', function (require) {
     "use strict";
     
     var session = require('web.session');
-    var rpc = require('web.rpc');
+    var  = require('web.');
     var id = session.uid;
-    rpc.query({
+    .query({
                 model: 'res.users',
                 method: 'read',
                 args: [[id], ['sidebar_visible']],
