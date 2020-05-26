@@ -70,7 +70,35 @@
                             <!-- About -->
                             <li><a class="nav-link" href="/contactus"><span class="fa fa-info-circle"></span><span class="link"> Contact us</span></a></li>
                             <!-- Contact -->
-<!--                            <li><a href="#"><span class="fa fa-phone"></span><span class="link"> Contact us</span></a></li>-->
+                            <li class="dropdown dropdown-new" id="li-setting">
+					            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fa fa-cog"></span>
+                                    <span class="link">Setting</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </a>
+                                <div class="dropdown-menu" style="padding: 10px;">
+                                    <div id="nav-colors" >
+                                        <span>Color</span>
+                                        <button id="pink" class="btn"></button>
+                                        <button id="red" class="btn"></button>
+                                        <button id="purple" class="btn"></button>
+                                        <button id="blue" class="btn"></button>
+                                        <button id="green" class="btn"></button>
+                                        <button id="yellow" class="btn"></button>
+                                        <button id="orange" class="btn"></button>
+                                    </div>
+                                    <div id="font-colors">
+                                        Font
+                                        <button id="white" class="btn"></button>
+                                        <button id="black" class="btn"></button>
+                                    </div>
+                                    <div id="edges">
+                                        Edges
+                                        <button id="rounded" class="btn">Rounded</button>
+                                        <button id="square" class="btn">Square</button>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                         <!-- Nav Right -->
                         <form class="navbar-form" style="padding: 0 10px 0 10px;">

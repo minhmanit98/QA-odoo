@@ -3,7 +3,6 @@ odoo.define('qa_app.nav-min', function (require) {
 
     var rpc = require('web.rpc');
 
-
     $(window).scroll(function() {
 		if ($(document).scrollTop() > 100) {
 			$('#nav-min').addClass('affix');
@@ -12,11 +11,9 @@ odoo.define('qa_app.nav-min', function (require) {
 		}
 	});
 
-
-
     $("#btn-search").click(function(){
         var search = $("#nav-search").val();
-        window.location = "http://localhost:8070/forum/1?search="+search+"&filters=all&sorting=create_date+desc";
+        window.location = "http://utc2forum2.eastus.cloudapp.azure.com:8069/forum/1?search="+search+"&filters=all&sorting=create_date+desc";
     });
 
     $('#nav-search').hide();
@@ -82,7 +79,7 @@ odoo.define('qa_app.nav-min', function (require) {
             $(".navbar").css("background","linear-gradient(to right, #e43a15, #e65245)");
             $(".dropdown-menu").css("background","#e43a15");
         }
-    })
+    });
 
     // Font colors
     $("#font-colors > .btn").click(function(){
@@ -94,7 +91,7 @@ odoo.define('qa_app.nav-min', function (require) {
             $(".navbar .fa, .link, a").css("color","black");
             $(".icon-bar").css("background","black");
         }
-    })
+    });
 
     // edges
     $("#edges > .btn").click(function(){
@@ -114,12 +111,12 @@ odoo.define('qa_app.nav-min', function (require) {
                 "border-bottom-left-radius":"0"
             });
         }
-    })
+    });
 
     rpc.query({
-                model: 'forum.forum',
-                method: 'search_read',
-                args: [[],['id','name']],
+        model: 'forum.forum',
+        method: 'search_read',
+        args: [[],['id','name']],
             }).then(function(res) {
                 for(var i=0;i<res.length;i++) {
                     $("#li-forum ul").append(" <li><a href=\"/forum/"+res[i].id+"\"  class=\"link dropdown-item\"><span class=\"fa fa-foursquare\"></span>"+res[i].name+"</a></li>");
@@ -127,13 +124,13 @@ odoo.define('qa_app.nav-min', function (require) {
     });
 
     rpc.query({
-                model: 'im_livechat.channel',
-                method: 'search_read',
-                args: [[],['id','name']],
-            }).then(function(res) {
-                for(var i=0;i<res.length;i++) {
-                    $("#li-livechat ul").append(" <li><a href=\"/livechat/channel/"+res[i].id+"\"  class=\"link dropdown-item\"><span class=\"fa fa-comments\"></span>"+res[i].name+"</a></li>");
-                }
+        model: 'im_livechat.channel',
+        method: 'search_read',
+        args: [[],['id','name']],
+        }).then(function(res) {
+            for(var i=0;i<res.length;i++) {
+                $("#li-livechat ul").append(" <li><a href=\"/livechat/channel/"+res[i].id+"\"  class=\"link dropdown-item\"><span class=\"fa fa-comments\"></span>"+res[i].name+"</a></li>");
+            }
     });
 
 
