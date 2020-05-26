@@ -39,6 +39,9 @@
 	.dropdown-toggle::after {
 		content: none;
 	}
+	background-color: white;
+    border-top: 1px solid #e8e8e8 ;
+    box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;
 }
 
 #nav-min.affix{

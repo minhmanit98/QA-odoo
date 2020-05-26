@@ -6,27 +6,37 @@
                 <div class="form-group">
                     <script type="text/javascript">
                         $(document).ready(function(){
-                            $("#post_incognito").change(function(){
-                                 var input = document.getElementById("post_incognito").checked;
+                            $("#radio-c").change(function(){
+                                 var input = document.getElementById("radio-c").checked;
                                  if (input){
-                                     $("#label_incognito").removeClass("css_published");
-                                     $("#label_incognito").addClass("css_unpublished");
-                                 }else{
-                                     $("#label_incognito").removeClass("css_unpublished");
-                                     $("#label_incognito").addClass("css_published");
-                                  }
+                                    document.getElementById("post_incognito").checked=false;
+                                 }
                              });
+                             $("#radio-d").change(function(){
+                                     var input = document.getElementById("radio-d").checked;
+                                     if (input){
+                                        document.getElementById("post_incognito").checked=true;
+                                     }
+                                 });
                         });
                     </script>
                     <label for="content">Trạng thái:</label>
                     <ul class="o_menu_systray d-none d-md-block mb-0 pl-0 py-0"  t-attf-style="list-style-type: none;">
                         <li>
-                            <label t-attf-class="o_switch o_switch_danger js_publish_btn css_published" for="post_incognito" id="label_incognito" t-attf-style="margin-bottom: 0px;">
-                                <input type="checkbox" name="post_incognito" id="post_incognito"/>
-                                <span/>
-                                <span class="css_publish text-danger">Ẩn danh: <i>Mọi người sẽ không thấy tên của bạn.</i></span>
-                                <span class="css_unpublish text-success">Công khai: <i>Mọi người sẽ thấy tên bạn.</i></span>
-                            </label>
+<!--                            <label t-attf-class="switch-wrap js_publish_btn css_published" for="post_incognito" id="label_incognito" t-attf-style="margin-bottom: 0px;">-->
+<!--                                <input type="checkbox" name="post_incognito" id="post_incognito"/>-->
+<!--                                <div class="switch"></div>-->
+<!--                                <span/>-->
+<!--                                <span class="css_publish text-danger">Ẩn danh: <i>Mọi người sẽ không thấy tên của bạn.</i></span>-->
+<!--                                <span class="css_unpublish text-success">Công khai: <i>Mọi người sẽ thấy tên bạn.</i></span>-->
+<!--                            </label>-->
+                             <input type="checkbox" name="post_incognito" id="post_incognito" style="display: none; "/>
+                            <div class="switch switch--vertical">
+                              <input id="radio-c" type="radio" name="second-switch" style=" left: 0px; " checked="checked"/>
+                              <label for="radio-c" class="css_publish text-danger">Công khai: <i>Mọi người sẽ thấy tên bạn.</i></label>
+                              <input id="radio-d" type="radio" name="second-switch" style=" left: 0px; "/>
+                              <label for="radio-d" class="css_unpublish text-success">Ẩn danh: <i>Mọi người sẽ không thấy tên của bạn.</i></label><span class="toggle-outside" style=" left: 0px; "><span class="toggle-inside"></span></span>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -128,5 +138,28 @@
             </p>
         </template>
 
+        <!-- Default content for the "All Forums Layout" header above -->
+        <!-- (simulate an oe_structure edition) -->
+        <template id="forum_all_oe_structure_forum_all_top" inherit_id="website_forum.forum_all" name="Forum Navigation (oe_structure_forum_all_top)">
+            <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_forum_all_top']" position="replace">
+                <div class="oe_structure oe_empty" id="oe_structure_forum_all_top">
+                    <section class="s_cover parallax s_parallax_is_fixed bg-black-50 py-5" data-scroll-background-ratio="1">
+                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/web/image/forum.forum/1/image_1920'); background-position: 50% 0;"/>
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title" data-name="Title">
+                                    <h1 class="s_title_thin o_default_snippet_text text-center">Diễn đàn chúng tôi</h1>
+                                </div>
+                                <div class="col-lg-12 s_text" data-name="Text">
+                                    <p class="lead o_default_snippet_text mb-0" style="text-align: center;">
+                                        (Chưa điền)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+        </template>
     </data>
 </odoo>

@@ -1,0 +1,185 @@
+/* cac dau cham dau trang*/
+.dot{
+   width:8px;
+   height:8px;
+   background-color: #a6a6a6;
+}
+
+
+
+
+
+/* Css khoi thong bao*/
+div#danh-sach-thong-bao {padding-left: 12px;}
+
+.noi-dung-thong-bao.text-left {
+    margin-bottom: 10px;
+}
+a.tb:hover {
+    color: #cea932 !important;
+    text-decoration: none;
+}
+
+/* Ket thuc Css khoi thong bao*/
+
+
+
+
+
+
+/* CSS cua khoi bai viet*/
+
+p.tieu-de-bai-viet,td.text-center.mo-ta-phu {
+    font-size: 1rem;
+}
+td.text-center.mo-ta-phu {
+    vertical-align: middle;
+}
+
+i.fa.fa-times.text-danger,i.fa.fa-check.text-success {
+    font-size: 1.5rem;
+}
+p.chu-de-bai-viet {
+    font-size: 0.6rem;
+    border: 2px solid #3f3f8e;
+    border-radius: 20px;
+    padding: 2px 5px;
+    cursor:pointer;
+}
+p.thoi-gian-dang {
+    font-size: 0.7rem;
+    font-weight: bolder;
+    color: gray;
+
+}
+p.tac-gia {
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+p.chu-de-bai-viet:hover {
+    background-color: #ffe48c;
+    color: black;
+    border-color: #ffe48c;
+}
+/*Ket thuc CSS cua khoi bai viet*/
+
+
+
+
+
+
+
+
+/* CSS cho cac thanh phan tai su dung*/
+.danh-muc{
+    position:relative;
+    margin-bottom: 5rem;
+    padding-bottom:50px;
+}
+div.tieu-de {
+   margin-left: 12px;
+   font-size: 1.2rem;
+   font-weight: bolder;
+   color: #2e467b;
+   /*border-bottom: solid #2e467b 4px;*/
+   position:relative;
+   display:inline-block;
+   cursor:pointer;
+   margin-bottom:20px;
+   text-transform:uppercase;
+
+}
+
+div.tieu-de-underline {
+
+   height: 4px;
+   width: 110%;
+   background-color: #2e467b;
+   display: block;
+   cursor:pointer;
+
+  }
+
+
+p.xem-them {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size:0.8rem;
+    transition: all 0.3s;
+    color: #31446e;
+    bottom: 0;
+    cursor: pointer;
+}
+
+
+p.xem-them::after,p.xem-them::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background-color: black;
+}
+p.xem-them::before {
+
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+    transform: translateX(-50%);
+    transition:all 0.2s;
+}
+p.xem-them::after {
+
+    position: absolute;
+    bottom: 0;
+    right: 35%;
+    transform: translateX(50%);
+    transition:all 0.2s;
+}
+ p.xem-them:hover.xem-them::after{
+    transform: rotate(-30deg);
+    width:16%;
+}
+ p.xem-them:hover.xem-them::before{
+    transform:rotate(30deg);
+    width:16%;
+ }
+ p.xem-them:hover{
+     transform:translate(-50%,-7px);
+ }
+i.down.fa.fa-chevron-down {
+    position: absolute;
+    bottom: 35%;
+    right: -50%;
+    font-size: 0.9rem;
+    transform: rotate(180deg);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.tieu-de:hover i.down {
+    right: -25%;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+p.tieu-de:hover ::after {
+    width: 80%;
+}
+
+
+
+/* Main */
+.main {
+    border-bottom: 2.2px solid #ffe48c;
+    padding-bottom: 40px;
+
+}
+
+
+
+
+/* class cho JS */
+.static{
+  display:fixed;
+}

@@ -1,35 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <data>
-    <record id="utc2_homepage" model="ir.ui.view">
-        <field name="name">Home</field>
-        <field name="type">qweb</field>
-        <field name="key">website.homepage</field>
-        <field name="arch" type="xml">
-            <t name="Home" priority="29" t-name="website.homepage">
-                <t t-call="website.layout">
-                    <header class="masthead oe_structure">
-                      <div class="container">
-                        <div class="intro-text">
-                          <div class="intro-lead-in">Welcome To Our Studio!</div>
-                          <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-                          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+    <data>
+        <record id="utc2_homepage" model="ir.ui.view">
+
+            <field name="name">Home</field>
+            <field name="type">qweb</field>
+            <field name="key">website.homepage</field>
+            <field name="arch" type="xml">
+                <t name="Home" priority="29" t-name="website.homepage" inherit_id="assets_backend">
+                    <t t-call="website.layout">
+                        <div class="d-flex block-circle my-4 justify-content-center">
+                            <div class="rounded-circle dot mr-2"></div>
+                            <div class="rounded-circle dot mr-2"></div>
+                            <div class="rounded-circle dot mr-2"></div>
+                            <div class="rounded-circle dot mr-2"></div>
+
                         </div>
-                      </div>
-                    </header>
+
+
+                        <div class="container main">
+                            <!-- THONG BAO VA THAO TAC NHANH  -->
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class=" danh-muc border-bottom">
+                                        <div class="tieu-de">Thông Báo<div class="tieu-de-underline"></div> </div>
+                                        <div id="danh-sach-thong-bao">
+                                            <div class="noi-dung-thong-bao text-left">
+                                                <h6 class="text-dark d-inline-block">Thông Báo 1:</h6>
+                                                <a href="#" class="tb text-dark">Lorem ipsum dolor sit amet,
+                                                    consectetur
+                                                    adipisicing
+                                                    elit. A at explicabo impedit libero pariatur quis quod tenetur.
+                                                    Ab
+                                                    aliquid
+                                                    doloremque dolorum exercitationem
+                                                </a>
+                                            </div>
+                                            <div class="noi-dung-thong-bao text-left">
+                                                <h6 class="text-dark d-inline-block">Thông Báo 2:</h6>
+                                                <a href="#" class="tb text-dark ">Lorem ipsum dolor sit amet,
+                                                    consectetur
+                                                    adipisicing
+                                                    elit. Aut corporis cupiditate id illum in ipsa odit quam
+                                                    voluptatem.
+                                                    Ab
+                                                    aliquam architecto
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <p class="xem-them">Xem Thêm</p>
+                                    </div>
+                                </div>
+
+
+                                <!--THAO TAC NHANH-->
+                                <div class="col-md-4">
+                                    <div class="danh-muc thao-tac-nhanh">
+                                         <div class="tieu-de hoat-dong-ca-nhan">
+                                             Thao tác cá nhân
+                                             <div class="tieu-de-underline"></div>
+                                         </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- BAI VIET  VA MENU LUA CHON -->
+
+                            <div class="row">
+
+                                <div class="col-md-8 danh-muc">
+                                    <div class="dropdown">
+                                        <div class="tieu-de" id="dropDownLoaiBaiViet" data-toggle="dropdown">Bài Viết
+                                            <i class="down fa fa-chevron-down"></i>
+                                            <div class="tieu-de-underline"></div>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#">Bài Viết Mới</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Nổi Bật Trong Ngày</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Nổi Bật Trong Tháng</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Nổi Bật Trong Năm</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Nổi Bật Nhất</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="danh-sach-bai-viet">
+                                        <div class="table khoi-noi-dung">
+                                            <table style="width: 100%">
+                                                <thead>
+                                                    <th>Bài Viết</th>
+                                                    <th class="text-center">Lượt Xem</th>
+                                                    <th class="text-center">Theo Dõi</th>
+                                                    <th class="text-center">Solved</th>
+                                                </thead>
+                                                <!--Test thu 6 bai viet-->
+                                                <tr t-foreach="[1,2,3,4]" t-as="i">
+                                                    <td>
+                                                        <!-- NOI DUNG BAI VIET-->
+                                                        <div class="mo-ta-bai-viet">
+                                                            <p class="tieu-de-bai-viet  my-0">Thắc mắc về đăng ký
+                                                                học
+                                                                phần
+                                                            </p>
+                                                            <p class="chu-de-bai-viet d-inline-block my-0">Đào tạo
+                                                            </p>
+                                                            <p class="thoi-gian-dang d-inline-block my-0">5 giờ
+                                                                trước
+                                                            </p>
+                                                            <p class="tac-gia my-0">Không nhớ tên</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center mo-ta-phu">
+                                                        2134
+                                                    </td>
+                                                    <td class="text-center mo-ta-phu">23</td>
+                                                    <td class="text-center mo-ta-phu">
+                                                        <t t-if="i%2==0">
+                                                            <i class="fa fa-check text-success"></i>
+                                                        </t>
+                                                        <t t-if="not i%2==0">
+                                                            <i class="fa fa-times text-danger"></i>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+
+
+                                                <!--KEt thuc mot hang -->
+                                                <p class="xem-them">Xem Thêm</p>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--KET THUC BAI VIET -->
+
+
+                        </div>
+
+                    </t>
                 </t>
-            </t>
-        </field>
-    </record>
-  </data>
-  <data noupdate="1">
-    <record id="utc2_homepage_page" model="website.page">
-      <field name="website_published">True</field>
-      <field name="url">/</field>
-      <field name="view_id" ref="utc2_homepage" />
-      <field name="is_homepage">True</field>
-       <field name="track">True</field>
-      <field name="website_id" ref="website.default_website" />
-    </record>
-  </data>
+            </field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="utc2_homepage_page" model="website.page">
+            <field name="website_published">True</field>
+            <field name="url">/</field>
+            <field name="view_id" ref="utc2_homepage"/>
+            <field name="is_homepage">True</field>
+            <field name="track">True</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+    </data>
+
+
 </odoo>
