@@ -53,6 +53,7 @@
             <field name="arch" type="xml">
                  <field name="website_id" position="replace">
                      <field name="is_incognito"/>
+                     <field name="create_date"/>
                 </field>
             </field>
          </record>

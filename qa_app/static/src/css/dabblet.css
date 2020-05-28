@@ -1,0 +1,38 @@
+/**
+ * CSS3 Border-Radius with Border - Circle Avatars
+ */
+ 
+/* General Styles */
+
+/*body {  background: url(http://subtlepatterns.com/patterns/white_texture.png);*/
+/*	font: 100 14px sans-serif;*/
+/*	color: #444555; text-shadow: 0 2px white;*/
+/*	text-align: center;	*/
+/*}*/
+/*::-moz-selection { background: rgba(0,0,0,0.1); }*/
+/*::selection { background: rgba(0,0,0,0.1); }*/
+/*h1 { font-weight: 100; font-size: 2.7em; }*/
+/*h3 { color: #555666; font-size: 1.6em; }*/
+/*a { color: RoyalBlue; font-weight: normal; text-decoration: none; }*/
+/*a:hover { color: CornflowerBlue; }*/
+/*ul { width: 250px; margin: 0 auto; text-align: left; line-height: 1.8; }*/
+
+/* Circle Avatar Styles */
+
+.rounded-circle {
+	line-height: 0;		/* remove line-height */
+	display: inline-block;	/* circle wraps image */
+	border-radius: 50%;	/* relative value */
+	border: 2px solid white;/* border width   */
+	transition: linear 0.25s;
+}
+.rounded-circle img {
+	border-radius: 50%;	/* relative value for
+				   adjustable image size */
+}
+.rounded-circle:hover {
+	/*transition: ease-out 0.3s;*/
+	/*transform: scale(0.8) rotate(20deg);*/
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+}
+a.rounded-circle{ color: transparent; } /* IE fix: removes blue border */

@@ -21,7 +21,7 @@
 
 .navbar-light .navbar-nav .nav-link{
     font-weight: bold;
-    font-size: 14px;
+    /*font-size: 14px;*/
     text-transform: uppercase;
     /*color: #281756 !important;*/
     color: #281756 !important;
@@ -41,6 +41,7 @@
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0.25rem;
+    border-bottom: 2.2px solid #ffe48c;
 }
 
 .dropdown-item:active {
@@ -325,7 +326,7 @@ a:hover {
 
 h1 {
   text-align: center;
-  color: #fff;
+  /*color: #141f1e !important;*/
   font-weight: 300;
   margin-bottom: 4rem;
 }
@@ -496,3 +497,5 @@ h1 {
   top: 2.25rem;
 }
 /* mixin */
+
+
