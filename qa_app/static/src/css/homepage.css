@@ -6,9 +6,6 @@
 }
 
 
-
-
-
 /* Css khoi thong bao*/
 div#danh-sach-thong-bao {padding-left: 12px;}
 
@@ -21,10 +18,6 @@ a.tb:hover {
 }
 
 /* Ket thuc Css khoi thong bao*/
-
-
-
-
 
 
 /* CSS cua khoi bai viet*/
@@ -62,11 +55,6 @@ p.chu-de-bai-viet:hover {
     border-color: #ffe48c;
 }
 /*Ket thuc CSS cua khoi bai viet*/
-
-
-
-
-
 
 
 
@@ -170,16 +158,16 @@ p.tieu-de:hover ::after {
 
 
 /* Main */
-.main {
-    border-bottom: 2.2px solid #ffe48c;
-    padding-bottom: 40px;
-
+.line-top {
+    border-top: 2.2px solid #ffe48c;
+    margin-left: 7.5rem;
+    margin-right: 7.5rem;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
-
-
 
 
 /* class cho JS */
 .static{
-  display:fixed;
+  display: fixed;
 }

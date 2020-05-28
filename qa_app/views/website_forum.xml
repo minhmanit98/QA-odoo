@@ -161,5 +161,30 @@
                 </div>
             </xpath>
         </template>
+
+        <template id="display_post_question_block" inherit_id="website_forum.display_post_question_block" >
+            <xpath expr="//*[hasclass('d-inline-block')]" position="replace">
+                 <div class="d-inline-block mb-0 h6">
+                    <span t-if="question.has_validated_answer and filters != 'solved'"
+                        title="Solved"
+                        aria-label="Solved"
+                        data-toggle="tooltip"
+                        class="fa fa-check-circle text-success"/>
+                    <span t-if="question.user_favourite and not (my == 'favourites' or hide_fav_icon)"
+                        title="Your favourite"
+                        aria-label="Your favourite"
+                        data-toggle="tooltip"
+                        class="fa fa-star o_wforum_gold"/>
+
+                    <a t-attf-href="/forum/#{slug(question.forum_id)}/question/#{slug(question)}#{answer and ('/#answer-%s' % answer.id)}"
+                        t-attf-title="Read: #{question.name}"
+                        class="text-reset"
+                        t-esc="question.name"/>
+                </div>
+            </xpath>
+        </template>
+
+
+
     </data>
 </odoo>

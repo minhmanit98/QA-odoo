@@ -14,9 +14,22 @@
 header{
   @include heading-font;
 }
-
+nav {
+  @include heading-font;
+}
+.navbar {
+  @include heading-font;
+}
+main .navbar {
+  @include heading-font;
+  font-size: 13px !important;
+}
 body{
   @include body-font;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    @include body-font;
 }
 
 @font-face {
