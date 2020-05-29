@@ -162,7 +162,7 @@
             </xpath>
         </template>
 
-        <template id="display_post_question_block" inherit_id="website_forum.display_post_question_block" >
+        <template id="forum_display_post_question_block" inherit_id="website_forum.display_post_question_block" >
             <xpath expr="//*[hasclass('d-inline-block')]" position="replace">
                  <div class="d-inline-block mb-0 h6">
                     <span t-if="question.has_validated_answer and filters != 'solved'"
@@ -183,8 +183,5 @@
                 </div>
             </xpath>
         </template>
-
-
-
     </data>
 </odoo>

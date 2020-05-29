@@ -272,10 +272,10 @@ class WebsiteForum(WebsiteProfile):
         if filters:
             url_args['filters'] = filters
         pager = request.website.pager(url=url, total=question_count, page=page,
-                                      step=self._post_per_page, scope=self._post_per_page,
+                                      step=5, scope=5,
                                       url_args=url_args)
 
-        question_ids = Post.search(domain, limit=self._post_per_page, offset=pager['offset'], order=sorting)
+        question_ids = Post.search(domain, limit=5, offset=pager['offset'], order=sorting)
 
         values = self._prepare_user_values(forum=forum, searches=post, header={'ask_hide': not forum.active})
         values.update({
