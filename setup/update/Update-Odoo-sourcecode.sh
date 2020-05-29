@@ -17,3 +17,6 @@ exit
 sudo service odoo stop
 sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u qa_app --stop-after-init" odoo
 sudo service odoo start
+
+ssh minhmanit98@52.168.25.103
+sudo su -c "~/odoo-13/odoo-bin shell -d UTC2Forum -u all --stop-after-init" odoo

@@ -41,7 +41,17 @@
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0.25rem;
-    border-bottom: 2.2px solid #ffe48c;
+    border-bottom: 3px solid #ffe48c;
+}
+
+#nav {
+    background-color: #FFFFFF !important;
+    /*border-top: 1px solid #e8e8e8 ;*/
+    /*box-shadow: rgba(0, 0, 0, 0.32) -3.67394e-16px 2px 8px 0px;*/
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    border-bottom: 1px solid #ffe48c;
 }
 
 .dropdown-item:active {
@@ -497,5 +507,6 @@ h1 {
   top: 2.25rem;
 }
 /* mixin */
-
-
+.background-text{
+    background:rgba(0,0,0,0.1);
+}

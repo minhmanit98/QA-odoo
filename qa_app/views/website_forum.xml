@@ -144,13 +144,13 @@
             <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_forum_all_top']" position="replace">
                 <div class="oe_structure oe_empty" id="oe_structure_forum_all_top">
                     <section class="s_cover parallax s_parallax_is_fixed bg-black-50 py-5" data-scroll-background-ratio="1">
-                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/web/image/forum.forum/1/image_1920'); background-position: 50% 0;"/>
+                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/qa_app/static/src/img/sectionmain.png'); background-position: 50% 0; background-color: initial;"/>
                         <div class="container">
                             <div class="row s_nb_column_fixed">
                                 <div class="col-lg-12 s_title" data-name="Title">
-                                    <h1 class="s_title_thin o_default_snippet_text text-center">Diễn đàn chúng tôi</h1>
+                                    <h1 class="s_title_thin o_default_snippet_text text-center background-text">Diễn đàn chúng tôi</h1>
                                 </div>
-                                <div class="col-lg-12 s_text" data-name="Text">
+                                <div class="col-lg-12 s_text background-text" data-name="Text">
                                     <p class="lead o_default_snippet_text mb-0" style="text-align: center;">
                                         (Chưa điền)
                                     </p>
@@ -162,7 +162,7 @@
             </xpath>
         </template>
 
-        <template id="display_post_question_block" inherit_id="website_forum.display_post_question_block" >
+        <template id="forum_display_post_question_block" inherit_id="website_forum.display_post_question_block" >
             <xpath expr="//*[hasclass('d-inline-block')]" position="replace">
                  <div class="d-inline-block mb-0 h6">
                     <span t-if="question.has_validated_answer and filters != 'solved'"
@@ -183,8 +183,24 @@
                 </div>
             </xpath>
         </template>
+        <template id="background_section_header" inherit_id="website_forum.header" >
+          <xpath expr="//section[@data-scroll-background-ratio='1']" position="replace">
+<!--                <span t-if="forum.image_1920" class="s_parallax_bg oe_img_bg oe_custom_bg" t-attf-style="background-image: url('#{website.image_url(forum, 'image_1920')}'); background-position: center;"/>-->
+                 <section t-attf-class="s_cover parallax s_parallax_is_fixed py-3 #{forum.image_1920 and 'bg-black-50' or 'o_wforum_forum_card_bg text-white'}" data-scroll-background-ratio="1">
+                    <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/qa_app/static/src/img/sectionmain.png'); background-color: initial;"/>
+                    <div class="container">
+                        <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title" data-name="Title">
+                                <h1 class="s_title_thin o_default_snippet_text text-center background-text"><t t-esc="forum.name"></t></h1>
+                            </div>
+                        </div>
+                        <div t-if="editable or (is_public_user and not forum_welcome_message)" t-att-class="'css_non_editable_mode_hidden' if editable else 'forum_intro'">
+                            <div class="background-text" t-field="forum.welcome_message"/>
+                        </div>
+                    </div>
+                </section>
+            </xpath>
 
-
-
+        </template>
     </data>
 </odoo>

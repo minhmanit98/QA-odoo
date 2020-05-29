@@ -3,6 +3,7 @@ import json
 
 import base64
 import requests
+from addons.website_forum.controllers.main import WebsiteForum
 
 from odoo import fields as odoo_fields, http, tools, _, SUPERUSER_ID
 from odoo.exceptions import ValidationError, AccessError, MissingError, UserError, AccessDenied
@@ -10,6 +11,8 @@ from odoo.http import content_disposition, Controller, request, route
 from odoo.addons.web.controllers.main import ensure_db, Home
 from odoo.addons.website.controllers.main import Website
 from odoo.addons.website_profile.controllers.main import WebsiteProfile
+from odoo.addons.website_forum.controllers.main import WebsiteForum
+from odoo.addons.website.models.ir_http import sitemap_qs2dom
 import werkzeug.exceptions
 import werkzeug.urls
 import werkzeug.wrappers
@@ -100,6 +103,11 @@ class Website(Home):
             return http.redirect_with_hash(redirect)
         return response
 
+    @http.route('/', type='http', auth="public", website=True)
+    def index(self, **kw):
+        redirect = '/home'
+        return http.redirect_with_hash(redirect)
+
 
 class AuthSignupHome(Home):
 
@@ -124,6 +132,16 @@ class AuthSignupHome(Home):
 
 
 class WebsiteForum(WebsiteProfile):
+
+    def sitemap_forum(env, rule, qs):
+        Forum = env['forum.forum']
+        dom = sitemap_qs2dom(qs, '/forum', Forum._rec_name)
+        dom += env['website'].get_current_website().website_domain()
+        for f in Forum.search(dom):
+            loc = '/forum/%s' % slug(f)
+            if not qs or qs.lower() in loc:
+                yield {'loc': loc}
+
     # Post
     # --------------------------------------------------
     @http.route(['/forum/<model("forum.forum"):forum>/ask'], type='http', auth="user", website=True)
@@ -198,3 +216,78 @@ class WebsiteForum(WebsiteProfile):
 
         return werkzeug.utils.redirect(
             "/forum/%s/question/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))
+
+    @http.route(['/home'], type='http', auth="public", website=True, sitemap=sitemap_forum)
+    def index(self, forum=None, tag=None, page=1, filters='all', my=None, sorting=None, search='', **post):
+        # if not forum.can_access_from_current_website():
+        #     raise werkzeug.exceptions.NotFound()
+        forum = request.env['forum.forum'].search([('id', '=', 1)])
+        Post = request.env['forum.post']
+        domain = [('forum_id', '=', forum.id), ('parent_id', '=', False), ('state', '=', 'active')]
+        if search:
+            domain += ['|', ('name', 'ilike', search), ('content', 'ilike', search)]
+        if tag:
+            domain += [('tag_ids', 'in', tag.id)]
+        if filters == 'unanswered':
+            domain += [('child_ids', '=', False)]
+        elif filters == 'solved':
+            domain += [('has_validated_answer', '=', True)]
+        elif filters == 'unsolved':
+            domain += [('has_validated_answer', '=', False)]
+
+        user = request.env.user
+
+        if my == 'mine':
+            domain += [('create_uid', '=', user.id)]
+        elif my == 'followed':
+            domain += [('message_partner_ids', '=', user.partner_id.id)]
+        elif my == 'tagged':
+            domain += [('tag_ids.message_partner_ids', '=', user.partner_id.id)]
+        elif my == 'favourites':
+            domain += [('favourite_ids', '=', user.id)]
+
+        if sorting:
+            # check that sorting is valid
+            # retro-compatibily for V8 and google links
+            try:
+                Post._generate_order_by(sorting, None)
+            except ValueError:
+                sorting = False
+
+        if not sorting:
+            sorting = forum.default_order
+
+        question_count = Post.search_count(domain)
+
+        if tag:
+            url = "/forum/%s/tag/%s/questions" % (slug(forum), slug(tag))
+        else:
+            url = "/forum/%s" % slug(forum)
+
+        url_args = {
+            'sorting': sorting
+        }
+        if search:
+            url_args['search'] = search
+        if filters:
+            url_args['filters'] = filters
+        pager = request.website.pager(url=url, total=question_count, page=page,
+                                      step=5, scope=5,
+                                      url_args=url_args)
+
+        question_ids = Post.search(domain, limit=5, offset=pager['offset'], order=sorting)
+
+        values = self._prepare_user_values(forum=forum, searches=post, header={'ask_hide': not forum.active})
+        values.update({
+            'main_object': tag or forum,
+            'edit_in_backend': not tag,
+            'question_ids': question_ids,
+            'question_count': question_count,
+            'pager': pager,
+            'tag': tag,
+            'filters': filters,
+            'my': my,
+            'sorting': sorting,
+            'search': search,
+        })
+        return request.render("qa_app.home_forum_index", values)
