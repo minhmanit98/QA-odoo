@@ -144,7 +144,7 @@
             <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_forum_all_top']" position="replace">
                 <div class="oe_structure oe_empty" id="oe_structure_forum_all_top">
                     <section class="s_cover parallax s_parallax_is_fixed bg-black-50 py-5" data-scroll-background-ratio="1">
-                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/web/image/forum.forum/1/image_1920'); background-position: 50% 0;"/>
+                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/qa_app/static/src/img/section.png'); background-position: 50% 0;"/>
                         <div class="container">
                             <div class="row s_nb_column_fixed">
                                 <div class="col-lg-12 s_title" data-name="Title">
