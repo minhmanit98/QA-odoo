@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/custom.css" />
         <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/dabblet.css" />
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/custom.scss"  />
+        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/style.css"  />
         <script type="text/javascript" src="/qa_app/static/src/js/agency.min.js"/>
          <script type="text/javascript" src="/qa_app/static/src/js/navbar.js"/>
         <script type="text/javascript" src="/qa_app/static/src/js/nav-min.js"/>

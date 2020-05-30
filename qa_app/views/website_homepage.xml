@@ -183,10 +183,9 @@
                         </div>
                         <p class="xem-them">Xem Thêm</p>
                     </div>
-                    <div class="row">
-                            <div class="col-md-8 danh-muc" >
-                                <div class="dropdown">
-                                    <div class="tieu-de" id="dropDownLoaiBaiViet" data-toggle="dropdown"  t-if="question_count > 1" t-attf-class="col-6 col-md-auto d-flex align-items-center justify-content-end #{uid and 'mt-lg-0'}">Bài Viết
+                                <div class="danh-muc" >
+                                    <div  t-if="question_count > 1" t-attf-class="justify-content-end #{uid and 'mt-lg-0'}" style="margin-left:0px;">
+                                    <div class="tieu-de" id="dropDownLoaiBaiViet" data-toggle="dropdown">Bài Viết
                                         <i class="down fa fa-chevron-down"></i>
                                         <div class="tieu-de-underline"></div>
                                     <span class="dropdown">
@@ -206,8 +205,8 @@
                                         </div>
                                     </span>
                                     </div>
-                                </div>
-                                <div class="col o_wprofile_email_validation_container mb16">
+                                    </div>
+                                     <div class="col mb16">
                                     <t t-call="website_profile.email_validation_banner">
                                         <t t-set="redirect_url" t-value="'/forum/%s' % forum.id"/>
                                         <t t-set="send_validation_email_message" t-value="'Click here to send a verification email allowing you to participate to the forum.'"/>
@@ -245,18 +244,18 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                </div>
+
                 </div>
                 <div class="col-md-4">
-                    <div class="danh-muc thao-tac-nhanh">
+                    <div class="danh-muc thao-tac-nhanh float-right">
                         <div class="tieu-de hoat-dong-ca-nhan">
                             Thao tác cá nhân
                             <div class="tieu-de-underline">
 
                             </div>
                         </div>
-                         <aside t-if="uid" class="d-none d-lg-flex justify-content-end col-auto">
+                         <aside t-if="uid" class="d-none d-lg-flex col-auto" style="padding-left: 0px;">
                                 <t t-call="qa_app.user_sidebar"/>
                          </aside>
                     </div>
@@ -276,13 +275,13 @@
 </template>
 
 <template id="user_sidebar">
-    <nav t-if="uid" class="o_wforum_nav nav nav-pills flex-column ml-4">
+    <nav t-if="uid" class="o_wforum_nav nav nav-pills flex-column">
         <a t-attf-href="/forum/#{slug(forum)}/user/#{uid}?forum_origin=#{request.httprequest.path}"
             class="nav-link d-flex align-items-center rounded-pill text-reset mb-2"
             data-toggle="tooltip"
             data-trigger="hover"
             title="My profile">
-            <img class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user, 'image_128', '30x30')" alt="Avatar"/>
+            <img class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user, 'image_128', '40x40')" alt="Avatar"/>
             <div>
                 <h6 class="my-0" t-esc="user_id.name"/>
                 <small class="text-muted font-weight-bold"><t t-esc="user_id.karma"/>xp</small>
@@ -353,8 +352,87 @@
     </nav>
 </template>
 
+<!-- Utility template: Post a Comment -->
+<template id="post_comment">
+    <div class="o_wforum_post_comments_container ml-2 ml-md-5">
+        <div t-if="len(object.website_message_ids)" class="o_wforum_comments_count_header mb-2">
+            <div class="text-muted font-weight-bold small">
+                <span class="o_wforum_comments_count" t-esc="len(object.website_message_ids)"/>
+                <t t-if="len(object.website_message_ids) == 1">Comment</t>
+                <t t-else="">Comments</t>
+            </div>
+        </div>
+        <div class="css_editable_mode_hidden o_wforum_readable">
+            <form t-att-id="_collapse_uid" class="collapse p-1 oe_comment_grey js_website_submit_form"
+                t-attf-action="/forum/1/post/#{slug(object)}/comment" method="POST">
+                <div class="shadow bg-white rounded px-3 pt-3 pb-4 mb-4">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input name="post_id" t-att-value="object.id" type="hidden" class="mt8"/>
+                    <div class="d-flex w-100">
+                        <img class="d-none d-md-inline-block rounded-circle o_forum_avatar mr-3" t-att-src="website.image_url(user, 'image_128', '40x40')" alt="Avatar"/>
+                        <div class="w-100">
+                            <textarea name="comment" class="form-control mb-2" placeholder="Comment this post..."/>
+                            <div>
+                                <button type="submit" class="btn btn-primary">Post comment</button>
+                                <a t-attf-href="##{_collapse_uid}" data-toggle="collapse" class="btn border">Discard</a>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </form>
+        </div>
+
+        <div class="o_wforum_post_comments pl-3 pl-md-4 border-left">
+            <t t-foreach="reversed(object.website_message_ids)" t-as="message">
+                <div t-attf-class="o_wforum_post_comment #{not message_first and 'mt-3'}">
+                    <div>
+                        <t t-set="required_karma" t-value="message.author_id.id == user.partner_id.id and object.forum_id.karma_comment_unlink_own or object.forum_id.karma_comment_unlink_all"/>
+                        <t t-set="required_karma" t-value="message.author_id.id == user.partner_id.id and object.forum_id.karma_comment_convert_own or object.forum_id.karma_comment_convert_all"/>
+                        <t t-if="(object.parent_id and object.parent_id.state != 'close' and object.parent_id.active != False) or (not object.parent_id and object.state != 'close' and object.active != False)">
+                            <t t-set="allow_post_comment" t-value="True" />
+                        </t>
+                        <div class="d-flex">
+                            <div class="mb-1" t-call="website_forum.author_box">
+                                <t t-set="object" t-value="message"/>
+                                <t t-set="compact" t-value="True"/>
+                                <t t-set="show_name" t-value="True"/>
+                                <t t-set="show_date" t-value="True"/>
+                            </div>
+                            <div class="dropdown ml-2">
+                                <a class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu shadow">
+                                    <t t-call="website_forum.link_button">
+                                        <t t-set="url" t-value="'/forum/1' + '/post/' + slug(object) + '/comment/' + slug(message) + '/delete'"/>
+                                        <t t-set="label">Delete</t>
+                                        <t t-set="title">Delete</t>
+                                        <t t-set="inDropdown" t-value="True"/>
+                                        <t t-set="icon" t-value="'fa-trash-o text-muted'"/>
+                                        <t t-set="classes" t-value="'comment_delete'"/>
+                                        <t t-set="karma" t-value="not object.can_unlink and object.karma_unlink or 0"/>
+                                    </t>
+                                    <t t-call="website_forum.link_button">
+                                        <t t-set="url" t-value="'/forum/1' + '/post/' + slug(object) + '/comment/' + slug(message) +  '/convert_to_answer'"/>
+                                        <t t-set="label">Convert as a answer</t>
+                                        <t t-set="inDropdown" t-value="True"/>
+                                        <t t-set="icon" t-value="'fa-magic text-muted'"/>
+                                        <t t-set="karma" t-value="not object.can_comment_convert and object.karma_comment_convert or 0"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <div t-field="message.body" class="o_wforum_readable oe_no_empty"/>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </div>
+</template>
+
+
 <!-- Display a post -->
-<template id="display_post_question">
+<template id="home_display_post">
     <div class="o_wforum_index_entry_title">
         <div class="d-inline-block mb-0 h5">
             <span t-if="question.has_validated_answer and filters != 'solved'"
@@ -398,12 +476,14 @@
         </t>
     </div>
 
+    <div t-field="question.content" class="o_wforum_post_content o_wforum_readable oe_no_empty"/>
+
     <div class="d-flex align-items-center justify-content-between justify-content-sm-start small text-muted">
         <div>
             <t t-call="website_forum.vote">
                 <t t-set="post" t-value="question"/>
             </t>
-            <span t-field="question.write_date" t-options='{"format": "d MMMM y"}'/>, by <a t-attf-href="/forum/#{slug(question.forum_id)}/user/#{question.create_uid.id}?forum_origin=#{request.httprequest.path}" t-field="question.create_uid" class="d-inline-block font-weight-bold" t-options='{"widget": "contact", "fields": ["name"]}'/>
+<!--            <span t-field="question.write_date" t-options='{"format": "d MMMM y"}'/>, by <a t-attf-href="/forum/#{slug(question.forum_id)}/user/#{question.create_uid.id}?forum_origin=#{request.httprequest.path}" t-field="question.create_uid" class="d-inline-block font-weight-bold" t-options='{"widget": "contact", "fields": ["name"]}'/>-->
         </div>
         <div>
             <span class="mx-1 d-none d-sm-inline">&amp;nbsp;|</span>
@@ -425,21 +505,53 @@
                 </span></span>
             <span t-if="question.state == 'flagged'" class="text-black"> | Flagged</span>
         </div>
+               <t t-set="_question_comment_collapse_uid" t-value="'comment_%s_%s' % (question._name.replace('.', '_'), question.id)"/>
+                <div t-if="question.state == 'active' and question.active != False"
+                    class="btn-toolbar mb-3" role="toolbar">
+                    <div t-if="not question.uid_has_answered and question.can_answer" class="btn-group btn-group-sm mr-2">
+                        <a t-attf-class="btn btn-primary #{not question.can_answer and 'karma_required text-muted'}"
+                            t-att-data-karma="question.forum_id.karma_answer"
+                            href="#post_reply">
+                            <i class="fa fa-reply mr-1"/>Answer
+                        </a>
+                    </div>
+                    <div class="btn-group btn-group-sm">
+                        <a t-attf-class="btn px-2 border #{not question.can_comment and 'karma_required text-muted'}" t-att-data-karma="question.karma_comment" t-att-data-toggle="question.can_comment and 'collapse' or None"
+                            t-attf-href="##{_question_comment_collapse_uid}">
+                            <i class=" fa fa-comment text-muted mr-1"/>Comment
+                        </a>
+                        <a href="javascript:void(0)" class="oe_social_share btn px-2 border"
+                            t-attf-data-hashtags="#question">
+                            <i class="fa fa-share-alt text-muted mr-1"/>Share
+                        </a>
+                    </div>
+                </div>
+
+<!--                <t t-call="qa_app.post_comment">-->
+<!--                    <t t-set="object" t-value="question"/>-->
+<!--                    <t t-set="_collapse_uid" t-value="_question_comment_collapse_uid"/>-->
+<!--                </t>-->
     </div>
     <!--  Display post's content in moderation mode-->
     <div><t t-raw="post_content"/></div>
 </template>
 <template id="display_post">
     <div t-attf-class="#{show_author_avatar and 'mt-2 mb-4' or 'card py-2 px-3'}">
-        <div class="media">
-            <div t-if="show_author_avatar">
-                <t t-call="website_forum.author_box">
-                    <t t-set="object" t-value="question"/>
-                    <t t-set="allow_biography" t-value="True"/>
-                </t>
+        <div class="border-radius">
+            <div t-if="show_author_avatar" class="box-info">
+                <div class="style_avatar">
+                    <t t-call="website_forum.author_box">
+                        <t t-set="object" t-value="question"/>
+                        <t t-set="allow_biography" t-value="True"/>
+                    </t>
+                </div>
+                <div class="dl-ib">
+                    <a t-attf-href="/forum/#{slug(question.forum_id)}/user/#{question.create_uid.id}?forum_origin=#{request.httprequest.path}" t-field="question.create_uid" class="d-inline-block font-weight-bold text-name text-block" t-options='{"widget": "contact", "fields": ["name"]}'/>
+                    <span class="text-date text-block" t-field="question.write_date" t-options='{"format": "d MMMM y"}'/>
+                </div>
             </div>
-            <div t-attf-class="media-body #{show_author_avatar and 'pl-2'}">
-                <t t-call="qa_app.display_post_question"/>
+            <div t-attf-class="media-body #{show_author_avatar and 'plr24'}">
+                <t t-call="qa_app.home_display_post"/>
             </div>
         </div>
     </div>
