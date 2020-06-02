@@ -15,9 +15,19 @@ exit
 
 # Upgrade production database
 sudo service odoo stop
+sudo su -c "~/odoo-13/odoo-bin -d UTC2Forumdev -c /etc/odoo/odoo.conf -u qa_app --load-language=vi_VN --stop-after-init" odoo
 sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u qa_app --load-language=vi_VN --stop-after-init" odoo
+
 sudo service odoo start
 
 --load-language=vi_VN
 ssh minhmanit98@52.168.25.103
 sudo su -c "~/odoo-13/odoo-bin shell -d UTC2Forum -u all --stop-after-init" odoo
+
+sudo su -c "~/odoo-13/odoo-bin -d jhkjk" odoo
+sudo su -c "~/odoo-13/odoo-bin -d UTC2Forum" odoo
+sudo su -c "~/odoo-13/odoo-bin" odoo
+jhkjk
+
+jhkjk
+sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf" odoo
