@@ -16,9 +16,23 @@ exit
 # Upgrade production database
 sudo service odoo stop
 sudo su -c "~/odoo-13/odoo-bin -d UTC2Forumdev -c /etc/odoo/odoo.conf -u qa_app --load-language=vi_VN --stop-after-init" odoo
-sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u qa_app --load-language=vi_VN --stop-after-init" odoo
+sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u website --load-language=vi_VN --stop-after-init" odoo
 
 sudo service odoo start
+website
+sudo nginx -t
+sudo service nginx restart
+
+sudo rm /etc/nginx/sites-enabled/odoo.conf
+sudo rm /etc/nginx/sites-available/odoo.conf
+sudo nano /etc/nginx/sites-enabled/odoo.conf
+sudo ln -s /etc/nginx/sites-enabled/odoo.conf /etc/nginx/sites-available/odoo.conf
+
+sudo nano /etc/nginx/sites-enabled/minhmanit.me
+sudo ln -s /etc/nginx/sites-enabled/minhmanit.me /etc/nginx/sites-available/minhmanit.me
+
+sudo nano /etc/nginx/sites-enabled/utc2support.team
+sudo ln -s /etc/nginx/sites-enabled/utc2support.team /etc/nginx/sites-available/utc2support.team
 
 --load-language=vi_VN
 ssh minhmanit98@52.168.25.103

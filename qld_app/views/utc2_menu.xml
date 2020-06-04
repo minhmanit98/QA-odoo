@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+	 <act_window id="action_utc2_qld"
+				name="QLD"
+				res_model="utc2.qld"
+				view_mode="tree,form"
+	/>
+    <menuitem id="utc2_menu_qld"
+              name="QLD"
+			  web_icon="qld_app,static/description/icon.png"
+			  action="action_utc2_qld"/>
+
+
+	<menuitem id="menu_qld"
+              name="QLD"
+              action="action_utc2_qld"
+              parent="utc2_menu_qld" />
+    />
+    <act_window id="action_utc2_qld_subjects"
+              name="QLD Subjects"
+              res_model="utc2.qld.subjects"
+              view_mode="tree,form"
+	/>
+	<menuitem id="menu_qld_subjects"
+              name="QLD Subjects"
+              action="action_utc2_qld_subjects"
+              parent="utc2_menu_qld" />
+    />
+	 <act_window id="action_utc2_qld_scores"
+              name="QLD Scores"
+              res_model="utc2.qld.scores"
+              view_mode="tree,form"
+	/>
+	<menuitem id="menu_qld_scores"
+              name="QLD Scores"
+              action="action_utc2_qld_scores"
+              parent="utc2_menu_qld" />
+    />
+
+<!--	END MENU GAMIFICATION-->
+
+</odoo>

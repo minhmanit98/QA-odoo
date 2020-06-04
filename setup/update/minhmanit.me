@@ -1,0 +1,44 @@
+stream {
+  map $ssl_server_name $stream_upstream {
+    minhmanit.me  minhmanitme;
+    utc2support.team  utc2supportteam;
+  }
+
+  map $ssl_server_name $targetCert {
+    minhmanit.me /etc/letsencrypt/live/minhmanit.me/fullchain.pem;
+    utc2support.team /etc/letsencrypt/live/utc2support.team/fullchain.pem;
+  }
+
+  map $ssl_server_name $targetCertKey {
+    minhmanit.me  /etc/letsencrypt/live/minhmanit.me/privkey.pem;
+    utc2support.team  /etc/letsencrypt/live/utc2support.team/privkey.pem;
+  }
+
+    log_format log_stream '$remote_addr [$time_local] $protocol [$ssl_preread_server_name] [$stream_upstream] '
+        '$status $bytes_sent $bytes_received $session_time';
+
+    access_log /var/log/nginx/access.log log_stream;
+    error_log  /var/log/nginx/error.log;
+
+  upstream minhmanitme {
+    server 127.0.0.1:8069;
+  }
+
+  upstream utc2supportteam {
+    server 127.0.0.1:8069;
+  }
+
+
+  server {
+    listen 443 ssl;
+    ssl_certificate     $targetCert;
+    ssl_certificate_key $targetCertKey;
+
+    resolver 1.1.1.1;
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    proxy_pass $stream_upstream;
+    ssl_preread on;
+  }
+}
+

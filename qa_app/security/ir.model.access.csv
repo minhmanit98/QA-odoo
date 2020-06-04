@@ -1,6 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_qa_user,QA User Access,model_utc2_qa,utc2_group_user,1,1,1,1
-access_qa_manager,QA Manager Access,model_utc2_qa,utc2_group_manager,1,1,1,1
-access_qa_category_user,QA User Access,model_utc2_qa_category,utc2_group_user,1,1,1,1
-access_qa_category_manager,QA Manager Access,model_utc2_qa_category,utc2_group_manager,1,1,1,1
-
+access_qld_user,QLD User Access,model_utc2_qld,utc2_group_user,1,1,1,1
+access_qld_manager,QLD Manager Access,model_utc2_qld,utc2_group_manager,1,1,1,1
