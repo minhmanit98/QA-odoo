@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_qld_user,QLD User Access,model_utc2_qld,utc2_group_user,0,0,0,0
+access_qld_manager,QLD Manager Access,model_utc2_qld,utc2_group_manager,1,1,1,1
+access_qld_subjects_user,QLD Subjects User Access,model_utc2_qld_subjects,utc2_group_user,0,0,0,0
+access_qld_subjects_manager,QLD Subjects Manager Access,model_utc2_qld_subjects,utc2_group_manager,1,1,1,1
+access_qld_scores_user,QLD Scores User Access,model_utc2_qld_scores,utc2_group_user,0,0,0,0
+access_qld_scores_manager,QLD Scores Manager Access,model_utc2_qld_scores,utc2_group_manager,1,1,1,1

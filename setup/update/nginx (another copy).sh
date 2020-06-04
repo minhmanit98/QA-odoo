@@ -7,6 +7,7 @@ server {
 }
 
 server {
+
  listen 443;
  server_name minhmanit.me;
  proxy_read_timeout 720s;
@@ -40,10 +41,12 @@ server {
  # Redirect requests to odoo backend server
  location / {
    proxy_redirect off;
-   proxy_pass http://127.0.0.1:8060;
+   proxy_pass http://127.0.0.1:8069;
  }
 
  # common gzip
  gzip_types text/css text/scss text/plain text/xml application/xml application/json application/javascript;
  gzip on;
 }
+
+

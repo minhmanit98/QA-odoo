@@ -18,8 +18,6 @@
  ],
  'data': [
      'views/utc2_menu.xml',
-     'views/qa_view.xml',
-     'views/utc2_qa_category_view.xml',
      'views/res_config_settings_views.xml',
      'views/website_templates.xml',
      'views/portal_templates.xml',
@@ -31,8 +29,6 @@
      'views/website_homepage.xml',
      'views/website_forum.xml',
      'views/res_users_views.xml',
-     'security/utc2_security.xml',
-     'security/ir.model.access.csv',
      'data/res_users_data.xml',
      'data/im_livechat_data.xml',
      'data/ir_default_data.xml',
