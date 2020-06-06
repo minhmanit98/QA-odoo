@@ -21,7 +21,13 @@ class QLD (models.Model):
         tong_diem = 0
         for score in self.scores_ids:
             tong_diem += (score.scores_4 * score.subject_id.stc)
-        diem_tl = tong_diem / self.tong_stc
+
+        if tong_diem == 0:
+            return 11
+        elif self.tong_stc == 0:
+            return 11
+        else:
+            diem_tl = tong_diem / self.tong_stc
         return diem_tl
 
     def _compute_scores_4end(self):
@@ -138,19 +144,25 @@ class QLD (models.Model):
                                         else:
                                             return 0
 
+    # def action_sync_scores(self):
+    #     print(self)
+    #     qld = self.env['utc2.qld'].search([('tong_stc', '=', 1)])
+    #     for record in qld:
+    #         record.sync_scores()
+    #     return 's'
+
     def action_sync_scores(self):
-        self.ensure_one()
         msv = self.name
         data_diem = self.request_diem(msv)
         diem_all = self.xuly(data_diem)
         scores_array = []
         for mon in diem_all:
-            if self.env['utc2.qld.subjects'].search_count([('name', '=', mon[1])]) > 0:
-                if self.env['utc2.qld.scores'].search_count([('name', '=', msv+'/'+mon[1]+'/'+self.getdiem(mon[3], mon[4]))]) > 0:
+            if self.env['utc2.qld.subjects'].search_count([('name', '=', str(mon[1]))]) > 0:
+                if self.env['utc2.qld.scores'].search_count([('name', '=', str(msv)+'/'+str(mon[1])+'/'+str(self.getdiem(mon[3], mon[4])))]) > 0:
                     return 'Khong co j de cap nhat'
                 else:
                     scores = self.env['utc2.qld.scores'].create({
-                        'name': msv+'/'+mon[1]+'/'+self.getdiem(mon[3], mon[4]),
+                        'name': str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])),
                         'scores_8': float(self.getdiem(mon[3], mon[4])),
                         'student_id': self.id,
                         'subject_id': self.env['utc2.qld.subjects'].search([('name', '=', mon[1])]).id
@@ -159,12 +171,12 @@ class QLD (models.Model):
 
             else:
                 subjects = self.env['utc2.qld.subjects'].create({
-                    'name': mon[1],
-                    'name_display': mon[2],
+                    'name': str(mon[1]),
+                    'name_display': str(mon[2]),
                     'stc': int(mon[3][0])
                 })
                 scores = self.env['utc2.qld.scores'].create({
-                    'name': msv + '/' + mon[1] + '/' + self.getdiem(mon[3], mon[4]),
+                    'name': str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])),
                     'scores_8': float(self.getdiem(mon[3], mon[4])),
                     'scores_4': float(self.get_diem_tich_luy(float(self.getdiem(mon[3], mon[4])))),
                     'student_id': self.id,
@@ -175,3 +187,39 @@ class QLD (models.Model):
         self._compute_tong_stc()
         self._compute_scores_4end()
         return 'Thanh cong chua'
+
+    def sync_scores(self):
+        msv = self.name
+        data_diem = self.request_diem(msv)
+        diem_all = self.xuly(data_diem)
+        scores_array = []
+        for mon in diem_all:
+            if self.env['utc2.qld.subjects'].search_count([('name', '=', str(mon[1]))]) > 0:
+                if self.env['utc2.qld.scores'].search_count([('name', '=', str(msv)+'/'+str(mon[1])+'/'+str(self.getdiem(mon[3], mon[4])))]) > 0:
+                    print( 'Khong co j de cap nhat')
+                else:
+                    scores = self.env['utc2.qld.scores'].create({
+                        'name': str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])),
+                        'scores_8': float(self.getdiem(mon[3], mon[4])),
+                        'student_id': self.id,
+                        'subject_id': self.env['utc2.qld.subjects'].search([('name', '=', mon[1])]).id
+                    })
+                    scores_array.append(scores.id)
+
+            else:
+                subjects = self.env['utc2.qld.subjects'].create({
+                    'name': str(mon[1]),
+                    'name_display': str(mon[2]),
+                    'stc': int(mon[3][0])
+                })
+                scores = self.env['utc2.qld.scores'].create({
+                    'name': str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])),
+                    'scores_8': float(self.getdiem(mon[3], mon[4])),
+                    'scores_4': float(self.get_diem_tich_luy(float(self.getdiem(mon[3], mon[4])))),
+                    'student_id': self.id,
+                    'subject_id': subjects.id
+                })
+                scores_array.append(scores.id)
+        self.write({'scores_ids': [(6, 0, scores_array)]})
+        self._compute_tong_stc()
+        self._compute_scores_4end()
