@@ -44,3 +44,11 @@ management-system/mgmtsystem/__pycache__/
 management-system/mgmtsystem/models/__pycache__/
 
 qa_app/controllers/text_classification_utc2/__pycache__/
+
+qld_app/__pycache__/
+
+qld_app/models/__pycache__/
+
+qld_app/wizard/__pycache__/
+
+qld_app/models/qld/__pycache__/
