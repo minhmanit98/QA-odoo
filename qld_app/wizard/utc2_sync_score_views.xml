@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="update_state_action" model="ir.ui.view">
+            <field name="name">Sync Score</field>
+            <field name="model">utc2.sync.score</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="state" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="utc2_sync_score" string="Update" type="object"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+         <act_window name="Sync Score"
+            id="update_state_action"
+            res_model="utc2.sync.score"
+            binding_model="utc2.qld"
+            binding_views="list,form"
+            view_mode="form"
+            target="new"
+        />
+    </data>
+</odoo>
