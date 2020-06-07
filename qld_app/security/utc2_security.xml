@@ -32,6 +32,11 @@
       <field name="model_id" ref="model_utc2_qld"/>
       <field name="groups" eval="[(4,ref('utc2_group_user'))]"/>
     </record>
+<!--    <record id="utc2_manager_rule" model="ir.rule">-->
+<!--      <field name="name">QA User Access</field>-->
+<!--      <field name="model_id" ref="model_utc2_qld"/>-->
+<!--      <field name="groups" eval="[(4,ref('utc2_group_manager'))]"/>-->
+<!--    </record>-->
   </data>
 
 </odoo>

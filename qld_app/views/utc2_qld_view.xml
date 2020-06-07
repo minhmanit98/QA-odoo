@@ -52,10 +52,11 @@
             <field name="model">utc2.qld</field>
             <field name="arch" type="xml">
                 <search string="Tìm sinh viên">
-<!--                    <group expand="1" string="Group By">-->
-<!--                        <filter string="QA" name="name" domain="[]"-->
-<!--                                context="{'group_by':'name'}"/>-->
-<!--                    </group>-->
+                     <field name="name"/>
+                    <group expand="1" string="Group By">
+                        <filter string="MSV" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
                 </search>
             </field>
         </record>

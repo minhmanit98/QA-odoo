@@ -1,8 +1,7 @@
 from odoo import _, fields, models
-import time
 
-class SyncScore(models.TransientModel):
-    _name = 'utc2.sync.score'
+class SyncScore(models.Model):
+    _name = 'utc2.sync.scores'
     _description = 'Đồng bộ điểm'
 
     state = fields.Selection([
@@ -11,11 +10,13 @@ class SyncScore(models.TransientModel):
         ('cancel', 'Hủy bỏ'),
     ], string='Status', default='all')
 
+    limit_update = fields.Integer(string='Giới hạn update', default=100)
+
     def utc2_sync_score(self):
         # if self.state == 'all':
         i = 0
         print(self.env['utc2.qld'].search([('tong_stc', '=', 1)]))
-        for record in self.env['utc2.qld'].search([('tong_stc', '=', 1), ('scores_4end', '!=', 11)], limit=100):
-            record.sync_scores()
+        for record in self.env['utc2.qld'].search([('tong_stc', '=', 1), ('scores_4end', '!=', 11)], limit=self.limit_update):
+            record.action_sync_scores()
             i = i + 1
             print(i)

@@ -10,7 +10,7 @@
      'views/utc2_qld_view.xml',
      'views/utc2_qld_scores_view.xml',
      'views/utc2_qld_subjects_view.xml',
-     'wizard/utc2_sync_score_views.xml',
+     'views/utc2_sync_scores_views.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
  ],

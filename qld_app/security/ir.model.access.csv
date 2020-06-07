@@ -5,3 +5,5 @@ access_qld_subjects_user,QLD Subjects User Access,model_utc2_qld_subjects,utc2_g
 access_qld_subjects_manager,QLD Subjects Manager Access,model_utc2_qld_subjects,utc2_group_manager,1,1,1,1
 access_qld_scores_user,QLD Scores User Access,model_utc2_qld_scores,utc2_group_user,0,0,0,0
 access_qld_scores_manager,QLD Scores Manager Access,model_utc2_qld_scores,utc2_group_manager,1,1,1,1
+access_sync_scores_user,QLD sync_scores User Access,model_utc2_sync_scores,utc2_group_user,0,0,0,0
+access_sync_scores_manager,QLD sync_scores Manager Access,model_utc2_sync_scores,utc2_group_manager,1,1,1,1
