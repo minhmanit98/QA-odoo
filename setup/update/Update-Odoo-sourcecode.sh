@@ -15,7 +15,7 @@ exit
 
 # Upgrade production database
 sudo service odoo stop
-sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u qa_app --load-language=vi_VN --stop-after-init" odoo
+sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u qa_app,qld_app --load-language=vi_VN --stop-after-init" odoo
 sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u website --load-language=vi_VN --stop-after-init" odoo
 
 sudo service odoo start
