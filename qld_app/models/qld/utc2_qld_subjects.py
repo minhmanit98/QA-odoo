@@ -4,7 +4,7 @@ from odoo import fields, models, api , exceptions
 
 class QLDSubjects(models.Model):
     _name = 'utc2.qld.subjects'
-    _description = 'Môn - Điểm'
+    _description = 'Môn'
 
 
     def _compute_is_dtl(self):

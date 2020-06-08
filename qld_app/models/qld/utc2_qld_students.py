@@ -5,9 +5,9 @@ from html_table_parser import HTMLTableParser
 
 
 class QLD(models.Model):
-    _name = 'utc2.qld'
-    _description = 'Quản Lý Điểm'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _name = 'utc2.qld.students'
+    _description = 'Danh sách sinh viên'
+    # _inherit = ['mail.thread', 'mail.activity.mixin']
 
     def check_mon(self, mon):
         list_mon = ['GQP201.3', 'GQP202.2', 'GQP203.3', 'GDT01.1', 'GDT02.1',
@@ -42,7 +42,8 @@ class QLD(models.Model):
                     tong_diem = tong_diem + (score.scores_4 * score.subject_id.stc)
             diem_tl = tong_diem / self.tong_stc
         else:
-            diem_tl = 1000
+            self.state = 'missed'
+            diem_tl = 0
         return diem_tl
 
     def _compute_scores_4end(self):
@@ -57,9 +58,15 @@ class QLD(models.Model):
     user_id = fields.Many2one('res.users', string='Student', ondelete='restrict')
     scores_4end = fields.Float(string='Điểm tích lũy', compute=_compute_scores_4end, store=True)
     scores_4end_cus = fields.Float(string='Điểm tích lũy tùy chỉnh', default=5.5)
-    scores_ids = fields.Many2many('utc2.qld.scores',
-                                  'utc2_qld_scores_rel', 'utc2_qld_scores_id', 'qld_id', string='Điểm các môn')
+    scores_ids = fields.One2many('utc2.qld.scores', 'student_id', string='Điểm các môn')
     tong_stc = fields.Integer(string='Tổng số tín chỉ', compute=_compute_tong_stc, default=1, store=True)
+    class_id = fields.Many2one('utc2.qld.class', string='Lớp', ondelete='restrict')
+    state = fields.Selection([
+        ('studying', 'Đang học'),
+        ('missed', 'Nghỉ học'),
+        ('graduated', 'Đã tốt nghiệp'),
+    ], string='Status', default='studying')
+
 
     @api.model
     def create(self, vals):
@@ -78,8 +85,7 @@ class QLD(models.Model):
         p = HTMLTableParser()
         p.feed(xhtml)
         csvData = p.tables
-        diem = csvData[3]
-        return diem
+        return csvData
 
     def xuly(self, diem):
         diem_clean = []
@@ -165,8 +171,22 @@ class QLD(models.Model):
     def action_sync_scores(self):
         msv = self.name
         data_diem = self.request_diem(msv)
-        diem_all = self.xuly(data_diem)
-        scores_array = []
+        diem_all = self.xuly(data_diem[3])
+        data_info = data_diem[2]
+
+        if len(data_info) > 1:
+            class_name = data_info[3][0][4:len(data_info[3][0])]
+            if self.env['utc2.qld.class'].search_count([('name', '=', class_name)]) > 0:
+                self.class_id = self.env['utc2.qld.class'].search([('name', '=', class_name)]).id
+            else:
+                class_id = self.env['utc2.qld.class'].create({
+                    'name': class_name,
+                })
+                self.class_id = class_id
+        else:
+            self.state = 'missed'
+            return
+
         for mon in diem_all:
             if self.env['utc2.qld.subjects'].search_count([('name', '=', str(mon[1]))]) > 0:
                 if self.env['utc2.qld.scores'].search_count([('name', '=', str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])))]) > 0:
@@ -179,7 +199,6 @@ class QLD(models.Model):
                         'student_id': self.id,
                         'subject_id': self.env['utc2.qld.subjects'].search([('name', '=', mon[1])]).id
                     })
-                    scores_array.append(scores.id)
             else:
                 subjects = self.env['utc2.qld.subjects'].create({
                     'name': str(mon[1]),
@@ -194,8 +213,5 @@ class QLD(models.Model):
                     'student_id': self.id,
                     'subject_id': subjects.id
                 })
-                scores_array.append(scores.id)
-        if len(scores_array) > 0:
-            self.write({'scores_ids': [(6, 0, scores_array)]})
         self.update_sv()
         return 'Thanh cong chua'

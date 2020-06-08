@@ -14,7 +14,10 @@ def request_diem(msv):
     p = HTMLTableParser()
     p.feed(xhtml)
     csvData = p.tables
-    return csvData[3]
+    data_info = csvData[2]
+    # return data_info[3][0][5:len(data_info[3][0])]
+    return csvData[2]
+
 
 def xuly(diem):
     diem_clean = []
@@ -26,4 +29,4 @@ def xuly(diem):
             
 
 # xuly(request_diem('5751071024'))
-pprint(xuly(request_diem('5751071024')))
+pprint(len(request_diem('555101A010')))

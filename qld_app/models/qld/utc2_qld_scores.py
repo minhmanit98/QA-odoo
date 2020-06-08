@@ -15,7 +15,7 @@ class QLDScores(models.Model):
     scores_word = fields.Float(string='Điểm chữ', readonly=True)
     scores_4 = fields.Float(string='Điểm tích lũy', readonly=True, store=True)
     scores_4custom = fields.Float(string='Điểm tích lũy tùy chỉnh', default=5.5)
-    student_id = fields.Many2one('utc2.qld', string='MSV')
+    student_id = fields.Many2one('utc2.qld.students', string='MSV', ondelete='cascade')
     subject_id = fields.Many2one('utc2.qld.subjects', string='Môn')
     subject_name = fields.Char('Tên môn', related="subject_id.name_display")
     subject_stc = fields.Integer('Số tín chỉ', related="subject_id.stc", store=True)

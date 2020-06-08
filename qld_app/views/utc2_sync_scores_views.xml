@@ -9,7 +9,7 @@
                     <group>
                         <group>
                             <field name="state" />
-                            <field name="limit_update" />
+                            <field name="limit_update" attrs="{'invisible': [('state', '=', 'selected')]}"/>
                         </group>
                     </group>
                     <footer>
@@ -25,14 +25,14 @@
             <field name="arch" type="xml">
                 <tree string="QLD Sync Score">
                      <field name="state" />
-                    <field name="limit_update" />
+                    <field name="limit_update"/>
                 </tree>
             </field>
         </record>
          <act_window name="Sync Score"
             id="update_state_action"
             res_model="utc2.sync.scores"
-            binding_model="utc2.qld"
+            binding_model="utc2.qld.students"
             binding_views="list,form"
             view_mode="form"
             target="new"
