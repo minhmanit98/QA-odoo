@@ -18,6 +18,14 @@ def request_diem(msv):
     # return data_info[3][0][5:len(data_info[3][0])]
     return csvData[2]
 
+def request2():
+    request = 'http://dangkyhoc.utc2.edu.vn/XemChuongTrinhKhung/XemChuongTrinhKhung'
+    xhtml = url_get_contents(request).decode('utf-8')
+    p = HTMLTableParser()
+    p.feed(xhtml)
+    csvData = p.tables
+    # return data_info[3][0][5:len(data_info[3][0])]
+    return csvData
 
 def xuly(diem):
     diem_clean = []
@@ -29,4 +37,5 @@ def xuly(diem):
             
 
 # xuly(request_diem('5751071024'))
-pprint(len(request_diem('555101A010')))
+# pprint(len(request_diem('555101A010')))
+pprint(request2())

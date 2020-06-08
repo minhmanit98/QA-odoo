@@ -18,9 +18,12 @@ class QLD(models.Model):
             return True
 
     def get_tin_chi(self, string):
-        if string[1] == '0':
-            return 10
-        else:
+        if len(string) > 2:
+            if string[1] == '0':
+                return 10
+            else:
+                return int(string[0])
+        elif len(string) == 1:
             return int(string[0])
 
     def tinh_tong_stc(self):
