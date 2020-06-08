@@ -1,41 +1,74 @@
 <?xml version="1.0"?>
 <odoo>
-	 <act_window id="action_utc2_qld"
-				name="QLD"
-				res_model="utc2.qld"
+	<act_window id="action_utc2_qld"
+				name="Sinh viên"
+				res_model="utc2.qld.students"
+				view_mode="tree,form"
+	/>
+	<act_window id="action_utc2_qld_class"
+				name="Lớp"
+				res_model="utc2.qld.class"
 				view_mode="tree,form"
 	/>
     <menuitem id="utc2_menu_qld"
-              name="QLD"
+              name="QL dự đoán điểm"
 			  web_icon="qld_app,static/description/icon.png"
-			  action="action_utc2_qld"/>
-
+			  action="action_utc2_qld_class"/>
 
 	<menuitem id="menu_qld"
-              name="QLD"
-              action="action_utc2_qld"
+              name="Quản lý"
               parent="utc2_menu_qld" />
-    />
+
+
+
+	<menuitem id="menu_qld_class"
+              name="Lớp"
+              action="action_utc2_qld_class"
+              parent="menu_qld"
+			  sequence="1"/>
+
+	<menuitem id="menu_qld_students"
+              name="Sinh viên"
+              action="action_utc2_qld"
+              parent="menu_qld"
+			  sequence="2"/>
+
     <act_window id="action_utc2_qld_subjects"
-              name="QLD Subjects"
+              name="Môn"
               res_model="utc2.qld.subjects"
               view_mode="tree,form"
 	/>
 	<menuitem id="menu_qld_subjects"
-              name="QLD Subjects"
+              name="Môn"
               action="action_utc2_qld_subjects"
-              parent="utc2_menu_qld" />
-    />
-	 <act_window id="action_utc2_qld_scores"
-              name="QLD Scores"
+              parent="menu_qld"
+			  sequence="3"/>
+
+	<act_window id="action_utc2_qld_scores"
+              name="Điểm"
               res_model="utc2.qld.scores"
               view_mode="tree,form"
 	/>
+
 	<menuitem id="menu_qld_scores"
-              name="QLD Scores"
+              name="Điểm"
               action="action_utc2_qld_scores"
+              parent="menu_qld"
+			  sequence="4"/>
+
+	<menuitem id="menu_qld_tool"
+              name="Công cụ"
               parent="utc2_menu_qld" />
-    />
+
+	<act_window id="action_utc2_sync_score"
+              name="QLD Sync Score"
+              res_model="utc2.sync.scores"
+              view_mode="tree,form"
+	/>
+	<menuitem id="menu_qld_sync_scores"
+              name="QLD Sync Score"
+              action="action_utc2_sync_score"
+              parent="menu_qld_tool"/>
 
 <!--	END MENU GAMIFICATION-->
 

@@ -3,7 +3,7 @@
     <data>
         <record id="qld_form_view" model="ir.ui.view">
             <field name="name">QLD Form</field>
-            <field name="model">utc2.qld</field>
+            <field name="model">utc2.qld.students</field>
             <field name="arch" type="xml">
                 <form string="QA">
                     <header>
@@ -19,43 +19,48 @@
                             <field name="scores_4end" />
                             <field name="scores_4end_cus" />
                             <field name="tong_stc" />
+                            <field name="class_id"/>
                         </group>
                         <label for="scores_ids" string="Bảng điểm"/>
                         <field name="scores_ids"/>
-                        <div class="oe_chatter">
-                            <field name="message_follower_ids" widget="mail_followers"/>
-                            <field name="activity_ids" widget="mail_activity"/>
-                            <field name="message_ids" widget="mail_thread"/>
-                        </div>
+<!--                        <div class="oe_chatter">-->
+<!--                            <field name="message_follower_ids" widget="mail_followers"/>-->
+<!--                            <field name="activity_ids" widget="mail_activity"/>-->
+<!--                            <field name="message_ids" widget="mail_thread"/>-->
+<!--                        </div>-->
 
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record id="qld_tree_view" model="ir.ui.view">
+        <record id="qld_students_tree_view" model="ir.ui.view">
             <field name="name">QLD List</field>
-            <field name="model">utc2.qld</field>
+            <field name="model">utc2.qld.students</field>
             <field name="arch" type="xml">
-                <tree string="QA">
+                <tree string="Sinh viên">
                     <field name="name"/>
-                   <field name="user_id"/>
+                    <field name="user_id"/>
                     <field name="scores_4end" />
-                    <field name="scores_4end_cus" />
                     <field name="scores_ids" />
+                    <field name="class_id"/>
                 </tree>
             </field>
         </record>
 
         <record id="qld_search_view" model="ir.ui.view">
             <field name="name">QLD search</field>
-            <field name="model">utc2.qld</field>
+            <field name="model">utc2.qld.students</field>
             <field name="arch" type="xml">
                 <search string="Tìm sinh viên">
-<!--                    <group expand="1" string="Group By">-->
-<!--                        <filter string="QA" name="name" domain="[]"-->
-<!--                                context="{'group_by':'name'}"/>-->
-<!--                    </group>-->
+                     <field name="name"/>
+                     <field name="user_id"/>
+                    <field name="scores_4end" />
+                    <field name="scores_ids" />
+                    <group expand="1" string="Group By">
+                        <filter string="MSV" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
                 </search>
             </field>
         </record>
