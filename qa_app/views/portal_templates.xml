@@ -2,7 +2,7 @@
 <odoo>
 
      <template id="utc2_logo">
-            <div style="position: relative; height: 80px; width: 470px;">
+            <div style="position: relative; height: 80px; width: 470px;" id="html-logo">
               <img src="https://utc.edu.vn/sites/default/files/LOGO%20GTVT.jpg" alt="" style="width: 80px; height: 80px; position: absolute;"/>
               <span style="color: #281756; font-weight: bold; font-size: 15px; position: absolute;
             bottom: 48px; left: 85px;">TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI</span>
@@ -49,6 +49,9 @@
                         </ul>
                     </div>
                 </div>
+<!--                <div class="loader">-->
+<!--                <div class="loader__element"></div>-->
+<!--                </div>-->
             </nav>
             <nav class="navbar navbar-expand-md navbar-fixed" id="nav-min">
                 <div class="container-fluid">
@@ -141,6 +144,35 @@
                     </div>
                 </div>
             </nav>
+            <nav class="navbar navbar-expand-lg navbar-mainbg" style="display: none;">
+                <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                 <i class="fas fa-bars text-white"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
         </xpath>
         <xpath expr="//div[@id='wrapwrap']/main/t[@t-raw='0']" position="before">
             <div t-if="o_portal_fullwidth_alert" class="alert alert-info alert-dismissible rounded-0 fade show d-print-none css_editable_mode_hidden">

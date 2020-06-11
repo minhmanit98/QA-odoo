@@ -120,56 +120,63 @@ class QLD(models.Model):
         else:
             return diem1
 
-    def get_diem_tich_luy(self, msv, diem):
-        if int(msv[0:1]) < 59:
-            if diem >= 8.5 and diem <= 10:
-                return 4
-            else:
-                if diem >= 7 and diem <= 8.4:
-                    return 3
-                else:
-                    if diem >= 5.5 and diem <= 6.9:
-                        return 2
-                    else:
-                        if diem >= 5 and diem <= 5.4:
-                            return 1.5
-                        else:
-                            if diem >= 4 and diem <= 4.9:
-                                return 1
-                            else:
-                                if diem >= 3 and diem <= 3.9:
-                                    return 0.5
-                                else:
-                                    return 0
+    def get_diem_truoc_59(self, diem):
+        if diem >= 8.5 and diem <= 10:
+            return 4
         else:
-            if diem >= 9.5 and diem <= 10:
-                return 4
+            if diem >= 7 and diem <= 8.4:
+                return 3
             else:
-                if diem >= 8.5 and diem <= 9.4:
-                    return 3.8
+                if diem >= 5.5 and diem <= 6.9:
+                    return 2
                 else:
-                    if diem >= 8 and diem <= 8.4:
-                        return 3.5
+                    if diem >= 5 and diem <= 5.4:
+                        return 1.5
                     else:
-                        if diem >= 7 and diem <= 7.9:
-                            return 3
+                        if diem >= 4 and diem <= 4.9:
+                            return 1
                         else:
-                            if diem >= 6 and diem <= 6.9:
-                                return 2.5
+                            if diem >= 3 and diem <= 3.9:
+                                return 0.5
                             else:
-                                if diem >= 5.5 and diem <= 5.9:
-                                    return 2
+                                return 0
+    def get_diem_sau_59(self, diem):
+        if diem >= 9.5 and diem <= 10:
+            return 4
+        else:
+            if diem >= 8.5 and diem <= 9.4:
+                return 3.8
+            else:
+                if diem >= 8 and diem <= 8.4:
+                    return 3.5
+                else:
+                    if diem >= 7 and diem <= 7.9:
+                        return 3
+                    else:
+                        if diem >= 6 and diem <= 6.9:
+                            return 2.5
+                        else:
+                            if diem >= 5.5 and diem <= 5.9:
+                                return 2
+                            else:
+                                if diem >= 4.5 and diem <= 5.4:
+                                    return 1.5
                                 else:
-                                    if diem >= 4.5 and diem <= 5.4:
-                                        return 1.5
+                                    if diem >= 4 and diem <= 4.4:
+                                        return 1
                                     else:
-                                        if diem >= 4 and diem <= 4.4:
-                                            return 1
+                                        if diem >= 2 and diem <= 3.9:
+                                            return 0.5
                                         else:
-                                            if diem >= 2 and diem <= 3.9:
-                                                return 0.5
-                                            else:
-                                                return 0
+                                            return 0
+
+    def get_diem_tich_luy(self, msv, diem):
+        if msv[0].lower() == 'v':
+            return self.get_diem_truoc_59(diem)
+        elif int(msv[0:1]) < 59:
+            return self.get_diem_truoc_59(diem)
+        else:
+            return self.get_diem_sau_59(diem)
 
     def action_sync_scores(self):
         msv = self.name

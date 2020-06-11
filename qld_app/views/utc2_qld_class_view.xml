@@ -14,10 +14,9 @@
                             <field name="name_display"/>
                             <field name="parent_id"/>
                             <field name="child_ids"/>
-                            <field name="student_ids"/>
+                            <field name="subject_ids" widget="many2many_tags" />
                         </group>
-                        <label for="subject_ids" string="Bảng điểm"/>
-                         <field name="subject_ids"/>
+                         <field name="student_ids"/>
                     </sheet>
                 </form>
             </field>
@@ -32,8 +31,8 @@
                     <field name="name_display"/>
                     <field name="parent_id"/>
                     <field name="child_ids"/>
+                     <field name="subject_ids" widget="many2many_tags"/>
                     <field name="student_ids"/>
-                      <field name="subject_ids"/>
                 </tree>
             </field>
         </record>

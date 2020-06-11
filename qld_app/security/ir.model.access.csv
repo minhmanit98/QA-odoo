@@ -9,3 +9,5 @@ access_sync_scores_user,QLD sync_scores User Access,model_utc2_sync_scores,utc2_
 access_sync_scores_manager,QLD sync_scores Manager Access,model_utc2_sync_scores,utc2_group_manager,1,1,1,1
 access_qld_class_user,QLD Class User Access,model_utc2_qld_class,utc2_group_user,0,0,0,0
 access_qld_class_manager,QLD Class Manager Access,model_utc2_qld_class,utc2_group_manager,1,1,1,1
+access_qld_group_user,QLD Group User Access,model_utc2_qld_group,utc2_group_user,0,0,0,0
+access_qld_group_manager,QLD Group Manager Access,model_utc2_qld_group,utc2_group_manager,1,1,1,1

@@ -5,6 +5,7 @@
             <field name="model">utc2.qld.scores</field>
             <field name="arch" type="xml">
                 <tree string="QLD Scores">
+                     <field name="subject_id" />
                     <field name="subject_name" />
                      <field name="subject_stc"/>
                      <field name="scores_4" />
@@ -29,5 +30,22 @@
             </form>
         </field>
     </record>
+
+     <record id="qld_search_view" model="ir.ui.view">
+            <field name="name">QLD search</field>
+            <field name="model">utc2.qld.scores</field>
+            <field name="arch" type="xml">
+                <search string="Tìm sinh viên">
+                     <field name="name"/>
+                    <field name="subject_name"/>
+                    <group expand="1" string="Group By">
+                        <filter string="MSV" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                         <filter string="Tên môn" name="subject_name" domain="[]"
+                                context="{'group_by':'subject_name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
 </odoo>

@@ -19,8 +19,6 @@
               name="Quản lý"
               parent="utc2_menu_qld" />
 
-
-
 	<menuitem id="menu_qld_class"
               name="Lớp"
               action="action_utc2_qld_class"
@@ -55,6 +53,18 @@
               action="action_utc2_qld_scores"
               parent="menu_qld"
 			  sequence="4"/>
+
+	<act_window id="action_utc2_qld_group"
+              name="Nhóm môn"
+              res_model="utc2.qld.group"
+              view_mode="tree,form"
+	/>
+
+	<menuitem id="menu_qld_group"
+              name="Nhóm môn"
+              action="action_utc2_qld_group"
+              parent="menu_qld"
+			  sequence="5"/>
 
 	<menuitem id="menu_qld_tool"
               name="Công cụ"

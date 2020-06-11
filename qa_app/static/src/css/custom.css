@@ -510,3 +510,11 @@ h1 {
 .background-text{
     background:rgba(0,0,0,0.1);
 }
+@media (max-width: 768px) {
+    #html-logo{
+        display: none;
+    }
+    #user_sidebar{
+        display: none;
+    }
+}
