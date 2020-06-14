@@ -33,6 +33,7 @@ class QLD(models.Model):
                 tongstc = tongstc + score.subject_id.stc
         return tongstc
 
+    @api.depends("scores_ids")
     def _compute_tong_stc(self):
         for record in self:
             record.tong_stc = record.tinh_tong_stc()
@@ -49,6 +50,7 @@ class QLD(models.Model):
             diem_tl = 0
         return diem_tl
 
+    @api.depends("scores_ids")
     def _compute_scores_4end(self):
         for record in self:
             record.scores_4end = record.diem_tich_luy()
@@ -70,6 +72,9 @@ class QLD(models.Model):
         ('graduated', 'Đã tốt nghiệp'),
     ], string='Status', default='studying')
 
+    @api.onchange('scores_ids')
+    def _onchange_scores_ids(self):
+        self.update_sv()
 
     @api.model
     def create(self, vals):

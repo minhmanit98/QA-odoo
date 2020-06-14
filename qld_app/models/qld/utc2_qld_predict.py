@@ -1,11 +1,141 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, api , exceptions
+from odoo import fields, models, api, exceptions
 
 
 class QLDPredict(models.Model):
     _name = 'utc2.qld.predict'
     _description = 'Dự đoán'
 
-    name = fields.Char('Mã dự đoán', required=True)
-    student_id = fields.Many2one('utc2.qld.students', string='Mã sinh viên')
-    predict_scores_id = fields.One2Many('utc2.qld.predict.scores', 'predict_id', string='Bảng điểm dự đoán')
+    def tinh_tong_stc(self):
+        tongstc = 0
+        for score in self.predict_scores_ids:
+            if score.subject_id.is_dtl:
+                tongstc = tongstc + score.subject_id.stc
+        return tongstc
+
+    def diem_tich_luy(self):
+        tong_diem = 0
+        if self.tong_stc >= 1:
+            for score in self.predict_scores_ids:
+                if score.subject_id.is_dtl:
+                    tong_diem = tong_diem + (score.scores_4 * score.subject_stc)
+            diem_tl = tong_diem / self.tong_stc
+        else:
+            # self.student_id.state = 'missed'
+            diem_tl = 0
+        return diem_tl
+
+    @api.depends("predict_scores_ids")
+    def _compute_tong_stc(self):
+        for record in self:
+            record.tong_stc = record.tinh_tong_stc()
+
+    @api.depends("predict_scores_ids")
+    def _compute_scores_4end(self):
+        for record in self:
+            record.scores_4end = record.diem_tich_luy()
+
+    def update_sv(self):
+        self.tong_stc = self.tinh_tong_stc()
+        self.scores_4end = self.diem_tich_luy()
+
+    name = fields.Char('Mã dự đoán', readonly=True, default='New')
+    student_id = fields.Many2one('utc2.qld.students', string='Mã sinh viên', required=True)
+    predict_scores_ids = fields.One2many('utc2.qld.predict.scores', 'predict_id', string='Bảng điểm dự đoán')
+    scores_4end = fields.Float(string='Điểm tích lũy', compute=_compute_scores_4end, store=True)
+    scores_predict = fields.Float(string='Điểm tích dự đoán', default=5.5)
+    scores_4cus = fields.Float(string='Điểm tích mục tiêu', default=5.5, max=10)
+    tong_stc = fields.Integer(string='Tổng số tín chỉ', compute=_compute_tong_stc, default=1, store=True)
+
+    @api.onchange('predict_scores_ids', 'student_id')
+    def onchange_predict_scores_ids(self):
+        if self.student_id and self.predict_scores_ids:
+            self.tong_stc = self.tinh_tong_stc()
+            self.scores_4end = self.diem_tich_luy()
+
+    @api.model
+    def create(self, vals):
+        predict = []
+        subject_current = []
+        if vals.get('name', 'New') == 'New':
+            vals['name'] = self.env['ir.sequence'].next_by_code(
+                'utc2.qld.predict') or 'New'
+        scores_ids = self.env['utc2.qld.scores'].search([('student_id', '=', vals.get('student_id'))])
+        for record in scores_ids:
+            predict_scores = self.env['utc2.qld.predict.scores'].create({
+                'scores_8': record.scores_8,
+                'scores_word': record.scores_word,
+                'scores_4': record.scores_4,
+                'subject_id': record.subject_id.id,
+            })
+            subject_current.append(record.subject_id.id)
+            predict.append(predict_scores.id)
+        class_id = self.env['utc2.qld.students'].search([('id', '=', vals.get('student_id'))]).class_id
+        if class_id.subject_ids:
+            for subject in class_id.subject_ids:
+                if not subject.id in subject_current:
+                    predict_scores = self.env['utc2.qld.predict.scores'].create({
+                        'subject_id': subject.id,
+                    })
+                    subject_current.append(subject.id)
+                    predict.append(predict_scores.id)
+            vals['predict_scores_ids'] = [(6, 0, predict)]
+        result = super(QLDPredict, self).create(vals)
+        return result
+
+    def action_get_scores(self):
+        self.student_id.action_sync_scores()
+        subject_current = []
+        if not self.predict_scores_ids:
+            scores_ids = self.env['utc2.qld.scores'].search([('student_id', '=', self.student_id.id)])
+            for record in scores_ids:
+                predict_scores = self.env['utc2.qld.predict.scores'].create({
+                    'scores_8': record.scores_8,
+                    'scores_word': record.scores_word,
+                    'scores_4': record.scores_4,
+                    'subject_id': record.subject_id.id,
+                    'predict_id': self.id,
+                })
+                subject_current.append(record.subject_id.id)
+
+            class_id = self.student_id.class_id
+            if class_id.subject_ids:
+                for subject in class_id.subject_ids:
+                    if not subject.id in subject_current:
+                        predict_scores = self.env['utc2.qld.predict.scores'].create({
+                            'subject_id': subject.id,
+                            'predict_id': self.id,
+                        })
+                        subject_current.append(subject.id)
+        else:
+            scores_ids = self.env['utc2.qld.scores'].search([('student_id', '=', self.student_id.id)])
+            scores_id = []
+            for record in scores_ids:
+                for predict in self.predict_scores_ids:
+                    if predict.subject_id.id == record.subject_id.id:
+                        predict.scores_8 = record.scores_8
+                        predict.scores_word = record.scores_word
+                        predict.scores_4 = record.scores_4
+                        subject_current.append(predict.subject_id.id)
+                    elif not record in scores_id and not record.subject_id in self.predict_scores_ids.subject_id:
+                        scores_id.append(record)
+
+            for record in scores_id:
+                predict_scores = self.env['utc2.qld.predict.scores'].create({
+                    'scores_8': record.scores_8,
+                    'scores_word': record.scores_word,
+                    'scores_4': record.scores_4,
+                    'subject_id': record.subject_id.id,
+                    'predict_id': self.id,
+                })
+                subject_current.append(record.subject_id.id)
+
+            class_id = self.student_id.class_id
+            if class_id.subject_ids:
+                for subject in class_id.subject_ids:
+                    if not subject.id in subject_current:
+                        predict_scores = self.env['utc2.qld.predict.scores'].create({
+                            'subject_id': subject.id,
+                            'predict_id': self.id,
+                        })
+                        subject_current.append(subject.id)

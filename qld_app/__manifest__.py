@@ -13,8 +13,11 @@
      'views/utc2_sync_scores_views.xml',
      'views/utc2_qld_class_view.xml',
      'views/utc2_qld_group_view.xml',
+     'views/utc2_qld_predict_view.xml',
+     'views/utc2_qld_predict_scores_view.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
+     'data/ir_sequence_data.xml',
  ],
 
  'application': True,

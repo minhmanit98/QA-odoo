@@ -4,7 +4,7 @@
             <field name="name">QLD List Subjects</field>
             <field name="model">utc2.qld.subjects</field>
             <field name="arch" type="xml">
-                <tree string="QLD Subjects">
+                <tree string="QLD Subjects" delete="false">
                     <field name="name" />
                     <field name="name_display" />
                     <field name="stc" />

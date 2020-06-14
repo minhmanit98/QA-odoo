@@ -12,6 +12,8 @@
                         <group>
                             <field name="name"/>
                             <field name="name_display"/>
+                            <field name="stc_current"/>
+                             <field name="subject_current" widget="many2many_tags"/>
                             <field name="parent_id"/>
                             <field name="child_ids"/>
                             <field name="subject_ids" widget="many2many_tags" />
@@ -31,7 +33,7 @@
                     <field name="name_display"/>
                     <field name="parent_id"/>
                     <field name="child_ids"/>
-                     <field name="subject_ids" widget="many2many_tags"/>
+                     <field name="subject_ids"/>
                     <field name="student_ids"/>
                 </tree>
             </field>

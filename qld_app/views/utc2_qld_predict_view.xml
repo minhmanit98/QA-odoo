@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="qld_predict_form_view" model="ir.ui.view">
+            <field name="name">Dự đoán điểm</field>
+            <field name="model">utc2.qld.predict</field>
+            <field name="arch" type="xml">
+                <form string="Lớp">
+                    <header>
+                    </header>
+                    <sheet>
+                         <div class="oe_button_box" name="button_box">
+                            <button name="action_get_scores" type="object"  class="oe_stat_button" icon="fa-users">
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="student_id"/>
+                            <field name="tong_stc"/>
+                            <field name="scores_4end"/>
+                            <field name="scores_predict"/>
+                            <field name="scores_4cus"/>
+                        </group>
+                         <field name="predict_scores_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="qld_predict_tree_view" model="ir.ui.view">
+            <field name="name">Danh sách dự đoán điểm</field>
+            <field name="model">utc2.qld.predict</field>
+            <field name="arch" type="xml">
+                <tree string="Dự đoán điểm">
+                   <field name="name"/>
+                    <field name="student_id"/>
+                     <field name="tong_stc"/>
+                    <field name="scores_4end"/>
+                    <field name="scores_predict"/>
+                     <field name="scores_4cus"/>
+                    <field name="predict_scores_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="qld_predict_search_view" model="ir.ui.view">
+            <field name="name">Tìm kiếm dự đoán</field>
+            <field name="model">utc2.qld.predict</field>
+            <field name="arch" type="xml">
+                <search string="Tìm sinh viên">
+                     <field name="name"/>
+                     <field name="student_id"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Mã lớp" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                        <filter string="Sinh viên" name="student_id" domain="[]"
+                                context="{'group_by':'student_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>
