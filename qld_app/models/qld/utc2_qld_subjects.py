@@ -27,7 +27,7 @@ class QLDSubjects(models.Model):
         new_record = super().create(vals)
         return new_record
 
-    def actMSVion_group_subject(self):
+    def action_group_subject(self):
         group_name = self.name[0:3]
         if not self.group_id:
             if self.env['utc2.qld.group'].search_count([('name', '=', group_name)]) > 0:

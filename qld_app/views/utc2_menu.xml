@@ -36,6 +36,17 @@
               parent="menu_qld_predict"
 			  sequence="2"/>
 
+	<act_window id="action_qld_predict_subjects"
+				name="Môn dự đoán"
+				res_model="utc2.qld.predict.subjects"
+				view_mode="tree,form"
+	/>
+	<menuitem id="menu_qld_predict_subjects"
+              name="Môn dự đoán"
+              action="action_qld_predict_subjects"
+              parent="menu_qld_predict"
+			  sequence="3"/>
+
 	<menuitem id="menu_qld"
               name="Quản lý"
               parent="utc2_menu_qld"

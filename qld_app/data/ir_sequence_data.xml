@@ -18,5 +18,13 @@
             <field name="number_next">1</field>
             <field name="number_increment">1</field>
         </record>
+         <record id="seq_mon_ddd" model="ir.sequence">
+            <field name="name">Môn dự đoán</field>
+            <field name="code">utc2.qld.predict.subjects</field>
+            <field name="prefix">MonDD</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
     </data>
 </odoo>

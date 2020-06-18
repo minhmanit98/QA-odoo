@@ -13,17 +13,64 @@ class QLDPredict(models.Model):
                 tongstc = tongstc + score.subject_id.stc
         return tongstc
 
-    def diem_tich_luy(self):
-        tong_diem = 0
-        if self.tong_stc >= 1:
-            for score in self.predict_scores_ids:
-                if score.subject_id.is_dtl:
-                    tong_diem = tong_diem + (score.scores_4 * score.subject_stc)
-            diem_tl = tong_diem / self.tong_stc
+    def get_diem_truoc_59(self, diem):
+        if diem >= 8.5 and diem <= 10:
+            return 4
         else:
-            # self.student_id.state = 'missed'
-            diem_tl = 0
-        return diem_tl
+            if diem >= 7 and diem <= 8.4:
+                return 3
+            else:
+                if diem >= 5.5 and diem <= 6.9:
+                    return 2
+                else:
+                    if diem >= 5 and diem <= 5.4:
+                        return 1.5
+                    else:
+                        if diem >= 4 and diem <= 4.9:
+                            return 1
+                        else:
+                            if diem >= 3 and diem <= 3.9:
+                                return 0.5
+                            else:
+                                return 0
+
+    def get_diem_sau_59(self, diem):
+        if diem >= 9.5 and diem <= 10:
+            return 4
+        else:
+            if diem >= 8.5 and diem <= 9.4:
+                return 3.8
+            else:
+                if diem >= 8 and diem <= 8.4:
+                    return 3.5
+                else:
+                    if diem >= 7 and diem <= 7.9:
+                        return 3
+                    else:
+                        if diem >= 6 and diem <= 6.9:
+                            return 2.5
+                        else:
+                            if diem >= 5.5 and diem <= 5.9:
+                                return 2
+                            else:
+                                if diem >= 4.5 and diem <= 5.4:
+                                    return 1.5
+                                else:
+                                    if diem >= 4 and diem <= 4.4:
+                                        return 1
+                                    else:
+                                        if diem >= 2 and diem <= 3.9:
+                                            return 0.5
+                                        else:
+                                            return 0
+
+    def get_diem_tich_luy(self, msv, diem):
+        if msv[0].lower() == 'v':
+            return self.get_diem_truoc_59(diem)
+        elif int(msv[0:1]) < 59:
+            return self.get_diem_truoc_59(diem)
+        else:
+            return self.get_diem_sau_59(diem)
 
     @api.depends("predict_scores_ids")
     def _compute_tong_stc(self):
@@ -31,27 +78,60 @@ class QLDPredict(models.Model):
             record.tong_stc = record.tinh_tong_stc()
 
     @api.depends("predict_scores_ids")
+    def _compute_stc_current(self):
+        for record in self:
+            stc = 0
+            for score in record.predict_scores_ids:
+                if score.subject_id.is_dtl and score.scores_4 > 0:
+                    stc = stc + score.subject_id.stc
+            record.stc_current = stc
+
+    @api.depends("predict_scores_ids")
     def _compute_scores_4end(self):
         for record in self:
-            record.scores_4end = record.diem_tich_luy()
+            tong_diem = 0
+            if record.stc_current >= 1:
+                for score in record.predict_scores_ids:
+                    if score.subject_id.is_dtl:
+                        tong_diem = tong_diem + (score.scores_4 * score.subject_stc)
+                record.scores_4end = tong_diem / self.stc_current
 
-    def update_sv(self):
-        self.tong_stc = self.tinh_tong_stc()
-        self.scores_4end = self.diem_tich_luy()
+    @api.depends("predict_scores_ids")
+    def _compute_scores_4cus(self):
+        for record in self:
+            tong_diem = 0
+            if record.tong_stc >= 1:
+                for score in record.predict_scores_ids:
+                    if score.subject_id.is_dtl:
+                        diem = self.get_diem_tich_luy(record.student_id.name, score.scores_4custom)
+                        tong_diem = tong_diem + (diem * score.subject_stc)
+                record.scores_4cus = tong_diem / self.tong_stc
+
+    @api.depends("predict_scores_ids")
+    def _compute_scores_predict(self):
+        for record in self:
+            tong_diem = 0
+            if record.tong_stc >= 1:
+                for score in record.predict_scores_ids:
+                    if score.subject_id.is_dtl:
+                        diem = self.get_diem_tich_luy(record.student_id.name, score.scores_predict)
+                        tong_diem = tong_diem + (diem * score.subject_stc)
+                record.scores_predict = tong_diem / self.tong_stc
 
     name = fields.Char('Mã dự đoán', readonly=True, default='New')
     student_id = fields.Many2one('utc2.qld.students', string='Mã sinh viên', required=True)
     predict_scores_ids = fields.One2many('utc2.qld.predict.scores', 'predict_id', string='Bảng điểm dự đoán')
     scores_4end = fields.Float(string='Điểm tích lũy', compute=_compute_scores_4end, store=True)
-    scores_predict = fields.Float(string='Điểm tích dự đoán', default=5.5)
-    scores_4cus = fields.Float(string='Điểm tích mục tiêu', default=5.5, max=10)
+    scores_predict = fields.Float(string='Điểm tích dự đoán', compute=_compute_scores_predict, store=True)
+    scores_4cus = fields.Float(string='Điểm tích mục tiêu', compute=_compute_scores_4cus, store=True)
     tong_stc = fields.Integer(string='Tổng số tín chỉ', compute=_compute_tong_stc, default=1, store=True)
+    stc_current = fields.Integer(string='Số tín chỉ hiện tại', compute=_compute_stc_current, default=1, store=True)
 
     @api.onchange('predict_scores_ids', 'student_id')
     def onchange_predict_scores_ids(self):
         if self.student_id and self.predict_scores_ids:
-            self.tong_stc = self.tinh_tong_stc()
-            self.scores_4end = self.diem_tich_luy()
+            self.tong_stc = self.student_id.tong_stc
+            self.scores_4end = self.student_id.scores_4end
 
     @api.model
     def create(self, vals):

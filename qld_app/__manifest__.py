@@ -15,6 +15,7 @@
      'views/utc2_qld_group_view.xml',
      'views/utc2_qld_predict_view.xml',
      'views/utc2_qld_predict_scores_view.xml',
+     'views/utc2_qld_predict_subjects_view.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
      'data/ir_sequence_data.xml',

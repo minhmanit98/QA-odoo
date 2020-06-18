@@ -4,7 +4,7 @@
             <field name="name">Danh sách điểm dự đoán</field>
             <field name="model">utc2.qld.predict.scores</field>
             <field name="arch" type="xml">
-                <tree string="Điểm dự đoán" create="true" delete="true" editable="top">
+                <tree string="Điểm dự đoán">
                      <field name="subject_id" />
                     <field name="subject_name" />
                      <field name="subject_stc"/>
@@ -12,6 +12,7 @@
                     <field name="scores_4custom" />
                      <field name="scores_predict" />
                     <field name="scores_8" />
+                    <field name="predict_subject_id"/>
                 </tree>
             </field>
     </record>
@@ -30,12 +31,14 @@
                      <field name="scores_predict" />
                     <field name="scores_8" />
                      <field name="predict_id" />
+                    <field name="subject_id" attrs="{'invisible': True}"/>
+                     <field name="predict_subject_id" domain="[('subject_id', '=', subject_id)]"/>
                 </group>
             </form>
         </field>
     </record>
 
-     <record id="qld_predict_search_view" model="ir.ui.view">
+     <record id="qld_predict_scores_search_view" model="ir.ui.view">
             <field name="name">Tìm kiếm điểm dự đoán</field>
             <field name="model">utc2.qld.predict.scores</field>
             <field name="arch" type="xml">
