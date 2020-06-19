@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for sale.order -->
+        <record id="qld_subjects_default" model="utc2.qld.subjects">
+            <field name="name">Default</field>
+             <field name="name_display">Default</field>
+             <field name="stc">0</field>
+        </record>
+    </data>
+</odoo>

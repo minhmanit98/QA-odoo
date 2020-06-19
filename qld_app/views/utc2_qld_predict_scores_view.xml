@@ -32,7 +32,7 @@
                     <field name="scores_8" />
                      <field name="predict_id" />
                     <field name="subject_id" attrs="{'invisible': True}"/>
-                     <field name="predict_subject_id" domain="[('subject_id', '=', subject_id)]"/>
+                     <field name="predict_subject_id" domain="[('subject_id', '=', subject_id)]" context="{'subject_id': subject_id}"/>
                 </group>
             </form>
         </field>
