@@ -199,7 +199,6 @@ class QLDPredict(models.Model):
                         subject_current.append(predict.subject_id.id)
                     elif not record in scores_id and not record.subject_id in self.predict_scores_ids.subject_id:
                         scores_id.append(record)
-
             for record in scores_id:
                 predict_scores = self.env['utc2.qld.predict.scores'].create({
                     'scores_8': record.scores_8,
@@ -209,11 +208,10 @@ class QLDPredict(models.Model):
                     'predict_id': self.id,
                 })
                 subject_current.append(record.subject_id.id)
-
             class_id = self.student_id.class_id
             if class_id.subject_ids:
                 for subject in class_id.subject_ids:
-                    if not subject.id in subject_current:
+                    if not subject in self.predict_scores_ids.subject_id:
                         predict_scores = self.env['utc2.qld.predict.scores'].create({
                             'subject_id': subject.id,
                             'predict_id': self.id,

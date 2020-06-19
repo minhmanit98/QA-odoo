@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import fields, models, api, exceptions
-import pandas as pd
 import statsmodels.api as sm
 import numpy as np
 
@@ -67,7 +66,6 @@ class QLDPredictScores(models.Model):
             else:
                 record.scores_predict = record.scores_8
 
-
     name = fields.Char(string='Mã điểm dự đoán', readonly=True, default='New')
     scores_8 = fields.Float(string='Điểm số', readonly=True)
     scores_word = fields.Float(string='Điểm chữ', readonly=True)
@@ -79,32 +77,32 @@ class QLDPredictScores(models.Model):
     subject_name = fields.Char('Tên môn', related="subject_id.name_display")
     subject_stc = fields.Integer('Số tín chỉ', related="subject_id.stc", store=True)
     predict_id = fields.Many2one('utc2.qld.predict', string='Mã dự đoán', ondelete='cascade')
-    predict_subject_id = fields.Many2one('utc2.qld.predict.subjects', string='Công thức dự đoán', ondelete='cascade')
+    predict_subject_id = fields.Many2one('utc2.qld.predict.subjects', string='Công thức dự đoán')
 
-    @api.onchange('predict_subject_id')
-    def onchange_predict_subject_id(self):
-        print(self)
-        if self.predict_subject_id.predict_subject1:
-            if not self.env['utc2.qld.scores'].search([('student_id', '=', self.predict_id.student_id.id),
-                                                       ('subject_id', '=',
-                                                        self.predict_subject_id.predict_subject1.id)]):
-                if self.env['utc2.qld.predict.scores'].search_count([
-                    ('predict_id', '=', self.predict_id.id),
-                     ('subject_id', '=', self.predict_subject_id.predict_subject1.id)]) == 0:
-                    raise exceptions.UserError(
-                        'Môn ' + str(self.predict_subject_id.predict_subject1.name_display)
-                        + ' không có trong chương trình học của sinh viên này')
-
-        if self.predict_subject_id.predict_subject2:
-            if not self.env['utc2.qld.scores'].search([('student_id', '=', self.predict_id.student_id.id),
-                                                       ('subject_id', '=',
-                                                        self.predict_subject_id.predict_subject2.id)]):
-                if self.env['utc2.qld.predict.scores'].search_count([
-                    ('predict_id', '=', self.predict_id.id),
-                     ('subject_id', '=', self.predict_subject_id.predict_subject2.id)]) == 0:
-                    raise exceptions.UserError(
-                        'Môn ' + str(self.predict_subject_id.predict_subject2.name_display)
-                        + ' không có trong chương trình học của sinh viên này')
+    # @api.onchange('predict_subject_id')
+    # def onchange_predict_subject_id(self):
+    #     print(self)
+    #     if self.predict_subject_id.predict_subject1:
+    #         if not self.env['utc2.qld.scores'].search([('student_id', '=', self.predict_id.student_id.id),
+    #                                                    ('subject_id', '=',
+    #                                                     self.predict_subject_id.predict_subject1.id)]):
+    #             if self.env['utc2.qld.predict.scores'].search_count([
+    #                 ('predict_id', '=', self.predict_id.id),
+    #                  ('subject_id', '=', self.predict_subject_id.predict_subject1.id)]) == 0:
+    #                 raise exceptions.UserError(
+    #                     'Môn ' + str(self.predict_subject_id.predict_subject1.name_display)
+    #                     + ' không có trong chương trình học của sinh viên này')
+    #
+    #     if self.predict_subject_id.predict_subject2:
+    #         if not self.env['utc2.qld.scores'].search([('student_id', '=', self.predict_id.student_id.id),
+    #                                                    ('subject_id', '=',
+    #                                                     self.predict_subject_id.predict_subject2.id)]):
+    #             if self.env['utc2.qld.predict.scores'].search_count([
+    #                 ('predict_id', '=', self.predict_id.id),
+    #                  ('subject_id', '=', self.predict_subject_id.predict_subject2.id)]) == 0:
+    #                 raise exceptions.UserError(
+    #                     'Môn ' + str(self.predict_subject_id.predict_subject2.name_display)
+    #                     + ' không có trong chương trình học của sinh viên này')
 
     @api.model
     def create(self, vals):

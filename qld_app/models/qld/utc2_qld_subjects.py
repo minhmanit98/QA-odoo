@@ -17,15 +17,17 @@ class QLDSubjects(models.Model):
     name = fields.Char('Mã môn', required=True)
     name_display = fields.Char('Tên môn', required=True)
     stc = fields.Integer('Số tín chỉ', required=True)
-    parent_id = fields.Many2one('utc2.qld.subjects', string='Môn cha', ondelete='restrict')
-    child_ids = fields.One2many('utc2.qld.subjects', 'parent_id', string='Môn con')
     group_id = fields.Many2one('utc2.qld.group', string='Nhóm môn', ondelete='restrict')
+    predict_subject_ids = fields.One2many('utc2.qld.predict.subjects', 'subject_id', string='Công thức dự đoán')
     is_dtl = fields.Boolean('Dùng để tính điểm', default=True, compute=_compute_is_dtl, store=True, readonly=False)
 
     @api.model
     def create(self, vals):
         new_record = super().create(vals)
         return new_record
+
+    def name_get(self):
+        return [(rec.id, "%s / %s" % (rec.name, rec.name_display)) for rec in self]
 
     def action_group_subject(self):
         group_name = self.name[0:3]

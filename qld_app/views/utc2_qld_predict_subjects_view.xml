@@ -11,11 +11,11 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="student_id"/>
                             <field name="subject_id"/>
                             <field name="state"/>
-                            <field name="predict_subject1"/>
-                            <field name="predict_subject2"/>
+                            <field name="group_id" attrs="{'invisible': True}"/>
+                            <field name="predict_subject1" domain="[('group_id', '=', group_id)]"/>
+                            <field name="predict_subject2" domain="[('group_id', '=', group_id)]"/>
                         </group>
                     </sheet>
                 </form>
@@ -28,8 +28,6 @@
             <field name="arch" type="xml">
                 <tree string="Dự đoán điểm">
                    <field name="name"/>
-                    <field name="name"/>
-                    <field name="student_id"/>
                     <field name="subject_id"/>
                     <field name="state"/>
                     <field name="predict_subject1"/>
@@ -44,12 +42,9 @@
             <field name="arch" type="xml">
                 <search string="Tìm kiếm">
                      <field name="name"/>
-                     <field name="student_id"/>
                     <group expand="1" string="Group By">
                         <filter string="Mã lớp" name="name" domain="[]"
                                 context="{'group_by':'name'}"/>
-                        <filter string="Sinh viên" name="student_id" domain="[]"
-                                context="{'group_by':'student_id'}"/>
                     </group>
                 </search>
             </field>
