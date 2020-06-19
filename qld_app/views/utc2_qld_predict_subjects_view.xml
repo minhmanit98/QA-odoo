@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="qld_pre_subjects_form_view" model="ir.ui.view">
+            <field name="name">Môn đự đoán</field>
+            <field name="model">utc2.qld.predict.subjects</field>
+            <field name="arch" type="xml">
+                <form string="Môn dự đoán">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="subject_id"/>
+                            <field name="state"/>
+                            <field name="group_id" attrs="{'invisible': True}"/>
+                            <field name="predict_subject1" domain="[('group_id', '=', group_id)]"/>
+                            <field name="predict_subject2" domain="[('group_id', '=', group_id)]"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="qld_predict_subjects_tree_view" model="ir.ui.view">
+            <field name="name">Danh sách môn dự đoán</field>
+            <field name="model">utc2.qld.predict.subjects</field>
+            <field name="arch" type="xml">
+                <tree string="Dự đoán điểm">
+                   <field name="name"/>
+                    <field name="subject_id"/>
+                    <field name="state"/>
+                    <field name="predict_subject1"/>
+                    <field name="predict_subject2"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="qld_pre_subjects_search_view" model="ir.ui.view">
+            <field name="name">Tìm kiếm dự đoán</field>
+            <field name="model">utc2.qld.predict.subjects</field>
+            <field name="arch" type="xml">
+                <search string="Tìm kiếm">
+                     <field name="name"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Mã lớp" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

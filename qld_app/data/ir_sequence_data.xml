@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for sale.order -->
+        <record id="seq_ddd" model="ir.sequence">
+            <field name="name">Dự đoán điểm</field>
+            <field name="code">utc2.qld.predict</field>
+            <field name="prefix">DDD</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="seq_diem_ddd" model="ir.sequence">
+            <field name="name">Diểm dự đoán</field>
+            <field name="code">utc2.qld.predict.scores</field>
+            <field name="prefix">DiemDD</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="seq_mon_ddd" model="ir.sequence">
+            <field name="name">Môn dự đoán</field>
+            <field name="code">utc2.qld.predict.subjects</field>
+            <field name="prefix">MonDD</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

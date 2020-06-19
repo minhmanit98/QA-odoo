@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <odoo>
-	<act_window id="action_utc2_qld"
-				name="Sinh viên"
-				res_model="utc2.qld.students"
+	<act_window id="action_utc2_qld_predict"
+				name="Dự đoán điểm"
+				res_model="utc2.qld.predict"
 				view_mode="tree,form"
 	/>
 	<act_window id="action_utc2_qld_class"
@@ -13,23 +13,58 @@
     <menuitem id="utc2_menu_qld"
               name="QL dự đoán điểm"
 			  web_icon="qld_app,static/description/icon.png"
-			  action="action_utc2_qld_class"/>
+			  action="action_utc2_qld_predict"/>
+
+	<menuitem id="menu_qld_predict"
+			  name="Quản lý dự đoán điểm"
+              parent="utc2_menu_qld"
+			  sequence="1"/>
+
+	<menuitem id="menu_utc2_qld_predict"
+			  name="Dự đoán điểm"
+              parent="menu_qld_predict"
+			  action="action_utc2_qld_predict"
+	/>
+	<act_window id="action_qld_predict_scores"
+				name="Điểm dự đoán"
+				res_model="utc2.qld.predict.scores"
+				view_mode="tree,form"
+	/>
+	<menuitem id="menu_qld_predict_scores"
+              name="Điểm dự đoán"
+              action="action_qld_predict_scores"
+              parent="menu_qld_predict"
+			  sequence="2"/>
+
+	<act_window id="action_qld_predict_subjects"
+				name="Môn dự đoán"
+				res_model="utc2.qld.predict.subjects"
+				view_mode="tree,form"
+	/>
+	<menuitem id="menu_qld_predict_subjects"
+              name="Môn dự đoán"
+              action="action_qld_predict_subjects"
+              parent="menu_qld_predict"
+			  sequence="3"/>
 
 	<menuitem id="menu_qld"
               name="Quản lý"
-              parent="utc2_menu_qld" />
-
-
+              parent="utc2_menu_qld"
+			  sequence="2"/>
 
 	<menuitem id="menu_qld_class"
               name="Lớp"
               action="action_utc2_qld_class"
               parent="menu_qld"
 			  sequence="1"/>
-
+	<act_window id="action_qld_student"
+				name="Sinh viên"
+				res_model="utc2.qld.students"
+				view_mode="tree,form"
+	/>
 	<menuitem id="menu_qld_students"
               name="Sinh viên"
-              action="action_utc2_qld"
+              action="action_qld_student"
               parent="menu_qld"
 			  sequence="2"/>
 
@@ -56,9 +91,22 @@
               parent="menu_qld"
 			  sequence="4"/>
 
+	<act_window id="action_utc2_qld_group"
+              name="Nhóm môn"
+              res_model="utc2.qld.group"
+              view_mode="tree,form"
+	/>
+
+	<menuitem id="menu_qld_group"
+              name="Nhóm môn"
+              action="action_utc2_qld_group"
+              parent="menu_qld"
+			  sequence="5"/>
+
 	<menuitem id="menu_qld_tool"
               name="Công cụ"
-              parent="utc2_menu_qld" />
+              parent="utc2_menu_qld"
+			  sequence="3"/>
 
 	<act_window id="action_utc2_sync_score"
               name="QLD Sync Score"

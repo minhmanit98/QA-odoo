@@ -9,185 +9,106 @@
             <field name="arch" type="xml">
                 <t name="Home" priority="29" t-name="website.homepage" inherit_id="assets_backend">
                     <t t-call="website.layout">
-                        <div class="d-flex block-circle my-4 justify-content-center">
-                            <div class="rounded-circle dot mr-2"></div>
-                            <div class="rounded-circle dot mr-2"></div>
-                            <div class="rounded-circle dot mr-2"></div>
-                            <div class="rounded-circle dot mr-2"></div>
-
-                        </div>
+                        <div class="oe_structure oe_empty" id="oe_structure_forum_all_top"/>
 
                         <div class="container">
-                            <!-- THONG BAO VA THAO TAC NHANH  -->
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class=" danh-muc border-bottom">
-                                        <div class="tieu-de">Thông Báo<div class="tieu-de-underline"></div> </div>
-                                        <div id="danh-sach-thong-bao">
-                                            <div class="noi-dung-thong-bao text-left">
-                                                <h6 class="text-dark d-inline-block">Thông Báo 1:</h6>
-                                                <a href="#" class="tb text-dark">Lorem ipsum dolor sit amet,
-                                                    consectetur
-                                                    adipisicing
-                                                    elit. A at explicabo impedit libero pariatur quis quod tenetur.
-                                                    Ab
-                                                    aliquid
-                                                    doloremque dolorum exercitationem
-                                                </a>
-                                            </div>
-                                            <div class="noi-dung-thong-bao text-left">
-                                                <h6 class="text-dark d-inline-block">Thông Báo 2:</h6>
-                                                <a href="#" class="tb text-dark ">Lorem ipsum dolor sit amet,
-                                                    consectetur
-                                                    adipisicing
-                                                    elit. Aut corporis cupiditate id illum in ipsa odit quam
-                                                    voluptatem.
-                                                    Ab
-                                                    aliquam architecto
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <p class="xem-them">Xem Thêm</p>
-                                    </div>
                                 </div>
-
-
-                                <!--THAO TAC NHANH-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <div class="danh-muc thao-tac-nhanh">-->
-<!--                                         <div class="tieu-de hoat-dong-ca-nhan">-->
-<!--                                             Thao tác cá nhân-->
-<!--                                             <div class="tieu-de-underline"></div>-->
-<!--                                         </div>-->
-<!--                                    </div>-->
-
-<!--                                </div>-->
-
-
-
                             </div>
-
-                            <!-- BAI VIET  VA MENU LUA CHON -->
-
-<!--                            <div class="row">-->
-<!--                                <div class="col-md-8 danh-muc">-->
-<!--                                    <div class="dropdown">-->
-<!--                                        <div class="tieu-de" id="dropDownLoaiBaiViet" data-toggle="dropdown">Bài Viết-->
-<!--                                            <i class="down fa fa-chevron-down"></i>-->
-<!--                                            <div class="tieu-de-underline"></div>-->
-<!--                                        </div>-->
-<!--                                        <ul class="dropdown-menu">-->
-<!--                                            <li>-->
-<!--                                                <a class="dropdown-item" href="#">Bài Viết Mới</a>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <a class="dropdown-item" href="#">Nổi Bật Trong Ngày</a>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <a class="dropdown-item" href="#">Nổi Bật Trong Tháng</a>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <a class="dropdown-item" href="#">Nổi Bật Trong Năm</a>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <a class="dropdown-item" href="#">Nổi Bật Nhất</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="danh-sach-bai-viet">-->
-<!--                                        <div class="table khoi-noi-dung">-->
-<!--                                            <table style="width: 100%">-->
-<!--                                                <thead>-->
-<!--                                                    <th>Bài Viết</th>-->
-<!--                                                    <th class="text-center">Lượt Xem</th>-->
-<!--                                                    <th class="text-center">Theo Dõi</th>-->
-<!--                                                    <th class="text-center">Solved</th>-->
-<!--                                                </thead>-->
-<!--                                                &lt;!&ndash;Test thu 6 bai viet&ndash;&gt;-->
-<!--                                                <tr t-foreach="[1,2,3,4]" t-as="i">-->
-<!--                                                    <td>-->
-<!--                                                        &lt;!&ndash; NOI DUNG BAI VIET&ndash;&gt;-->
-<!--                                                        <div class="mo-ta-bai-viet">-->
-<!--                                                            <p class="tieu-de-bai-viet  my-0">Thắc mắc về đăng ký-->
-<!--                                                                học-->
-<!--                                                                phần-->
-<!--                                                            </p>-->
-<!--                                                            <p class="chu-de-bai-viet d-inline-block my-0">Đào tạo-->
-<!--                                                            </p>-->
-<!--                                                            <p class="thoi-gian-dang d-inline-block my-0">5 giờ-->
-<!--                                                                trước-->
-<!--                                                            </p>-->
-<!--                                                            <p class="tac-gia my-0">Không nhớ tên</p>-->
-<!--                                                        </div>-->
-<!--                                                    </td>-->
-<!--                                                    <td class="text-center mo-ta-phu">-->
-<!--                                                        2134-->
-<!--                                                    </td>-->
-<!--                                                    <td class="text-center mo-ta-phu">23</td>-->
-<!--                                                    <td class="text-center mo-ta-phu">-->
-<!--                                                        <t t-if="i%2==0">-->
-<!--                                                            <i class="fa fa-check text-success"></i>-->
-<!--                                                        </t>-->
-<!--                                                        <t t-if="not i%2==0">-->
-<!--                                                            <i class="fa fa-times text-danger"></i>-->
-<!--                                                        </t>-->
-<!--                                                    </td>-->
-<!--                                                </tr>-->
-<!--                                                &lt;!&ndash;KEt thuc mot hang &ndash;&gt;-->
-<!--                                                <p class="xem-them">Xem Thêm</p>-->
-<!--                                            </table>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-                            <!--KET THUC BAI VIET -->
-
-
                         </div>
-
                     </t>
                 </t>
             </field>
         </record>
 
+
+<template id="s_carousel_notification" name="Carousel">
+    <div id="myCarousel" class="s_carousel s_carousel_default carousel slide" data-interval="10000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"/>
+            <li data-target="#myCarousel" data-slide-to="1"/>
+            <li data-target="#myCarousel" data-slide-to="2"/>
+        </ol>
+        <!-- Content -->
+        <div class="carousel-inner">
+            <!-- #01 -->
+            <div class="carousel-item active oe_custom_bg oe_img_bg pt152 pb152" style="background-image: url('/web/image/website.s_carousel_default_image_1');" data-name="Slide">
+                <div class="container">
+                    <div class="row content">
+                        <div class="carousel-content col-lg-7">
+                            <div class="s_title pb8" data-name="Title">
+                                <h2 class="s_title_default"><font style="font-size: 62px;">Slide Title</font></h2>
+                            </div>
+                            <p class="lead">Use this snippet to presents your content in a slideshow-like format.<br/> Don't write about products or services here, write about solutions.</p>
+                            <div class="s_btn text-left pt16 pb16" data-name="Buttons">
+                                <a href="/aboutus" class="btn btn-secondary flat">About us</a>
+                                <a href="/contactus" class="btn btn-primary flat">Contact us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #02 -->
+            <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image: url('/web/image/website.s_carousel_default_image_2');" data-name="Slide">
+                <div class="container">
+                    <div class="row content">
+                        <div class="carousel-content col-lg-8 offset-lg-2 bg-black-50 text-center pt48 pb40">
+                            <h2 style="font-size: 62px;">Clever Slogan</h2>
+                            <div class="s_hr pt8 pb32">
+                                <hr class="s_hr_5px s_hr_dotted border-600 w-25 border-epsilon mx-auto text-center"/>
+                            </div>
+                            <p class="lead">Storytelling is powerful.<br/> It draws readers in and engages them.</p>
+                            <div class="s_btn text-center pt16 pb16" data-name="Buttons">
+                                <a href="/" class="btn btn-epsilon rounded-circle">Start your journey</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #03 -->
+            <div class="carousel-item oe_custom_bg oe_img_bg pt128 pb128" style="background-image: url('/web/image/website.s_carousel_default_image_3');" data-name="Slide">
+                <div class="container">
+                    <div class="row content">
+                        <div class="carousel-content col-lg-6 offset-lg-6">
+                            <h2><font style="font-size: 62px; background-color: rgb(255, 255, 255);">Edit this title</font></h2>
+                            <h4><font style="background-color: rgb(255, 255, 255);">Good writing is simple, but not simplistic.</font></h4>
+                            <p class="mt24">Good copy starts with understanding how your product or service helps your customers. Simple words communicate better than big words and pompous language.</p>
+                            <t t-call="website.s_share">
+                                <t t-set="_classes" t-value="'text-left pt16 pb16'"/>
+                                <t t-set="_no_title" t-value="True"/>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+            <span class="carousel-control-prev-icon"/>
+            <span class="sr-only">Previous</span>
+        </div>
+        <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+            <span class="carousel-control-next-icon"/>
+            <span class="sr-only">Next</span>
+        </div>
+    </div>
+</template>
+
 <!-- Page Index -->
 <template id="header" name="Forum Index">
     <t t-if="forum.active" t-call="website_forum.layout">
-        <div id="wrap" t-attf-class="container #{website_forum_action}">
-             <div class="d-flex block-circle my-4 justify-content-center">
-                            <div class="rounded-circle dot mr-2"></div>
-                            <div class="rounded-circle dot mr-2"></div>
-                            <div class="rounded-circle dot mr-2"></div>
-                            <div class="rounded-circle dot mr-2"></div>
-             </div>
+<!--        <t t-call="qa_app.s_carousel_notification"/>-->
+        <div id="wrap" t-attf-class="container #{website_forum_action}" style="padding-top: 50px;">
+            <t t-call="qa_app.siderbar_vertical"/>
             <div class="row">
                 <div class="col-md-8">
-                    <div class=" danh-muc border-bottom">
-                        <div class="tieu-de">Thông Báo
-                            <div class="tieu-de-underline">
-                            </div>
-                        </div>
-                        <div id="danh-sach-thong-bao">
-                            <div class="noi-dung-thong-bao text-left">
-                                <h6 class="text-dark d-inline-block">Thông Báo 1:</h6>
-                                <a href="#" class="tb text-dark">
-                                    Thông báo về quy định diễn đàn UTC2
-                                </a>
-                            </div>
-                            <div class="noi-dung-thong-bao text-left">
-                                <h6 class="text-dark d-inline-block">Thông Báo 2:</h6>
-                                <a href="#" class="tb text-dark ">
-                                    Thông báo lại thông báo 1
-                                </a>
-                            </div>
-                        </div>
-                        <p class="xem-them">Xem Thêm</p>
-                    </div>
-                                <div class="danh-muc" >
-                                    <div  t-if="question_count > 1" t-attf-class="justify-content-end #{uid and 'mt-lg-0'}" style="margin-left:0px;">
-                                    <div class="tieu-de" id="dropDownLoaiBaiViet" data-toggle="dropdown">Bài Viết
-                                        <i class="down fa fa-chevron-down"></i>
-                                        <div class="tieu-de-underline"></div>
+                    <div class="border-l main-header" >
+                        <div class="border-bt pd15" t-if="question_count > 1" t-aottf-class="justify-content-end #{uid and 'mt-lg-0'}" style="margin-left:0px;">
+                            <div class="tieu-de " id="dropDoiếtwnLoaiBaiViet" data-toggle="dropdown">Bài Viết
+                                <i class="down fa fa-chevron-down"></i>
+                                <div class="tieu-de-underline"></div>
                                     <span class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             <t t-if="sorting == 'relevancy desc'"> trending</t>
@@ -204,65 +125,151 @@
                                             <a role="menuitem" t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', sorting='vote_count desc')" t-attf-class="dropdown-item#{sorting == 'vote_count desc' and ' active'}">Most voted</a>
                                         </div>
                                     </span>
-                                    </div>
-                                    </div>
-                                     <div class="col mb16">
-                                    <t t-call="website_profile.email_validation_banner">
-                                        <t t-set="redirect_url" t-value="'/forum/%s' % forum.id"/>
-                                        <t t-set="send_validation_email_message" t-value="'Click here to send a verification email allowing you to participate to the forum.'"/>
-                                        <t t-set="additional_validated_email_message" t-value="' You may now participate to our forums.'"/>
-                                    </t>
-                                    <div class="row">
-                                        <div class="col">
-                                            <nav t-if="header.get('is_guidelines') or queue_type or new_question or is_edit or tags or reasons" aria-label="breadcrumb">
-                                                <ol class="breadcrumb p-0 bg-white">
-                                                    <li class="breadcrumb-item">
-                                                        <a t-attf-href="/forum/#{ slug(forum) }" t-esc="forum.name"/>
-                                                    </li>
-                                                    <li t-if="header.get('is_guidelines')" class="breadcrumb-item">Guidelines</li>
-                                                    <li t-if="queue_type" class="breadcrumb-item">Moderation</li>
-                                                    <li t-if="queue_type == 'validation'" class="breadcrumb-item">To Validate</li>
-                                                    <li t-if="queue_type == 'flagged'" class="breadcrumb-item">Flagged</li>
-                                                    <li t-if="queue_type == 'offensive'" class="breadcrumb-item">Offensive</li>
-                                                    <li t-if="reasons and offensive" class="breadcrumb-item">Offensive Post</li>
-                                                    <li t-if="reasons and not offensive" class="breadcrumb-item">Close post</li>
-                <!--                                    <li t-if="new_question" class="breadcrumb-item">Ask a Question</li>-->
-                                                    <t t-if="is_edit">
-                                                        <t t-set="target" t-value="post.parent_id if is_answer else post"/>
-                                                        <li class="breadcrumb-item text-truncate" style="max-width:150px">
-                                                            <a t-attf-href="/forum/#{ slug(forum) }/question/#{ slug(target)}" title="Back to Question">
-                                                                <t t-esc="target.name"/>
-                                                            </a>
-                                                        </li>
-                                                        <li t-if="not is_answer" class="breadcrumb-item">Edit Question</li>
-                                                        <li t-if="is_answer" class="breadcrumb-item">Edit Answer</li>
-                                                    </t>
-                                                    <li t-elif="tags" class="breadcrumb-item">All Tags</li>
-                                                </ol>
-                                            </nav>
-                                            <t t-raw="0"/>
-                                        </div>
-                                    </div>
                                 </div>
+                                <div class="row no-gutters">
+                    <div t-attf-class="d-flex justify-content-end flex-md-grow-1 #{(search or tag or my) and 'col-12 flex-column-reverse flex-md-row mb-3' or 'col-md-auto order-md-3'}">
+                        <div t-if="search or tag or my" class="d-flex flex-wrap align-items-center flex-grow-1">
+                            <span t-if="search" class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between">
+                                <em class="bg-light px-2" t-esc="search"/>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'filters', 'sorting', 'my')" class="btn py-1">&#215;</a>
+                            </span>
+                            <span t-if="my" t-attf-class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between #{search and 'ml-md-2'}">
+                                <div>
+                                    <img t-if="uid" class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user, 'image_128', '16x16')" alt="Avatar"/>
+                                    <span t-if="my == 'favourites'"> My <b>Favourites</b></span>
+                                    <span t-elif="my == 'followed'"> I'm <b>Following</b></span>
+                                    <span t-elif="my == 'mine'"> My <b>Questions</b></span>
+                                    <span t-elif="my == 'tagged'"> <b>Tags</b> I Follow</span>
                                 </div>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', 'sorting')" class="btn py-1">&#215;</a>
+                            </span>
+                            <span t-if="tag" t-attf-class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between #{(search or my) and 'ml-md-2'}">
+                                <div>
+                                    <span class="fa fa-tag text-muted mr-1"/>
+                                    <span t-esc="tag.name"/>
+                                </div>
+                                <a t-att-href="url_for('/forum/') + slug(forum) + '?' + keep_query( 'search', 'sorting', 'filters', 'my')" class="btn py-1">&#215;</a>
+                            </span>
+                        </div>
+                        <div t-if="uid and request.env.user.forum_waiting_posts_count"
+                            title="You already have a pending post"
+                            data-toggle="popover" data-trigger="hover" data-content="Please wait for a moderator to validate your previous post before continuing.">
+                        </div>
+<!--                        <a t-else="" role="button" type="button" class="btn btn-primary btn-block o_forum_ask_btn mb-3 mb-md-0" t-att-href="uid and '/forum/' + slug(forum) + '/ask' or '/web/login'">Ask a Question</a>-->
+                    </div>
+
+                    <t t-set="no_filters" t-value="not filters in ('solved', 'unsolved', 'unanswered')"/>
+                    <t t-if="not no_filters or (no_filters and question_count)">
+                        <!-- Filter post by type (mobile only) -->
+                        <div class="col-6 col-md-auto d-lg-none d-flex align-items-center">
+                            <div class="dropdown"> Show
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <t t-if="no_filters"> All</t>
+                                    <t t-elif="filters == 'solved'"> Solved</t>
+                                    <t t-elif="filters == 'unsolved'"> Unsolved</t>
+                                    <t t-elif="filters == 'unanswered'"> Unanswered</t>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='all')"
+                                        class="dropdown-item">
+                                        All
+                                    </a>
+
+                                    <div class="dropdown-divider"/>
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='solved')"
+                                        class="dropdown-item">Solved
+                                    </a>
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='unsolved')"
+                                        class="dropdown-item">Unsolved
+                                    </a>
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='unanswered')"
+                                        class="dropdown-item">Unanswered
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Filter post by type (desktop) -->
+                        <div class="d-none d-lg-flex align-items-center col-auto flex-grow-md-1 flex-grow-lg-0">
+                            <nav class="o_wforum_nav nav nav-pills justify-content-around">
+                                <a t-att-href="url_for('') + '?' + keep_query('search', 'sorting', 'my', filters='all')"
+                                    t-attf-class="nav-link py-1 rounded-pill #{no_filters and 'active font-weight-bold' or 'pl-0 pr-2'}">
+                                    All
+                                </a>
+                                <span class="mx-1 text-400 d-none d-lg-block">|</span>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='solved')"
+                                    t-attf-class="nav-link py-1 rounded-pill #{filters == 'solved' and 'active font-weight-bold' or 'px-2'}">Solved
+                                </a>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='unsolved')"
+                                    t-attf-class="d-none d-lg-block nav-link py-1 rounded-pill #{filters == 'unsolved' and 'active font-weight-bold' or 'px-2'}">Unsolved
+                                </a>
+                                <span class="mx-1 text-400 d-none d-lg-block">|</span>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='unanswered')"
+                                    t-attf-class="nav-link py-1 rounded-pill #{filters == 'unanswered' and 'active font-weight-bold' or 'px-2'}">Unanswered
+                                </a>
+                            </nav>
+                        </div>
+                    </t>
 
                 </div>
-                <div class="col-md-4">
-                    <div class="danh-muc thao-tac-nhanh float-right">
-                        <div class="tieu-de hoat-dong-ca-nhan">
+                            </div>
+                            <div class="col mb16">
+                                <t t-call="website_profile.email_validation_banner">
+                                    <t t-set="redirect_url" t-value="'/forum/%s' % forum.id"/>
+                                    <t t-set="send_validation_email_message" t-value="'Click here to send a verification email allowing you to participate to the forum.'"/>
+                                    <t t-set="additional_validated_email_message" t-value="' You may now participate to our forums.'"/>
+                                </t>
+                                <div class="row">
+                                    <div class="col">
+                                        <nav t-if="header.get('is_guidelines') or queue_type or new_question or is_edit or tags or reasons" aria-label="breadcrumb">
+                                            <ol class="breadcrumb p-0 bg-white">
+                                                <li class="breadcrumb-item">
+                                                    <a t-attf-href="/forum/#{ slug(forum) }" t-esc="forum.name"/>
+                                                </li>
+                                                <li t-if="header.get('is_guidelines')" class="breadcrumb-item">Guidelines</li>
+                                                <li t-if="queue_type" class="breadcrumb-item">Moderation</li>
+                                                <li t-if="queue_type == 'validation'" class="breadcrumb-item">To Validate</li>
+                                                <li t-if="queue_type == 'flagged'" class="breadcrumb-item">Flagged</li>
+                                                <li t-if="queue_type == 'offensive'" class="breadcrumb-item">Offensive</li>
+                                                <li t-if="reasons and offensive" class="breadcrumb-item">Offensive Post</li>
+                                                <li t-if="reasons and not offensive" class="breadcrumb-item">Close post</li>
+                <!--                                    <li t-if="new_question" class="breadcrumb-item">Ask a Question</li>-->
+                                                <t t-if="is_edit">
+                                                    <t t-set="target" t-value="post.parent_id if is_answer else post"/>
+                                                    <li class="breadcrumb-item text-truncate" style="max-width:150px">
+                                                        <a t-attf-href="/forum/#{ slug(forum) }/question/#{ slug(target)}" title="Back to Question">
+                                                            <t t-esc="target.name"/>
+                                                        </a>
+                                                    </li>
+                                                    <li t-if="not is_answer" class="breadcrumb-item">Edit Question</li>
+                                                    <li t-if="is_answer" class="breadcrumb-item">Edit Answer</li>
+                                                </t>
+                                                <li t-elif="tags" class="breadcrumb-item">All Tags</li>
+                                            </ol>
+                                        </nav>
+                                        <t t-raw="0"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                </div>
+                <div class="col-md-4" id="user_sidebar">
+                    <div class="border-r float-right main-header">
+                             <div class="tieu-de hoat-dong-ca-nhan">
                             Thao tác cá nhân
                             <div class="tieu-de-underline">
 
                             </div>
-                        </div>
-                         <aside t-if="uid" class="d-none d-lg-flex col-auto" style="padding-left: 0px;">
+                            </div>
+                            <aside t-if="uid" class="d-none d-lg-flex col-auto" style="padding-left: 0px;">
                                 <t t-call="qa_app.user_sidebar"/>
-                         </aside>
+                            </aside>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="oe_structure" id="oe_structure_website_forum_header_1"/>
+        <div class="oe_structure oe_empty" id="oe_structure_forum_all_bottom"/>
     </t>
     <t t-else="" t-call="website_forum.layout">
         <t t-set="head">
@@ -272,6 +279,49 @@
             <p class="css_editable_hidden"><h2>This forum has been archived.</h2></p>
         </div>
     </t>
+</template>
+
+<template id="siderbar_vertical">
+    <nav id="sidebar" class="active">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+        <div class="p-4">
+            <h1><a href="index.html" class="logo">Flash</a></h1>
+	        <ul class="list-unstyled components mb-5">
+                <li class="active">
+	                <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+	            </li>
+                <li>
+                    <a href="#"><span class="fa fa-user mr-3"></span> About</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-briefcase mr-3"></span> Portfolio</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-paper-plane mr-3"></span> Contact</a>
+                </li>
+	        </ul>
+	        <div class="mb-5">
+                <h3 class="h6 mb-3">Subscribe for newsletter</h3>
+                <form action="#" class="subscribe-form">
+	            <div class="form-group d-flex">
+	            	<div class="icon"><span class="icon-paper-plane"></span></div>
+                    <input type="text" class="form-control" placeholder="Enter Email Address"/>
+	            </div>
+	          </form>
+            </div>
+	        <div class="footer">
+	        </div>
+	      </div>
+    	</nav>
+
 </template>
 
 <template id="user_sidebar">
@@ -382,7 +432,7 @@
             </form>
         </div>
 
-        <div class="o_wforum_post_comments pl-3 pl-md-4 border-left">
+        <div class="o_wforum_post_comments pl-3 pl-md-4 border-l">
             <t t-foreach="reversed(object.website_message_ids)" t-as="message">
                 <div t-attf-class="o_wforum_post_comment #{not message_first and 'mt-3'}">
                     <div>
@@ -537,7 +587,7 @@
 </template>
 <template id="display_post">
     <div t-attf-class="#{show_author_avatar and 'mt-2 mb-4' or 'card py-2 px-3'}">
-        <div class="border-radius">
+        <div class="border-item">
             <div t-if="show_author_avatar" class="box-info">
                 <div class="style_avatar">
                     <t t-call="website_forum.author_box">
@@ -559,93 +609,6 @@
         <!-- Specific Forum Layout -->
         <template id="home_forum_index" name="Forum">
             <t t-call="qa_app.header">
-                <div class="row no-gutters">
-                    <div t-attf-class="d-flex justify-content-end flex-md-grow-1 #{(search or tag or my) and 'col-12 flex-column-reverse flex-md-row mb-3' or 'col-md-auto order-md-3'}">
-                        <div t-if="search or tag or my" class="d-flex flex-wrap align-items-center flex-grow-1">
-                            <span t-if="search" class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between">
-                                <em class="bg-light px-2" t-esc="search"/>
-                                <a t-att-href="url_for('') + '?' + keep_query( 'filters', 'sorting', 'my')" class="btn py-1">&#215;</a>
-                            </span>
-                            <span t-if="my" t-attf-class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between #{search and 'ml-md-2'}">
-                                <div>
-                                    <img t-if="uid" class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user, 'image_128', '16x16')" alt="Avatar"/>
-                                    <span t-if="my == 'favourites'"> My <b>Favourites</b></span>
-                                    <span t-elif="my == 'followed'"> I'm <b>Following</b></span>
-                                    <span t-elif="my == 'mine'"> My <b>Questions</b></span>
-                                    <span t-elif="my == 'tagged'"> <b>Tags</b> I Follow</span>
-                                </div>
-                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', 'sorting')" class="btn py-1">&#215;</a>
-                            </span>
-                            <span t-if="tag" t-attf-class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between #{(search or my) and 'ml-md-2'}">
-                                <div>
-                                    <span class="fa fa-tag text-muted mr-1"/>
-                                    <span t-esc="tag.name"/>
-                                </div>
-                                <a t-att-href="url_for('/forum/') + slug(forum) + '?' + keep_query( 'search', 'sorting', 'filters', 'my')" class="btn py-1">&#215;</a>
-                            </span>
-                        </div>
-                        <div t-if="uid and request.env.user.forum_waiting_posts_count"
-                            title="You already have a pending post"
-                            data-toggle="popover" data-trigger="hover" data-content="Please wait for a moderator to validate your previous post before continuing.">
-                        </div>
-<!--                        <a t-else="" role="button" type="button" class="btn btn-primary btn-block o_forum_ask_btn mb-3 mb-md-0" t-att-href="uid and '/forum/' + slug(forum) + '/ask' or '/web/login'">Ask a Question</a>-->
-                    </div>
-
-                    <t t-set="no_filters" t-value="not filters in ('solved', 'unsolved', 'unanswered')"/>
-                    <t t-if="not no_filters or (no_filters and question_count)">
-                        <!-- Filter post by type (mobile only) -->
-                        <div class="col-6 col-md-auto d-lg-none d-flex align-items-center">
-                            <div class="dropdown"> Show
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <t t-if="no_filters"> All</t>
-                                    <t t-elif="filters == 'solved'"> Solved</t>
-                                    <t t-elif="filters == 'unsolved'"> Unsolved</t>
-                                    <t t-elif="filters == 'unanswered'"> Unanswered</t>
-                                </a>
-                                <div class="dropdown-menu" role="menu">
-                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='all')"
-                                        class="dropdown-item">
-                                        All
-                                    </a>
-
-                                    <div class="dropdown-divider"/>
-                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='solved')"
-                                        class="dropdown-item">Solved
-                                    </a>
-                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='unsolved')"
-                                        class="dropdown-item">Unsolved
-                                    </a>
-                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='unanswered')"
-                                        class="dropdown-item">Unanswered
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Filter post by type (desktop) -->
-                        <div class="d-none d-lg-flex align-items-center col-auto flex-grow-md-1 flex-grow-lg-0">
-                            <nav class="o_wforum_nav nav nav-pills justify-content-around">
-                                <a t-att-href="url_for('') + '?' + keep_query('search', 'sorting', 'my', filters='all')"
-                                    t-attf-class="nav-link py-1 rounded-pill #{no_filters and 'active font-weight-bold' or 'pl-0 pr-2'}">
-                                    All
-                                </a>
-                                <span class="mx-1 text-400 d-none d-lg-block">|</span>
-                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='solved')"
-                                    t-attf-class="nav-link py-1 rounded-pill #{filters == 'solved' and 'active font-weight-bold' or 'px-2'}">Solved
-                                </a>
-                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='unsolved')"
-                                    t-attf-class="d-none d-lg-block nav-link py-1 rounded-pill #{filters == 'unsolved' and 'active font-weight-bold' or 'px-2'}">Unsolved
-                                </a>
-                                <span class="mx-1 text-400 d-none d-lg-block">|</span>
-                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='unanswered')"
-                                    t-attf-class="nav-link py-1 rounded-pill #{filters == 'unanswered' and 'active font-weight-bold' or 'px-2'}">Unanswered
-                                </a>
-                            </nav>
-                        </div>
-                    </t>
-
-                </div>
-
                 <div class="row mt-4">
                     <!-- List questions or search/filters result -->
                     <div t-if="question_count != 0" class="col">

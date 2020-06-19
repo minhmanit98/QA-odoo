@@ -4,32 +4,51 @@
             <field name="name">QLD List Subjects</field>
             <field name="model">utc2.qld.subjects</field>
             <field name="arch" type="xml">
-                <tree string="QLD Subjects">
+                <tree string="QLD Subjects" delete="false">
                     <field name="name" />
                     <field name="name_display" />
                     <field name="stc" />
-                    <field name="parent_id" />
-                    <field name="child_ids" widget="many2many_tags" />
+                    <field name="group_id"/>
+                    <field name="predict_subject_ids"/>
                 </tree>
             </field>
     </record>
-
     <record id="qld_subjects_view_form" model="ir.ui.view">
         <field name="name">QA Subjects Form</field>
         <field name="model">utc2.qld.subjects</field>
         <field name="arch" type="xml">
             <form>
-                <group>
-                    <field name="name" />
-                    <field name="name_display" />
-                    <field name="stc" />
-                    <field name="is_dtl"/>
-                    <field name="parent_id" />
-                    <field name="child_ids" widget="many2many_tags" />
-                </group>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="name_display" />
+                        <field name="stc" />
+                        <field name="is_dtl"/>
+                        <field name="group_id"/>
+                         <field name="predict_subject_ids" widget="many2many_tags"/>
+                    </group>
+                 </sheet>
             </form>
         </field>
     </record>
+      <record id="qld_subject_view" model="ir.ui.view">
+            <field name="name">QLD search</field>
+            <field name="model">utc2.qld.subjects</field>
+            <field name="arch" type="xml">
+                <search string="Tìm sinh viên">
+                     <field name="name"/>
+                    <field name="name_display"/>
+                    <group expand="1" string="Group By">
+                        <filter string="MSV" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                         <filter string="Tên môn" name="name_display" domain="[]"
+                                context="{'group_by':'name_display'}"/>
+                        <filter string="Nhóm môn" name="group_id" domain="[]"
+                                context="{'group_by':'group_id'}"/>
+                    </group>
+                </search>
+            </field>
+      </record>
 
 
 </odoo>

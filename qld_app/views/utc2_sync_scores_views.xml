@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <record id="update_state_action" model="ir.ui.view">
+        <record id="sync_scores_form" model="ir.ui.view">
             <field name="name">Sync Score</field>
             <field name="model">utc2.sync.scores</field>
             <field name="arch" type="xml">
@@ -13,12 +12,14 @@
                         </group>
                     </group>
                     <footer>
-                        <button name="utc2_sync_score" string="Update" type="object"/>
+                        <button name="utc2_sync_score" string="Sync Score" type="object"/>
+                        <button name="utc2_group_subject" string="Group Subject" type="object"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
             </field>
         </record>
+
          <record id="qld_sync_score_tree" model="ir.ui.view">
             <field name="name">QLD Sync Score</field>
             <field name="model">utc2.sync.scores</field>
@@ -37,5 +38,12 @@
             view_mode="form"
             target="new"
         />
-    </data>
+        <act_window name="Group Subject"
+            id="action_group_subjects"
+            res_model="utc2.sync.scores"
+            binding_model="utc2.qld.subjects"
+            binding_views="list,form"
+            view_mode="form"
+            target="new"
+        />
 </odoo>

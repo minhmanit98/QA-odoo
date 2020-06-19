@@ -8,9 +8,14 @@
         <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/dabblet.css" />
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/custom.scss"  />
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/style.css"  />
+<!--        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/style1.css"  />-->
+<!--        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/navbar-new.css"  />-->
+<!--        <script type="text/javascript" src="/qa_app/static/src/js/navbar-new.js"/>-->
         <script type="text/javascript" src="/qa_app/static/src/js/agency.min.js"/>
          <script type="text/javascript" src="/qa_app/static/src/js/navbar.js"/>
         <script type="text/javascript" src="/qa_app/static/src/js/nav-min.js"/>
+        <script type="text/javascript" src="/qa_app/static/src/js/sidebar.js"/>
+        <script type="text/javascript" src="/qa_app/static/src/js/popper.js"/>
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/nav-min.scss" />
         <link href="/qa_app/static/src/css/homepage.css" rel="stylesheet"/>
 <!--        <script src="https://kit.fontawesome.com/081ec28180.js" crossorigin="anonymous"></script>-->
