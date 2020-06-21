@@ -1,0 +1,6 @@
+.table .row:hover input{
+    background-color: #ececff;
+}
+.table input{
+    color: #666666;
+}

@@ -2,6 +2,7 @@
 from odoo import fields, models, api
 import urllib.request
 from html_table_parser import HTMLTableParser
+from datetime import datetime
 
 
 class QLD(models.Model):
@@ -59,8 +60,25 @@ class QLD(models.Model):
         self.tong_stc = self.tinh_tong_stc()
         self.scores_4end = self.diem_tich_luy()
 
+    def url_get_contents(self, url):
+        """ Opens a website and read its binary contents (HTTP Response Body) """
+        req = urllib.request.Request(url=url)
+        f = urllib.request.urlopen(req)
+        return f.read()
+
+    def request_diem(self, msv):
+        request = 'http://xemdiem.utc2.edu.vn/svxemdiem.aspx?ID=' + msv + '&m_lopID=C%C3%B4ng%20ngh%E1%BB%87%20th%C3%B4ng%20tin%20%20K57&m_lopID_ID=4363&istinchi=1'
+        xhtml = self.url_get_contents(request).decode('utf-8')
+        p = HTMLTableParser()
+        p.feed(xhtml)
+        csvData = p.tables
+        return csvData
+
     name = fields.Char('MSV', required=True)
     user_id = fields.Many2one('res.users', string='Student', ondelete='restrict')
+    student_name = fields.Char('Tên sinh viên')
+    student_birth_date = fields.Date('Ngày sinh')
+    student_address = fields.Char('TỈnh')
     scores_4end = fields.Float(string='Điểm tích lũy', compute=_compute_scores_4end, store=True)
     scores_4end_cus = fields.Float(string='Điểm tích lũy tùy chỉnh', default=5.5)
     scores_ids = fields.One2many('utc2.qld.scores', 'student_id', string='Điểm các môn')
@@ -80,20 +98,6 @@ class QLD(models.Model):
     def create(self, vals):
         new_record = super().create(vals)
         return new_record
-
-    def url_get_contents(self, url):
-        """ Opens a website and read its binary contents (HTTP Response Body) """
-        req = urllib.request.Request(url=url)
-        f = urllib.request.urlopen(req)
-        return f.read()
-
-    def request_diem(self, msv):
-        request = 'http://xemdiem.utc2.edu.vn/svxemdiem.aspx?ID=' + msv + '&m_lopID=C%C3%B4ng%20ngh%E1%BB%87%20th%C3%B4ng%20tin%20%20K57&m_lopID_ID=4363&istinchi=1'
-        xhtml = self.url_get_contents(request).decode('utf-8')
-        p = HTMLTableParser()
-        p.feed(xhtml)
-        csvData = p.tables
-        return csvData
 
     def xuly(self, diem):
         diem_clean = []
@@ -185,6 +189,13 @@ class QLD(models.Model):
 
     def action_sync_scores(self):
         msv = self.name
+        student_name = self.request_diem(msv)[2][0][0]
+        self.student_name = student_name[10:len(student_name)]
+        student_birth_date = self.request_diem(msv)[2][1][0][11:len(self.request_diem(msv)[2][1][0])]
+        student_birth_date = student_birth_date.replace(' ', '')
+        self.student_birth_date = datetime.strptime(student_birth_date, '%d/%m/%Y')
+        student_address = self.request_diem(msv)[2][1][2]
+        self.student_address = student_address[5:len(student_address)]
         data_diem = self.request_diem(msv)
         diem_all = self.xuly(data_diem[3])
         data_info = data_diem[2]
