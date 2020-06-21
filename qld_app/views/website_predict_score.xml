@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="utc2_predict_score" model="ir.ui.view">
+            <field name="name">Dự doán điểm</field>
+            <field name="type">qweb</field>
+            <field name="key">website.scores</field>
+            <field name="arch" type="xml">
+                <t name="Home" priority="29" t-name="website.scores" inherit_id="assets_backend">
+                    <t t-call="website.layout">
+                        <div class="oe_structure oe_empty" id="oe_structure_forum_all_top"/>
+                        <div class="container">
+
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+
+		<template id="website_predict_score">
+			<t t-call="website.layout">
+                        <div class="oe_structure oe_empty" id="oe_structure_forum_all_top"/>
+
+                        <div class="container">
+                            <div class="limiter">
+			<div class="wrap-table100">
+					<div class="table">
+						<div class="row header">
+							<div class="cell">
+								Mã môn
+							</div>
+							<div class="cell">
+								Môn
+							</div>
+							<div class="cell">
+								Số tín chỉ
+							</div>
+							<div class="cell">
+								Điểm chữ
+							</div>
+							<div class="cell">
+								Điểm số
+							</div>
+							<div class="cell">
+								Điểm mục tiêu
+							</div>
+							<div class="cell">
+								Điểm dự đoán
+							</div>
+							<div class="cell">
+								Công thức dự đoán
+							</div>
+						</div>
+						<t t-call="qld_app.table_predict_score"/>
+
+					</div>
+			</div>
+		</div>
+
+                        </div>
+                    </t>
+		</template>
+
+		<template id="table_predict_score">
+
+			<t t-foreach="predict_scores_ids" t-as="predict_scores">
+				<div class="row">
+					<div class="cell" data-title="Mã môn" >
+						<span t-field="predict_scores.subject_id.name"/>
+					</div>
+					<div class="cell" data-title="Môn" >
+						<span t-field="predict_scores.subject_id.name_display"/>
+					</div>
+					<div class="cell" data-title="Số tín chỉ" >
+						<span t-field="predict_scores.subject_stc"/>
+					</div>
+					<div class="cell" data-title="Điểm chữ">
+						<span t-field="predict_scores.scores_word"/>
+					</div>
+					<div class="cell" data-title="Điểm số">
+						<span t-field="predict_scores.scores_8"/>
+					</div>
+
+					<div class="cell" data-title="Điểm mục tiêu">
+						<input type="text" t-att-value="predict_scores.scores_4custom" style="color: #666666; row:hover"/>
+<!--						<span t-field="predict_scores.scores_4custom"/>-->
+					</div>
+					<div class="cell" data-title="Điểm dự đoán">
+						<span t-esc="round(predict_scores.scores_predict,2)" />
+<!--						<span t-field="predict_scores.scores_predict"/>-->
+					</div>
+					<div class="cell" data-title="Công thức dự đoán">
+						<select>
+							<option t-att-value="predict_scores.predict_subject_id.name_display"><t t-esc="predict_scores.predict_subject_id.name_display" /></option>
+							<t t-foreach="predict_subject_ids.search([('subject_id','=',predict_scores.subject_id.id),('id', '!=', predict_scores.predict_subject_id.id)])" t-as="predict_subject_domain">
+						  		<option t-att-value="predict_subject_domain.name_display"><t t-esc="predict_subject_domain.name_display"/></option>
+							</t>
+						</select>
+					</div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+
+    <data noupdate="1">
+         <record id="utc2_scores_page" model="website.page">
+            <field name="is_published">True</field>
+            <field name="url">/sinhvien</field>
+            <field name="view_id" ref="utc2_predict_score"/>
+            <field name="track">True</field>
+        </record>
+    </data>
+
+
+</odoo>

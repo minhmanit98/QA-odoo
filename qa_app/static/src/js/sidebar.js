@@ -1,22 +1,18 @@
 odoo.define('qa_app.sidebar', function (require) {
 'use strict';
-(function($) {
+	var core = require('web.core');
+		var fullHeight = function() {
 
-	"use strict";
-
-	var fullHeight = function() {
-
-		$('.js-fullheight').css('height', $(window).height());
-		$(window).resize(function(){
 			$('.js-fullheight').css('height', $(window).height());
-		});
+			$(window).resize(function(){
+				$('.js-fullheight').css('height', $(window).height());
+			});
 
-	};
-	fullHeight();
+		};
+		fullHeight();
 
-	$('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
-  });
+		$('#sidebarCollapse').on('click', function () {
+		  $('main #sidebar').toggleClass('active');
+	  });
 
-})(jQuery);
 });

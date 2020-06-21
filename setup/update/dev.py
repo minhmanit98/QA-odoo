@@ -16,7 +16,7 @@ def request_diem(msv):
     csvData = p.tables
     data_info = csvData[2]
     # return data_info[3][0][5:len(data_info[3][0])]
-    return csvData[2]
+    return csvData
 
 def request2():
     request = 'http://dangkyhoc.utc2.edu.vn/XemChuongTrinhKhung/XemChuongTrinhKhung'
@@ -36,6 +36,6 @@ def xuly(diem):
     return diem_clean
             
 
-# xuly(request_diem('5751071024'))
+pprint(request_diem('5751071024')[2][1][2][5:len(request_diem('5751071024')[2][0][0])])
 # pprint(len(request_diem('555101A010')))
-pprint(request2())
+# pprint(request2())
