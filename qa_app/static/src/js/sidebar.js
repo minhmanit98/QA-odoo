@@ -1,6 +1,6 @@
 odoo.define('qa_app.sidebar', function (require) {
 'use strict';
-	var core = require('web.core');
+
 		var fullHeight = function() {
 
 			$('.js-fullheight').css('height', $(window).height());
@@ -13,6 +13,22 @@ odoo.define('qa_app.sidebar', function (require) {
 
 		$('#sidebarCollapse').on('click', function () {
 		  $('main #sidebar').toggleClass('active');
-	  });
+	  	});
+
+		$().on('click', function () {
+		   $('main #sidebar').toggleClass('active');
+	  	});
+
+		window.onscroll = function() {scrollFunction()};
+		function scrollFunction() {
+			if(document.documentElement.scrollTop == 0){
+				if ($('main #sidebar').hasClass('active')){
+
+				}else{
+					$('main #sidebar').toggleClass('active');
+				}
+
+			}
+		}
 
 });

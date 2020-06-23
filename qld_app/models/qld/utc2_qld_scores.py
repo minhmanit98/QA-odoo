@@ -6,11 +6,7 @@ class QLDScores(models.Model):
     _name = 'utc2.qld.scores'
     _description = 'Điểm'
 
-    def _compute_name(self):
-        for record in self:
-            record.name = str(record.student_id.name) + '/' + str(record.subject_id.name) + '/' + str(record.scores_8)
-
-    name = fields.Char(string='Tên', compute=_compute_name, store=True)
+    name = fields.Char(string='Tên', store=True)
     scores_8 = fields.Float(string='Điểm số', readonly=True)
     scores_word = fields.Float(string='Điểm chữ', readonly=True)
     scores_4 = fields.Float(string='Điểm tích lũy', readonly=True, store=True)
@@ -19,6 +15,9 @@ class QLDScores(models.Model):
     subject_id = fields.Many2one('utc2.qld.subjects', string='Môn')
     subject_name = fields.Char('Tên môn', related="subject_id.name_display")
     subject_stc = fields.Integer('Số tín chỉ', related="subject_id.stc", store=True)
+
+    def name_get(self):
+        return [(rec.id, "%s/%s/%s/%s" % (rec.subject_id.name, rec.subject_id.name_display, rec.subject_id.stc, str(rec.scores_8))) for rec in self]
 
     @api.model
     def create(self, vals):

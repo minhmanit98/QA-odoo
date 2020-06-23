@@ -189,18 +189,20 @@ class QLD(models.Model):
 
     def action_sync_scores(self):
         msv = self.name
-        student_name = self.request_diem(msv)[2][0][0]
-        self.student_name = student_name[10:len(student_name)]
-        student_birth_date = self.request_diem(msv)[2][1][0][11:len(self.request_diem(msv)[2][1][0])]
-        student_birth_date = student_birth_date.replace(' ', '')
-        self.student_birth_date = datetime.strptime(student_birth_date, '%d/%m/%Y')
-        student_address = self.request_diem(msv)[2][1][2]
-        self.student_address = student_address[5:len(student_address)]
         data_diem = self.request_diem(msv)
         diem_all = self.xuly(data_diem[3])
         data_info = data_diem[2]
 
         if len(data_info) > 1:
+            student_name = self.request_diem(msv)[2][0][0]
+            self.student_name = student_name[10:len(student_name)]
+            student_birth_date = self.request_diem(msv)[2][1][0][11:len(self.request_diem(msv)[2][1][0])]
+            student_birth_date = student_birth_date.replace(' ', '')
+            if len(student_birth_date) > 5:
+                self.student_birth_date = datetime.strptime(student_birth_date, '%d/%m/%Y')
+            student_address = self.request_diem(msv)[2][1][2]
+            self.student_address = student_address[5:len(student_address)]
+
             class_name = data_info[3][0][4:len(data_info[3][0])]
             if self.env['utc2.qld.class'].search_count([('name', '=', class_name)]) > 0:
                 self.class_id = self.env['utc2.qld.class'].search([('name', '=', class_name)]).id

@@ -21,6 +21,18 @@ class UTC2Predict(Controller):
             values['predict'] = kwargs.get('predict')
         return values
 
+    @http.route(['/sinhvien'], type='http', auth="public", website=True)
+    def my_predict(self):
+        user = request.env.user
+        predict_scores = request.env['utc2.qld.predict'].search([])
+
+        values = {}
+        values.update({
+            'predict_scores': predict_scores,
+        })
+        return request.render("qld_app.web_list_predict_score", values)
+
+
     @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>'], type='http', auth="public", website=True)
     def qld_predict(self, predict, **kwargs):
         # if not predict.can_access_from_current_website():

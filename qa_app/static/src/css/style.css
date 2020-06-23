@@ -170,12 +170,14 @@
     position: fixed;
     min-width: 270px;
     max-width: 270px;
+    height: 100%;
     background: #494ca2;
     color: #fff;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    z-index: 1;
+    z-index: 1031;
+    top: 46px;
 }
 #sidebar .h6 {
     color: #fff; }

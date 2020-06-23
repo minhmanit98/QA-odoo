@@ -4,3 +4,239 @@
 .table input{
     color: #666666;
 }
+ul, ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*h2, .h2 {*/
+/*    font-size: 1.5em;*/
+/*}*/
+
+.border-box{
+    background-color: #fff;
+    border: .0625rem solid #dadce0;
+    -webkit-border-radius: 0.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.border-box:hover, border-box:focus {
+    /*border: none;*/
+    /*margin: .0625rem 1.5625rem 1.5625rem .0625rem;*/
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
+}
+
+.footer-predict {
+    border-top: .0625rem solid #e0e0e0;
+    line-height: 0;
+    padding: 0.25rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+.item-predict {
+    background-clip: padding-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 18.375rem;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 18.75rem;
+    cursor: pointer
+}
+
+.main-predict{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+}
+.relative{
+    position: relative;
+}
+
+.OjOEXb {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.OjOEXb, .ZizeYd, .O7utsb, .ZmqAt {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.content-text{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    height: 6.5rem;
+    padding: 1rem 1rem 0.75rem;
+    position: relative;
+}
+.text-line {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+.flex-relative {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+}
+.relative{
+    position: relative;
+}
+.text-white {
+    color: #fff;
+    display: block;
+    margin: 0 -0.25rem;
+    padding: 0 0.25rem;
+}
+.footer-text {
+    -webkit-align-items: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+.flex{
+    -webkit-box-flex: 0 0 4.6875rem;
+    -webkit-flex: 0 0 4.6875rem;
+    flex: 0 0 4.6875rem;
+}
+.flex-auto{
+    -webkit-box-flex: 1 0 1rem;
+    -webkit-flex: 1 0 1rem;
+    flex: 1 0 1rem;
+}
+.color-white:not(:hover){
+    color: #fff;
+    fill: #fff;
+}
+.color-white{
+    color: rgba(255,255,255,0.749);
+     fill: rgba(255,255,255,0.749);
+}
+.color-text{
+    color: #5f6368;
+    fill: #5f6368;
+}
+.no-outline:focus{
+    border: none;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+}
+.button-key{
+    color: #e8eaed;
+    fill: #e8eaed;
+    text-align: center;
+}
+
+.button-key:hover{
+    background-color: rgba(232,234,237,0.039);
+}
+
+.text-tt, .text-tt:visited {
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.JRtysb .snByac.snByac {
+    margin: 4px;
+}
+.Lw7GHd {
+    margin: 4px;
+    display: inline-block;
+}
+
+I12f0b .oJeWuf {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.MhXXcc {
+    line-height: 0;
+    position: relative;
+}
+
+.JRtysb {
+    display: block;
+    height: auto;
+    line-height: 0;
+    width: auto;
+}
+
+.I12f0b .snByac {
+    -webkit-align-items: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.absolute {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.bg-cover {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.O7utsb {
+    background-color: #202124;
+}
+
+.body-predict {
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    min-height: 0;
+    padding: 1rem;
+    padding-top: 0.75rem;
+    color: #5f6368;
+}

@@ -29,6 +29,7 @@
      'views/website_homepage.xml',
      'views/website_forum.xml',
      'views/res_users_views.xml',
+     'views/document_page_views.xml',
      'data/res_users_data.xml',
      'data/im_livechat_data.xml',
      'data/ir_default_data.xml',

@@ -22,10 +22,10 @@
 	box-sizing: border-box;
 }
 
-body, html {
-	height: 100%;
-	font-family: sans-serif;
-}
+/*body, html {*/
+/*	height: 100%;*/
+/*	font-family: sans-serif;*/
+/*}*/
 
 /* ------------------------------------ */
 a {
@@ -90,7 +90,7 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
 
-.limiter {
+.table-scores {
   width: 100%;
   margin: 0 auto;
 }
@@ -129,7 +129,7 @@ iframe {
   }
 }
 
-.row {
+.table-scores .row {
   /*display: table-row;*/
   background: #fff;
 }
@@ -219,7 +219,7 @@ iframe {
 }
 
 
-.table, .row {
+.table-scores .table, .row {
   width: 100% !important;
 }
 .table .row{

@@ -100,9 +100,8 @@
 <template id="header" name="Forum Index">
     <t t-if="forum.active" t-call="website_forum.layout">
 <!--        <t t-call="qa_app.s_carousel_notification"/>-->
-        <t t-call="qa_app.siderbar_vertical"/>
-
-        <div id="wrap" t-attf-class="container #{website_forum_action}" style="padding-top: 50px;">
+          <t t-call="qa_app.siderbar_vertical"/>
+        <div id="wrap" t-attf-class="container #{website_forum_action}" style="padding-top: 100px;">
             <div class="row">
                 <div class="col-md-8">
                     <div class="border-l main-header" >

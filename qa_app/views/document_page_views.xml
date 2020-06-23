@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="utc2_document_page_forum" model="ir.ui.view">
+            <field name="name">utc2.document.page.form</field>
+            <field name="model">document.page</field>
+            <field name="inherit_id" ref="document_page.view_wiki_form"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="tag_id"/>
+                </field>
+            </field>
+        </record>
+        <record id="utc2_document_page_tree" model="ir.ui.view">
+            <field name="name">utc2.document.page.tree</field>
+            <field name="model">document.page</field>
+            <field name="inherit_id" ref="document_page.view_wiki_tree"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="tag_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

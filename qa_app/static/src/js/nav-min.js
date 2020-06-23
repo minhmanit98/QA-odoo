@@ -13,7 +13,7 @@ odoo.define('qa_app.nav-min', function (require) {
 
     $("#btn-search").click(function(){
         var search = $("#nav-search").val();
-        window.location = "http://utc2forum2.eastus.cloudapp.azure.com:8069/forum/1?search="+search+"&filters=all&sorting=create_date+desc";
+        window.location = "https://www.utc2support.team/forum/1?search="+search+"&filters=all&sorting=create_date+desc";
     });
 
     $('#nav-search').hide();

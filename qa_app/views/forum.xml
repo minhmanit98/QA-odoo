@@ -10,6 +10,7 @@
                 <field name="forum_id" position="after">
                     <field name="parent_id"/>
                     <field name="child_ids"/>
+                    <field name="document_page_ids"/>
                 </field>
             </field>
         </record>
@@ -24,6 +25,7 @@
                      <field name="parent_path"/>
                      <field name="child_ids"/>
                      <field name="highlighted_id"/>
+                     <field name="document_page_ids"/>
                 </field>
             </field>
         </record>
