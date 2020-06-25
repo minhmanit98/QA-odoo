@@ -13,6 +13,13 @@
            eval="[(4, ref('base.group_user'))]"/>
   </record>
 
+  <!-- Library User Group -->
+  <record id="utc2_group_portal" model="res.groups">
+    <field name="name">Portal</field>
+    <field name="implied_ids"
+           eval="[(4, ref('base.group_portal'))]"/>
+  </record>
+
   <!-- Library Manager Group -->
   <record id="utc2_group_manager" model="res.groups">
     <field name="name">Manager</field>

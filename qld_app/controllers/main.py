@@ -21,6 +21,31 @@ class UTC2Predict(Controller):
             values['predict'] = kwargs.get('predict')
         return values
 
+    @http.route(['/sinhvien/create'], type='http', auth="user", csrf=False, methods=['POST'], website=True)
+    def create_predict(self, **post):
+        user = request.env.user
+        msv_predict = post.get('msv_predict')
+        if msv_predict:
+            if request.env['utc2.qld.students'].search_count([('name', '=', msv_predict)]) > 0:
+                predict_scores = request.env['utc2.qld.predict'].create({
+                    'student_id': request.env['utc2.qld.students'].search([('name', '=', msv_predict)], limit=1).id
+                })
+            else:
+                return request.render('http_routing.http_error', {
+                    'status_code': _('Bad Request'),
+                    'status_message': _('Mã sinh viên không có trên hệ thống') or _(
+                        'Mã sinh viên này không được hỗ trợ')
+                })
+        else:
+            return request.render('http_routing.http_error', {
+                'status_code': _('Bad Request'),
+                'status_message': _('Mời nhập mã sinh viên') or _(
+                    'Mã sinh viên không được để trống')
+            })
+        return werkzeug.utils.redirect(
+            "/sinhvien/%s" % (predict_scores.id))
+
+
     @http.route(['/sinhvien'], type='http', auth="public", website=True)
     def my_predict(self):
         user = request.env.user

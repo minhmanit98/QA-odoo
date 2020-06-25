@@ -15,10 +15,6 @@ odoo.define('qa_app.sidebar', function (require) {
 		  $('main #sidebar').toggleClass('active');
 	  	});
 
-		$().on('click', function () {
-		   $('main #sidebar').toggleClass('active');
-	  	});
-
 		window.onscroll = function() {scrollFunction()};
 		function scrollFunction() {
 			if(document.documentElement.scrollTop == 0){
