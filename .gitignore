@@ -52,3 +52,9 @@ qld_app/models/__pycache__/
 qld_app/wizard/__pycache__/
 
 qld_app/models/qld/__pycache__/
+
+web_notify/__pycache__/
+
+web_notify/models/__pycache__/
+
+*.pyc

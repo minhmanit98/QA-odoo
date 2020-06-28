@@ -1,6 +1,6 @@
 // ---------Responsive-navbar-active-animation-----------
 
-odoo.define('qa_app.scroll_totop', function (require) {
+odoo.define('qa_app.navbar-new', function (require) {
 'use strict';
 function test(){
   var tabsNewAnim = $('#navbarSupportedContent');

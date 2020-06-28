@@ -9,6 +9,7 @@ class Tags(models.Model):
     # Optional, but good to have
     child_ids = fields.One2many('forum.tag', 'parent_id', string='Subtag')
     highlighted_id = fields.Reference([('forum.post', 'Post')], 'Tags Highlight')
+    document_page_ids = fields.One2many('document.page', 'tag_id', 'Câu trả lời tùy chỉnh')
 
 
 class Post(models.Model):

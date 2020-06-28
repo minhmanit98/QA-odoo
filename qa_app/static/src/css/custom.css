@@ -518,3 +518,8 @@ h1 {
         display: none;
     }
 }
+#oe_main_menu_navbar + #wrapwrap .o_header_affix
+.fixed-top{
+    position: fixed;
+    z-index: 1030;
+}

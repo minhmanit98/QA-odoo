@@ -15,6 +15,9 @@
                         </div>
                         <group>
                             <field name="name" />
+                            <field name="student_name"/>
+                            <field name="student_birth_date"/>
+                            <field name="student_address"/>
                             <field name="user_id"/>
                             <field name="scores_4end" />
                             <field name="scores_4end_cus" />

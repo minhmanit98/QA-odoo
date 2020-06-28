@@ -2,13 +2,9 @@ odoo.define('qa_app.navbar', function (require) {
 'use strict';
 	$(window).scroll(function() {
 		if ($(document).scrollTop() > 100) {
-			$('#nav').addClass('affix');
-			$('#top').addClass('o_header_affix affix affixed');
-	    	$('#top').removeClass('o_affix_enabled');
+			$('#nav-min').addClass('o_header_affix fixed-top');
 		} else {
-			$('#nav').removeClass('affix');
-			$('#top').removeClass('o_header_affix affix affixed');
-			$('#top').addClass('o_affix_enabled');
+			$('#nav-min').removeClass('o_header_affix fixed-top');
 		}
 	});
 	$('.navTrigger').click(function () {

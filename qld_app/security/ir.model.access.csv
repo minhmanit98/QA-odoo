@@ -1,19 +1,25 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_qld_user,QLD User Access,model_utc2_qld_students,utc2_group_user,0,0,0,0
+access_qld_student_portal,qld.student.portal,model_utc2_qld_students,base.group_portal,1,0,0,0
 access_qld_manager,QLD Manager Access,model_utc2_qld_students,utc2_group_manager,1,1,1,1
 access_qld_subjects_user,QLD Subjects User Access,model_utc2_qld_subjects,utc2_group_user,0,0,0,0
+access_qld_subjects_portal,qld.subjects.portal,model_utc2_qld_subjects,base.group_portal,1,0,0,0
 access_qld_subjects_manager,QLD Subjects Manager Access,model_utc2_qld_subjects,utc2_group_manager,1,1,1,1
 access_qld_scores_user,QLD Scores User Access,model_utc2_qld_scores,utc2_group_user,0,0,0,0
+access_qld_scores_portal,qld.scores.portal,model_utc2_qld_scores,base.group_portal,1,0,0,0
 access_qld_scores_manager,QLD Scores Manager Access,model_utc2_qld_scores,utc2_group_manager,1,1,1,1
 access_sync_scores_user,QLD sync_scores User Access,model_utc2_sync_scores,utc2_group_user,0,0,0,0
 access_sync_scores_manager,QLD sync_scores Manager Access,model_utc2_sync_scores,utc2_group_manager,1,1,1,1
 access_qld_class_user,QLD Class User Access,model_utc2_qld_class,utc2_group_user,0,0,0,0
+access_qld_class_portal,qld.class.portal,model_utc2_qld_class,base.group_portal,1,0,0,0
 access_qld_class_manager,QLD Class Manager Access,model_utc2_qld_class,utc2_group_manager,1,1,1,1
 access_qld_group_user,QLD Group User Access,model_utc2_qld_group,utc2_group_user,0,0,0,0
 access_qld_group_manager,QLD Group Manager Access,model_utc2_qld_group,utc2_group_manager,1,1,1,1
-access_qld_predict_user,QLD Predict User Access,model_utc2_qld_predict,utc2_group_user,0,0,0,0
+access_qld_predict_portal,qld.predict.portal,model_utc2_qld_predict,base.group_portal,1,1,1,1
 access_qld_predict_manager,QLD Predict Manager Access,model_utc2_qld_predict,utc2_group_manager,1,1,1,1
 access_qld_predict_scores_user,QLD Predict Scores User Access,model_utc2_qld_predict_scores,utc2_group_user,0,0,0,0
+access_qld_predict_scores_portal,qld.predict.scores.portal,model_utc2_qld_predict_scores,base.group_portal,1,1,1,1
 access_qld_predict_scores_manager,QLD Predict Scores Manager Access,model_utc2_qld_predict_scores,utc2_group_manager,1,1,1,1
 access_qld_predict_subjects_user,QLD Predict Subjects User Access,model_utc2_qld_predict_subjects,utc2_group_user,0,0,0,0
+access_qld_predict_subjects_portal,qld.predict.subjects.portal,model_utc2_qld_predict_subjects,base.group_portal,1,1,1,1
 access_qld_predict_subjects_manager,QLD Predict Subjects Manager Access,model_utc2_qld_predict_subjects,utc2_group_manager,1,1,1,1

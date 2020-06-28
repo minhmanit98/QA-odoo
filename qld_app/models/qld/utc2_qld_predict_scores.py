@@ -29,15 +29,13 @@ class QLDPredictScores(models.Model):
             diem = 10
         return diem
 
-    @api.depends('scores_4')
+    @api.depends('scores_8')
     def _compute_scores_4custom(self):
         for record in self:
-            record.scores_4custom = record.scores_8
-
-    @api.depends('scores_4custom')
-    def _compute_scores_4custom2(self):
-        for record in self:
-            record.scores_4custom2 = record.scores_8
+            if record.scores_8:
+                record.scores_4custom = record.scores_8
+            else:
+                record.scores_4custom = 0
 
     @api.depends('predict_subject_id')
     def _compute_scores_predict(self):
@@ -66,7 +64,7 @@ class QLDPredictScores(models.Model):
                         ('subject_id', '=', record.predict_subject_id.predict_subject1.id)]).scores_8
                     record.scores_predict = diem
             else:
-                record.scores_predict = 0
+                record.scores_predict = record.scores_8
 
     name = fields.Char(string='Mã điểm dự đoán', readonly=True, default='New')
     scores_8 = fields.Float(string='Điểm số', readonly=True)

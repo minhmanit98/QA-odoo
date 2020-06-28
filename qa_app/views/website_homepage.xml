@@ -100,8 +100,8 @@
 <template id="header" name="Forum Index">
     <t t-if="forum.active" t-call="website_forum.layout">
 <!--        <t t-call="qa_app.s_carousel_notification"/>-->
-        <div id="wrap" t-attf-class="container #{website_forum_action}" style="padding-top: 50px;">
-            <t t-call="qa_app.siderbar_vertical"/>
+          <t t-call="qa_app.siderbar_vertical"/>
+        <div id="wrap" t-attf-class="container #{website_forum_action}" style="padding-top: 100px;">
             <div class="row">
                 <div class="col-md-8">
                     <div class="border-l main-header" >
@@ -254,19 +254,19 @@
 
                         </div>
                 </div>
-                <div class="col-md-4" id="user_sidebar">
-                    <div class="border-r float-right main-header">
-                             <div class="tieu-de hoat-dong-ca-nhan">
-                            Thao tác cá nhân
-                            <div class="tieu-de-underline">
+<!--                <div class="col-md-4" id="user_sidebar">-->
+<!--                    <div class="border-r float-right main-header">-->
+<!--                             <div class="tieu-de hoat-dong-ca-nhan">-->
+<!--                            Thao tác cá nhân-->
+<!--                            <div class="tieu-de-underline">-->
 
-                            </div>
-                            </div>
-                            <aside t-if="uid" class="d-none d-lg-flex col-auto" style="padding-left: 0px;">
-                                <t t-call="qa_app.user_sidebar"/>
-                            </aside>
-                    </div>
-                </div>
+<!--                            </div>-->
+<!--                            </div>-->
+<!--                            <aside t-if="uid" class="d-none d-lg-flex col-auto" style="padding-left: 0px;">-->
+<!--                                <t t-call="qa_app.user_sidebar"/>-->
+<!--                            </aside>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
         <div class="oe_structure oe_empty" id="oe_structure_forum_all_bottom"/>
@@ -283,12 +283,12 @@
 
 <template id="siderbar_vertical">
     <nav id="sidebar" class="active">
-        <div class="custom-menu">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-	          <i class="fa fa-bars"></i>
-	          <span class="sr-only">Toggle Menu</span>
-	        </button>
-        </div>
+<!--        <div class="custom-menu">-->
+<!--            <button type="button" id="sidebarCollapse" class="btn btn-primary">-->
+<!--	          <i class="fa fa-bars"></i>-->
+<!--	          <span class="sr-only">Toggle Menu</span>-->
+<!--	        </button>-->
+<!--        </div>-->
         <div class="p-4">
             <h1><a href="index.html" class="logo">Flash</a></h1>
 	        <ul class="list-unstyled components mb-5">

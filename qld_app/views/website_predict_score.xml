@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+		<template id="item_predict_score">
+			<li class="border-box item-predict">
+				<div class="header-predict relative">
+					<div class="O7utsb bFjUmb-Tvm9db"></div>
+					<div class="bg-cover absolute" style="background-image: url(&quot;https://gstatic.com/classroom/themes/img_read.jpg&quot;);"></div>
+					<div class="content-text">
+						<t t-set="predict_scores_url" t-value="'/sinhvien/%s' % (predict.id)"/>
+						<a class="text-tt ZmqAt" target="_blank" aria-hidden="true" tabindex="-1" t-att-href="predict_scores_url"></a>
+						<h2 class="flex-relative">
+							<a class="text-line text-white text-tt" t-att-href="predict_scores_url">
+								<div>
+									<t t-esc="predict.student_id.name"/>
+								</div>
+							</a>
+							<a class="text-tt flex-auto" target="_blank" tabindex="-1" t-att-href="predict_scores_url"> </a>
+							<div jscontroller="gZb3ib" data-guided-help-id="courseCardActionMenuGH">
+								<div role="button" class="U26fgb button-border color-white button-flex button-key oxacD no-outline" jscontroller="iSvg6e" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc(preventMouseEvents=true|preventDefault=true); touchcancel:JMtRjd;keydown:I481le" aria-label="Tùy chọn lớp" aria-disabled="false" tabindex="0" aria-haspopup="true" aria-expanded="false" data-menu-corner="top-end" data-anchor-corner="bottom-end" id="ow61" __is_owner="true">
+									<div class="button-bg MbhUzd" jsname="ksKsZd"></div>
+									<span jsslot="" class="MhXXcc flex-100">
+										<span class="Lw7GHd snByac" style="margin: 4px;">
+											<svg viewBox="0 0 24 24" focusable="false" width="24" height="24" class="fill-currentColor">
+												<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
+												</path>
+											</svg>
+										</span>
+									</span>
+								</div>
+							</div>
+						</h2>
+						<div class="body-text">
+							<div class="flex-relative">
+								<a class="text-line text-white text-tt">
+									<t t-esc="predict.student_id.student_name"/>
+								</a>
+								<a class="text-tt flex-auto" target="_blank" tabindex="-1"  t-att-href="predict_scores_url"> </a>
+								<a class="text-line text-white text-tt">
+									<t t-esc="predict.student_id.class_id.name"/>
+								</a>
+							</div>
+							<div class="flex-relative">
+								<a class="text-line text-white text-tt">Ngày sinh:
+									<t t-esc="predict.student_id.student_birth_date"/>
+								</a>
+								<a class="text-tt flex-auto" target="_blank" tabindex="-1" t-att-href="predict_scores_url"> </a>
+								<a class="text-line text-white text-tt">Tỉnh:
+									<t t-esc="predict.student_id.student_address"/>
+								</a>
+							</div>
+						</div>
+						<div class="footer-text">
+<!--							<div class="text-white text-line relative"><t t-esc="predict.student_id.student_name"/></div>-->
+							<div class="flex"></div>
+						</div>
+					</div>
+				</div>
+				<div class="body-predict">
+					<div class="flex-relative">
+						<a class="text-line color-text text-tt">Điểm tích lũy hiện tại:
+							<t t-esc="predict.scores_4end"/>
+						</a>
+					</div>
+					<div class="flex-relative">
+						<a class="text-line color-text text-tt">Điểm tích mục tiêu:
+							<t t-esc="predict.scores_4cus"/>
+						</a>
+					</div>
+					<div class="flex-relative">
+						<a class="text-line .color-text text-tt">Điểm tích dự đoán:
+							<t t-esc="predict.scores_predict"/>
+						</a>
+					</div>
+				</div>
+				<div class="footer-predict">
+					<div>
+						<div class="button-option" >
+							<div role="button" class="button-border button-flex button-color">
+							<div class="button-bg"></div>
+							<span  class="flex-100">
+								<span class="snByac">
+									<form method="POST" t-att-action="'/sinhvien/%s/update'%(predict.id)" class="">
+										<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+										<button role="menuitem" class="button-form" data-method="post"><i class="fa fa-refresh button-color" style="font-size: 1.2rem;"></i></button>
+									</form>
+								</span>
+							</span>
+						</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</template>
+
+		<template id="create_predict_score">
+			<form class="bg-lock" id="create_predict_score" method="post" action="/sinhvien/create">
+				<div class="flex-absolute ">
+					<div class="top-flex"></div>
+					<div class="form-dialog" style="height: 12.375rem;">
+						<div class="header-form">
+							<div class="text-title">Tạo dự đoán điểm</div>
+						</div>
+						<div class="body-form relative">
+							<div>
+								<div class="Ag5Pwe">Nhập mã sinh viên để tính điểm tích lũy và dự đoán điểm.</div>
+								<div><input type="text" name="msv_predict"></input></div>
+							</div>
+
+						</div>
+						<div class="footer-form">
+							<div class="button-text button_cancel button-flex button-color">
+								<div class="button-flex"></div>
+								<div class="button-absolute"></div>
+								<span class="span-padding flex-relative-center">
+									<span class="button-span">Hủy</span>
+								</span>
+							</div>
+							<div class="button-text button-flex button-color">
+								<div class="button-flex"></div>
+								<div class="button-absolute"></div>
+								<span class="span-padding flex-relative-center">
+									<button class="button-span button-form" >Tạo</button>
+								</span>
+							</div>
+
+						</div>
+					</div>
+					<div class="bottom-flex"></div>
+				</div>
+			</form>
+		</template>
+		<template id="add_predict_subject">
+<!--			<t t-set="predict_scores.predict_subject_id" t-value="predict_subject"/>-->
+			<form class="bg-lock" t-att-id="'form-a-predict%s'%predict_scores.id" method="post" t-att-action="'%s/%s/add_subject'%(predict.id, predict_scores.id,)">
+				<div class="flex-absolute ">
+					<div class="top-flex"></div>
+					<div class="form-dialog" style="height: 12.375rem;">
+						<div class="header-form">
+							<div class="text-title">Chọn công thức dự đoán cho môn</div>
+						</div>
+						<div class="body-form relative">
+							<div>
+								<select name="predict_subject_ids">
+									<option t-att-value="predict_scores.predict_subject_id.id"><t t-esc="predict_scores.predict_subject_id.name_display" /></option>
+									<t t-foreach="predict_subject_ids.search([('subject_id','=',predict_scores.subject_id.id),('id', '!=', predict_scores.predict_subject_id.id)])" t-as="predict_subject_domain">
+										<option t-att-value="predict_subject_domain.id"><t t-esc="predict_subject_domain.name_display"/></option>
+									</t>
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+								</select>
+							</div>
+						</div>
+						<div class="footer-form">
+							<div class="button-text button-flex button-color button_cancel">
+								<div class="button-flex"></div>
+								<div class="button-absolute"></div>
+								<span class="span-padding flex-relative-center">
+									<span class="button-span">Hủy</span>
+								</span>
+							</div>
+
+							<div class="button-text button-flex button-color" type="submit">
+								<div class="button-flex"></div>
+								<div class="button-absolute"></div>
+								<span class="span-padding flex-relative-center">
+									<button class="button-form" data-method="post">Cập nhật</button>
+								</span>
+							</div>
+
+						</div>
+					</div>
+					<div class="bottom-flex"></div>
+				</div>
+			</form>
+		</template>
+
+		<template id="web_list_predict_score">
+			<t t-call="website.layout">
+				<div class="oe_structure oe_empty" id="oe_structure_forum_all_top"/>
+				<div class="footer-text" style="height: 3rem; padding-left: 1.5rem;">
+					<div class="button-text button-flex button-color" id="button_create">
+						<div class="button-flex"></div>
+						<div class="button-absolute"></div>
+						<span class="span-padding flex-relative-center">
+							<span class="button-span"><i class="fa fa-plus"></i> Tạo</span>
+						</span>
+					</div>
+				</div>
+				<t t-call="qld_app.create_predict_score"/>
+				<div>
+					<ol class="main-predict">
+						<t t-foreach="predict_scores" t-as="predict">
+							<t t-call="qld_app.item_predict_score"/>
+						</t>
+					</ol>
+				</div>
+			</t>
+		</template>
+
+		<template id="website_predict_score">
+			<t t-call="website.layout">
+				<div class="oe_structure oe_empty" id="oe_structure_forum_all_top"/>
+				<div class="container">
+					<div class="border-header">
+						<div class="header-info">
+							<div class="bg-absolute" style="background-image: url(https://gstatic.com/classroom/themes/img_backtoschool.jpg);">
+<!--							<div class="PFLqgc" style="background-color: #1967d2;">-->
+								<div></div>
+							</div>
+							<div class="relative pd15">
+								<h1 style="margin-bottom: 2rem;">BẢNH ĐIỂM SINH VIÊN</h1>
+								<div class="flex-relative">
+									<a class="text-line text-white text-tt">Tên:
+										 <t t-esc="predict.student_id.student_name"/>
+									</a>
+									<a class="text-tt flex-auto" target="_blank" tabindex="-1" data-oe-model="ir.ui.view" data-oe-id="871" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/div[3]/div[1]/div[1]/a[2]" href="/sinhvien/92"> </a>
+									<a class="text-line text-white text-tt">Lớp:
+										<t t-esc="predict.student_id.class_id.name"/>
+									</a>
+								</div>
+								<div class="flex-relative">
+									<a class="text-line text-white text-tt">Ngày sinh:
+										<t t-esc="predict.student_id.student_birth_date"/>
+									</a>
+									<a class="text-tt flex-auto" target="_blank" tabindex="-1" data-oe-model="ir.ui.view" data-oe-id="871" data-oe-field="arch" data-oe-xpath="/t[1]/li[1]/div[1]/div[3]/div[1]/div[2]/a[2]" href="/sinhvien/92"> </a>
+									<a class="text-line text-white text-tt">Tỉnh:
+										<t t-esc="predict.student_id.student_address"/>
+									</a>
+								</div>
+								<div class="flex-relative-center" style=" width: 960px; padding: 2rem 1rem 1rem 1.5rem; margin: 0 auto;">
+									<a class="color-fff text-tt" style="width: 5rem;">Mã môn</a>
+									<a class="text-tt flex-auto"></a>
+									<a class="color-fff text-tt" style="width: 15rem;">Tên môn</a>
+									<a class="text-tt flex-auto"> </a>
+									<a class="color-fff text-tt" style="width: 3rem;">STC</a>
+									<a class="text-tt flex-auto"> </a>
+									<a class="color-fff text-tt" style="width: 3rem;">Điểm chữ</a>
+									<a class="text-tt flex-auto"> </a>
+									<a class="color-fff text-tt" style="width: 3rem;">Điểm số</a>
+									<a class="text-tt flex-auto"> </a>
+									<a class="color-fff text-tt" style="width: 3rem;">Điểm mục tiêu</a>
+									<a class="text-tt flex-auto"> </a>
+									<a class="color-fff text-tt" style="width: 3rem;">Điểm dự đoán</a>
+									<a class="text-tt flex-auto"> </a>
+									<a class="color-fff text-tt" style="width: 15rem;">Công thực dự đoán</a>
+								</div>
+							</div><div class="flex-column-absolute"></div></div>
+					</div>
+					<div class="table-scores flex-mgtop">
+						<div class="wrap-table100">
+							<div class="table">
+								<t t-call="qld_app.table_predict_score"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</t>
+		</template>
+
+		<template id="table_predict_score">
+			<t t-foreach="predict_scores_ids" t-as="predict_scores">
+			<div class="border-item" style="margin-bottom: 1rem; padding: 1rem;">
+				<div class="flex-relative-center">
+					<a class="text-line color-text text-tt" style="width: 5rem;"
+					   data-toggle="tooltip" data-trigger="hover" title="Mã môn">
+						<span t-field="predict_scores.subject_id.name"/>
+					</a>
+					<a class="text-tt flex-auto"> </a>
+					<a class="text-line color-text text-tt" style="width: 15rem;"
+					data-toggle="tooltip" data-trigger="hover" title="Tên môn">
+						<span t-field="predict_scores.subject_id.name_display"/>
+					</a>
+					<a class="text-tt flex-auto"> </a>
+					<a class="text-line color-text text-tt" style="width: 3rem;"
+					data-toggle="tooltip" data-trigger="hover" title="Số tín chỉ">
+						<span t-field="predict_scores.subject_stc"/>
+					</a>
+					<a class="text-tt flex-auto"> </a>
+					<a class="text-line color-text text-tt" style="width: 3rem;"
+					data-toggle="tooltip" data-trigger="hover" title="Điểm hệ chữ">
+						<span t-field="predict_scores.scores_word"/>
+					</a>
+					<a class="text-tt flex-auto"> </a>
+					<a class="text-line color-text text-tt" style="width: 3rem;"
+					data-toggle="tooltip" data-trigger="hover" title="Điểm số">
+						<span t-field="predict_scores.scores_8"/>
+					</a>
+					<a class="text-tt flex-auto"> </a>
+					<a class="text-line color-text text-tt" style="width: 3rem;"
+					data-toggle="tooltip" data-trigger="hover" title="Điểm mục tiêu">
+						<input type="text" class="input-text" t-att-name="'scores_4custom%s'%predict_scores.id" t-att-value="predict_scores.scores_4custom"/>
+					</a>
+					<a class="text-tt flex-auto"> </a>
+					<a class="text-line color-text text-tt" style="width: 3rem;"
+					data-toggle="tooltip" data-trigger="hover" title="Điểm dự đoán">
+						<span t-esc="round(predict_scores.scores_predict,2)" />
+					</a>
+					<a class="text-tt flex-auto"> </a>
+					<a class="text-line color-text text-tt" style="width: 15rem;"
+					data-toggle="tooltip" data-trigger="hover" title="Công thức dự đoán">
+						<span t-field="predict_scores.predict_subject_id.name_display"/>
+					</a>
+					<div><div>
+						<div class="button-option" t-att-id="'option-predict%s'%predict_scores.id">
+							<div role="button" class="button-border button-flex button-color">
+							<div class="button-bg"></div>
+							<span  class="flex-100">
+								<span class="snByac">
+									<svg viewBox="0 0 24 24" focusable="false" width="24" height="24" class="fill-currentColor">
+										<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+									</svg>
+							</span>
+							</span>
+						</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="option-predict-scores" t-att-id="'form-option-predict%s'%predict_scores.id">
+					<div class="form-dialog">
+						<t t-if="predict_scores.scores_8 == 0">
+							<a t-att-id="'a-predict%s'%predict_scores.id" role="menuitem" class="dropdown-item add-predict-subject">Thêm dự đoán</a>
+							<form method="POST" t-att-action="'%s/%s/delete'%(predict.id, predict_scores.id,)" class="">
+								<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+								<button role="menuitem" class="dropdown-item" data-method="post">Xóa môn</button>
+							</form>
+						</t>
+						<t t-else="">
+							<form method="POST" t-att-action="'%s/update'%(predict.id)" class="">
+								<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+								<button role="menuitem" class="dropdown-item" data-method="post">Cập nhật điểm</button>
+							</form>
+						</t>
+					</div>
+				</div>
+					<t t-call="qld_app.add_predict_subject" />
+			</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>

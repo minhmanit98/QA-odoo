@@ -4,6 +4,7 @@
  'depends': [
      'base',
      'mail',
+     'website',
  ],
  'data': [
      'views/utc2_menu.xml',
@@ -16,6 +17,8 @@
      'views/utc2_qld_predict_view.xml',
      'views/utc2_qld_predict_scores_view.xml',
      'views/utc2_qld_predict_subjects_view.xml',
+     'views/website_predict_score.xml',
+     'views/assets.xml',
      'security/utc2_security.xml',
      'security/ir.model.access.csv',
      'data/ir_sequence_data.xml',

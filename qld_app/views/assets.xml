@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <template id="asset_frontend" inherit_id="web.assets_frontend">
+      <xpath expr="." position="inside">
+        <link rel="stylesheet" type="text/css" href="/qld_app/static/src/css/predict.css"/>
+        <script type="text/javascript" src="/qld_app/static/src/js/qlg_predict_scores.js"/>
+      </xpath>
+    </template>
+  </data>
+</odoo>
