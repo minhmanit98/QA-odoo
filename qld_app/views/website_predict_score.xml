@@ -82,7 +82,7 @@
 								<span class="snByac">
 									<form method="POST" t-att-action="'/sinhvien/%s/update'%(predict.id)" class="">
 										<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-										<button role="menuitem" class="dropdown-item" data-method="post"><i class="fa fa-refresh button-color" style="font-size: 1.2rem;"></i></button>
+										<button role="menuitem" class="button-form" data-method="post"><i class="fa fa-refresh button-color" style="font-size: 1.2rem;"></i></button>
 									</form>
 								</span>
 							</span>
@@ -109,20 +109,18 @@
 
 						</div>
 						<div class="footer-form">
-							<div class="button-text button_cancel">
+							<div class="button-text button_cancel button-flex button-color">
 								<div class="button-flex"></div>
 								<div class="button-absolute"></div>
 								<span class="span-padding flex-relative-center">
 									<span class="button-span">Hủy</span>
 								</span>
-
 							</div>
-							<button type="submit">Tạo2</button>
-							<div class="button-text" type="submit">
+							<div class="button-text button-flex button-color">
 								<div class="button-flex"></div>
 								<div class="button-absolute"></div>
 								<span class="span-padding flex-relative-center">
-									<span class="button-span" >Tạo</span>
+									<button class="button-span button-form" >Tạo</button>
 								</span>
 							</div>
 
@@ -153,7 +151,7 @@
 							</div>
 						</div>
 						<div class="footer-form">
-							<div class="button-text button_cancel">
+							<div class="button-text button-flex button-color button_cancel">
 								<div class="button-flex"></div>
 								<div class="button-absolute"></div>
 								<span class="span-padding flex-relative-center">
@@ -161,11 +159,11 @@
 								</span>
 							</div>
 
-							<div class="button-text" type="submit">
+							<div class="button-text button-flex button-color" type="submit">
 								<div class="button-flex"></div>
 								<div class="button-absolute"></div>
 								<span class="span-padding flex-relative-center">
-									<button data-method="post">Cập nhật điểm</button>
+									<button class="button-form" data-method="post">Cập nhật</button>
 								</span>
 							</div>
 
@@ -180,7 +178,7 @@
 			<t t-call="website.layout">
 				<div class="oe_structure oe_empty" id="oe_structure_forum_all_top"/>
 				<div class="footer-text" style="height: 3rem; padding-left: 1.5rem;">
-					<div class="button-text" id="button_create">
+					<div class="button-text button-flex button-color" id="button_create">
 						<div class="button-flex"></div>
 						<div class="button-absolute"></div>
 						<span class="span-padding flex-relative-center">
