@@ -240,6 +240,7 @@ ul, ol{
     transition: -webkit-transform .225s cubic-bezier(0.0,0.0,0.2,1);
     -webkit-transition: transform .225s cubic-bezier(0.0,0.0,0.2,1);
     transition: transform .225s cubic-bezier(0.0,0.0,0.2,1);
+    padding: 8px 0;
 }
 .wrap-table100 {
     width: 960px;
@@ -507,4 +508,22 @@ ul, ol{
 }
 .hvvWV:hover {
     background-color: rgba(232,234,237,0.039);
+}
+.option-predict-scores{
+    display: none;
+    position: absolute;
+    right: 200px;
+    z-index: 1;
+}
+.option-predict-scores.show{
+    display: inline-block;
+}
+.input-text{
+    outline: none;
+    border: none;
+}
+.border-item:hover .input-text{
+    outline: none;
+    overflow: hidden;
+    background-color: #E8F0FE;
 }

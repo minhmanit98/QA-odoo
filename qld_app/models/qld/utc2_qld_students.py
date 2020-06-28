@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from builtins import float
+
 from odoo import fields, models, api
 import urllib.request
 from html_table_parser import HTMLTableParser
@@ -55,10 +57,6 @@ class QLD(models.Model):
     def _compute_scores_4end(self):
         for record in self:
             record.scores_4end = record.diem_tich_luy()
-
-    def update_sv(self):
-        self.tong_stc = self.tinh_tong_stc()
-        self.scores_4end = self.diem_tich_luy()
 
     def url_get_contents(self, url):
         """ Opens a website and read its binary contents (HTTP Response Body) """
@@ -218,7 +216,9 @@ class QLD(models.Model):
         for mon in diem_all:
             if self.env['utc2.qld.subjects'].search_count([('name', '=', str(mon[1]))]) > 0:
                 if self.env['utc2.qld.scores'].search_count([('name', '=', str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])))]) > 0:
-                    self.update_sv()
+                    score = self.env['utc2.qld.scores'].search([('name', '=', str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])))])
+                    if score.scores_4 != float(self.getdiem(mon[3], mon[4])) or (score.scores_4 == 0 and float(self.getdiem(mon[3], mon[4])) != 0):
+                        score.scores_4 = float(self.getdiem(mon[3], mon[4]))
                 else:
                     scores = self.env['utc2.qld.scores'].create({
                         'name': str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])),
@@ -241,5 +241,4 @@ class QLD(models.Model):
                     'student_id': self.id,
                     'subject_id': subjects.id
                 })
-        self.update_sv()
         return 'Thanh cong chua'

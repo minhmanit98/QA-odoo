@@ -71,3 +71,45 @@ class UTC2Predict(Controller):
             'predict_subject_ids': predict_subject_ids,
         })
         return request.render("qld_app.website_predict_score", values)
+
+    @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>'], type='http', auth="public", website=True)
+    def qld_predict(self, predict, **kwargs):
+        # if not predict.can_access_from_current_website():
+        #     raise werkzeug.exceptions.NotFound()
+        user = request.env.user
+        predict_subject_ids = request.env['utc2.qld.predict.subjects']
+        values = {}
+        values.update({
+            'predict': predict,
+            'predict_scores_ids': predict.predict_scores_ids,
+            'predict_subject_ids': predict_subject_ids,
+        })
+        return request.render("qld_app.website_predict_score", values)
+
+    @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>/<model("utc2.qld.predict.scores"):score>/delete'], type='http', auth="user", methods=['POST'], website=True)
+    def delete_predict(self, predict, score, **post):
+        # if not predict.can_access_from_current_website():
+        #     raise werkzeug.exceptions.NotFound()
+        score.unlink()
+        return werkzeug.utils.redirect(
+            "/sinhvien/%s" % (predict.id))
+
+    @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>/update'],
+                type='http', auth="user", methods=['POST'], website=True)
+    def update_predict(self, predict, **post):
+        # if not predict.can_access_from_current_website():
+        #     raise werkzeug.exceptions.NotFound()
+        predict.action_get_scores()
+        return werkzeug.utils.redirect(
+            "/sinhvien/%s" % (predict.id))
+
+    @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>/<model("utc2.qld.predict.scores"):score>/add_subject'],
+                type='http', auth="user", methods=['POST'], website=True)
+    def add_subject_predict(self, predict, score, **post):
+        # if not predict.can_access_from_current_website():
+        #     raise werkzeug.exceptions.NotFound()
+        predict_subject_ids = post.get('predict_subject_ids')
+        score.predict_subject_id = request.env['utc2.qld.predict.subjects'].search([('id', '=', predict_subject_ids)]).id
+        # score.write({'predict_subject_id': request.env['utc2.qld.predict.subjects'].browse(predict_subject_ids).id})
+        return werkzeug.utils.redirect(
+            "/sinhvien/%s" % (predict.id))
