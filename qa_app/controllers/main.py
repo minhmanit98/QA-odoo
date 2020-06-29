@@ -103,10 +103,10 @@ class Website(Home):
             return http.redirect_with_hash(redirect)
         return response
 
-    @http.route('/', type='http', auth="public", website=True)
-    def index(self, **kw):
-        redirect = '/home'
-        return http.redirect_with_hash(redirect)
+    # @http.route('/', type='http', auth="public", website=True)
+    # def index(self, **kw):
+    #     redirect = '/home'
+    #     return http.redirect_with_hash(redirect)
 
 
 class AuthSignupHome(Home):
