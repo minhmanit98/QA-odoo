@@ -140,6 +140,7 @@ class QLDPredict(models.Model):
         if vals.get('name', 'New') == 'New':
             vals['name'] = self.env['ir.sequence'].next_by_code(
                 'utc2.qld.predict') or 'New'
+        self.env['utc2.qld.students'].search([('id', '=', vals.get('student_id'))]).action_sync_scores()
         scores_ids = self.env['utc2.qld.scores'].search([('student_id', '=', vals.get('student_id'))])
         for record in scores_ids:
             predict_scores = self.env['utc2.qld.predict.scores'].create({

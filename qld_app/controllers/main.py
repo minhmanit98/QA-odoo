@@ -27,7 +27,6 @@ class UTC2Predict(Controller):
         msv_predict = post.get('msv_predict')
         if msv_predict:
             if request.env['utc2.qld.students'].search_count([('name', '=', msv_predict)]) > 0:
-                request.env['utc2.qld.students'].search([('name', '=', msv_predict)], limit=1).action_sync_scores()
                 predict_scores = request.env['utc2.qld.predict'].create({
                     'student_id': request.env['utc2.qld.students'].search([('name', '=', msv_predict)], limit=1).id
                 })
