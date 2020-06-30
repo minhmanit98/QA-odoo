@@ -5,7 +5,7 @@
       <xpath expr="." position="inside">
         <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/agency.min.css"  />
         <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/custom.css" />
-        <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/dabblet.css" />
+<!--        <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/dabblet.css" />-->
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/custom.scss"  />
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/style.css"  />
 <!--        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/style1.css"  />-->

@@ -252,6 +252,57 @@
 								<t t-call="qld_app.table_predict_score"/>
 							</div>
 						</div>
+						<form method="POST" t-att-action="'%s/save'%(request.httprequest.url)" class="">
+							<div class="border-item">
+								<div class="body-predict">
+									<div class="flex-relative">
+										<a class="text-line color-text text-tt">Điểm tích lũy hiện tại:
+											<t t-esc="predict.scores_4end"/>
+										</a>
+									</div>
+									<div class="flex-relative">
+										<a class="text-line color-text text-tt">Điểm tích mục tiêu:
+											<t t-esc="predict.scores_4cus"/>
+										</a>
+									</div>
+									<div class="flex-relative">
+										<a class="text-line color-text text-tt">Điểm tích dự đoán:
+											<t t-esc="predict.scores_predict"/>
+										</a>
+									</div>
+									<div class="flex-relative">
+										<a class="text-line color-text text-tt" name="2222">Điểm tích dự đoán:
+											<t t-esc="predict.scores_predict"/>
+										</a>
+									</div>
+									<div id="input_scores_custom">
+<!--										<t t-foreach="predict_scores_ids" t-as="predict_scores">-->
+<!--											<input type="text" class="input-text text-line color-text text-tt" t-att-value="request.csrf_token()" readonly="True"/>-->
+<!--										</t>-->
+									</div>
+								</div>
+								<div class="footer-predict">
+									<div class="button-text button-flex button-color" type="submit">
+										<div class="button-flex"></div>
+										<div class="button-absolute"></div>
+										<span class="span-padding flex-relative-center">
+											<form method="POST" t-att-action="'%s/update'%(predict.id)" class="">
+												<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+												<button class="button-form" data-method="post">Cập nhật</button>
+											</form>
+										</span>
+									</div>
+									<div class="button-text button-flex button-color" type="submit">
+										<div class="button-flex"></div>
+										<div class="button-absolute"></div>
+										<span class="span-padding flex-relative-center">
+												<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+												<button class="button-form" data-method="post">Lưu mục tiêu</button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</t>
@@ -288,7 +339,7 @@
 					<a class="text-tt flex-auto"> </a>
 					<a class="text-line color-text text-tt" style="width: 3rem;"
 					data-toggle="tooltip" data-trigger="hover" title="Điểm mục tiêu">
-						<input type="text" class="input-text" t-att-name="'scores_4custom%s'%predict_scores.id" t-att-value="predict_scores.scores_4custom"/>
+						<input type="text" t-att-id="'%s'%predict_scores.id" class="input-text" name="scores_4custom" t-att-value="predict_scores.scores_4custom"/>
 					</a>
 					<a class="text-tt flex-auto"> </a>
 					<a class="text-line color-text text-tt" style="width: 3rem;"
