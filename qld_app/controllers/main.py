@@ -113,3 +113,17 @@ class UTC2Predict(Controller):
         # score.write({'predict_subject_id': request.env['utc2.qld.predict.subjects'].browse(predict_subject_ids).id})
         return werkzeug.utils.redirect(
             "/sinhvien/%s" % (predict.id))
+
+    @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>/save'],
+                type='http', auth="user", methods=['POST'], website=True)
+    def save_score_4custorm(self, predict, **post):
+        # if not predict.can_access_from_current_website():
+        #     raise werkzeug.exceptions.NotFound()
+        scores = request.env['utc2.qld.predict.scores']
+        for field in post:
+            score_id = post[field].split('/')[0]
+            score_custom = post[field].split('/')[1]
+            scores.search([('id', '=', score_id)]).scores_4custom = float(score_custom)
+        # score.write({'predict_subject_id': request.env['utc2.qld.predict.subjects'].browse(predict_subject_ids).id})
+        return werkzeug.utils.redirect(
+            "/sinhvien/%s" % (predict.id))

@@ -88,10 +88,6 @@ class QLD(models.Model):
         ('graduated', 'Đã tốt nghiệp'),
     ], string='Status', default='studying')
 
-    @api.onchange('scores_ids')
-    def _onchange_scores_ids(self):
-        self.update_sv()
-
     @api.model
     def create(self, vals):
         new_record = super().create(vals)
@@ -217,15 +213,15 @@ class QLD(models.Model):
             if self.env['utc2.qld.subjects'].search_count([('name', '=', str(mon[1]))]) > 0:
                 if self.env['utc2.qld.scores'].search_count([('name', '=', str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])))]) > 0:
                     score = self.env['utc2.qld.scores'].search([('name', '=', str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])))])
-                    if score.scores_4 != float(self.getdiem(mon[3], mon[4])) or (score.scores_4 == 0 and float(self.getdiem(mon[3], mon[4])) != 0):
-                        score.scores_4 = float(self.getdiem(mon[3], mon[4]))
+                    if score.scores_8 != float(self.getdiem(mon[3], mon[4])) or (score.scores_8 == 0 and float(self.getdiem(mon[3], mon[4])) != 0):
+                        score.scores_8 = float(self.getdiem(mon[3], mon[4]))
                 else:
                     scores = self.env['utc2.qld.scores'].create({
                         'name': str(msv) + '/' + str(mon[1]) + '/' + str(self.getdiem(mon[3], mon[4])),
                         'scores_8': float(self.getdiem(mon[3], mon[4])),
                         'scores_4': float(self.get_diem_tich_luy(msv, float(self.getdiem(mon[3], mon[4])))),
                         'student_id': self.id,
-                        'subject_id': self.env['utc2.qld.subjects'].search([('name', '=', mon[1])]).id
+                        'subject_id': self.env['utc2.qld.subjects'].search([('name', '=', str(mon[1]))], limit=1).id
                     })
             else:
                 subjects = self.env['utc2.qld.subjects'].create({
