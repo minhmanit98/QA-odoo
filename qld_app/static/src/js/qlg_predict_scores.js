@@ -49,7 +49,7 @@ odoo.define('qld_app.qld_predict_scores', function (require) {
                 method: 'search_read',
                 args: [[['id','=',data_id]],['id','subject_name','scores_4custom']],
                 }).then(function(res) {
-                   $('#input_scores_custom').append('<input type=\"text\" class=\"input-text text-line color-text text-tt text-100\" ' +
+                   $('#input_scores_custom').append('<input type=\"text\" class=\"input-text text-line color-text text-tt width-100\" ' +
                  'value=\"'+res[0].subject_name+': '+res[0].scores_4custom+' -> '+data_value+'\" readonly=\"True\"/>');
             });
          }

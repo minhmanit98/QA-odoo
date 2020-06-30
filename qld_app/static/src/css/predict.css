@@ -536,6 +536,6 @@ ul, ol{
 .button-form:focus{
     outline: none;
 }
-.text-100{
+.width-100{
     width: 100%;
 }
