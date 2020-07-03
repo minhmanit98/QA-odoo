@@ -187,26 +187,26 @@ class WebsiteForum(WebsiteProfile):
         #     post_incognito = False
         # else:
         #     post_incognito = True
+        if not post_parent:
+            new_question = request.env['forum.post'].create({
+                'forum_id': forum.id,
+                'name': post.get('post_name') or (post_parent and 'Re: %s' % (post_parent.name or '')) or '',
+                'is_incognito': post.get('post_incognito') or False,
+                'content': content,
+                'qa_ml_answer': response_primary,
+                'qa_ml_score': str(round(line_id_primary * 100, 2)),
+                'qa_ml_id': qa_ml_id,
+                'parent_id': post_parent and post_parent.id or False,
+                'tag_ids': post_tag_ids
+            })
 
-        new_question = request.env['forum.post'].create({
-            'forum_id': forum.id,
-            'name': post.get('post_name') or (post_parent and 'Re: %s' % (post_parent.name or '')) or '',
-            'is_incognito': post.get('post_incognito') or False,
-            'content': content,
-            'qa_ml_answer': response_primary,
-            'qa_ml_score': str(round(line_id_primary * 100, 2)),
-            'qa_ml_id': qa_ml_id,
-            'parent_id': post_parent and post_parent.id or False,
-            'tag_ids': post_tag_ids
-        })
-
-        if qa_ml_id:
-            new_question.with_env(request.env(user=request.env.ref('base.user_root').id)).message_post_with_view(
-                'qa_app.utc2_comment_qa_ml',
-                message_type='comment',
-                partner_ids=[(6, 0, [3])],
-                subtype_id=request.env['ir.model.data'].xmlid_to_res_id('mail.mt_comment'),
-                subject=new_question.name)
+            if qa_ml_id:
+                new_question.with_env(request.env(user=request.env.ref('base.user_root').id)).message_post_with_view(
+                    'qa_app.utc2_comment_qa_ml',
+                    message_type='comment',
+                    partner_ids=[(6, 0, [3])],
+                    subtype_id=request.env['ir.model.data'].xmlid_to_res_id('mail.mt_comment'),
+                    subject=new_question.name)
 
         # qa_ml_answer = request.env['forum.post'].with_env(request.env(user=request.env.ref('base.user_root').id)).create({
         #     'forum_id': forum.id,

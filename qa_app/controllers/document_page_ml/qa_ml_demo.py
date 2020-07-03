@@ -12,7 +12,7 @@ import timeit
 
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import TfidfVectorizer 
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 import warnings
 warnings.simplefilter('ignore')
@@ -22,18 +22,26 @@ nltk.download('wordnet')
 nltk.download('punkt')
 
 path = os.path.dirname(os.path.realpath(__file__))
-convdata = pd.read_csv(path+'/legal_help_clean.csv')
-
-#show header of the dataset
-convdata.head()
+# convdata = pd.read_csv(path+'/legal_help_clean.csv')
+# print(convdata)
+# #show header of the dataset
+# convdata.head()
 
 #covert dataframes to json
-convdata_json = json.loads(convdata.to_json(orient='records'))
-convdata_json[0:2]
+# convdata_json = []
+
+# document = request.env['document.page'].search(['id', '!=', False])
+# for res in document:
+#     ojb = '{ "MESSAGE":"' + res.name + '", "RESPONSE":"' + res.content[3:len(res.content) - 8] + '"}'
+#     json = json.loads(ojb)
+#     convdata_json.append(json)
+
+# convdata_json = json.loads(convdata.to_json(orient='records'))
+# convdata_json[0:2]
 
 #export as data as JSON
-with open(path+'/conversation_json.json', 'w', encoding="utf8") as outfile:
-    json.dump(convdata_json, outfile, ensure_ascii=False)
+# with open(path+'/conversation_json.json', 'w', encoding="utf8") as outfile:
+    # json.dump(convdata_json, outfile, ensure_ascii=False)
 
 #greeting function
 GREETING_INPUTS = ("hello", "hi", "greetings", "hello i need help", "good day","hey","i need help", "greetings")
@@ -157,6 +165,7 @@ def QA_ML(test_set_sentence):
     
     #if not in the topic trained.no similarity 
     idx= cosine.argsort()[0][-2]
+    # idx = cosine.argsort()[0][0]
     flat =  cosine.flatten()
     flat.sort()
     req_tfidf = flat[-2]

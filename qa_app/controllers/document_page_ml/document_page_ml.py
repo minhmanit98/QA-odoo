@@ -9,7 +9,7 @@ import pickle
 import string
 import random
 import timeit
-
+from odoo.http import content_disposition, Controller, request, route
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer 
@@ -22,15 +22,20 @@ nltk.download('wordnet')
 nltk.download('punkt')
 
 path = os.path.dirname(os.path.realpath(__file__))
-convdata = pd.read_csv(path+'/legal_help_clean.csv')
-
-#show header of the dataset
-convdata.head()
-
-#covert dataframes to json
-convdata_json = json.loads(convdata.to_json(orient='records'))
-convdata_json[0:2]
-
+# convdata = pd.read_csv(path+'/legal_help_clean.csv')
+#
+# #show header of the dataset
+# convdata.head()
+#
+# #covert dataframes to json
+# convdata_json = json.loads(convdata.to_json(orient='records'))
+# convdata_json[0:2]
+convdata_json = []
+document = request.env['document.page'].search(['id', '!=', False])
+for res in document:
+    ojb = '{ "MESSAGE":"' + res.name + '", "RESPONSE":"' + res.content[3:len(res.content) - 8] + '"}'
+    json = json.loads(ojb)
+    convdata_json.append(json)
 #export as data as JSON
 with open(path+'/conversation_json.json', 'w', encoding="utf8") as outfile:
     json.dump(convdata_json, outfile, ensure_ascii=False)
@@ -63,7 +68,7 @@ def read_stopwords(file):
 # stop_words = set(stopwords.words('english'))
 stop_words = set(read_stopwords(path+'/stopwords.txt'))
 
-def QA_ML(test_set_sentence):
+def DocumenPage_ML(test_set_sentence):
     json_file_path = path+"/conversation_json.json"
     tfidf_vectorizer_pickle_path = path + "/tfidf_vectorizer.pkl"
     tfidf_matrix_pickle_path = path+ "/tfidf_matrix_train.pkl"
@@ -180,7 +185,7 @@ def QA_ML(test_set_sentence):
             
             not_understood = "Apology, I do not understand. Can you rephrase?"
             
-            return not_understood,not_understood, 2
+            return not_understood, not_understood, 2
         else:
 
                 #if score is more than 0.91 list the multi response and get a random reply
@@ -191,8 +196,7 @@ def QA_ML(test_set_sentence):
                    
                     # choose a random one to return to the user 
                     response_index = random.choice(list[0])
-                    response_index = response_index+2
-                    print(list)
+                    response_index=response_index+2
                 elif (max > 0.91): #Threshold C
                     
                     new_max = max - 0.05 
@@ -201,11 +205,9 @@ def QA_ML(test_set_sentence):
                    
                     # choose a random one to return to the user 
                     response_index = random.choice(list[0])
-                    print(list)
                 else:
                     # else we would simply return the highest score
-                    response_index = np.where(cosine == max)[0][0] + 2
-                    print(response_index)
+                    response_index = np.where(cosine == max)[0][0] + 2 
 
                 j = 0 
 
@@ -217,31 +219,3 @@ def QA_ML(test_set_sentence):
                             return row["RESPONSE"], row["MESSAGE"], max
                             break
 
-flag=True
-print("......................................................................................")
-print('\x1b[1;37;40m' + 'Jarvis'+'\x1b[0m'+': '+ 'My name is Jarvis, a Lawyer Apprentice Bot.')
-print('\x1b[1;37;40m' + 'Jarvis'+'\x1b[0m'+': '+ 'I will try my best to answer your query.')
-print('\x1b[1;37;40m' + 'Jarvis'+'\x1b[0m'+': '+ 'If you want to exit, you can type < bye >.')
-while(flag==True):
-    print("......................................................................................")
-    sentence = input('\x1b[0;30;47m' +"USER  "+'\x1b[0m'+":")
-    print("......................................................................................")
-    text_tokens = word_tokenize(sentence)
-    tokens_without_sw = [word for word in text_tokens if not word in stop_words]
-    sentence = (" ").join(tokens_without_sw)
-    print("Rút gọn :" + sentence)
-    if(sentence.lower()!='bye'):
-        if(greeting(sentence.lower())!=None):
-            print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+ greeting(sentence.lower()))
-        else:
-            response_primary, response_message, line_id_primary = QA_ML(sentence)
-            print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+response_primary)
-
-            #For Tracing, comment to remove from print
-            print("")
-            print("SCORE: "+str(line_id_primary))
-            print("COR_QUES:"+response_message)
-            print("")
-    else:
-        flag=False
-print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+"Bye! Hope that i am of help.")
