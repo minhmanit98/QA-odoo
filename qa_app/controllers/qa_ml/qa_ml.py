@@ -180,7 +180,7 @@ def QA_ML(test_set_sentence):
             
             not_understood = "Apology, I do not understand. Can you rephrase?"
             
-            return not_understood,not_understood, 2
+            return not_understood, not_understood, 2
         else:
 
                 #if score is more than 0.91 list the multi response and get a random reply

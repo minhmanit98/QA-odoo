@@ -2,8 +2,9 @@ import pandas as pd
 import os
 import json
 import nltk
-from underthesea import word_tokenize
-from underthesea import pos_tag
+from nltk.corpus import stopwords 
+from nltk.tokenize import word_tokenize 
+from nltk import pos_tag
 import numpy as np
 import pickle
 import string
@@ -16,13 +17,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 import warnings
 warnings.simplefilter('ignore')
-import os
 
-nltk.download('wordnet')
 nltk.download('punkt')
 
-path = os.path.dirname(os.path.realpath(__file__))
-convdata = pd.read_csv(path+'/legal_help_clean.csv')
+path = ''
+convdata = pd.read_csv(path+'legal_help_clean1.csv')
 
 #show header of the dataset
 convdata.head()
@@ -32,8 +31,8 @@ convdata_json = json.loads(convdata.to_json(orient='records'))
 convdata_json[0:2]
 
 #export as data as JSON
-with open(path+'/conversation_json.json', 'w', encoding="utf8") as outfile:
-    json.dump(convdata_json, outfile, ensure_ascii=False)
+with open(path+'conversation_json.json', 'w') as outfile:
+    json.dump(convdata_json, outfile)
 
 #greeting function
 GREETING_INPUTS = ("hello", "hi", "greetings", "hello i need help", "good day","hey","i need help", "greetings")
@@ -54,28 +53,22 @@ def LemTokens(tokens):
 def RemovePunction(tokens):
     return[t for t in tokens if t not in string.punctuation]
 
-def read_stopwords(file):
-    with open(file, 'r', encoding="utf8") as f:
-        stopwords = set([w.strip() for w in f.readlines()])
-    return stopwords
-
 # Create a stopword list from the standard list of stopwords available in nltk
-# stop_words = set(stopwords.words('english'))
-stop_words = set(read_stopwords(path+'/stopwords.txt'))
+stop_words = set(stopwords.words('english'))
+print(len(stop_words))
 
-def QA_ML(test_set_sentence):
-    json_file_path = path+"/conversation_json.json"
-    tfidf_vectorizer_pickle_path = path + "/tfidf_vectorizer.pkl"
-    tfidf_matrix_pickle_path = path+ "/tfidf_matrix_train.pkl"
+def Talk_To_Javris(test_set_sentence):
+    json_file_path = path+"conversation_json.json" 
+    tfidf_vectorizer_pickle_path = path + "tfidf_vectorizer.pkl"
+    tfidf_matrix_pickle_path = path+ "tfidf_matrix_train.pkl"
     
     i = 0
     sentences = []
     
     # ---------------Tokenisation of user input -----------------------------#
     
-    tokens = RemovePunction(word_tokenize(test_set_sentence))
-    tokens = (" ").join(tokens)
-    pos_tokens = [word for word,pos in pos_tag(tokens)]
+    tokens = RemovePunction(nltk.word_tokenize(test_set_sentence))
+    pos_tokens = [word for word,pos in pos_tag(tokens, tagset='universal')]
     
     word_tokens = LemTokens(pos_tokens)
     
@@ -107,15 +100,14 @@ def QA_ML(test_set_sentence):
         
         start = timeit.default_timer()
         
-        with open(json_file_path, encoding="utf8") as sentences_file:
+        with open(json_file_path) as sentences_file:
             reader = json.load(sentences_file)
             
             # ---------------Tokenisation of training input -----------------------------#    
             
             for row in reader:
-                db_tokens = RemovePunction(word_tokenize(row['MESSAGE']))
-                db_tokens = (" ").join(db_tokens)
-                pos_db_tokens = [word for word,pos in pos_tag(db_tokens)]
+                db_tokens = RemovePunction(nltk.word_tokenize(row['MESSAGE']))
+                pos_db_tokens = [word for word,pos in pos_tag(db_tokens, tagset='universal')]
                 db_word_tokens = LemTokens(pos_db_tokens)
                 
                 db_filtered_sentence = [] 
@@ -184,15 +176,14 @@ def QA_ML(test_set_sentence):
         else:
 
                 #if score is more than 0.91 list the multi response and get a random reply
-                if (max > 0.95):
+                if (max > 0.99):
                     new_max = max - 0.05 
                     # load them to a list
                     list = np.where(cosine > new_max) 
                    
                     # choose a random one to return to the user 
                     response_index = random.choice(list[0])
-                    response_index = response_index+2
-                    print(list)
+                    response_index=response_index+2
                 elif (max > 0.91): #Threshold C
                     
                     new_max = max - 0.05 
@@ -201,15 +192,14 @@ def QA_ML(test_set_sentence):
                    
                     # choose a random one to return to the user 
                     response_index = random.choice(list[0])
-                    print(list)
                 else:
                     # else we would simply return the highest score
-                    response_index = np.where(cosine == max)[0][0] + 2
+                    response_index = np.where(cosine == max)[0][0]+2
                     print(response_index)
 
                 j = 0 
 
-                with open(json_file_path, "r",encoding="utf8") as sentences_file:
+                with open(json_file_path, "r") as sentences_file:
                     reader = json.load(sentences_file)
                     for row in reader:
                         j += 1 
@@ -226,18 +216,14 @@ while(flag==True):
     print("......................................................................................")
     sentence = input('\x1b[0;30;47m' +"USER  "+'\x1b[0m'+":")
     print("......................................................................................")
-    text_tokens = word_tokenize(sentence)
-    tokens_without_sw = [word for word in text_tokens if not word in stop_words]
-    sentence = (" ").join(tokens_without_sw)
-    print("Rút gọn :" + sentence)
     if(sentence.lower()!='bye'):
         if(greeting(sentence.lower())!=None):
             print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+ greeting(sentence.lower()))
         else:
-            response_primary, response_message, line_id_primary = QA_ML(sentence)
+            response_primary, response_message, line_id_primary = Talk_To_Javris(sentence)
             print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+response_primary)
-
-            #For Tracing, comment to remove from print
+            
+            #For Tracing, comment to remove from print 
             print("")
             print("SCORE: "+str(line_id_primary))
             print("COR_QUES:"+response_message)
