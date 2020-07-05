@@ -12,7 +12,7 @@ sudo su odoo
 cd ~/odoo-13
 git checkout 13-last-prod
 exit
-
+sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf --load-language=vi_VN --stop-after-init" odoo
 # Upgrade production database
 sudo service odoo stop
 sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf -u qa_app,qld_app --load-language=vi_VN --stop-after-init" odoo
@@ -67,3 +67,6 @@ setInterval(function(){
 
 jhkjk
 sudo su -c "~/odoo-13/odoo-bin -c /etc/odoo/odoo.conf" odoo
+
+sudo ln -s /mnt/extra-addons/mm_odoo_inspection/mm_inspection /mnt/extra-addons/mm_inspection
+sudo ln -s /mnt/extra-addons/mm_odoo_inspection/theme/backend_theme_v13 /mnt/extra-addons/backend_theme_v13
