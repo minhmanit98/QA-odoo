@@ -4,7 +4,7 @@ from . import res
 from . import ir
 from . import website
 from . import forum
-from . import mail
+# from . import mail
 from . import gamification
 from . import document_page
 

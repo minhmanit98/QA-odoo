@@ -24,7 +24,7 @@ class ResUsers(models.Model):
             if self.karma >= rank.karma_min:
                 self.karma_rank_id = rank
 
-    odoobot_state = fields.Selection(selection_add=[('haribot', 'Chat with HariBot')])
+    # odoobot_state = fields.Selection(selection_add=[('haribot', 'Chat with HariBot')])
     karma_rank_id = fields.Many2one('gamification.karma.rank', string='Rank', default=_default_karma_rank_id)
     karma_min = fields.Integer('Check karma', readonly=True, compute=_compute_karma_min )
 
