@@ -43,10 +43,16 @@
             <field name="arch" type="xml">
                 <tree string="Sinh viên">
                     <field name="name"/>
+                    <field name="student_name"/>
+                    <field name="student_birth_date"/>
+                    <field name="student_address"/>
+                    <field name="tong_stc"/>
                     <field name="user_id"/>
                     <field name="scores_4end" />
+                     <field name="scores_4end_cus" />
                     <field name="scores_ids" />
                     <field name="class_id"/>
+                     <field name="state"/>
                 </tree>
             </field>
         </record>
