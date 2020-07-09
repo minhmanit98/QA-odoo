@@ -25,7 +25,7 @@ class QLDPredictScores(models.Model):
     def predict_score(self, predict_subject1, dx, dy):
         est = self.reg2(dy, dx)
         diem = est.params[0] + est.params[1] * predict_subject1
-        if (diem >= 10):
+        if diem > 10:
             diem = 10
         return diem
 
@@ -57,11 +57,15 @@ class QLDPredictScores(models.Model):
                             ('predict_id', '=', record.predict_id.id),
                             ('subject_id', '=', record.predict_subject_id.predict_subject2.id)]).scores_predict
                     diem = diem1 * record.predict_subject_id.predict_a + diem2 * record.predict_subject_id.predict_b + record.predict_subject_id.predict_c
+                    if diem > 10:
+                        diem = 10-0.3
                     record.scores_predict = diem
                 elif record.predict_subject_id.predict_subject1 and not record.predict_subject_id.predict_subject2:
                     diem = record.predict_subject_id.predict_c + record.predict_subject_id.predict_a * self.env['utc2.qld.scores'].search([
                         ('student_id', '=', record.predict_id.student_id.id),
                         ('subject_id', '=', record.predict_subject_id.predict_subject1.id)]).scores_8
+                    if diem > 10:
+                        diem = 10-0.3
                     record.scores_predict = diem
             else:
                 record.scores_predict = record.scores_8
