@@ -15,13 +15,17 @@ odoo.define('qld_app.qld_predict_scores', function (require) {
     $('.button-option').on('click', function () {
         var form_id = '#form-'+$(this).attr("id")
          id_show = form_id;
-
          $(form_id).toggleClass('show');
     });
 
     $('.add-predict-subject').on('click', function () {
         var form_id = '#form-'+$(this).attr("id")
          id_show = form_id;
+         $(form_id).toggleClass('show');
+    });
+
+     $('.add_scores_subject').on('click', function () {
+        var form_id = $(this).attr("id")
          $(form_id).toggleClass('show');
     });
 
@@ -69,6 +73,16 @@ odoo.define('qld_app.qld_predict_scores', function (require) {
         }
         loadDataInput();
     });
+
+     window.onscroll = function() {scrollForm()};
+     function scrollForm() {
+         if(document.documentElement.scrollTop > 0){
+             $('#form-tools').addClass('form-scroll')
+         }else{
+              $('#form-tools').removeClass('form-scroll')
+         }
+
+     }
 
     //  $('html:not(.button-option)').on('click', function () {
     //      console.log($(this))

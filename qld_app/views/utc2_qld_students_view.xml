@@ -52,7 +52,6 @@
                      <field name="scores_4end_cus" />
                     <field name="scores_ids" />
                     <field name="class_id"/>
-                     <field name="state"/>
                 </tree>
             </field>
         </record>
