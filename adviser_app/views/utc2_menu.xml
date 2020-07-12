@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+	<act_window id="action_utc2_adviser"
+				name="Cố vấn học tập online"
+				res_model="utc2.qld.predict"
+				view_mode="tree,form"
+	/>
+    <menuitem id="utc2_menu_adviser"
+              name="Cố vấn học tập online"
+			  web_icon="qld_app,static/description/icon.png"
+			  action="action_utc2_adviser"/>
+
+	<menuitem id="menu_adviser_utc2"
+			  name="Cố vấn học tập online"
+              parent="utc2_menu_adviser"
+			  sequence="1"/>
+
+	<menuitem id="menu_utc2_qld_predict"
+			  name="Cố vấn học tập"
+              parent="menu_adviser_utc2"
+			  action="action_utc2_adviser"
+	/>
+
+</odoo>

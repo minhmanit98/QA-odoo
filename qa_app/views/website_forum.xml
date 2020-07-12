@@ -128,7 +128,7 @@
         </template>
 
         <template id="utc2_comment_qa_ml">
-            <p>Bài viết <t t-esc="object.create_uid" /> đang chờ được xem xét. Bạn có thể tham khảo bài viết tương tự ở dưới.</p>
+            <p>Bài viết của <b><t t-esc="object.create_uid.name" /></b> đang chờ được duyệt. Bạn có thể tham khảo bài viết tương tự ở dưới.</p>
             <p>Cảm ơn bạn đã đặt câu hỏi cho diễn đàn.</p>
 <!--            <p><b t-esc="object.qa_ml_answer" /> </p>-->
             <p><i><font size="-1">(Đây là câu trả lời tương tự trên hệ thống)</font></i></p>

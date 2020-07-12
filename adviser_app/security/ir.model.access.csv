@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_qld_user,QLD User Access,model_utc2_adviser,utc2_group_user,1,1,0,0
+access_qld_manager,QLD Manager Access,model_utc2_adviser,utc2_group_manager,1,1,1,1
