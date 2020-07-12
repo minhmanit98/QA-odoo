@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Library User Group -->
+  <record id="utc2_group_user" model="res.groups">
+    <field name="name">User</field>
+    <field name="implied_ids"
+           eval="[(4, ref('base.group_user'))]"/>
+  </record>
+
+<!--  &lt;!&ndash; Library User Group &ndash;&gt;-->
+<!--  <record id="utc2_group_portal" model="res.groups">-->
+<!--    <field name="name">Portal</field>-->
+<!--    <field name="implied_ids"-->
+<!--           eval="[(4, ref('base.group_portal'))]"/>-->
+<!--  </record>-->
+
+  <!-- Library Manager Group -->
+  <record id="utc2_group_manager" model="res.groups">
+    <field name="name">Manager</field>
+    <field name="implied_ids"
+           eval="[(4, ref('utc2_group_user'))]"/>
+    <field name="users"
+           eval="[(4, ref('base.user_root')),
+                  (4, ref('base.user_admin'))]"/>
+  </record>
+
+</odoo>
