@@ -22,7 +22,8 @@
             <form>
                 <group>
                     <field name="subject_name" />
-                     <field name="student_id"/>
+                    <field name="subject_id" />
+                     <field name="student_id"/>subject_name
                      <field name="scores_4" />
                     <field name="scores_8" />
                     <field name="scores_4custom" />
