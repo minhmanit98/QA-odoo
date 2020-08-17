@@ -1,40 +1,29 @@
-INFO:root:('Training by SVM classification ... ', '2020-08-16 14:11:44.441199')
+INFO:root:('Training by SVM classification ... ', '2020-08-17 15:12:05.072017')
 INFO:root:
 Model: LinearSVC
 C = 10
 Penalty='l2'
 Max_iter = 10
 INFO:root:('Accurancy: ', 0.9930444087747459)
-INFO:root:('Training by SVM Done! ', '2020-08-16 14:11:48.919211')
-INFO:root:('Training by SVM classification ... ', '2020-08-16 14:13:42.664117')
-INFO:root:
-Model: LinearSVC
-C = 10
-Penalty='l2'
-Max_iter = 10
-INFO:root:('Accurancy: ', 0.9930444087747459)
-INFO:root:('Training by SVM Done! ', '2020-08-16 14:13:55.072924')
-INFO:root:('Training by SVM classification ... ', '2020-08-16 14:15:09.420318')
-INFO:root:
-Model: LinearSVC
-C = 10
-Penalty='l2'
-Max_iter = 10
-INFO:root:('Accurancy: ', 0.9930444087747459)
-INFO:root:('Training by SVM Done! ', '2020-08-16 14:15:13.297524')
-INFO:root:('Training by SVM classification ... ', '2020-08-16 14:17:36.745516')
-INFO:root:
-Model: LinearSVC
-C = 10
-Penalty='l2'
-Max_iter = 10
-INFO:root:('Accurancy: ', 0.9930444087747459)
-INFO:root:('Training by SVM Done! ', '2020-08-16 14:17:45.027565')
-INFO:root:('Training by SVM classification ... ', '2020-08-16 14:18:21.591078')
-INFO:root:
-Model: LinearSVC
-C = 10
-Penalty='l2'
-Max_iter = 10
-INFO:root:('Accurancy: ', 0.9930444087747459)
-INFO:root:('Training by SVM Done! ', '2020-08-16 14:18:36.651219')
+INFO:root:                                     precision    recall  f1-score   support
+
+                              admin       0.99      0.98      0.98       162
+ban công tác chính trị và sinh viên       0.99      1.00      0.99       431
+  ban khảo thí & đảm bảo chất lượng       0.99      1.00      0.99        85
+              ban quản lý ký túc xá       1.00      0.99      0.99        89
+              ban thanh tra đào tạo       1.00      0.98      0.99       118
+              ban thiết bị quản trị       1.00      1.00      1.00        15
+             ban thông tin thư viện       1.00      1.00      1.00        10
+             ban tổ chức hành chính       1.00      1.00      1.00       167
+                        ban đào tạo       0.99      1.00      0.99       572
+                             cố vấn       1.00      0.97      0.98        31
+                         giảng viên       1.00      1.00      1.00        45
+                               khác       1.00      0.99      1.00       115
+        trung tâm đào tạo thực hành       1.00      1.00      1.00        17
+                        đoàn và hội       1.00      1.00      1.00        12
+
+                           accuracy                           0.99      1869
+                          macro avg       1.00      0.99      0.99      1869
+                       weighted avg       0.99      0.99      0.99      1869
+
+INFO:root:('Training by SVM Done! ', '2020-08-17 15:12:09.128180')

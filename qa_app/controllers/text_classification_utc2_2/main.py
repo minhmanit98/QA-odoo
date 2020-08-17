@@ -47,7 +47,7 @@ class Classifier(object):
         print(( 'Accurancy: ',self.estimator.score(self.features_test,self.labels_test)))
         print((classification_report(y_true, y_pred)))
         logging.info(('Accurancy: ',self.estimator.score(self.features_test,self.labels_test)))
-        logging.info((classification_report(y_true, y_pred)))
+        logging.info(classification_report(y_true, y_pred))
 
 def plot_confusion_matrix(cm, 
                           normalize=False,
@@ -91,11 +91,11 @@ if __name__ == '__main__':
     features_test, labels_test = FeatureExtraction(data=features_test_loader).read_feature()
     print(('Read Feature Extraction Done! ',  str(datetime.now())))
 
-    logging.basicConfig(filename=settings.LOG_FILE, level=logging.INFO)
+    logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler(settings.LOG_FILE, 'w', 'utf-8')])
     logging.info(('Training by SVM classification ... ',  str(datetime.now())))
     print('Training by SVM classification ...', str(datetime.now()))
     logging.info('\nModel: LinearSVC\nC = 10\nPenalty=\'l2\'\nMax_iter = 10')
-    estSVC = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test, estimator = LinearSVC(random_state=0, C=10, max_iter=10))
+    estSVC = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test, estimator = LinearSVC(random_state=0, C=10, max_iter=1000))
     estSVC.training()
     estSVC.save_model(filePath=settings.LINEARSVC_TFIDF_MODEL) # save Model
     print('Training by SVC Classifier Done !', str(datetime.now()))

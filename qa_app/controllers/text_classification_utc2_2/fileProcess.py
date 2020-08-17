@@ -67,12 +67,12 @@ class FileReader(object):
         return s.decode(self.encoder)
 
     def read_json(self):
-        with open(self.filePath,encoding="utf8") as f:
+        with open(self.filePath,encoding="utf-8-sig") as f:
             s = json.load(f)
         return s
 
     def read_stopwords(self):
-        with open(self.filePath, 'r',encoding="utf8") as f:
+        with open(self.filePath, 'r',encoding="utf-8-sig") as f:
             stopwords = set([w.strip().replace(' ', '_') for w in f.readlines()])
         return stopwords
 
