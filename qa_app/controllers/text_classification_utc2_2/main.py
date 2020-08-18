@@ -52,7 +52,7 @@ class Classifier(object):
 def plot_confusion_matrix(cm, 
                           normalize=False,
                           title='Confusion matrix'):
-    classes= ["admin","ban công tác chính trị và sinh viên","ban khảo thí & đảm bảo chất lượng","ban quản lý ký túc xá","ban thanh tra đào tạo","ban thiết bị quản trị","ban thông tin thư viện","ban tổ chức hành chính","ban đào tạo","cố vấn","giảng viên","khác"," trung tâm đào tạo thực hành","đoàn và hội"]
+    classes= ["admin","ban công tác chính trị và sinh viên","ban khảo thí & đảm bảo chất lượng","ban quản lý ký túc xá","ban thanh tra đào tạo","ban thiết bị quản trị","ban thông tin thư viện","ban tổ chức hành chính","ban đào tạo","giảng viên","khác"," trung tâm đào tạo thực hành","đoàn và hội"]
     plt.figure()
     # if normalize:
     #     cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
