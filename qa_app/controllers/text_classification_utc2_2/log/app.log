@@ -1,4 +1,4 @@
-INFO:root:('Training by SVM classification ... ', '2020-08-19 12:57:07.795224')
+INFO:root:('Training by SVM classification ... ', '2020-08-19 14:07:48.905222')
 INFO:root:
 Model: LinearSVC
 C = 10
@@ -7,7 +7,7 @@ Max_iter = 10
 INFO:root:('Accurancy: ', 0.9929881337648327)
 INFO:root:                                     precision    recall  f1-score   support
 
-                              admin       0.99      0.97      0.98       160
+                              admin       0.99      0.97      0.98       191
 ban công tác chính trị và sinh viên       0.99      1.00      0.99       431
   ban khảo thí & đảm bảo chất lượng       0.99      1.00      0.99        82
               ban quản lý ký túc xá       1.00      0.99      0.99        84
@@ -16,14 +16,12 @@ ban công tác chính trị và sinh viên       0.99      1.00      0.99       
              ban thông tin thư viện       1.00      1.00      1.00        10
              ban tổ chức hành chính       1.00      1.00      1.00       167
                         ban đào tạo       0.99      1.00      0.99       572
-                             cố vấn       1.00      0.97      0.98        31
                          giảng viên       1.00      1.00      1.00        43
                                khác       1.00      0.99      1.00       115
         trung tâm đào tạo thực hành       1.00      1.00      1.00        15
                         đoàn và hội       1.00      1.00      1.00        12
 
                            accuracy                           0.99      1854
-                          macro avg       1.00      0.99      0.99      1854
+                          macro avg       1.00      0.99      1.00      1854
                        weighted avg       0.99      0.99      0.99      1854
 
-INFO:root:('Training by SVM Done! ', '2020-08-19 12:57:13.557681')
