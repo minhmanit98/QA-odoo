@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67c92925-5740-4752-8d47-ed770a85e1bf" name="Default Changelist" comment="" />
+    <list default="true" id="67c92925-5740-4752-8d47-ed770a85e1bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qa_app/controllers/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/qa_app/controllers/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qa_app/controllers/text_classification_utc2_2/test1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/qa_app/controllers/text_classification_utc2_2/test1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qld_app/controllers/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/qld_app/controllers/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +25,32 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../mm_odoo_inspection" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="odoo-bin" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="QA-odoo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files (x86)\Odoo 13.0\python\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../../Program Files (x86)/Odoo 13.0/server/odoo-bin" />
+      <option name="PARAMETERS" value="--config=C:\Users\Administrator\Documents\GitHub\QA-odoo\odoo.conf --update=qa_app,qld_app" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -30,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598072805992</updated>
       <workItem from="1598072807353" duration="222000" />
+      <workItem from="1598173417671" duration="5040000" />
     </task>
     <servers />
   </component>
@@ -37,13 +69,36 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="107" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598072868511">
+    <state x="223" y="107" width="1089" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598174074918">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="223" y="107" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1536.824@0.40.1536.824" timestamp="1598072868511" />
-    <state x="549" y="207" key="FileChooserDialogImpl" timestamp="1598073028954">
+    <state x="223" y="107" width="1089" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1536.824@0.40.1536.824" timestamp="1598174074918" />
+    <state x="549" y="207" key="FileChooserDialogImpl" timestamp="1598174766261">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1598073028954" />
+    <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1598174766261" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1598177373216">
+      <screen x="0" y="40" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1598177373216" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1598177373216">
+      <screen x="0" y="40" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1598177373216" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1598177373216">
+      <screen x="0" y="40" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1598177373216" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1598177373216">
+      <screen x="0" y="40" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1598177373216" />
+    <state x="277" y="97" key="SettingsEditor" timestamp="1598176654874">
+      <screen x="0" y="40" width="1536" height="824" />
+    </state>
+    <state x="277" y="97" key="SettingsEditor/0.40.1536.824@0.40.1536.824" timestamp="1598176654874" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/QA_odoo$odoo_bin.coverage" NAME="odoo-bin Coverage Results" MODIFIED="1598177373205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -3,7 +3,7 @@ import json
 
 import base64
 import requests
-from addons.website_forum.controllers.main import WebsiteForum
+from odoo.addons.website_forum.controllers.main import WebsiteForum
 
 from odoo import fields as odoo_fields, http, tools, _, SUPERUSER_ID
 from odoo.exceptions import ValidationError, AccessError, MissingError, UserError, AccessDenied

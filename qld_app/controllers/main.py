@@ -6,7 +6,7 @@ import requests
 import werkzeug.exceptions
 import werkzeug.urls
 import werkzeug.wrappers
-from addons.website_profile.controllers.main import WebsiteProfile
+from odoo.addons.website_profile.controllers.main import WebsiteProfile
 
 from odoo import fields as odoo_fields, http, tools, _, SUPERUSER_ID
 from odoo.exceptions import ValidationError, AccessError, MissingError, UserError, AccessDenied

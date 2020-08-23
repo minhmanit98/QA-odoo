@@ -2,3 +2,7 @@
 2. ad cho em hỏi bao giờ hoàn trả lại tiền bảo hiểm y tế vậy ạ??
 3. cho em hỏi là đầu năm nhà trường vs ngân hàng làm thẻ miễn phí cho học sinh. Đầu năm em có điền thông tin và kí vào giấy làm thẻ rồi nhưng bây giờ nhận được thông báo bổ sung thông tin. Và sau khi bổ sung em đóng 100k với nội dung là làm lại thẻ. Trong khi đó em cũng chưa có thẻ hay làm mất thẻ gì cả. anh và giấy cmnd em cũng nộp đầu năm rồi.
 1. cho e hỏi hôm thứ 7 e có thấy thông báo mở lớp tiếng anh chuyên nghành và vài đăng kí thù full mất nhưng giờ lên ban đào tạo để xin đăng kí bổ sung thì lại bảo không mở lớp vậy giờ e muôn đăng kí bổ sung thì ở đâu ạ vì là k55 nên e đang rất gấp ạ
+
+
+C:\Program Files (x86)\Odoo 13.0\server\odoo-bin
+--config=C:\Users\Administrator\Documents\GitHub\TSG-Project\odoo.conf --update=tsg_app
