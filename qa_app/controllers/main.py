@@ -162,10 +162,8 @@ class WebsiteForum(WebsiteProfile):
                 'status_code': _('Bad Request'),
                 'status_message': post_parent and _('Reply should not be empty.') or _('Question should not be empty.')
             })
-
         content = post.get('content', False).lower()
         classifier = pickle.load(open(settings.LINEARSVC_TFIDF_MODEL, 'rb'))
-
         # tf-idf
         vectorizer = pickle.load(open(settings.VECTOR_EMBEDDING, 'rb'))
         data_features = []
