@@ -58,3 +58,7 @@ web_notify/__pycache__/
 web_notify/models/__pycache__/
 
 *.pyc
+*.pkl
+*.pk
+*.pkl
+*.pkl
