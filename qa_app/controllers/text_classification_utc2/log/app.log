@@ -1,4 +1,4 @@
-INFO:root:('Training by SVM classification ... ', '2020-08-23 15:54:13.116415')
+INFO:root:('Training by SVM classification ... ', '2020-08-23 16:37:57.364990')
 INFO:root:
 Model: LinearSVC
 C = 10
@@ -8,13 +8,13 @@ INFO:root:('Accurancy: ', 0.868421052631579)
 INFO:root:                                     precision    recall  f1-score   support
 
                               admin       0.73      0.80      0.76        10
-ban công tác chính trị và sinh viên       0.90      0.90      0.90        10
+ban công tác chính trị và sinh viên       0.82      0.90      0.86        10
   ban khảo thí & đảm bảo chất lượng       1.00      0.77      0.87        13
               ban quản lý ký túc xá       1.00      1.00      1.00        15
               ban thanh tra đào tạo       0.82      0.90      0.86        10
               ban thiết bị quản trị       1.00      0.50      0.67         4
              ban thông tin thư viện       1.00      1.00      1.00         2
-             ban tổ chức hành chính       0.91      1.00      0.95        10
+             ban tổ chức hành chính       1.00      1.00      1.00        10
                         ban đào tạo       0.81      1.00      0.89        25
                          giảng viên       1.00      0.60      0.75         5
                                khác       0.00      0.00      0.00         0
@@ -25,4 +25,4 @@ ban công tác chính trị và sinh viên       0.90      0.90      0.90       
                           macro avg       0.83      0.77      0.78       114
                        weighted avg       0.90      0.87      0.87       114
 
-INFO:root:('Training by SVM Done! ', '2020-08-23 15:54:17.314194')
+INFO:root:('Training by SVM Done! ', '2020-08-23 16:38:03.812625')
