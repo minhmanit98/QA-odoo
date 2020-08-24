@@ -1,6 +1,5 @@
 odoo.define('qa_app.scroll_totop', function (require) {
 'use strict';
-
 	var core = require('web.core');
 	var _t = core._t;
 	var QWeb = core.qweb;

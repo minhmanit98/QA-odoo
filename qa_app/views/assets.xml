@@ -3,6 +3,7 @@
   <data>
     <template id="asset_frontend" inherit_id="web.assets_frontend">
       <xpath expr="." position="inside">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/agency.min.css"  />
         <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/custom.css" />
 <!--        <link rel="stylesheet" type="text/css" href="/qa_app/static/src/css/dabblet.css" />-->
@@ -18,6 +19,7 @@
 <!--        <script type="text/javascript" src="/qa_app/static/src/js/popper.js"/>-->
         <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/nav-min.scss" />
         <link href="/qa_app/static/src/css/homepage.css" rel="stylesheet"/>
+
 <!--        <script src="https://kit.fontawesome.com/081ec28180.js" crossorigin="anonymous"></script>-->
 <!--        <link rel="stylesheet" type="text/scss" href="/qa_app/static/src/css/navbar.scss" rel="stylesheet" /> -->
       </xpath>
@@ -31,6 +33,7 @@
 
       <template id="assets_frontend_inherit" inherit_id="web.assets_frontend" name="Scroll Button" >
         <xpath expr="." position="inside">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 			<script type="text/javascript" src="/qa_app/static/src/js/scroll_totop.js"/>
         <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
         </xpath>

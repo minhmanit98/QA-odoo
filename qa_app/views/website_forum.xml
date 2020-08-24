@@ -4,6 +4,7 @@
         <template id="utc2_new_question" inherit_id="website_forum.new_question" name="New Question">
              <xpath expr="//form/div[1]" position="after">
                 <div class="form-group">
+<!--                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
                     <script type="text/javascript">
                         $(document).ready(function(){
                             $("#radio-c").change(function(){
