@@ -14,6 +14,7 @@
      'document_page_procedure',
      'document_page_work_instruction',
      'document_page_quality_manual',
+     'qld_app',
 
  ],
  'data': [
