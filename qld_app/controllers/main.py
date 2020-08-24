@@ -115,6 +115,15 @@ class UTC2Predict(Controller):
         return werkzeug.utils.redirect(
             "/sinhvien/%s" % (predict.id))
 
+    @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>/update'],
+                type='http', auth="user", methods=['GET'], website=True)
+    def update_get_predict(self, predict):
+        # if not predict.can_access_from_current_website():
+        #     raise werkzeug.exceptions.NotFound()
+        predict.action_get_scores()
+        return werkzeug.utils.redirect(
+            "/sinhvien/%s" % (predict.id))
+
     @http.route(['/sinhvien/<model("utc2.qld.predict"):predict>/<model("utc2.qld.predict.scores"):score>/add_subject'],
                 type='http', auth="user", methods=['POST'], website=True)
     def add_subject_predict(self, predict, score, **post):

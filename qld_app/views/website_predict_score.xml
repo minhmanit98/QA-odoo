@@ -343,10 +343,7 @@
 										<div class="button-flex"></div>
 										<div class="button-absolute"></div>
 										<span class="span-padding flex-relative-center">
-											<form method="POST" t-att-action="'%s/update'%(predict.id)" class="">
-												<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-												<button class="button-form" data-method="post">Cập nhật</button>
-											</form>
+											<a class="button button-form" t-att-href="'%s/update'%(request.httprequest.url)">Cập nhật</a>
 										</span>
 									</div>
 									<div class="button-text button-flex button-color" type="submit">
