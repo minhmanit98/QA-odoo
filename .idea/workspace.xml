@@ -21,9 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="67c92925-5740-4752-8d47-ed770a85e1bf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qa_app/static/src/js/scroll_totop.js" beforeDir="false" afterPath="$PROJECT_DIR$/qa_app/static/src/js/scroll_totop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qa_app/views/assets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/qa_app/views/assets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qa_app/views/website_forum.xml" beforeDir="false" afterPath="$PROJECT_DIR$/qa_app/views/website_forum.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qld_app/controllers/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/qld_app/controllers/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <workItem from="1598072807353" duration="222000" />
       <workItem from="1598173417671" duration="7560000" />
       <workItem from="1598275110676" duration="1935000" />
-      <workItem from="1598277197031" duration="1941000" />
+      <workItem from="1598277197031" duration="3719000" />
     </task>
     <servers />
   </component>
@@ -113,22 +112,22 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1598174766261" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1598279076836">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1598279202011">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1598279076836" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1598279076836">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1598279202011" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1598279202011">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1598279076836" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1598279076836">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1598279202011" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1598279202011">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1598279076836" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1598279076836">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1598279202011" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1598279202011">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1598279076836" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1598279202011" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1598277215952">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
@@ -155,6 +154,6 @@
     <state x="479" y="156" width="578" height="592" key="find.popup/0.40.1536.824@0.40.1536.824" timestamp="1598278517877" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/QA_odoo$odoo_bin.coverage" NAME="odoo-bin Coverage Results" MODIFIED="1598279076826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/QA_odoo$odoo_bin.coverage" NAME="odoo-bin Coverage Results" MODIFIED="1598279201999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
