@@ -148,7 +148,7 @@ class UTC2Predict(Controller):
             score_id = post[field].split('/')[0]
             score_custom = post[field].split('/')[1]
             scores.search([('id', '=', score_id)]).scores_4custom = float(score_custom)
-        scores.predict_id._compute_scores_4cus()
+            scores.search([('id', '=', score_id)]).predict_id._compute_scores_4cus()
         # score.write({'predict_subject_id': request.env['utc2.qld.predict.subjects'].browse(predict_subject_ids).id})
         return werkzeug.utils.redirect(
             "/sinhvien/%s" % (predict.id))
