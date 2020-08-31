@@ -1,4 +1,4 @@
-# ĐỒ ÁN TỐT NGHIỆP
+<h1 align="center"> ĐỒ ÁN TỐT NGHIỆP </h1>
 
 ## ĐỀ TÀI: NGHIÊN CỨU CÁC THUẬT TOÁN TRONG XỬ LÝ NGÔN NGỮ TỰ NHIÊN VÀ XÂY DỰNG WEBSITE HỖ TRỢ SINH VIÊN UTC2
 ### Giảng viên hướng dẫn:	TRẦN PHONG NHÃ
