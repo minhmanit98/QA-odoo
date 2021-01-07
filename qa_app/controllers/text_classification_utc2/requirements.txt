@@ -32,7 +32,7 @@ Jinja2==2.10.1
 jmespath==0.9.5
 joblib==0.14.1
 libsass==0.17.0
-lxml==3.7.1
+lxml==4.6.2
 Mako==1.0.7
 MarkupSafe==1.1.0
 mock==2.0.0
